@@ -88,30 +88,33 @@ header nav .opened-menu {
   padding: 5rem;
 }
 
-section.homepage h1 {
+main h1 {
   font-family: "Kaushan Script", cursive;
   color: #65C1BE;
   font-size: 7rem;
   text-align: center;
   padding-block: 10rem;
-  background: url("pictures/home.jpg") no-repeat;
-  background-size: cover;
   text-shadow: 4px 4px 10px #000000;
 }
-section.homepage .allServices {
+main section.homepage h1 {
+  background: url("pictures/home.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+main section.homepage .allServices {
   padding: 2rem;
 }
-section.homepage .allServices h3 {
+main section.homepage .allServices h3 {
   font-size: 2rem;
   text-align: center;
 }
-section.homepage .allServices ul {
+main section.homepage .allServices ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
 }
-section.homepage .allServices ul li {
+main section.homepage .allServices ul li a {
   width: 180px;
   height: 180px;
   margin: 2rem;
@@ -123,9 +126,8 @@ section.homepage .allServices ul li {
   border: solid 2px #65C1BE;
   border-radius: 10px;
   transition: 0.2s;
-  cursor: pointer;
 }
-section.homepage .allServices ul li img {
+main section.homepage .allServices ul li a img {
   position: absolute;
   top: 0;
   left: 0;
@@ -135,11 +137,17 @@ section.homepage .allServices ul li img {
      object-fit: cover;
   filter: brightness(50%);
 }
-section.homepage .allServices ul li h5 {
+main section.homepage .allServices ul li a h5 {
   font-size: 2rem;
   text-align: center;
+  color: #65C1BE;
   text-shadow: 0px 0px 10px #000000;
 }
-section.homepage .allServices ul li:hover {
+main section.homepage .allServices ul li a:hover {
   transform: scale(0.95);
+}
+main section.chambres h1 {
+  background: url("pictures/chambres.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
 }/*# sourceMappingURL=style.css.map */

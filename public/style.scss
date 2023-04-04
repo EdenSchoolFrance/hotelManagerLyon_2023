@@ -95,17 +95,21 @@ header{
 
 
 //MAIN
-
-section.homepage{
+main{
     h1{
         font-family: 'Kaushan Script', cursive;
         color: #65C1BE;
         font-size: 7rem;
         text-align: center;
         padding-block: 10rem;
+        text-shadow: 4px 4px 10px #000000;
+    }
+    
+section.homepage{
+    h1{
         background: url('pictures/home.jpg') no-repeat;
         background-size: cover;
-        text-shadow: 4px 4px 10px #000000;
+        background-position: center;
     }
     .allServices{
         padding: 2rem;
@@ -118,7 +122,7 @@ section.homepage{
             flex-wrap: wrap;
             justify-content: center;
             width: 100%;
-            li{
+            li a{
                 width: 180px;
                 height: 180px;
                 margin: 2rem;
@@ -130,7 +134,6 @@ section.homepage{
                 border: solid 2px #65C1BE;
                 border-radius: 10px;
                 transition: .2s;
-                cursor: pointer;
                 img{
                     position: absolute;
                     top: 0;
@@ -143,12 +146,21 @@ section.homepage{
                 h5{
                     font-size: 2rem;
                     text-align: center;
+                    color: #65C1BE;
                     text-shadow: 0px 0px 10px #000000;                
                 }
             }
-            li:hover{
+            li a:hover{
                 transform: scale(0.95);
             }
+        }
+    }
+}
+    section.chambres{
+        h1{
+            background: url('pictures/chambres.jpg') no-repeat;
+            background-size: cover;
+            background-position: center;
         }
     }
 }

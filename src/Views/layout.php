@@ -18,7 +18,7 @@
 <body>
     <header>
         <nav>
-            <a href="#" class="logo"><img src="pictures/logoEden.png" alt="logo EDEN Hotel"></a>
+            <a href="/" class="logo"><img src="pictures/logoEden.png" alt="logo EDEN Hotel"></a>
             <div class="open">
                 <i class="fa-solid fa-bars"></i>
             </div>

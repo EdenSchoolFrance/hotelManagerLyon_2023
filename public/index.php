@@ -8,6 +8,7 @@ require SRC . 'helper.php';
 
 $router = new Hotel\Router($_SERVER["REQUEST_URI"]);
 $router->get('/', "HotelController@index");
+$router->get('allChambres/', "HotelController@allChambres");
 
 
 

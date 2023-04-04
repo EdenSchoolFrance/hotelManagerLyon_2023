@@ -8,20 +8,28 @@ ob_start();
         <h3>Tout nos services disponibles...</h3>
         <ul>
             <li>
-                <img src="pictures/chambres.jpg" alt="">
-                <h5>Nos Chambres</h5>
+                <a href="/allChambres">
+                    <img src="pictures/chambres.jpg" alt="">
+                    <h5>Nos Chambres</h5>
+                </a>
             </li>
             <li>
-                <img src="pictures/restaurants.jpg" alt="">
-                <h5>Nos Restaurants / Bars</h5>
+                <a href="#">
+                    <img src="pictures/restaurants.jpg" alt="">
+                    <h5>Nos Restaurants / Bars</h5>
+                </a>
             </li>
             <li>
-                <img src="pictures/piscines.jpg" alt="">
-                <h5>Nos Piscines</h5>
+                <a href="#">
+                    <img src="pictures/piscines.jpg" alt="">
+                    <h5>Nos Piscines</h5>
+                </a>
             </li>
             <li>
-                <img src="pictures/salles.jpg" alt="">
-                <h5>Nos Salles Evénementielles</h5>
+                <a href="#">
+                    <img src="pictures/salles.jpg" alt="">
+                    <h5>Nos Salles Evénementielles</h5>
+                </a>
             </li>
         </ul>
     </div>

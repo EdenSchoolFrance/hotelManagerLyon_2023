@@ -22,4 +22,9 @@ class HotelController
     {
         require VIEWS . 'homepage.php';
     }
+    public function allChambres()
+    {
+        $chambres = $this->manager->getAllChambres();
+        require VIEWS . 'Hotel/chambres.php';
+    }
 }
