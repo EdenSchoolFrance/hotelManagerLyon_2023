@@ -1,0 +1,25 @@
+total disponible = 27h
+total utiliser = 31h30
+
+concéption bdd : 1h
+	mcd = 1h
+gantt = 1h (à la maison)
+
+front = 5h30
+
+	html = 5h30
+
+		accueil = 1h
+		demande = 2h30min
+		reservation = 2h30min
+		confirmation = 2h30min
+
+	css/scss = 3h
+
+back = 21h30 (débug compris)
+	
+	accueil = 0h
+	catalogue = 2h
+	reservation = 3h30min
+	confirmation = 3h30min
+	bas de page (filtre) = 3h

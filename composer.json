@@ -1,0 +1,9 @@
+{
+    "name": "lucas/hotel-manager-lyon_2023",
+    "autoload": {
+        "psr-4": {
+            "Hotel\\": "src/"
+        }
+    },
+    "require": {}
+}

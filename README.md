@@ -1,29 +1,31 @@
-# hotelManagerLyon_2023
+# Project Hotel
 
-Development of a management software for the Eden Hotel.  It will allow hotel employees to manage the reservation of rooms, restaurants, swimming pool, conference room, etc.
+## Bonjour et bien venu !
 
-## Features
-See [specifications](cahier-de-charge.pdf)
+    Bien venu sur mon projet Hotel, ce site permet d'aider les hotels dans leurs gestions.
+    Vous pourrez dans ce site:
+            - faire des enregistrements de client dans la base de donnée (ainsi que voir l'historique de ce qu'ils ont: commandés, fait, etc ..)
 
-On ne gère que les stocks des boissons mais pas du restaurant
+## Pour lancer le projet il vous faut installer:
 
-On ne gère pas les livraisons ni les groupes
+    - Xampp (ou une autre)
+    - Composer
+    - Node
 
+Allez avec l'explorateur de fichier là où vous voulez installer le projet, et landez un terminal dans celui-ci.
 
-## Préparer / concevoir votre futur développement :
-> modéliser le modèle conceptuel 
-> modéliser le modèle logique 
-> expliquer et argumenter la démarche à suivre pour développer la tâche demandée : 
-   - découper en tâches unitaires et sous-tâches 
-   - estimer le temps nécessaire pour réaliser les tâches
+    - Etape 1: Faites la commande `git clone https://github.com/EdenSchoolFrance/hotelManagerLyon_2023.git`.
 
-## Créer la maquette HTML avec du scss
+    - Etape 2: copier et coller la commande suivante: `git checkout Lucas`,
+        puis une fois l'installation terminée faites pareil mais avec la commande:  `git pull`
 
-## Le projet en MVC doit contenir au moins un héritage
+    - Etape 3: Lancez Xammp (Apache et MySQL)
 
-## Déposer votre projet sur une branche à votre nom
+    - Etape 4: Installez la base de donnée (lancez en admin MySQL, appuyez sur 'Nouvelle base de données', mettez le nom 'hotel_manager', puis importez le fichier qui se trouve dans le dossier BDD et voilà l'installation de la base de donnée est fini !).
 
-## Créer quelques tests unitaires
+    - Etape 5: Mettez dans le terminal la commande 'composer init' (faites la touche entrée jusqu'à ce que les options soit fini), Puis tapez la commande 'composer install' enfin allez dans le fichier composer!;json pour changer la ligne 5 par `"Hotel\\": "src/"`. Enfin tapez la commande 'composer dump-autoload'.
 
-##  Graphic chart
-Title: #3F90D3; Title font: Kaushan Script Paragraph: #000 paragraph font: Pacifico Button: #3F90D3; Nav link: #3F90D3;
+    - Etape 6: Pour la dernière étape, retournez dans le terminal puis entrez la commande 'cd .\public\'.
+                Et pour lancer le projet faites la commande dans le même terminal: 'php -S localhost:8000'.
+
+## Et vous voici dans le projet !!
