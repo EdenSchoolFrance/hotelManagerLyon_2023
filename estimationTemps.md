@@ -1,0 +1,28 @@
+# Tâches:
+- Conception BDD `3 heures`
+  - MCD `2 heures`
+  - Mise en place de la base de données `1 heure`
+- Développement du site `41 heures`
+- Front `25 heures et 30 minutes`
+    - Header/Menu/Footer `2 heures`
+    - Page de connexion `1 heures`
+    - Page d'inscription `1 heures`
+    - Page accueil `3 heures`
+    - Page Catalogue `3 heures`
+    - Page Réservation `2 heures et 30 minutes`
+    - Page de confirmation `2 heures`
+    - Page de contacte `2 heures`
+    - Responsive `9 heures`
+- Back `15 heures 30 minutes`
+    - Mise en place du MVC `7 heures`
+      - Création des modèles et managers `3 heures`
+      - Création des controlleurs `3 heures`
+      - Mise en place du router `1 heures`
+    - Connexion et inscription `1 heure`
+    - Affichage des voyages `2 heures`
+    - Affichage commande `1 heure`
+    - Enregistrement en base de données information `1 heure`
+    - Gestion de la commande `1 heures`
+    - Testes unitaires `1 heures`
+    - Trouver les bugs `1h`
+    - Corriger bugs `30 minutes`

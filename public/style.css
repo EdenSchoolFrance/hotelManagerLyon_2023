@@ -1,0 +1,84 @@
+* {
+  transition: all 0.5s ease;
+}
+
+html body {
+  overflow-x: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background-color: #C0E6DE;
+}
+html body header {
+  position: fixed;
+  width: 100%;
+  justify-content: space-between;
+  display: flex;
+  padding: 15px;
+}
+html body header img {
+  width: 10%;
+}
+html body header button {
+  height: -moz-fit-content;
+  height: fit-content;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  z-index: 2;
+  cursor: pointer;
+}
+html body header nav {
+  position: fixed;
+  display: flex;
+  top: 0;
+  right: -1000px;
+  width: 25%;
+  height: 100vh;
+  z-index: 1;
+  background-color: #f05b42;
+  align-items: center;
+}
+html body header nav ul {
+  padding-left: 15px;
+}
+html body header nav ul li {
+  list-style: none;
+  margin: 50px 0;
+  font-size: 1.5rem;
+}
+html body header nav ul li a {
+  text-decoration: none;
+  color: black;
+  text-decoration: underline;
+}
+html body main section {
+  padding-top: 150px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+html body main section article {
+  z-index: -1;
+  background-color: #f05b42;
+  width: 35%;
+  border-radius: 10px;
+  padding: 25px;
+  margin: 25px;
+}
+html body main section article h2 {
+  text-align: center;
+}
+html body main section article .carousel-item img {
+  height: 400px;
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
+  width: 100% !important;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+ul li:hover a {
+  text-decoration-color: #C0E6DE;
+}/*# sourceMappingURL=style.css.map */

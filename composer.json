@@ -1,0 +1,11 @@
+{
+    "name": "ruben/ce-que-vous-voulez",
+    "autoload": {
+        "psr-4": {
+            "Hotel\\": "src/"
+        }
+    },
+    "require": {
+        "phpmailer/phpmailer": "^6.8.0"
+    }
+}
