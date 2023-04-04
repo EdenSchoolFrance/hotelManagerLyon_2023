@@ -85,7 +85,20 @@ section.chambres{
     }
 }
 
-td{
-    margin: 1rem;
-    border: solid 1px black;
+table.list{
+    margin: 0 auto;
+    width: 90%;
+    border-collapse: collapse;
+    thead tr{
+        background-color: #3F90D3;
+        color: white;
+        text-align: left;
+    }
+    th, td{
+        padding: 12px 15px;
+    }
+   
+    tbody tr:last-of-type {
+        border-bottom: 2px solid #3F90D3;
+    }
 }

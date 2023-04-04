@@ -95,7 +95,19 @@ section.chambres article img {
   object-fit: cover;
 }
 
-td {
-  margin: 1rem;
-  border: solid 1px black;
+table.list {
+  margin: 0 auto;
+  width: 90%;
+  border-collapse: collapse;
+}
+table.list thead tr {
+  background-color: #3F90D3;
+  color: white;
+  text-align: left;
+}
+table.list th, table.list td {
+  padding: 12px 15px;
+}
+table.list tbody tr:last-of-type {
+  border-bottom: 2px solid #3F90D3;
 }/*# sourceMappingURL=style.css.map */
