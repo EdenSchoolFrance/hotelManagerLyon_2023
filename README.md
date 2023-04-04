@@ -8,7 +8,7 @@
 
 ## Pour lancer le projet il vous faut installer:
 
-    - Xampp (ou une autre)
+    - Xampp (ou une autre application du même style)
     - Composer
     - Node
 
