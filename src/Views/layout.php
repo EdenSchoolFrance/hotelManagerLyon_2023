@@ -41,3 +41,4 @@
 <?php 
 unset($_SESSION['error']); 
 unset($_SESSION['old']); 
+unset($_SESSION['success']); 

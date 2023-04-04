@@ -8,6 +8,10 @@ function old($field) {
     return isset($_SESSION["old"][$field]) ? $_SESSION["old"][$field] : "";
 }
 
+function success() {
+    return isset($_SESSION["success"]) ? $_SESSION["success"] : "";
+}
+
 function escape($data) {
     return stripslashes(trim(htmlspecialchars($data)));
 }

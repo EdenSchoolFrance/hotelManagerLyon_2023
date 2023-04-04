@@ -32,6 +32,43 @@ ob_start();
         </div>
     </article>
     <article>
+        <h2><a href="/chambre">Louer une chambre</a></h2>
+        <div id="chambre" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#chambre" data-slide-to="0" class="active"></li>
+            <li data-target="#chambre" data-slide-to="1"></li>
+            <li data-target="#chambre" data-slide-to="2"></li>
+            <li data-target="#chambre" data-slide-to="3"></li>
+            <li data-target="#chambre" data-slide-to="4"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+            <img class="d-block w-100" src="<?= URL . '/img/chambre/chambre1.png' ?>" alt="First slide">
+            </div>
+            <div class="carousel-item">
+            <img class="d-block w-100" src="<?= URL . '/img/chambre/chambre2.png' ?>" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+            <img class="d-block w-100" src="<?= URL . '/img/chambre/chambre3.png' ?>" alt="Third slide">
+            </div>
+            <div class="carousel-item">
+            <img class="d-block w-100" src="<?= URL . '/img/chambre/chambre4.png' ?>" alt="Third slide">
+            </div>
+            <div class="carousel-item">
+            <img class="d-block w-100" src="<?= URL . '/img/chambre/chambre5.png' ?>" alt="Third slide">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#chambre" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#chambre" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+        </div>
+    </article>
+    <article>
         <h2><a href="/client">Louer une salle</a></h2>
         <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
