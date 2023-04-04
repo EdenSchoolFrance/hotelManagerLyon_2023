@@ -1,5 +1,7 @@
 <?php
 namespace Hotel\Controllers;
+
+use Hotel\Models\ClientManager;
 use Hotel\Validator;
 use Hotel\Models\HotelManager;
 
@@ -7,9 +9,11 @@ use Hotel\Models\HotelManager;
 class HotelController {
     private $manager;
     private $validator;
+    private $ClientManager;
 
     public function __construct() {
         $this->manager = new HotelManager();
+        $this->ClientManager = new ClientManager();
         $this->validator = new Validator();
     }
 
@@ -21,6 +25,12 @@ class HotelController {
 
     public function client() {
         require VIEWS . 'Hotel/client.php';
+    }
+    
+    public function chambre() {
+        $allClient = $this->ClientManager->getAll();
+        $allChambre = $this->manager->getAllChambre();
+        require VIEWS . 'Hotel/chambre.php';
     }
 
     public function addClient() {
@@ -36,13 +46,30 @@ class HotelController {
 
         if (!$this->validator->errors()) {
             $info = array("mail" => $_POST["mail"], "tel" => $_POST["tel"]);
-            $info["nom"] = htmlspecialchars(addslashes(trim($_POST["name"])));
-            $info["prenom"] = htmlspecialchars(addslashes(trim($_POST["prenom"])));
+            $info["nom"] = escape($_POST["name"]);
+            $info["prenom"] = escape($_POST["prenom"]);
             $this->manager->store($info);
             $_SESSION["success"] = "Client bien ajouté !";
             header("Location: /client");
         } else{
             header("Location: /client");
+        }
+    }
+
+    public function addClientChambre(){
+        $this->validator->validate([
+            "client"=>["required"],
+            "choosed"=>["required"],
+            "debut"=>["required"],
+            "fin"=>["required"],
+        ]);
+        
+        $_SESSION['old'] = $_POST;
+
+        if (!$this->validator->errors()) {
+            print_r($_POST);
+        } else{
+            header("Location: /chambre");
         }
     }
 

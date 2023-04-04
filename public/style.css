@@ -19,6 +19,9 @@ html body header {
 html body header img {
   width: 10%;
 }
+html body header h1 {
+  width: 55%;
+}
 html body header button {
   height: -moz-fit-content;
   height: fit-content;
@@ -74,6 +77,57 @@ html body main section article .carousel-item img {
   -o-object-fit: cover !important;
      object-fit: cover !important;
   width: 100% !important;
+}
+html body main section form {
+  width: 50%;
+}
+html body main section form button {
+  margin: 10px auto;
+  display: block;
+}
+html body main section form div {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+html body main section form div label {
+  text-align: center;
+  font-size: 1.5rem;
+}
+html body main section form div label i {
+  margin-right: 10px;
+  color: #f05b42;
+}
+html body main section form div article {
+  width: 33%;
+}
+html body main section form div article h2 {
+  font-size: 1.25rem;
+}
+html body main section form div article img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+}
+html body main section form div article p {
+  text-align: justify;
+  margin: 10px 0;
+}
+html body main section form div article p span {
+  text-decoration: underline;
+  font-weight: bold;
+}
+html body main section form #chambre {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+html body main section form #chambre label {
+  flex-basis: 100%;
+}
+html body main section form #chambre input {
+  margin: 0 auto;
+  display: block;
+  margin-top: 20px;
 }
 
 button:hover {

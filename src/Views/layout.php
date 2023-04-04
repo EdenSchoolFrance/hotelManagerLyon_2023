@@ -19,7 +19,7 @@
 <body>
     <header>
         <a href="/"><img src="<?= URL . "/img/logo.png" ?>" alt="logo"></a>
-        
+        <h1>Hotel Ibis</h1>
         <nav>
             <ul>
                 <li><a href="/client">Ajouter un client</a></li>
