@@ -1,0 +1,1 @@
+<?php echo $content; //print_r($_SESSION['user']) ?>
