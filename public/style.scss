@@ -2,7 +2,7 @@
 *{box-sizing: border-box;}
 html{font-size: 62.5%;}
 body{
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-family: 'Pacifico', sans-serif;
     margin: 0;
     padding: 0;
@@ -24,7 +24,22 @@ h1, h2, h3, h4, h5, h6{
     color: #3F90D3;
 }
 
-
+.cta{
+    background-color: #3F90D3;
+    padding: 1rem;
+    border-radius: 5px;
+    color: white;
+    font-size: 2.5rem;
+    width: 80%;
+    text-align: center;
+    transition: 0.3s;
+    &:hover{
+        background-color: white;
+        outline: auto;
+        color: #3F90D3;
+    
+    }
+}
 /*HEADER*/
 header{
     background-color: #64a8dfac;
@@ -41,4 +56,25 @@ header{
     }
 }
 
-/*INDEX*/
+/*RESERVATION*/
+section.chambres{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    article{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 25%;
+        margin: 1rem;
+        p{
+            width: 90%;
+        }
+        img{
+            width: 100%;
+            height: 50%;
+            object-fit: cover;
+        }
+    }
+}
+

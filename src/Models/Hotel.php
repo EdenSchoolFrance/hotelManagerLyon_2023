@@ -76,4 +76,6 @@ class Hotel {
         public function setCategorieChambre($categorie_chambre){
             $this->categorie_chambre = $categorie_chambre;
         }
+
+    
 }

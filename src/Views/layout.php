@@ -16,11 +16,6 @@
             <ul>
                 <li><a href="#"><img src="/img/logopetit.png" alt="logo"></a></li>
                 <li><a href="#">Réserver une chambre</a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
             </ul>
         </nav>
     </header>

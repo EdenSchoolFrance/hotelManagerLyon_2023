@@ -20,14 +20,10 @@ class HotelManager
         return $this->bdd;
     }
 
-    public function config(){
-        if ($_POST['chambre'] === "true") {
-            echo('woking');
-        }
-        
+    public function reservation(){
         $stmt = $this->bdd->prepare("SELECT * FROM chambre WHERE occupe_chambre = 0");
-        $stmt->execute();
-        $stmt->setFetchMode(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
-        return $stmt->fetch();
+        $stmt->execute(array());
+        
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
     }
 }

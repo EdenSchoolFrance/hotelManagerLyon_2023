@@ -23,9 +23,9 @@ class HotelController
         require VIEWS . 'Hotel/test.php';
     }
 
-    public function config(){
-        
-        $this->manager->config();
+    public function showReservation(){
+        $chambres = $this->manager->reservation();
+        require VIEWS . 'Hotel/reservation.php';
     }
 
 }
