@@ -40,6 +40,10 @@ h1, h2, h3, h4, h5, h6{
     
     }
 }
+.container{
+    margin: 0 auto;
+    max-width: 90%;
+}
 /*HEADER*/
 header{
     background-color: #64a8dfac;
@@ -61,11 +65,14 @@ section.chambres{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    h1{
+        flex-basis: 100%;
+    }
     article{
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 25%;
+        width: 28%;
         margin: 1rem;
         p{
             width: 90%;

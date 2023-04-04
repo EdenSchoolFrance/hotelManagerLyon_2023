@@ -10,6 +10,7 @@ $router = new Hotel\Router($_SERVER["REQUEST_URI"]);
 $router->get('/', "HotelController@index");
 
 $router->get('/reservation', "HotelController@showReservation");
+$router->get('/reservation/ch:IdChambre', "HotelController@showReservation");
 
 
 $router->get('/test', "HotelController@test");

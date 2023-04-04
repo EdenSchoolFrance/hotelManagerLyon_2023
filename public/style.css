@@ -49,6 +49,11 @@ h1, h2, h3, h4, h5, h6 {
   color: #3F90D3;
 }
 
+.container {
+  margin: 0 auto;
+  max-width: 90%;
+}
+
 /*HEADER*/
 header {
   background-color: rgba(100, 168, 223, 0.6745098039);
@@ -71,11 +76,14 @@ section.chambres {
   flex-wrap: wrap;
   justify-content: center;
 }
+section.chambres h1 {
+  flex-basis: 100%;
+}
 section.chambres article {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 25%;
+  width: 28%;
   margin: 1rem;
 }
 section.chambres article p {
