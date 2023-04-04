@@ -1,0 +1,145 @@
+* {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Pacifico", cursive;
+  color: #65C1BE;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+header nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+}
+header nav .logo {
+  display: block;
+  width: 4rem;
+}
+header nav .open {
+  cursor: pointer;
+}
+header nav .open i {
+  font-size: 3rem;
+  transition: 0.2s;
+  color: black;
+}
+header nav .open i:hover {
+  color: #65C1BE;
+}
+header nav .menu {
+  transition: ease 1s;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 0;
+  height: 100vh;
+  background-color: #313131;
+  overflow: hidden;
+  z-index: 999;
+}
+header nav .menu .close {
+  cursor: pointer;
+}
+header nav .menu .close i {
+  font-size: 4rem;
+  color: #777777;
+  transition: ease 0.2s;
+}
+header nav .menu .close i:hover {
+  color: #65C1BE;
+}
+header nav .menu ul {
+  width: 60%;
+  margin: 10rem auto 0;
+}
+header nav .menu ul li {
+  border-bottom: solid 1px #777777;
+}
+header nav .menu ul li a {
+  display: block;
+  padding: 1rem;
+  color: white;
+  font-size: 1.7rem;
+}
+header nav .menu ul li a:hover {
+  color: #65C1BE;
+}
+header nav .opened-menu {
+  width: 100%;
+  padding: 5rem;
+}
+
+section.homepage h1 {
+  font-family: "Kaushan Script", cursive;
+  color: #65C1BE;
+  font-size: 7rem;
+  text-align: center;
+  padding-block: 10rem;
+  background: url("pictures/home.jpg") no-repeat;
+  background-size: cover;
+  text-shadow: 4px 4px 10px #000000;
+}
+section.homepage .allServices {
+  padding: 2rem;
+}
+section.homepage .allServices h3 {
+  font-size: 2rem;
+  text-align: center;
+}
+section.homepage .allServices ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+section.homepage .allServices ul li {
+  width: 180px;
+  height: 180px;
+  margin: 2rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border: solid 2px #65C1BE;
+  border-radius: 10px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+section.homepage .allServices ul li img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  min-height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  filter: brightness(50%);
+}
+section.homepage .allServices ul li h5 {
+  font-size: 2rem;
+  text-align: center;
+  text-shadow: 0px 0px 10px #000000;
+}
+section.homepage .allServices ul li:hover {
+  transform: scale(0.95);
+}/*# sourceMappingURL=style.css.map */

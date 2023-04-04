@@ -1,0 +1,154 @@
+//GLOBAL
+*{
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+img{
+    max-width: 100%;
+}
+body{
+    margin: 0;
+    font-family: 'Pacifico', cursive;
+    color: #65C1BE;
+}
+ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+
+
+
+
+
+
+//HEADER
+header{
+    nav{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem;
+        .logo{
+            display: block;
+            width: 4rem;
+        }
+        .open{
+            cursor: pointer;
+            i{
+                font-size: 3rem;
+                transition: .2s;
+                color: black;
+            }
+            i:hover{
+                color: #65C1BE;
+            }
+        }
+        .menu{
+            transition: ease 1s;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 0;
+            height: 100vh;
+            background-color: #313131;
+            overflow: hidden;
+            z-index: 999;
+            .close{
+                cursor: pointer;
+                i{
+                    font-size: 4rem;
+                    color: #777777;
+                    transition: ease .2s;
+                }
+                i:hover{
+                    color: #65C1BE;
+                }
+            }
+            ul{
+                width: 60%;
+                margin: 10rem auto 0;
+                li{
+                    border-bottom: solid 1px #777777;
+                    a{
+                        display: block;
+                        padding: 1rem;
+                        color: white;
+                        font-size: 1.7rem;
+                    }
+                    a:hover{
+                        color: #65C1BE;
+                    }
+                }
+            }
+        }
+        .opened-menu{
+            width: 100%;
+            padding: 5rem;
+        }
+    }
+}
+
+
+//MAIN
+
+section.homepage{
+    h1{
+        font-family: 'Kaushan Script', cursive;
+        color: #65C1BE;
+        font-size: 7rem;
+        text-align: center;
+        padding-block: 10rem;
+        background: url('pictures/home.jpg') no-repeat;
+        background-size: cover;
+        text-shadow: 4px 4px 10px #000000;
+    }
+    .allServices{
+        padding: 2rem;
+        h3{
+            font-size: 2rem;
+            text-align: center;
+        }
+        ul{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            li{
+                width: 180px;
+                height: 180px;
+                margin: 2rem;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+                border: solid 2px #65C1BE;
+                border-radius: 10px;
+                transition: .2s;
+                cursor: pointer;
+                img{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: -1;
+                    min-height: 100%;
+                    object-fit: cover;
+                    filter: brightness(50%);
+                }
+                h5{
+                    font-size: 2rem;
+                    text-align: center;
+                    text-shadow: 0px 0px 10px #000000;                
+                }
+            }
+            li:hover{
+                transform: scale(0.95);
+            }
+        }
+    }
+}
