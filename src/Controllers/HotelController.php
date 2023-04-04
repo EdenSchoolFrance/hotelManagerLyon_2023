@@ -25,19 +25,19 @@ class HotelController
         require VIEWS . 'Hotel/homepage.php';
     }
 
-    // // Affichage de la page 
-    // public function catalog()
-    // {
-    //     $voyages = $this->manager->getAll();
-    //     require VIEWS . 'Hotel/catalog.php';
-    // }
-
-    public function reservation($slug)
+    // Affichage de la page 
+    public function showclients()
     {
-        $voyages = $this->manager->getAllLimit();
-        $commende = $this->manager->getVoyage($slug);
-        require VIEWS . 'Hotel/reservation.php';
+        $clients = $this->manager->getAllClients();
+        require VIEWS . 'Hotel/clients.php';
     }
+
+    // public function reservation($slug)
+    // {
+    //     $voyages = $this->manager->getAllLimit();
+    //     $commende = $this->manager->getVoyage($slug);
+    //     require VIEWS . 'Hotel/reservation.php';
+    // }
 
     // public function commande()
     // {

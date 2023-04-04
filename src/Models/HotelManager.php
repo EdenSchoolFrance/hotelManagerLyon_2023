@@ -17,33 +17,29 @@ class HotelManager
     }
 
 
-    public function getAll()
+    public function getAllClients()
     {
-        $stmt = $this->bdd->prepare('SELECT * FROM destination');
+        $stmt = $this->bdd->prepare('SELECT * FROM client');
         $stmt->execute();
-        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Phoenix\Models\Voyage");
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Client");
     }
-    public function getAllLimit()
-    {
-        $stmt = $this->bdd->prepare('SELECT * FROM destination Limit 6');
-        $stmt->execute();
-        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Phoenix\Models\Voyage");
-    }
+
     public function getAllFiltred($slug)
     {
         $stmt = $this->bdd->prepare('SELECT * FROM destination LEFT JOIN contient ON contient.ID = destination.ID LEFT JOIN filtre ON filtre.ID_FILTRE = contient.ID_FILTRE WHERE filtre.NOM_FILTRE = ?');
         $stmt->execute(array(
             $slug,
         ));
-        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Phoenix\Models\Voyage");
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Voyage");
     }
+
     public function getVoyage($slug)
     {
         $stmt = $this->bdd->prepare('SELECT * FROM destination WHERE ID = ?');
         $stmt->execute(array(
             $slug,
         ));
-        $stmt->setFetchMode(\PDO::FETCH_CLASS, "Phoenix\Models\Voyage");
+        $stmt->setFetchMode(\PDO::FETCH_CLASS, "Hotel\Models\Voyage");
 
         return $stmt->fetch();
     }

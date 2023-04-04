@@ -1,0 +1,64 @@
+//variables
+// $light-blue: #75c9c8;
+// $dark-blue: #17a2b8;
+$Title: #3f90d3;
+$font-family_Title: "Kaushan Script", cursive;
+$font-family_Paragraph: "Pacifico", cursive;
+$Paragraph: #000;
+$Button-color: #3f90d3;
+$Nav_link: #3f90d3;
+
+//GLOBAL
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+#on_link {
+  border-bottom: 1px solid white;
+}
+
+body {
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5px;
+    font-family: $font-family_Title;
+    background-color: $Nav_link;
+
+    a {
+      color: white;
+      font-size: 1.5rem;
+      img {
+        width: 150px;
+        max-width: 100%;
+      }
+    }
+
+    ul {
+      display: flex;
+
+      li {
+        &:hover {
+          border-bottom: 1px solid white;
+          box-shadow: 0;
+        }
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+@import "includes/clients";

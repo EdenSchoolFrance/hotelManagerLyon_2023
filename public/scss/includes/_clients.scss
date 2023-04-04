@@ -1,0 +1,17 @@
+.clients {
+  table {
+    width: 80px;
+    height: 80px;
+    max-width: 80vw;
+    max-height: 80vh;
+    &,
+    td,
+    tr {
+      border: solid 1px black;
+      padding: 5px;
+    }
+    th {
+      border-left: solid 1px black;
+    }
+  }
+}

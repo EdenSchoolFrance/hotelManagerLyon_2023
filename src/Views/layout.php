@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Pacifico&family=Roboto&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/affdc3fe7d.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="scss/style.css">
 </head>
 
 <body>
@@ -22,17 +22,25 @@
         <a href="/" class="logo">
             <img src="/assets/logo.png" alt="logo de l'hotel">
         </a>
-        <div class="burger">
-            <span class="barre"></span>
-            <span class="barre"></span>
-            <span class="barre"></span>
-        </div>
         <nav>
             <ul>
                 <li>
-                    <a href="/">
-                        <p>Hotel</p>
-                    </a>
+                    <a href="/">Hotel</a>
+                </li>
+                <li>
+                    <a href="/client" <?= true ? "id = 'on_link'" : "" ?>>Clients</a>
+                </li>
+                <li>
+                    <a href="/">Restaurant</a>
+                </li>
+                <li>
+                    <a href="/">Spa</a>
+                </li>
+                <li>
+                    <a href="/">Bar</a>
+                </li>
+                <li>
+                    <a href="/">Salle</a>
                 </li>
                 <li>
                     <a href="/catalog">Choisir une destination</a>
