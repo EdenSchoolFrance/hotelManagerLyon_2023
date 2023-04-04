@@ -23,13 +23,14 @@ ul {
 }
 a {
   text-decoration: none;
-  color: black;
+  color: $Button-color;
 }
 #on_link {
   border-bottom: 1px solid white;
 }
 
 body {
+  font-family: $font-family_Paragraph;
   header {
     display: flex;
     justify-content: space-between;
@@ -62,3 +63,5 @@ body {
 }
 
 @import "includes/clients";
+@import "includes/homepage";
+@import "includes/404";

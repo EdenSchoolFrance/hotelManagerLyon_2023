@@ -19,8 +19,17 @@ class HotelManager
 
     public function getAllClients()
     {
-        $stmt = $this->bdd->prepare('SELECT * FROM client');
+        $stmt = $this->bdd->prepare('SELECT * FROM client ORDER BY nom_client');
         $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Client");
+    }
+
+    public function showClientSpecific($id)
+    {
+        $stmt = $this->bdd->prepare('SELECT * FROM client WHERE id_client = ?');
+        $stmt->execute(array(
+            $id
+        ));
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Client");
     }
 

@@ -8,7 +8,7 @@
     <title>Grand hôtel du golfe</title>
     <!-- Logo de la page -->
     <link rel="icon" href="/assets/logo.png">
-    <!-- Font family Kaushan Script -->
+    <!-- Font family Kaushan Script + css -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Pacifico&family=Roboto&display=swap" rel="stylesheet">

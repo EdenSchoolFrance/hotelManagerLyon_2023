@@ -22,6 +22,7 @@ class HotelController
     // Affichage de la page principale
     public function index()
     {
+        $mel = $this->manager->getAllClients();
         require VIEWS . 'Hotel/homepage.php';
     }
 
@@ -30,6 +31,12 @@ class HotelController
     {
         $clients = $this->manager->getAllClients();
         require VIEWS . 'Hotel/clients.php';
+    }
+
+    public function client($id)
+    {
+        $client = $this->manager->showClientSpecific($id);
+        require VIEWS . 'Hotel/show_client.php';
     }
 
     // public function reservation($slug)
