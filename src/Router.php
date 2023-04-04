@@ -1,5 +1,5 @@
 <?php
-namespace Todo;
+namespace Hotel;
 
 //use App\Controllers\UserController;
 /** Class Router **/

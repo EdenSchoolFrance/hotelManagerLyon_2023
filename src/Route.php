@@ -1,5 +1,5 @@
 <?php
-namespace Todo;
+namespace Hotel;
 
 class Route {
 
@@ -27,7 +27,7 @@ class Route {
 
     public function call() {
          $rep = explode("@", $this->callable);
-         $controller = "Todo\\Controllers\\".$rep[0];
+         $controller = "Hotel\\Controllers\\".$rep[0];
          $controller = new $controller();
 
         return call_user_func_array([$controller, $rep[1]], $this->matches);

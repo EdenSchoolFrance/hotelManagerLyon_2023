@@ -1,7 +1,7 @@
 <?php
-namespace Todo\Models;
+namespace Hotel\Models;
 
-use Todo\Models\User;
+use Hotel\Models\User;
 /** Class UserManager **/
 class UserManager {
 
@@ -22,7 +22,7 @@ class UserManager {
         $stmt->execute(array(
             $username
         ));
-        $stmt->setFetchMode(\PDO::FETCH_CLASS,"Todo\Models\User");
+        $stmt->setFetchMode(\PDO::FETCH_CLASS,"Hotel\Models\User");
 
         return $stmt->fetch();
     }
@@ -30,7 +30,7 @@ class UserManager {
     public function all() {
         $stmt = $this->bdd->query('SELECT * FROM User');
 
-        return $stmt->fetchAll(\PDO::FETCH_CLASS,"Todo\Models\User");
+        return $stmt->fetchAll(\PDO::FETCH_CLASS,"Hotel\Models\User");
     }
 
     public function store($password) {

@@ -1,17 +1,17 @@
 <?php
 
-namespace Todo\Controllers;
+namespace Hotel\Controllers;
 
-use Todo\Models\UserManager;
-use Todo\Validator;
+use Hotel\Models\UserManager;
+use Hotel\Validator;
 
 /** Class UserController **/
 class UserController {
-    private $manager;
+    private $Hotel;
     private $validator;
 
     public function __construct() {
-        $this->manager = new UserManager();
+        $this->Hotel = new UserManager();
         $this->validator = new Validator();
     }
 
@@ -39,14 +39,14 @@ class UserController {
         $_SESSION['old'] = $_POST;
 
         if (!$this->validator->errors()) {
-            $res = $this->manager->find($_POST["username"]);
+            $res = $this->Hotel->find($_POST["username"]);
 
             if (empty($res)) {
                 $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-                $this->manager->store($password);
+                $this->Hotel->store($password);
 
                 $_SESSION["user"] = [
-                    "id" => $this->manager->getBdd()->lastInsertId(),
+                    "id" => $this->Hotel->getBdd()->lastInsertId(),
                     "username" => $_POST["username"]
                 ];
                 header("Location: /");
@@ -68,7 +68,7 @@ class UserController {
         $_SESSION['old'] = $_POST;
 
         if (!$this->validator->errors()) {
-            $res = $this->manager->find($_POST["username"]);
+            $res = $this->Hotel->find($_POST["username"]);
 
             if ($res && password_verify($_POST['password'], $res->getPassword())) {
                 $_SESSION["user"] = [

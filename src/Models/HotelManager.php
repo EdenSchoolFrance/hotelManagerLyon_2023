@@ -1,9 +1,9 @@
 <?php
-namespace Todo\Models;
+namespace Hotel\Models;
 
-use Todo\Models\Todo;
-/** Class UserManager **/
-class TodoManager {
+use Hotel\Models\Hotel;
+/** Class UserHotel **/
+class HotelManager {
 
     private $bdd;
 
@@ -19,7 +19,7 @@ class TodoManager {
             $name,
             $userId
         ));
-        $stmt->setFetchMode(\PDO::FETCH_CLASS,"Todo\Models\Todo");
+        $stmt->setFetchMode(\PDO::FETCH_CLASS,"Hotel\Models\Hotel");
 
         return $stmt->fetch();
     }
@@ -35,7 +35,7 @@ class TodoManager {
     public function update($slug) {
         $stmt = $this->bdd->prepare("UPDATE List SET name = ? WHERE name = ? AND user_id = ?");
         $stmt->execute(array(
-            $_POST['nameTodo'],
+            $_POST['nameHotel'],
             $slug,
             $_SESSION["user"]["id"]
         ));
@@ -57,6 +57,6 @@ class TodoManager {
             $_SESSION["user"]["id"]
         ));
 
-        return $stmt->fetchAll(\PDO::FETCH_CLASS,"Todo\Models\Todo");
+        return $stmt->fetchAll(\PDO::FETCH_CLASS,"Hotel\Models\Hotel");
     }
 }

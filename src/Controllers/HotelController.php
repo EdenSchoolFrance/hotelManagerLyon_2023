@@ -1,22 +1,22 @@
 <?php
 
-namespace Todo\Controllers;
+namespace Hotel\Controllers;
 
-use Todo\Models\TodoManager;
-use Todo\Validator;
+use Hotel\Models\HotelManager;
+use Hotel\Validator;
 
 /** Class UserController **/
-class TodoController {
+class HotelController {
     private $manager;
     private $validator;
 
     public function __construct() {
-        $this->manager = new TodoManager();
+        $this->manager = new HotelManager();
         $this->validator = new Validator();
     }
 
     public function index() {
-        require VIEWS . 'Todo/homepage.php';
+        require VIEWS . 'pages/homepage.php';
     }
 
     public function create() {
@@ -24,7 +24,7 @@ class TodoController {
             header("Location: /login");
             die();
         }
-        require VIEWS . 'Todo/create.php';
+        require VIEWS . 'Hotel/create.php';
     }
 
     public function store() {
@@ -58,18 +58,18 @@ class TodoController {
             die();
         }
         $this->validator->validate([
-            "nameTodo"=>["required", "min:2", "alphaNumDash"]
+            "nameHotel"=>["required", "min:2", "alphaNumDash"]
         ]);
         $_SESSION['old'] = $_POST;
 
         if (!$this->validator->errors()) {
-            $res = $this->manager->find($_POST["nameTodo"], $_SESSION["user"]["id"]);
+            $res = $this->manager->find($_POST["nameHotel"], $_SESSION["user"]["id"]);
 
             if (empty($res) || $res->getName() == $slug) {
                 $search = $this->manager->update($slug);
-                header("Location: /dashboard/" . $_POST['nameTodo']);
+                header("Location: /dashboard/" . $_POST['nameHotel']);
             } else {
-                $_SESSION["error"]['nameTodo'] = "Le nom de la liste est déjà utilisé !";
+                $_SESSION["error"]['nameHotel'] = "Le nom de la liste est déjà utilisé !";
                 header("Location: /dashboard/" . $slug);
             }
 
@@ -93,9 +93,9 @@ class TodoController {
             header("Location: /login");
             die();
         }
-        $todos = $this->manager->getAll();
+        $Hotels = $this->manager->getAll();
 
-        require VIEWS . 'Todo/index.php';
+        require VIEWS . 'Hotel/index.php';
     }
 
     public function show($slug) {
@@ -103,11 +103,11 @@ class TodoController {
             header("Location: /login");
             die();
         }
-        $todo = $this->manager->find($slug, $_SESSION["user"]["id"]);
-        if (!$todo) {
+        $Hotel = $this->manager->find($slug, $_SESSION["user"]["id"]);
+        if (!$Hotel) {
             header("Location: /error");
         }
-        require VIEWS . 'Todo/show.php';
+        require VIEWS . 'Hotel/show.php';
     }
 
 }

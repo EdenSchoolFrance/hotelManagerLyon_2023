@@ -1,9 +1,9 @@
 {
-    "name": "olivier/lyon-php-todo-objet",
+    "name": "quentin/hotelmanager",
     "require": {},
     "autoload": {
         "psr-4": {
-            "Todo\\": "src/"
+            "Hotel\\": "src/"
         }
     }
 }

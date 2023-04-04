@@ -1,6 +1,6 @@
 <?php
 
-namespace Todo;
+namespace Hotel;
 
 /** Class Validator **/
 class Validator {
