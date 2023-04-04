@@ -28,13 +28,22 @@ a {
   text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Kaushan Script", sans-serif;
-  color: #3F90D3;
+  color: #3f90d3;
+}
+
+i {
+  margin-right: 5px;
 }
 
 .cta {
-  background-color: #3F90D3;
+  background-color: #3f90d3;
   padding: 1rem;
   border-radius: 5px;
   color: white;
@@ -46,7 +55,7 @@ h1, h2, h3, h4, h5, h6 {
 .cta:hover {
   background-color: white;
   outline: auto;
-  color: #3F90D3;
+  color: #3f90d3;
 }
 
 .container {
@@ -59,7 +68,7 @@ header {
   background-color: rgba(100, 168, 223, 0.6745098039);
 }
 header nav a {
-  color: #3F90D3;
+  color: #3f90d3;
 }
 header nav ul {
   display: flex;
@@ -101,13 +110,44 @@ table.list {
   border-collapse: collapse;
 }
 table.list thead tr {
-  background-color: #3F90D3;
+  background-color: #3f90d3;
   color: white;
   text-align: left;
 }
-table.list th, table.list td {
+table.list th,
+table.list td {
   padding: 12px 15px;
 }
 table.list tbody tr:last-of-type {
-  border-bottom: 2px solid #3F90D3;
+  border-bottom: 2px solid #3f90d3;
+}
+
+.del {
+  background-color: rgba(241, 11, 11, 0.8509803922);
+  padding: 5px 2rem;
+  border-radius: 6px;
+  color: white;
+}
+
+.edit {
+  background-color: rgba(253, 131, 0, 0.9450980392);
+  padding: 5px 4rem;
+  border-radius: 6px;
+  color: white;
+}
+
+ul#action-menu {
+  display: flex;
+  align-items: center;
+}
+ul#action-menu li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  width: 20%;
+}
+ul#action-menu i {
+  font-size: 20rem;
 }/*# sourceMappingURL=style.css.map */
