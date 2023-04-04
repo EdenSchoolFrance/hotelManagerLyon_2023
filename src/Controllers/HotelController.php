@@ -19,4 +19,13 @@ class HotelController
         require VIEWS . 'Hotel/index.php';
     }
 
+    public function test(){
+        require VIEWS . 'Hotel/test.php';
+    }
+
+    public function config(){
+        
+        $this->manager->config();
+    }
+
 }

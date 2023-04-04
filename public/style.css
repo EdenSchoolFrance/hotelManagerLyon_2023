@@ -1,0 +1,52 @@
+/*GLOBAL*/
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 2rem;
+  font-family: "Pacifico", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Kaushan Script", sans-serif;
+  color: #3F90D3;
+}
+
+/*HEADER*/
+header {
+  background-color: rgba(100, 168, 223, 0.6745098039);
+}
+header nav a {
+  color: #3F90D3;
+}
+header nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+header nav img {
+  width: 12rem;
+}
+
+/*INDEX*//*# sourceMappingURL=style.css.map */

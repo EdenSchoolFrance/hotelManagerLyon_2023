@@ -14,4 +14,20 @@ class HotelManager
         $this->bdd = new \PDO('mysql:host=' . HOST . ';dbname=' . DATABASE . ';charset=utf8;', USER, PASSWORD);
         $this->bdd->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
     }
+
+    public function getBdd()
+    {
+        return $this->bdd;
+    }
+
+    public function config(){
+        if ($_POST['chambre'] === "true") {
+            echo('woking');
+        }
+        
+        $stmt = $this->bdd->prepare("SELECT * FROM chambre WHERE occupe_chambre = 0");
+        $stmt->execute();
+        $stmt->setFetchMode(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+        return $stmt->fetch();
+    }
 }
