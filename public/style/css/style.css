@@ -44,6 +44,27 @@ label {
   font-family: "Pacifico", cursive;
 }
 
+header {
+  background-color: #3f90d3;
+}
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 2.5rem;
+}
+header nav ul {
+  display: flex;
+  gap: 20px;
+}
+header nav ul li a {
+  color: white;
+  text-transform: capitalize;
+}
+header img {
+  width: 15rem;
+}
+
 .animInput:after, form.homepage div.email:after, form.homepage div.name div:after {
   transition: 0.25s;
   content: "";
@@ -101,7 +122,7 @@ form.homepage div label {
   top: 50%;
   transform: translateY(-50%);
   transition: 0.25s;
-  left: 0;
+  left: 10px;
   width: 100%;
 }
 form.homepage div input:not(input[type=submit], input[type=reset]) {
@@ -136,6 +157,24 @@ form.homepage div.send input[type=submit] {
 }
 form.homepage div.send input[type=reset] {
   background-color: #888;
+}
+
+table.showClient {
+  border-collapse: collapse;
+  width: 100%;
+}
+table.showClient td,
+table.showClient th {
+  padding: 1.7rem;
+}
+table.showClient th {
+  padding: 12px;
+  text-align: left;
+  text-transform: capitalize;
+  border-bottom: 2px solid rgba(158, 156, 158, 0.3);
+}
+table.showClient td {
+  border-bottom: 1px solid rgba(158, 156, 158, 0.3);
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -14,6 +14,7 @@
 </head>
 
 <body>
+    <?php require VIEWS . "includes/header.php" ?>
     <header>
         <?= $header ?>
     </header>

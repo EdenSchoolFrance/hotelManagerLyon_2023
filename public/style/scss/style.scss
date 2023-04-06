@@ -46,7 +46,7 @@ img {
 h1,
 h2,
 h3 {
-  color: #3f90d3;
+  color: $titleColor;
   font-family: $titleFont;
 }
 
@@ -54,6 +54,29 @@ p,
 label {
   color: $textColor;
   font-family: $textFont;
+}
+
+header {
+  background-color: $navLink;
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 2.5rem;
+    ul {
+      display: flex;
+      gap: 20px;
+      li {
+        a {
+          color: white;
+          text-transform: capitalize;
+        }
+      }
+    }
+  }
+  img {
+    width: 15rem;
+  }
 }
 
 .animInput {
@@ -127,7 +150,7 @@ form.homepage {
       top: 50%;
       transform: translateY(-50%);
       transition: 0.25s;
-      left: 0;
+      left: 10px;
       width: 100%;
     }
     input:not(input[type="submit"], input[type="reset"]) {
@@ -168,5 +191,23 @@ form.homepage {
     input[type="reset"] {
       background-color: #888;
     }
+  }
+}
+
+table.showClient {
+  border-collapse: collapse;
+  width: 100%;
+  td,
+  th {
+    padding: 1.7rem;
+  }
+  th {
+    padding: 12px;
+    text-align: left;
+    text-transform: capitalize;
+    border-bottom: 2px solid rgba($color: #9e9c9e, $alpha: 0.3);
+  }
+  td {
+    border-bottom: 1px solid rgba($color: #9e9c9e, $alpha: 0.3);
   }
 }
