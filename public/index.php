@@ -13,6 +13,10 @@ $router->get('/newclient', "HotelController@showNewClient");
 $router->post('/allclients', "HotelController@addNewClient");
 $router->get('/allclients', "HotelController@showClients");
 
+$router->get('/delete/:IdClient', "HotelController@deleteClient");
+$router->get('/update/:IdClient', "HotelController@showUpdateClient");
+$router->post('/update/:IdClient', "HotelController@updateClient");
+
 $router->get('/test', "HotelController@test");
 $router->get('/register/', "UserController@showRegister");
 $router->get('/login/', "UserController@showLogin");
