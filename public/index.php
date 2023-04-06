@@ -10,8 +10,8 @@ $router = new Hotel\Router($_SERVER["REQUEST_URI"]);
 $router->get('/', "HotelController@index");
 
 $router->get('/newclient', "HotelController@showNewClient");
-$router->post('/allClients', "HotelController@addNewClient");
-$router->get('/allClients', "HotelController@showClients");
+$router->post('/allclients', "HotelController@addNewClient");
+$router->get('/allclients', "HotelController@showClients");
 
 $router->get('/test', "HotelController@test");
 $router->get('/register/', "UserController@showRegister");
