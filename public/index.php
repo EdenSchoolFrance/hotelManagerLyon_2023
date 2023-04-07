@@ -11,7 +11,7 @@ $router->get('/', "HotelController@index");
 
 $router->get('/newclient', "HotelController@showNewClient"); //Require new client view
 $router->post('/allclients', "HotelController@addNewClient");
-$router->get('/allclients', "HotelController@showClients"); //Show all 
+$router->get('/allclients', "HotelController@showClients"); //Show all clients
 
 $router->get('/delete/:IdClient', "HotelController@deleteClient");
 $router->get('/update/:IdClient', "HotelController@showUpdateClient");
