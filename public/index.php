@@ -9,17 +9,21 @@ require SRC . 'helper.php';
 $router = new Hotel\Router($_SERVER["REQUEST_URI"]);
 $router->get('/', "HotelController@index");
 
-$router->get('/newclient', "HotelController@showNewClient"); //Require new client view
+//CLIENT
+$router->get('/newclient', "HotelController@showNewClient"); //Add client form
 $router->post('/allclients', "HotelController@addNewClient");
 $router->get('/allclients', "HotelController@showClients"); //Show all clients
 
-$router->get('/newReservation', "HotelController@quiReserve"); //Select user that reserve
-$router->get('/reservation/:IdClient', "HotelController@showReservationOptions");
-$router->post('/reservation/options', "HotelController@reservationOptions");
+$router->get('/delete/:IdClient', "HotelController@deleteClient"); //Delete client request
+$router->get('/update/:IdClient', "HotelController@showUpdateClient"); //Update client form
+$router->post('/update/:IdClient', "HotelController@updateClient"); //Update client request
 
-$router->get('/delete/:IdClient', "HotelController@deleteClient");
-$router->get('/update/:IdClient', "HotelController@showUpdateClient");
-$router->post('/update/:IdClient', "HotelController@updateClient");
+//RESERVATION
+$router->get('/newReservation', "HotelController@quiReserve"); //Select user qui réserve
+$router->get('/reservation/:IdClient', "HotelController@showReservationOptions"); //List options réservation
+$router->post('/reservation/options', "HotelController@reservationOptions"); //Affiche options choisies
+
+
 
 $router->get('/test', "HotelController@test");
 $router->get('/register/', "UserController@showRegister");
