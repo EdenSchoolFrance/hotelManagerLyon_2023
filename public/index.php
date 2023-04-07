@@ -13,6 +13,10 @@ $router->get('/newclient', "HotelController@showNewClient"); //Require new clien
 $router->post('/allclients', "HotelController@addNewClient");
 $router->get('/allclients', "HotelController@showClients"); //Show all clients
 
+$router->get('/newReservation', "HotelController@quiReserve"); //Select user that reserve
+$router->get('/reservation/:IdClient', "HotelController@showReservationOptions");
+$router->post('/reservation/options', "HotelController@reservationOptions");
+
 $router->get('/delete/:IdClient', "HotelController@deleteClient");
 $router->get('/update/:IdClient', "HotelController@showUpdateClient");
 $router->post('/update/:IdClient', "HotelController@updateClient");
