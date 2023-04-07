@@ -9,9 +9,9 @@ require SRC . 'helper.php';
 $router = new Hotel\Router($_SERVER["REQUEST_URI"]);
 $router->get('/', "HotelController@index");
 
-$router->get('/newclient', "HotelController@showNewClient");
+$router->get('/newclient', "HotelController@showNewClient"); //Require new client view
 $router->post('/allclients', "HotelController@addNewClient");
-$router->get('/allclients', "HotelController@showClients");
+$router->get('/allclients', "HotelController@showClients"); //Show all 
 
 $router->get('/delete/:IdClient', "HotelController@deleteClient");
 $router->get('/update/:IdClient', "HotelController@showUpdateClient");
