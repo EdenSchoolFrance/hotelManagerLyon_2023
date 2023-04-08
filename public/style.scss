@@ -44,6 +44,7 @@ i {
   width: 80%;
   text-align: center;
   transition: 0.3s;
+  border: none;
   &:hover {
     background-color: white;
     outline: auto;
@@ -137,7 +138,7 @@ table.list {
   color: white;
 }
 
-ul#action-menu {
+ul#action-menu ,.options{
   display: flex;
   align-items: center;
   li {
@@ -152,4 +153,12 @@ ul#action-menu {
   i {
     font-size: 20rem;
   }
+}
+.options li{
+  background-color: #3f90d3;
+  margin: 1rem;
+  a h2{
+    color: white;
+  }
+ 
 }

@@ -51,6 +51,7 @@ i {
   width: 80%;
   text-align: center;
   transition: 0.3s;
+  border: none;
 }
 .cta:hover {
   background-color: white;
@@ -145,11 +146,11 @@ table.list tbody tr:last-of-type {
   color: white;
 }
 
-ul#action-menu {
+ul#action-menu, .options {
   display: flex;
   align-items: center;
 }
-ul#action-menu li {
+ul#action-menu li, .options li {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -157,6 +158,14 @@ ul#action-menu li {
   gap: 3rem;
   width: 20%;
 }
-ul#action-menu i {
+ul#action-menu i, .options i {
   font-size: 20rem;
+}
+
+.options li {
+  background-color: #3f90d3;
+  margin: 1rem;
+}
+.options li a h2 {
+  color: white;
 }/*# sourceMappingURL=style.css.map */
