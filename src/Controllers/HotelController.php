@@ -18,6 +18,8 @@ class HotelController {
     }
 
     public function list(){
+
+        $all = $this->manager->getAllClient();
         require VIEWS . "Hotel/list.php";
     }
 
@@ -27,6 +29,11 @@ class HotelController {
 
     public function addClient(){
         $this->manager->add();
-        header("Location:/addClient.php");
+        header("Location:/list");
+    }
+
+    public function deleteClient($slug){
+        $this->manager->delete($slug);
+        header("Location:/list");
     }
 }

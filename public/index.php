@@ -11,6 +11,8 @@ $router = new hotel\Router($_SERVER["REQUEST_URI"]);
 $router -> get('/', "HotelController@index");
 $router -> get('/list', "HotelController@list");
 $router -> get('/add', "HotelController@addClientView");
+$router -> get('/delete/:id', "HotelController@deleteClient");
+
 
 $router -> post('/add', "HotelController@addClient");
 

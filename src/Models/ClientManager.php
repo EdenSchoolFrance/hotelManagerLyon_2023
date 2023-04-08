@@ -26,4 +26,19 @@ class ClientManager{
 
         header("Location:/");
     }
+
+    public function getAllClient(){
+        $stmt = $this->bdd->prepare("SELECT * FROM client");
+        $stmt->execute();
+        $stmt->setFetchMode(\PDO::FETCH_CLASS,"hotel\Models\Client");
+
+        return $stmt->fetchAll();
+    }
+
+    public function delete($slug){
+        $stmt = $this->bdd->prepare("DELETE FROM `client` WHERE id_client = ?");
+        $stmt->execute(array(
+            $slug
+        ));
+    }
 }
