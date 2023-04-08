@@ -80,28 +80,37 @@ header nav img {
 }
 
 /*RESERVATION*/
-section.chambres {
+section#chambres {
+  margin: 1rem;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: flex-start;
 }
-section.chambres h1 {
+section#chambres h1 {
   flex-basis: 100%;
 }
-section.chambres article {
+section#chambres article {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 28%;
-  margin: 1rem;
+  margin-bottom: 6rem;
 }
-section.chambres article p {
+section#chambres article p {
   width: 90%;
+  margin: 0;
+  text-align: center;
 }
-section.chambres article img {
+section#chambres article img {
   width: 100%;
-  height: 50%;
-  object-fit: cover;
+  height: 50rem;
+}
+section#chambres article h2, section#chambres article a {
+  margin: 0;
+}
+section#chambres article h3 {
+  margin: 1rem;
 }
 
 table.list {

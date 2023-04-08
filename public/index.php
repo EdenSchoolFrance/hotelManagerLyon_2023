@@ -20,7 +20,7 @@ $router->post('/update/:IdClient', "HotelController@updateClient"); //Update cli
 
 //RESERVATION
 $router->get('/newReservation', "HotelController@quiReserve"); //Select user qui réserve
-$router->get('/reservation/:IdClient', "HotelController@showReservationOptions"); //List options réservation
+$router->get('/reservation/client:IdClient', "HotelController@showReservationOptions"); //List options réservation
 $router->post('/reservation/options', "HotelController@reservationOptions"); //Affiche options choisies
 
 
