@@ -24,7 +24,6 @@ $router->get('/reservation/:IdClient', "HotelController@showReservationOptions")
 $router->post('/reservation/options', "HotelController@reservationOptions"); //Affiche options choisies
 
 
-
 $router->get('/test', "HotelController@test");
 $router->get('/register/', "UserController@showRegister");
 $router->get('/login/', "UserController@showLogin");

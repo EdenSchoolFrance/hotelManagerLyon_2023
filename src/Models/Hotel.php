@@ -1,8 +1,10 @@
 <?php
+
 namespace Hotel\Models;
 
-class Hotel {
-    //CHAMBRE
+class Hotel
+{
+        //CHAMBRE
         private $id_chambre;
         private $name_chambre;
         private $description_chambre;
@@ -12,7 +14,7 @@ class Hotel {
         private $occupe_chambre;
         private $categorie_chambre;
 
-    //MENUS
+        //MENUS
         private $id_menu;
         private $id_restaurant;
         private $name_menu;
@@ -20,73 +22,93 @@ class Hotel {
         private $image_menu;
         private $prix_menu;
 
-        public function getIdChambre(){
-            return $this->id_chambre;
+        //CLIENTS
+        private $id_client;
+        private $nom_client;
+        private $prenom_client;
+        private $email_client;
+
+
+        public function getIdChambre()
+        {
+                return $this->id_chambre;
         }
 
-        public function setIdChambre($id_chambre){
-            $this->id_chambre = $id_chambre;
+        public function setIdChambre($id_chambre)
+        {
+                $this->id_chambre = $id_chambre;
         }
 
-        public function getNameChambre(){
-            return $this->name_chambre;
+        public function getNameChambre()
+        {
+                return $this->name_chambre;
         }
 
-        public function setNameChambre($name_chambre){
-            $this->name_chambre = $name_chambre;
+        public function setNameChambre($name_chambre)
+        {
+                $this->name_chambre = $name_chambre;
         }
 
-        public function getDescriptionChambre(){
-            return $this->description_chambre;
+        public function getDescriptionChambre()
+        {
+                return $this->description_chambre;
         }
 
-        public function setDescriptionChambre($description_chambre){
-            $this->description_chambre = $description_chambre;
+        public function setDescriptionChambre($description_chambre)
+        {
+                $this->description_chambre = $description_chambre;
         }
 
-        public function getImageChambre(){
-            return $this->image_chambre;
+        public function getImageChambre()
+        {
+                return $this->image_chambre;
         }
 
-        public function setImageChambre($image_chambre){
-            $this->image_chambre = $image_chambre;
+        public function setImageChambre($image_chambre)
+        {
+                $this->image_chambre = $image_chambre;
         }
 
-        public function getOptionsChambre(){
-            return $this->options_chambre;
+        public function getOptionsChambre()
+        {
+                return $this->options_chambre;
         }
 
-        public function setOptionsChambre($options_chambre){
-            $this->options_chambre = $options_chambre;
+        public function setOptionsChambre($options_chambre)
+        {
+                $this->options_chambre = $options_chambre;
         }
 
-        public function getPrixChambre(){
-            return $this->prix_chambre;
+        public function getPrixChambre()
+        {
+                return $this->prix_chambre;
         }
 
-        public function setPrixChambre($prix_chambre){
-            $this->prix_chambre = $prix_chambre;
+        public function setPrixChambre($prix_chambre)
+        {
+                $this->prix_chambre = $prix_chambre;
         }
 
-        public function getOccupeChambre(){
-            return $this->occupe_chambre;
+        public function getOccupeChambre()
+        {
+                return $this->occupe_chambre;
         }
 
-        public function setOccupeChambre($occupe_chambre){
-            $this->occupe_chambre = $occupe_chambre;
+        public function setOccupeChambre($occupe_chambre)
+        {
+                $this->occupe_chambre = $occupe_chambre;
         }
 
-        public function getCategorieChambre(){
-            return $this->categorie_chambre;
+        public function getCategorieChambre()
+        {
+                return $this->categorie_chambre;
         }
 
-        public function setCategorieChambre($categorie_chambre){
-            $this->categorie_chambre = $categorie_chambre;
+        public function setCategorieChambre($categorie_chambre)
+        {
+                $this->categorie_chambre = $categorie_chambre;
         }
 
-        
-
-    
 
         public function getIdMenu()
         {
@@ -98,9 +120,6 @@ class Hotel {
                 $this->id_menu = $id_menu;
         }
 
-        /**
-         * Get the value of id_restaurant
-         */ 
         public function getIdRestaurant()
         {
                 return $this->id_restaurant;
@@ -150,5 +169,53 @@ class Hotel {
         public function setPrixMenu($prix_menu)
         {
                 $this->prix_menu = $prix_menu;
+        }
+
+        public function getIdClient()
+        {
+                return $this->id_client;
+        }
+
+        public function setIdClient($id_client)
+        {
+                $this->id_client = $id_client;
+        }
+
+        public function getNomClient()
+        {
+                return $this->nom_client;
+        }
+
+        public function setNomClient($nom_client)
+        {
+                $this->nom_client = $nom_client;
+
+                return $this;
+        }
+
+        public function getPrenomClient()
+        {
+                return $this->prenom_client;
+        }
+
+        public function setPrenomClient($prenom_client)
+        {
+                $this->prenom_client = $prenom_client;
+
+                return $this;
+        }
+
+
+        public function getEmailClient()
+        {
+                return $this->email_client;
+        }
+
+
+        public function setEmailClient($email_client)
+        {
+                $this->email_client = $email_client;
+
+                return $this;
         }
 }

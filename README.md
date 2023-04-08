@@ -1,29 +1,28 @@
-# hotelManagerLyon_2023
+# What is this project ?
 
-Development of a management software for the Eden Hotel.  It will allow hotel employees to manage the reservation of rooms, restaurants, swimming pool, conference room, etc.
+HotelManager is a management web app that allow employees to to manage the reservation of rooms, restaurants, swimming pool, conference room, etc.
 
-## Features
-See [specifications](cahier-de-charge.pdf)
+# Installation
 
-On ne gère que les stocks des boissons mais pas du restaurant
+## 1. Clone project
 
-On ne gère pas les livraisons ni les groupes
+```bash
+https://github.com/EdenSchoolFrance/hotelManagerLyon_2023/tree/main
+```
+## 2. Install Composer
+```bash
+composer install
+/* Install all dependencies of the /vendor/ folder */
+```
+```bash
+composer dumpt-autoload
+/* Load all classes, run this command if you get the error 'require(vendor/autoload.php): failed to open stream' */
+```
 
+## 3. Start localhost
+### Open a shell in /public/ folder
+```bash
+PHP -S localhost:8000
+/* Or a non used port on your network */
+```
 
-## Préparer / concevoir votre futur développement :
-> modéliser le modèle conceptuel 
-> modéliser le modèle logique 
-> expliquer et argumenter la démarche à suivre pour développer la tâche demandée : 
-   - découper en tâches unitaires et sous-tâches 
-   - estimer le temps nécessaire pour réaliser les tâches
-
-## Créer la maquette HTML avec du scss
-
-## Le projet en MVC doit contenir au moins un héritage
-
-## Déposer votre projet sur une branche à votre nom
-
-## Créer quelques tests unitaires
-
-##  Graphic chart
-Title: #3F90D3; Title font: Kaushan Script Paragraph: #000 paragraph font: Pacifico Button: #3F90D3; Nav link: #3F90D3;
