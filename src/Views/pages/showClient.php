@@ -8,6 +8,7 @@
             <th>first name</th>
             <th>delete</th>
             <th>modification</th>
+            <th>reservation</th>
         </tr>
     </thead>
     <tbody>
@@ -18,7 +19,8 @@
                 <td><?= $els->getnom_client() ?></td>
                 <td><?= $els->getprenom_client() ?></td>
                 <td><a href="/deleteClient/<?= $els->getid_client() ?>">delete</a></td>
-                <td><a href="/dupdateClient/<?= $els->getid_client() ?>">update</a></td>
+                <td><a href="/updateClient/<?= $els->getid_client() ?>">update</a></td>
+                <td><a href="/reservation/<?= $els->getid_client() ?>">reservation</a></td>
             </tr>
         <?php endforeach ?>
     </tbody>

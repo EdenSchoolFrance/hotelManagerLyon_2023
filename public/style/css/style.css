@@ -163,6 +163,12 @@ table.showClient {
   border-collapse: collapse;
   width: 100%;
 }
+table.showClient tr {
+  transition: 0.25s;
+}
+table.showClient tr:hover {
+  background-color: rgba(158, 156, 158, 0.4);
+}
 table.showClient td,
 table.showClient th {
   padding: 1.7rem;

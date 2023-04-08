@@ -11,4 +11,9 @@ formInput.forEach((e) => {
       e.nextElementSibling.style.top = "50%";
     }
   });
+  if (e.value != "") {
+    e.nextElementSibling.style.top = "0";
+  } else {
+    e.nextElementSibling.style.top = "50%";
+  }
 });

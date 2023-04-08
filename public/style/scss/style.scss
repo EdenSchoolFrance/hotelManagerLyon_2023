@@ -197,6 +197,12 @@ form.homepage {
 table.showClient {
   border-collapse: collapse;
   width: 100%;
+  tr {
+    transition: 0.25s;
+    &:hover {
+      background-color: rgba($color: #9e9c9e, $alpha: 0.4);
+    }
+  }
   td,
   th {
     padding: 1.7rem;
