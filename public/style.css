@@ -12,160 +12,146 @@ body {
   font-family: "Pacifico", sans-serif;
   margin: 0;
   padding: 0;
+  /*HEADER*/
+  /*RESERVATION*/
 }
-
-img {
+body img {
   max-width: 100%;
 }
-
-ul {
+body ul {
   padding: 0;
   margin: 0;
   list-style: none;
 }
-
-a {
+body a {
   text-decoration: none;
 }
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
   font-family: "Kaushan Script", sans-serif;
   color: #3f90d3;
 }
-
-i {
+body i {
   margin-right: 5px;
 }
-
-.cta {
+body .cta {
   background-color: #3f90d3;
   padding: 1rem;
   border-radius: 5px;
   color: white;
   font-size: 2.5rem;
-  width: 80%;
   text-align: center;
   transition: 0.3s;
   border: none;
 }
-.cta:hover {
+body .cta:hover {
   background-color: white;
   outline: auto;
   color: #3f90d3;
 }
-
-.container {
+body .container {
   margin: 0 auto;
   max-width: 90%;
 }
-
-/*HEADER*/
-header {
+body .del {
+  background-color: rgba(241, 11, 11, 0.8509803922);
+  padding: 5px 2rem;
+  border-radius: 6px;
+  color: white;
+}
+body .edit {
+  background-color: rgba(253, 131, 0, 0.9450980392);
+  padding: 5px 4rem;
+  border-radius: 6px;
+  color: white;
+}
+body header {
   background-color: rgba(100, 168, 223, 0.6745098039);
 }
-header nav a {
+body header nav a {
   color: #3f90d3;
 }
-header nav ul {
+body header nav ul {
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
-header nav img {
+body header nav img {
   width: 12rem;
 }
-
-/*RESERVATION*/
-section#chambres {
+body section.wrap-content {
   margin: 1rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: flex-start;
 }
-section#chambres h1 {
+body section.wrap-content h1 {
   flex-basis: 100%;
 }
-section#chambres article {
+body section.wrap-content article {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 28%;
   margin-bottom: 6rem;
 }
-section#chambres article p {
+body section.wrap-content article p {
   width: 90%;
   margin: 0;
   text-align: center;
 }
-section#chambres article img {
+body section.wrap-content article img {
   width: 100%;
   height: 50rem;
 }
-section#chambres article h2, section#chambres article a {
+body section.wrap-content article h2,
+body section.wrap-content article a {
   margin: 0;
 }
-section#chambres article h3 {
+body section.wrap-content article h3 {
   margin: 1rem;
 }
-
-table.list {
+body table {
   margin: 0 auto;
   width: 90%;
   border-collapse: collapse;
 }
-table.list thead tr {
+body table thead tr {
   background-color: #3f90d3;
   color: white;
   text-align: left;
 }
-table.list th,
-table.list td {
+body table th,
+body table td {
   padding: 12px 15px;
 }
-table.list tbody tr:last-of-type {
+body table tbody tr:last-of-type {
   border-bottom: 2px solid #3f90d3;
 }
-
-.del {
-  background-color: rgba(241, 11, 11, 0.8509803922);
-  padding: 5px 2rem;
-  border-radius: 6px;
-  color: white;
-}
-
-.edit {
-  background-color: rgba(253, 131, 0, 0.9450980392);
-  padding: 5px 4rem;
-  border-radius: 6px;
-  color: white;
-}
-
-ul#action-menu, .options {
+body ul.action {
   display: flex;
   align-items: center;
+  justify-content: space-around;
 }
-ul#action-menu li, .options li {
+body ul.action li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 3rem;
-  width: 20%;
-}
-ul#action-menu i, .options i {
-  font-size: 20rem;
-}
-
-.options li {
+  padding: 3rem;
+  border-radius: 20px;
+  width: 15%;
+  height: 35rem;
   background-color: #3f90d3;
-  margin: 1rem;
+  text-align: center;
 }
-.options li a h2 {
+body ul.action li i {
+  font-size: 12rem;
+}
+body ul.action li h2 {
   color: white;
 }/*# sourceMappingURL=style.css.map */
