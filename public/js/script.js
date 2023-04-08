@@ -17,3 +17,4 @@ formInput.forEach((e) => {
     e.nextElementSibling.style.top = "50%";
   }
 });
+

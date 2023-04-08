@@ -67,4 +67,20 @@ class HotelManager
 
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
     }
+
+    public function showChambre()
+    {
+        $stmt = $this->bdd->prepare('SELECT * FROM chambre');
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Chambre");
+    }
+
+    public function showResto()
+    {
+        $stmt = $this->bdd->prepare('SELECT * FROM restaurant');
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Restaurant");
+    }
 }

@@ -63,7 +63,24 @@ class HotelController
 
     public function updateClient($slug)
     {
-        $this->manager->updateClient($slug);     
+        $this->manager->updateClient($slug);
         header("Location: /showClients");
+    }
+
+    public function showReservation($slug)
+    {
+        require VIEWS . "pages/reservation.php";
+    }
+
+    public function showChambre()
+    {
+        $item = $this->manager->showChambre();
+        require VIEWS . "pages/chambre.php";
+    }
+
+    public function showResto()
+    {
+        $item = $this->manager->showResto();
+        require VIEWS . "pages/resto.php";
     }
 }

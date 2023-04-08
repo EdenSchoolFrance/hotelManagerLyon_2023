@@ -22,6 +22,31 @@ body {
   font-size: 1.5rem;
   margin: 0;
   font-family: $textFont;
+  height: 100vh;
+  overflow: hidden;
+  &:after {
+    position: absolute;
+    background: url("https://storage.googleapis.com/theme-vessel-items/checking-sites/hotel-alpha-html/HTML/main/img/banner/img-3.jpg")
+      no-repeat;
+    background-size: cover;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    background-position: center;
+    height: 100%;
+    content: "";
+    animation: anim-bc infinite 10s alternate linear;
+  }
+}
+
+@keyframes anim-bc {
+  from {
+    transform: scale(1) translateX(0);
+  }
+
+  to {
+    transform: scale(1.2) translateX(100px);
+  }
 }
 
 ul {
@@ -215,5 +240,33 @@ table.showClient {
   }
   td {
     border-bottom: 1px solid rgba($color: #9e9c9e, $alpha: 0.3);
+  }
+}
+
+div.reservation {
+  padding: 0 8rem;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  width: 100%;
+  display: flex;
+  div.bar,
+  div.piscine {
+    display: flex;
+  }
+  > div {
+    width: 50%;
+  }
+
+  .reserv {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    h2 {
+      color: white;
+      text-transform: capitalize;
+    }
   }
 }

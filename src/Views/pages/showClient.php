@@ -21,9 +21,14 @@
                 <td><a href="/deleteClient/<?= $els->getid_client() ?>">delete</a></td>
                 <td><a href="/updateClient/<?= $els->getid_client() ?>">update</a></td>
                 <td><a href="/reservation/<?= $els->getid_client() ?>">reservation</a></td>
+                <?php $_SESSION["idUser"] = $els->getid_client() ?>
             </tr>
         <?php endforeach ?>
     </tbody>
+
+    <script>
+        localStorage.setItem("id_chambre", "")
+    </script>
 </table>
 <?php
 $content = ob_get_clean();
