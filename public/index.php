@@ -24,6 +24,7 @@ $router->get('/reservation', "HotelController@showOptions");
 $router->get('/reservation/chambres', "HotelController@showChambres"); //Show chambres
 $router->get('/reservation/menus', "HotelController@showMenus"); //Show menus
 $router->get('/reservation/salles', "HotelController@showSalles"); //Show salles
+$router->get('/reservation/boissons', "HotelController@showBoissons"); //Show salles
 
 
 //$router->get('/reservation/client:IdClient', "HotelController@showReservationOptions"); //List options réservation

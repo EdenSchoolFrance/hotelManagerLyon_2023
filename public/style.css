@@ -189,18 +189,18 @@ body ul.action li {
   align-items: center;
   padding: 2rem;
   border-radius: 20px;
-  width: 20%;
-  height: 20rem;
+  width: 18%;
+  height: 12rem;
   background-color: #3f90d3;
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 body ul.action li a {
   display: flex;
   align-items: center;
 }
 body ul.action li a i {
-  font-size: 6rem;
+  font-size: 4rem;
   margin-right: 1rem;
 }
 body ul.action li a h2 {
