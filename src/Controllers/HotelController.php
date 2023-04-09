@@ -69,6 +69,8 @@ class HotelController
 
     public function showReservation($slug)
     {
+        $resto = $this->manager->showRestoSpecifique();
+        $chambre = $this->manager->showChambreSpecifique();
         require VIEWS . "pages/reservation.php";
     }
 
@@ -83,4 +85,23 @@ class HotelController
         $item = $this->manager->showResto();
         require VIEWS . "pages/resto.php";
     }
+
+    public function showPiscine()
+    {
+        $item = $this->manager->showPiscine();
+        require VIEWS . "pages/piscine.php";
+    }
+
+    public function showSalle()
+    {
+        $item = $this->manager->showSalle();
+        require VIEWS . "pages/salle.php";
+    }
+
+    /* public function addReservation()
+    {
+        $item = $this->manager->addReservation();
+        require VIEWS . "pages/resto.php";
+    }
+    */
 }

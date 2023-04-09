@@ -2,53 +2,65 @@
 
 <div class="reservation">
     <div class="welcome">
-        <h1>welcome to the eden hotel</h1>
+        <h1>welcome to the Eden Hotel</h1>
         <p>Lorem ipsum dolor sit amet, conconsectetuer adipiscing elit Lorem ipsum dolor sit amet, conconsectetuer</p>
-        <a href="/">get started now</a>
     </div>
     <div class="reserv">
-        <h2>search your <span>offer</span></h2>
-        <form action="/showClient" method="post">
-            <div>
-                <a href="/showRestaurant/<?= $slug ?>">
-                    Vous choisissez le restaurant
-                    <script>
-                        document.write(localStorage.getItem("id_resto"));
-                    </script>
-                </a>
-            </div>
-            <div>
-                <a href="/showChambre/<?= $slug ?>">
-                    Choisissez une chambre
-                    <span>
-                        <script>
-                            document.write(localStorage.getItem("id_chambre"));
-                        </script>
-                    </span>
-                </a>
-            </div>
-            <div>
-                <label for="bar">Bar</label>
-                <div class="bar">
-                    <label for="bar_yes">Oui</label>
-                    <input type="radio" name="bar" id="bar_yes">
-                    <label for="bar_no">Non</label>
-                    <input type="radio" name="bar" id="bar_no">
+        <div>
+            <h2>search your <span>offer</span></h2>
+            <form action="/showClients" method="post">
+                <div>
+                    <a href="/showRestaurant/<?= $slug ?>">
+                        Choissiez un restaurant
+                        <span>
+                            <script>
+                                const encryptStorage = new EncryptStorage("storageType");
+                                document.write(encryptStorage.getItem("name_resto") ?? "");
+                            </script>
+                        </span>
+                    </a>
                 </div>
-            </div>
-            <div>
-                <label for="bar">Piscine</label>
-                <div class="piscine">
-                    <label for="piscine_yes">Oui</label>
-                    <input type="radio" name="piscine" id="piscine_yes">
-                    <label for="piscine_no">Non</label>
-                    <input type="radio" name="piscine" id="piscine_no">
+                <div>
+                    <a href="/showChambre/<?= $slug ?>">
+                        Choisissez une chambre
+                        <span>
+                            <script>
+                                document.write(encryptStorage.getItem("name_chambre") ?? "");
+                            </script>
+                        </span>
+                    </a>
                 </div>
-            </div>
-        </form>
+                <div>
+                    <a href="/showPiscine/<?= $slug ?>">
+                        Choisissez une piscine
+                        <span>
+                            <script>
+                                document.write(encryptStorage.getItem("name_piscine") ?? "");
+                            </script>
+                        </span>
+                    </a>
+                </div>
+                <div>
+                    <a href="/showSalle/<?= $slug ?>">
+                        Choisissez une salle
+                        <span>
+                            <script>
+                                document.write(encryptStorage.getItem("name_salle") ?? "");
+                            </script>
+                        </span>
+                    </a>
+                </div>
+                <script>
+                    document.write(`<input type="hidden" name="id_chambre" value="${encryptStorage.getItem("id_chambre")}">`);
+                    document.write(`<input type="hidden" name="id_resto" value="${encryptStorage.getItem("id_resto")}">`);
+                    document.write(`<input type="hidden" name="id_piscine" value="${encryptStorage.getItem("id_piscine")}">`);
+                    document.write(`<input type="hidden" name="id_salle" value="${encryptStorage.getItem("id_salle")}">`);
+                </script>
+                <input type="submit" value="Envoyer">
+            </form>
+        </div>
     </div>
 </div>
-
 
 <?php
 $content = ob_get_clean();

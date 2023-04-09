@@ -76,11 +76,55 @@ class HotelManager
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Chambre");
     }
 
+    public function showChambreSpecifique()
+    {
+        $stmt = $this->bdd->prepare('SELECT * FROM chambre WHERE id_chambre = ?');
+        $stmt->execute(array($_POST["id_chambre"] ?? ""));
+
+        return $stmt->fetch();
+    }
+
+    public function showRestoSpecifique()
+    {
+        $stmt = $this->bdd->prepare('SELECT * FROM restaurant WHERE id_restaurant = ?');
+        $stmt->execute(array($_POST["id_resto"] ?? ""));
+
+        return $stmt->fetch();
+    }
+
     public function showResto()
     {
         $stmt = $this->bdd->prepare('SELECT * FROM restaurant');
         $stmt->execute();
 
+        return $stmt->fetchAll();
+    }
+
+    public function showPiscine()
+    {
+        $stmt = $this->bdd->prepare('SELECT * FROM piscine');
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Piscine");
+    }
+
+    public function showSalle()
+    {
+        $stmt = $this->bdd->prepare('SELECT * FROM salle');
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Salle");
+    }
+
+    /*
+    public function addReservation()
+    {
+        if (isset($_POST["piscine"])) {
+            $stmt = $this->bdd->prepare('INSERT INTO piscine (id_piscine, name_piscine, description_piscine, image_piscine, ouverture_piscine, fermeture_piscine, nettoyage_piscine) VALUES (?, ?, ?, ?, ?, ?, ?)');
+            $stmt->execute(array("test", "test", "test", "test", "test", "test", "test"));
+        }
+
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Restaurant");
     }
+    */
 }

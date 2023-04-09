@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "encrypt-storage": "^2.12.16",
     "node-sass": "^8.0.0",
     "sass": "^1.61.0"
   },

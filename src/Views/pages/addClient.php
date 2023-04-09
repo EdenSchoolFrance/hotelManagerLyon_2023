@@ -33,7 +33,6 @@
     </div>
     <input type="hidden" name="test" value="client">
 </form>
-
 <?php
 $content = ob_get_clean();
 require VIEWS . "layout.php";

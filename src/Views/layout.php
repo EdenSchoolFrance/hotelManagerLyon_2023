@@ -10,7 +10,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Pacifico&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/encrypt-storage@latest/dist/index.js"></script>
     <link rel="stylesheet" href="/style/css/style.css">
+    <script src="/js/script.js" type="module"></script>
 </head>
 
 <body>
@@ -18,11 +20,25 @@
     <header>
         <?= $header ?>
     </header>
+
     <main>
         <?= $content; ?>
     </main>
-    <script src="/js/script.js"></script>
+    <script>
+        if (window.location.href.includes("showClients") || window.location.href.includes("addClient")) {
+            localStorage.removeItem("name_chambre")
+            localStorage.removeItem("name_resto")
+            localStorage.removeItem("name_piscine")
+            localStorage.removeItem("name_salle");
+
+            localStorage.removeItem("id_chambre");
+            localStorage.removeItem("id_resto");
+            localStorage.removeItem("id_piscine");
+            localStorage.removeItem("id_salle");
+        }
+    </script>
 </body>
+
 </html>
 <?php
 unset($_SESSION['error']);

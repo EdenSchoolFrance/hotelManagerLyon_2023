@@ -1,3 +1,5 @@
+const encryptStorage = new EncryptStorage("storageType");
+
 const formLabel = document.querySelectorAll("form.homepage label");
 const formInput = document.querySelectorAll(
   "form.homepage input[type=text], form.homepage input[type=email]"
@@ -17,4 +19,3 @@ formInput.forEach((e) => {
     e.nextElementSibling.style.top = "50%";
   }
 });
-

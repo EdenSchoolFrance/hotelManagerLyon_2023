@@ -265,8 +265,58 @@ div.reservation {
     align-items: flex-end;
 
     h2 {
-      color: white;
       text-transform: capitalize;
+      margin: 0 0 2rem 0;
+    }
+    > div {
+      width: 50%;
+      background-color: white;
+      padding: 3rem;
+      border-radius: 8px;
+      form {
+        div {
+          + div {
+            margin-top: 2rem;
+          }
+          a {
+            color: black;
+            text-decoration: underline;
+            &:hover {
+              opacity: 0.8;
+            }
+            span {
+              display: block;
+            }
+          }
+        }
+        input[type="submit"] {
+          margin-top: 2rem;
+        }
+      }
+    }
+  }
+}
+
+.resto {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 3rem;
+  form {
+    padding: 2rem;
+    background-color: white;
+    width: 20rem;
+    border-radius: 8px;
+    p {
+      margin-bottom: 5rem;
+      font-size: 2rem;
+    }
+
+    input[type="submit"] {
+      border: 1px solid rgba($color: #9e9c9e, $alpha: 0.5);
+      cursor: pointer;
+      background: none;
+      padding: 1rem;
     }
   }
 }

@@ -25,10 +25,6 @@
             </tr>
         <?php endforeach ?>
     </tbody>
-
-    <script>
-        localStorage.setItem("id_chambre", "")
-    </script>
 </table>
 <?php
 $content = ob_get_clean();

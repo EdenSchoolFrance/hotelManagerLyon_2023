@@ -1,15 +1,21 @@
 <?php ob_start() ?>
-<?php foreach ($item as $items) : ?>
-    <form action="/showRestaurant/<?= $_SESSION["idUser"] ?>" method="post">
-        <input type="hidden" name="id_resto" value="<?= $items->getName_restaurant() ?>">
-        <input type="submit" value="Sélectionner ce resto">
-    </form>
-<?php endforeach ?>
+<div class="resto">
+    <?php foreach ($item as $items) : ?>
+        <form action="/showRestaurant/<?= $_SESSION["idUser"] ?>" method="post">
+            <input type="hidden" class="id_resto" name="id_resto" value="<?= $items["id_restaurant"] ?>">
+            <input type="hidden" class="name_resto" name="name_resto" value="<?= $items["name_restaurant"] ?>">
+            <p class="title"><?= $items["name_restaurant"] ?></p>
+            <input type="submit" value="Sélectionner ce resto">
+        </form>
+    <?php endforeach ?>
+</div>
 <script>
+    const encryptStorage = new EncryptStorage("storageType");
     const input = document.querySelectorAll("input[type=submit]");
     input.forEach(e => {
-        e.addEventListener("click", () => {
-            localStorage.setItem("id_resto", e.previousElementSibling.value);
+        e.addEventListener("click", (event) => {
+            encryptStorage.setItem("id_resto", e.parentElement.querySelector(".id_resto").value);
+            encryptStorage.setItem("name_resto", e.parentElement.querySelector(".name_resto").value);
         })
     })
 </script>
