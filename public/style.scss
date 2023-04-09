@@ -86,6 +86,43 @@ body {
     }
   }
 
+  //FORM
+  form{
+    background-color: #151516;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    height: 50rem;
+    margin: 10vh auto;
+    border-radius: 20px;
+    div{
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 3rem;
+      width: 85%;
+    
+    label{
+      font-size: 1.8rem;
+    }
+    input{
+      border: none;
+      outline: none;
+      background-color: #343549;
+      padding: 1.5rem;
+      border-radius: 15px;
+      font-size: 2rem;
+      color: white;
+    }
+  }
+  button.cta{
+    width: 90%;
+    border-radius: 20px;
+    font-size: 2rem;
+  }
+  }
   /*RESERVATION*/
   section.wrap-content {
     margin: 1rem;
@@ -147,20 +184,26 @@ body {
     justify-content: space-around;
     li {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      padding: 3rem;
+      padding: 2rem;
       border-radius: 20px;
-      width: 15%;
-      height: 35rem;
+      width: 20%;
+      height: 20rem;
       background-color: #3f90d3;
       text-align: center;
+      font-size: 2rem;
+      a{
+        display: flex;
+        align-items: center;
+      
     i {
-      font-size: 12rem;
+      font-size: 6rem;
+      margin-right: 1rem;
     }
     h2{
       color: white;
     }
+  }
   }
 }
   }
