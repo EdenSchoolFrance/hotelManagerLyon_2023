@@ -97,7 +97,7 @@ body {
   }
 
   //FORM 
-  form{
+  form.client{
     background-color: #151516;
     color: white;
     display: flex;
@@ -132,6 +132,27 @@ body {
     border-radius: 20px;
     font-size: 2rem;
   }
+  }
+  form.reservation{
+    margin-top: 5rem;
+    background-color: #5a9fd7cf;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    padding: 2rem;
+    border-radius: 20px;
+    input{
+      margin-right: 2rem;
+    }
+    div:nth-of-type(3) div{
+      display: flex;
+      align-items: center;
+      p{
+        margin-right: 2rem;
+      }
+      
+    }
   }
   /*RESERVATION*/
   section.wrap-content {

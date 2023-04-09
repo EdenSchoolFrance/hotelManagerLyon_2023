@@ -93,7 +93,7 @@ body header nav ul {
 body header nav img {
   width: 12rem;
 }
-body form {
+body form.client {
   background-color: #151516;
   color: white;
   display: flex;
@@ -105,16 +105,16 @@ body form {
   margin: 10vh auto;
   border-radius: 20px;
 }
-body form div {
+body form.client div {
   display: flex;
   flex-direction: column;
   margin-bottom: 3rem;
   width: 85%;
 }
-body form div label {
+body form.client div label {
   font-size: 1.8rem;
 }
-body form div input {
+body form.client div input {
   border: none;
   outline: none;
   background-color: #343549;
@@ -123,10 +123,30 @@ body form div input {
   font-size: 2rem;
   color: white;
 }
-body form button.cta {
+body form.client button.cta {
   width: 90%;
   border-radius: 20px;
   font-size: 2rem;
+}
+body form.reservation {
+  margin-top: 5rem;
+  background-color: rgba(90, 159, 215, 0.8117647059);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  padding: 2rem;
+  border-radius: 20px;
+}
+body form.reservation input {
+  margin-right: 2rem;
+}
+body form.reservation div:nth-of-type(3) div {
+  display: flex;
+  align-items: center;
+}
+body form.reservation div:nth-of-type(3) div p {
+  margin-right: 2rem;
 }
 body section.wrap-content {
   margin: 1rem;
