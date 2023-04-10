@@ -54,7 +54,6 @@ ob_start();
         </select>
     </div>
     <div>
-
         <div>
             <p>Piscine</p>
             <label for="piscine_true">Oui</label>
@@ -65,54 +64,57 @@ ob_start();
         </div>
 
         <label for="debut">Début</label>
-        <input type="datetime-local" id="debut" name="piscinedate[]">
+        <input type="datetime-local" id="debut" name="piscinedate[]" min="2023-04-10T10:00" required>
 
         <label for="fin">Fin</label>
-        <input type="datetime-local" id="fin" name="piscinedate[]">
+        <input type="datetime-local" id="fin" name="piscinedate[]" max="2023-04-10T23:00" required>
     </div>
+    <button type="submit" class="cta">Terminer la réservation</button>
 </form>
 <script>
     //Restaurant select
     const restaurantBtn = document.querySelector('#restaurant');
     let restaurant;
     restaurantBtn.addEventListener('change', () => {
-        restaurant = localStorage.setItem('restaurant', `${[restaurantBtn.selectedIndex]}`);
+        restaurant = encryptStorage.setItem('restaurant', `${[restaurantBtn.selectedIndex]}`);
+
     });
 
     //Bar select
     const barBtn = document.querySelector('#bar');
     let bar;
     barBtn.addEventListener('change', () => {
-        bar = localStorage.setItem('bar', `${[barBtn.selectedIndex]}`);
+        bar = encryptStorage.setItem('bar', `${[barBtn.selectedIndex]}`);
     });
 
     //Piscine radio
     const piscineBtn = document.getElementsByName('piscine[]');
     const piscineDateBtn = document.getElementsByName('piscinedate[]');
     let piscine;
-
+    let piscine_debut;
+    let piscine_fin;
     for (let i = 0; i < piscineBtn.length; i++) {
         piscineBtn[i].addEventListener('change', () => {
-            piscine = localStorage.setItem('piscine', piscineBtn[i].value);
+            piscine = encryptStorage.setItem('piscine', piscineBtn[i].value);
 
             for (let j = 0; j < piscineDateBtn.length; j++) {
-                if (piscineBtn[i].value == 0) {
-                    piscineDateBtn[j].disabled = true;
-                } else {
+                if (piscineBtn[i].value == 1) {
                     piscineDateBtn[j].disabled = false;
+                    piscineDateBtn[j].addEventListener('change', () => {
+                        piscine_debut = encryptStorage.setItem('piscine_debut', `${piscineDateBtn[0].value}`);
+                        piscine_fin = encryptStorage.setItem('piscine_fin', `${piscineDateBtn[1].value}`);
+                    });
+
+                } else {
+                    piscineDateBtn[j].disabled = true;
+                    piscine_debut = encryptStorage.setItem('piscine_debut', 0);
+                    piscine_fin = encryptStorage.setItem('piscine_fin', 0);
                 }
             }
-
-
-
-
         });
+        
     }
-
-
-    //LES VALEURS DU RADIO CLIQUÉ SENregistre dans localstorage
-    //si radio 0, griser input date
-    //si radio 1, enregistrer date dans localstorage
+   
 </script>
 <?php
 $content = ob_get_clean();

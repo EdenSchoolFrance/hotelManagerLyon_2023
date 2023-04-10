@@ -32,9 +32,12 @@
     <script>
         if (window.location.href.indexOf('reservation') === -1 && window.location.href.indexOf('Reservation') === -1){
             localStorage.clear();
-        }
-        
+        }   
     </script>
+     <script src="https://cdn.jsdelivr.net/npm/encrypt-storage@latest/dist/index.js"></script>
+  <script>
+    const encryptStorage = new EncryptStorage('secret-key-value');
+  </script>
 </body>
 </html>
 

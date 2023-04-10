@@ -24,7 +24,7 @@ foreach ($boisson as $val) { ?>
       let boisson;
       boissonBtn.forEach(e => {
         e.addEventListener('click', ()=>{
-        boisson = localStorage.setItem('boisson', `${e.value}`);
+        boisson = encryptStorage.setItem('boisson', `${e.value}`);
         window.location.href = '/reservation';
       });
       });

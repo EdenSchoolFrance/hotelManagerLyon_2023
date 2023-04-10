@@ -24,7 +24,7 @@ foreach ($salle as $val) { ?>
       let chambre;
       chambreBtn.forEach(e => {
         e.addEventListener('click', ()=>{
-        chambre = localStorage.setItem('salle', `${e.value}`);
+        chambre = encryptStorage.setItem('salle', `${e.value}`);
         window.location.href = '/reservation';
       });
       });

@@ -43,7 +43,7 @@ ob_start();
     let client;
     clientBtn.forEach(e => {
         e.addEventListener('click', () => {
-            client = localStorage.setItem('client', `${e.getAttribute('value')}`);
+            client = encryptStorage.setItem('client', `${e.getAttribute('value')}`);
         });
     });
 </script>
