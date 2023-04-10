@@ -23,8 +23,7 @@ body {
   margin: 0;
   font-family: $textFont;
   height: 100vh;
-  overflow: hidden;
-  &:after {
+  /* &:after {
     position: absolute;
     background: url("https://storage.googleapis.com/theme-vessel-items/checking-sites/hotel-alpha-html/HTML/main/img/banner/img-3.jpg")
       no-repeat;
@@ -36,7 +35,7 @@ body {
     height: 100%;
     content: "";
     animation: anim-bc infinite 10s alternate linear;
-  }
+  }*/
 }
 
 @keyframes anim-bc {
@@ -317,6 +316,90 @@ div.reservation {
       cursor: pointer;
       background: none;
       padding: 1rem;
+    }
+  }
+}
+
+main {
+  padding: 5rem;
+}
+
+.showReserv {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  form {
+    overflow: hidden;
+    position: relative;
+    transition: .5s;
+    &:hover {
+      transform: translateY(-8px);
+      div.anim {
+        top: 0;
+        opacity: 1;
+        transition: all .5s;
+      }
+      img:not(.anim img) {
+        transform: scale(1.2);
+      }
+    }
+
+    p {
+      margin: 0;
+    }
+
+    img:not(.anim img) {
+      width: 100%;
+      height: 25rem;
+      position: relative;
+      object-fit: cover;
+      transition: 0.5s;
+    }
+
+    p.price {
+      position: absolute;
+      top: 18rem;
+      right: 3rem;
+      color: white;
+    }
+    div.option {
+      display: flex;
+      gap: 20px;
+    }
+    div.overflow {
+      overflow: hidden;
+      height: 25rem;
+    }
+
+    div.anim {
+      width: 100%;
+      height: 25rem;
+      position: absolute;
+      left: 0;
+      z-index: 1;
+      top: -8rem;
+      transition: all .5s;
+      opacity: 0;
+      background-color: rgba(12, 62, 185, 0.5);
+      img {
+        display: block;
+        height: 100%;
+        width: 35px;
+        margin: 0 auto;
+        filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+      }
+    }
+
+    input[type="submit"] {
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      background-color: transparent;
+      border: none;
+      left: 0;
+      width: 100%;
+      height: 25rem;
+      z-index: 5;
     }
   }
 }
