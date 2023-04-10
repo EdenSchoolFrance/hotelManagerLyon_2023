@@ -9,7 +9,7 @@ foreach ($options as $option) { ?>
     <h2><?= $option->getNameChambre() ?></h2>
     <p><?= $option->getDescriptionChambre() ?></p>
     <h3><?= $option->getPrixChambre() ?></h3>
-    <p><?= $option->getNameMenu() ?></p>
+   
   </article>
 
 <?php } ?>

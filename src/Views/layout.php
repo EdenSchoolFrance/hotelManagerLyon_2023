@@ -21,7 +21,7 @@
             </ul>
         </nav>
     </header>
-    <main>
+    <main class="container">
         <?php 
         echo $content;
         ?>
@@ -29,6 +29,12 @@
     <footer>
 
     </footer>
+    <script>
+        if (window.location.href.indexOf('reservation') === -1 && window.location.href.indexOf('Reservation') === -1){
+            localStorage.clear();
+        }
+        
+    </script>
 </body>
 </html>
 

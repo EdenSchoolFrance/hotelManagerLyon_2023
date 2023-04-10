@@ -22,22 +22,7 @@ class HotelManager
         return $this->bdd;
     }
 
-    public function reservation()
-    {
-        $stmt = $this->bdd->prepare("SELECT * FROM chambre WHERE occupe_chambre = 0");
-        $stmt->execute(array());
-
-        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
-    }
-
-    //SELECT ALL MENUS
-    public function getMenus()
-    {
-        $stmt = $this->bdd->prepare("SELECT * FROM menu");
-        $stmt->execute(array());
-
-        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
-    }
+   
 
     //INSERT CLIENT
     public function addNewClient()
@@ -89,14 +74,68 @@ class HotelManager
         ));
     }
 
+    public function getChambres()
+    {
+        $stmt = $this->bdd->prepare("SELECT * FROM chambre WHERE occupe_chambre = '0'");
+        $stmt->execute(array());
+
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
+
+     //SELECT ALL MENUS
+     public function getMenus()
+     {
+         $stmt = $this->bdd->prepare("SELECT * FROM menu");
+         $stmt->execute(array());
+ 
+         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+     }
+
+     //SELECT ALL SALLES
+     public function getSalles()
+     {
+         $stmt = $this->bdd->prepare("SELECT * FROM salle");
+         $stmt->execute(array());
+ 
+         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+     }
+
+      //SELECT ALL RESTAURANTS
+      public function getRestaurants()
+      {
+          $stmt = $this->bdd->prepare("SELECT * FROM restaurant");
+          $stmt->execute(array());
+  
+          return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+      }
+
+       //SELECT ALL BARS
+     public function getBars()
+     {
+         $stmt = $this->bdd->prepare("SELECT * FROM bar");
+         $stmt->execute(array());
+ 
+         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+     }
+
+     public function getBoissons()
+     {
+         $stmt = $this->bdd->prepare("SELECT * FROM boisson");
+         $stmt->execute(array());
+ 
+         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+     }
+/*
     public function getReservationOptions()
     {
         $options = $_POST['option'];
         foreach ($options as $option) {
             $stmt = $this->bdd->prepare("SELECT * FROM " . $option . "");
             $stmt->execute(array());
-
-            return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+            $result = $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+            return $result;
         }
+        
     }
+    */
 }

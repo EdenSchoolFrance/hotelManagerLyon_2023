@@ -72,6 +72,44 @@ class HotelController
         require VIEWS . 'Hotel/Reservation/quiReserve.php';
     }
 
+/*
+    public function showReservationOptions()
+    {
+        $chambres = $this->manager->getChambres();
+        require VIEWS . 'Hotel/Reservation/chambres.php';
+    }
+*/
+    public function showOptions()
+    {
+        $restaurant = $this->manager->getRestaurants();
+        $bar = $this->manager->getBars();
+        require VIEWS . 'Hotel/Reservation/options.php';
+    }
+
+    public function showChambres()
+    {
+        $chambre = $this->manager->getChambres();
+        require VIEWS . 'Hotel/Reservation/chambres.php';
+    }
+    public function showMenus()
+    {
+        $menu = $this->manager->getMenus();
+        require VIEWS . 'Hotel/Reservation/menus.php';
+    }
+    public function showSalles()
+    {
+        $salle = $this->manager->getSalles();
+        require VIEWS . 'Hotel/Reservation/salles.php';
+    }
+    
+    public function showBoissons()
+    {
+        $boisson = $this->manager->getBoissons();
+        require VIEWS . 'Hotel/Reservation/boissons.php';
+    }
+
+
+    /*
     //Show options form
     public function showReservationOptions()
     {
@@ -84,4 +122,5 @@ class HotelController
         $options = $this->manager->getReservationOptions();
         require VIEWS . 'Hotel/Reservation/reservationOptions.php';
     }
+    */
 }

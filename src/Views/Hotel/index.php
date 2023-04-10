@@ -2,18 +2,24 @@
 ob_start();
 ?>
 <h1>Accueil - Que voulez-vous faire ?</h1>
-<ul id="action-menu">
+<ul class="action">
     <li>
-        <i class="fa-solid fa-user-plus" style="color: #3f90d3;"></i>
-        <a href="/newClient" class="cta">Ajouter un client</a>
+        <a href="/newClient">
+            <i class="fa-solid fa-user-plus" style="color: #fff;"></i>
+            <h2>Ajouter un client</h2>
+        </a>
     </li>
     <li>
-        <i class="fa-solid fa-users-gear" style="color: #3f90d3;"></i>
-        <a href="/allClients" class="cta">Voir tous les clients</a>
+        <a href="/allClients">
+            <i class="fa-solid fa-users-gear" style="color: #fff;"></i>
+            <h2>Voir tous les clients</h2>
+        </a>
     </li>
     <li>
-    <i class="fa-solid fa-hotel" style="color: #3f90d3;"></i>
-        <a href="/newReservation" class="cta">Faire une rédervation client</a>
+        <a href="/newReservation">
+            <i class="fa-solid fa-hotel" style="color: #fff;"></i>
+            <h2>Faire une rédervation client</h2>
+        </a>
     </li>
 </ul>
 

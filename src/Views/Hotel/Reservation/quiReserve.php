@@ -2,7 +2,7 @@
 ob_start();
 ?>
 <h1>Liste des clients</h1>
-<table class="list">
+<table>
     <thead>
         <tr>
             <th>Id</th>
@@ -30,15 +30,23 @@ ob_start();
                     <?= $client->getEmailClient() ?>
                 </td>
                 <td>
-                    <a href="/reservation/<?= $client->getIdClient() ?>" class="cta">Réserver</a>
+                    <a href="/reservation" class="cta" value="<?= $client->getIdClient() ?>">Réserver</a>
                 </td>
             </tr>
     </tbody>
-    <form>
-        
-    </form>
-<?php } ?>
 
+
+
+<?php } ?>
+<script>
+    const clientBtn = document.querySelectorAll('a');
+    let client;
+    clientBtn.forEach(e => {
+        e.addEventListener('click', () => {
+            client = localStorage.setItem('client', `${e.getAttribute('value')}`);
+        });
+    });
+</script>
 </table>
 <?php
 $content = ob_get_clean();
