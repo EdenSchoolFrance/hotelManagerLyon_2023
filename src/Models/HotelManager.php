@@ -106,15 +106,24 @@ class HotelManager extends BDD
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Salle");
     }
 
-    /*
-    public function addReservation()
+    public function reservation($slug)
     {
-        if (isset($_POST["piscine"])) {
-            $stmt = $this->bdd->prepare('INSERT INTO piscine (id_piscine, name_piscine, description_piscine, image_piscine, ouverture_piscine, fermeture_piscine, nettoyage_piscine) VALUES (?, ?, ?, ?, ?, ?, ?)');
-            $stmt->execute(array("test", "test", "test", "test", "test", "test", "test"));
+        $stmt = $this->bdd->prepare('SELECT * FROM piscine WHERE id_piscine = ?');
+        $stmt->execute(array($_POST["id_piscine"]));
+        $test = $stmt->fetchAll()[0];
+
+        if (!isset($_SESSION['counter'])) {
+            $_SESSION['count'] = 0;
         }
 
-        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Restaurant");
+        if ($_POST["id_piscine"] != "undefined") {
+            if ($test["ouverture_piscine"] <= date("H:i:s", strtotime($_POST["debut_reserv"])) && $test["fermeture_piscine"] >= date("H:i:s", strtotime($_POST["fin_reserv"]))) {
+                $_SESSION["count"]++;
+                $stmt = $this->bdd->prepare('INSERT INTO client_piscine (id_piscine, id_client, date_debut_reservation_piscine, date_fin_reservation_piscine, num_reservation_piscine, status_piscine) VALUES (?, ?, ?, ?, ?, ?)');
+                $stmt->execute(array($_POST["id_piscine"], $slug, date("Y-m-d", strtotime($_POST["debut_reserv"])), date("Y-m-d", strtotime($_POST["fin_reserv"])), $_SESSION["count"], ""));
+            } else {
+                echo date("H:i:s", strtotime("22:00:00"));  
+            }
+        }
     }
-    */
 }

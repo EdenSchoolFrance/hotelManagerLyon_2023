@@ -30,5 +30,6 @@ $router->post('/showChambre/:Client', "HotelController@showReservation");
 $router->post('/showRestaurant/:Client', "HotelController@showReservation");
 $router->post('/showPiscine/:Client', "HotelController@showReservation");
 $router->post('/showSalle/:Client', "HotelController@showReservation");
+$router->post('/showClient/', "HotelController@addReservation");
 
 $router->run();

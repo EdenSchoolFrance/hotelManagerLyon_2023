@@ -98,10 +98,9 @@ class HotelController
         require VIEWS . "pages/salle.php";
     }
 
-    /* public function addReservation()
+    public function addReservation()
     {
-        $item = $this->manager->addReservation();
-        require VIEWS . "pages/resto.php";
+        $this->manager->reservation($_SESSION["idUser"]);
+
     }
-    */
 }

@@ -264,6 +264,9 @@ div.reservation .reserv > div form div a span {
 div.reservation .reserv > div form input[type=submit] {
   margin-top: 2rem;
 }
+div.reservation .reserv div.piscine {
+  flex-direction: column;
+}
 
 .resto {
   display: flex;

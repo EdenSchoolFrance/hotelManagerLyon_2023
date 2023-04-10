@@ -30,7 +30,7 @@
                         </span>
                     </a>
                 </div>
-                <div>
+                <div class="piscine">
                     <a href="/showPiscine/<?= $slug ?>">
                         Choisissez une piscine
                         <span>
