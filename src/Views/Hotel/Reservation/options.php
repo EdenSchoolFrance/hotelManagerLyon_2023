@@ -29,6 +29,7 @@ ob_start();
         </a>
     </li>
 </ul>
+
 <form class="reservation" action="confirmReservation" method="POST">
     <div>
         <label for="restaurant">Restaurants</label>
