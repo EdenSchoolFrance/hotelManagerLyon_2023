@@ -63,6 +63,14 @@
 </div>
 
 <?php
+require "../src/Controllers/Breadcrumbs.php";
+$breadcrumbs = new Breadcrumbs();
+
+$breadcrumbs->add('Accueil', '/');
+$breadcrumbs->add('ShowClients', '/ShowClients');
+
+$breadcrumbs->display();
+
 $content = ob_get_clean();
 require VIEWS . "layout.php";
 ?>

@@ -1,4 +1,12 @@
 <?php ob_start() ?>
+<?php
+require "../src/Controllers/Breadcrumbs.php";
+$breadcrumbs = new Breadcrumbs();
+
+$breadcrumbs->add('Accueil', '/');
+
+$breadcrumbs->display();
+?>
 <table class="showClient">
     <thead>
         <tr>
