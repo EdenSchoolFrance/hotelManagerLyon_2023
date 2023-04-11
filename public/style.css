@@ -694,6 +694,20 @@ section.error a {
   margin: 0.5rem auto;
 }
 
+.delete {
+  position: relative;
+  top: -5rem;
+}
+.delete form div {
+  display: flex;
+  flex-wrap: wrap;
+}
+.delete form div p {
+  display: block;
+  text-align: center;
+  margin: 0.5rem auto;
+}
+
 .reservationsClient {
   border: 1px solid #8A2424;
   border-radius: 1rem;

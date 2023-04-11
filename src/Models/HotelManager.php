@@ -56,4 +56,44 @@ class HotelManager
         ));
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
     }
+    public function delete_client($id)
+{
+    // Supprimer les données liées dans la table "client_salle"
+    $stmt1 = $this->bdd->prepare('DELETE FROM client_salle WHERE id_client = ?');
+    $stmt1->execute(array(
+        $id,
+    ));
+
+    // Supprimer les données liées dans la table "client_boisson"
+    $stmt2 = $this->bdd->prepare('DELETE FROM client_boisson WHERE id_client = ?');
+    $stmt2->execute(array(
+        $id,
+    ));
+
+    // Supprimer les données liées dans la table "client_chambre"
+    $stmt3 = $this->bdd->prepare('DELETE FROM client_chambre WHERE id_client = ?');
+    $stmt3->execute(array(
+        $id,
+    ));
+
+    // Supprimer les données liées dans la table "client_menu"
+    $stmt4 = $this->bdd->prepare('DELETE FROM client_menu WHERE id_client = ?');
+    $stmt4->execute(array(
+        $id,
+    ));
+
+    // Supprimer les données liées dans la table "client_piscine"
+    $stmt5 = $this->bdd->prepare('DELETE FROM client_piscine WHERE id_client = ?');
+    $stmt5->execute(array(
+        $id,
+    ));
+
+    // Supprimer le client de la table "client"
+    $stmt6 = $this->bdd->prepare('DELETE FROM client WHERE id_client = ?');
+    $stmt6->execute(array(
+        $id,
+    ));
+
+    //j'ai dabord supprimer les parent avent le client pour pas avoir d'erreur avec les cle primaire
+    }
 }

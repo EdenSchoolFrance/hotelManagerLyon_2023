@@ -86,4 +86,15 @@ class HotelController
             header('location:./');
         }
     }
+    public function delete()
+    {
+        $client = $this->manager->getAll_client();
+        require VIEWS . 'Hotel/delete.php'; 
+    }
+    public function delete_bdd(){
+        for ($i=0; $i < sizeof($_POST['client']); $i++) { 
+            $this->manager->delete_client($_POST['client'][$i]);
+        }
+        header('location:./'); 
+    }
 }
