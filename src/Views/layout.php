@@ -33,7 +33,7 @@
                     <p class="hidden">bar</p>
                 </div>
                 <div class="hoverLink">
-                    <a href="/nouveau" class="icon"><i class="fa-regular fa-square-h"></i></a>
+                    <a href="/salle" class="icon"><i class="fa-solid fa-person-shelter"></i></a>
                     <p class="hidden">salle</p>
                 </div>
                 <div class="hoverLink">

@@ -13,11 +13,14 @@ $router->get('/client/create', "HotelController@create");
 $router->get('/client/liste', "HotelController@liste");
 $router->get('/client/update', "HotelController@update");
 $router->get('/client/delete', "HotelController@delete");
+$router->get('/salle', "HotelController@salle");
+$router->get('/salle/create', "HotelController@salle_create");
 
 $router->post('/client/create/bdd', "HotelController@create_bdd");
 $router->post('/client/liste', "HotelController@get_client");
 $router->post('/client/update', "HotelController@update_bdd");
 $router->post('/client/delete', "HotelController@delete_bdd");
+$router->post('/salle/create/bdd', "HotelController@salle_create_bdd");
 $router->run();
 
 //les route get et post

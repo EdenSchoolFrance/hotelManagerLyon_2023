@@ -708,6 +708,15 @@ section.error a {
   margin: 0.5rem auto;
 }
 
+.salle {
+  position: relative;
+  top: -5rem;
+}
+.salle form input, .salle form select {
+  display: block;
+  margin: 0.5rem auto;
+}
+
 .reservationsClient {
   border: 1px solid #8A2424;
   border-radius: 1rem;

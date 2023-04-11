@@ -23,6 +23,24 @@ class HotelManager
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
     }
+    public function getAll_salle()
+    {
+        $stmt = $this->bdd->prepare('SELECT id_salle, name_salle FROM salle');
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
+    public function insert_reservation($id_client, $id_salle, $datedeb, $datefin, $status)
+    {
+        $stmt = $this->bdd->prepare("INSERT INTO client_salle (id_client, id_salle, date_debut_reservation_salle, date_fin_reservation_salle, status_salle) VALUES (?, ?, ?, ?, ?);");
+        $stmt->execute(array(
+            $id_client,
+            $id_salle,
+            $datedeb,
+            $datefin,
+            $status
+        ));
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
     public function insert_client($nom, $prenom, $email, $password)
     {
         $stmt = $this->bdd->prepare("INSERT INTO client (nom_client, prenom_client, email_client, mdp_client) VALUES (?, ?, ?, ?);");
