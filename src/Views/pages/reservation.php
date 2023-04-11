@@ -1,5 +1,5 @@
 <?php ob_start() ?>
-
+<?php $_SESSION["idUser"] = $slug ?>
 <div class="reservation">
     <div class="welcome">
         <h1>welcome to the Eden Hotel</h1>

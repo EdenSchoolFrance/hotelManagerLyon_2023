@@ -365,4 +365,29 @@ main {
   z-index: 5;
 }
 
+.confirm_resto {
+  display: flex;
+  gap: 10px;
+}
+.confirm_resto a {
+  display: flex;
+  border-radius: 50%;
+}
+.confirm_resto a:first-of-type {
+  background-color: green;
+}
+.confirm_resto a:last-of-type {
+  background-color: red;
+  position: relative;
+  align-items: center;
+  padding: 3px;
+}
+.confirm_resto a:last-of-type span {
+  content: "";
+  display: block;
+  width: 18px;
+  background-color: white;
+  height: 2px;
+}
+
 /*# sourceMappingURL=style.css.map */

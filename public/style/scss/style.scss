@@ -414,3 +414,28 @@ main {
     }
   }
 }
+
+.confirm_resto {
+  display: flex;
+  gap: 10px;
+  a {
+    display: flex;
+    border-radius: 50%;
+    &:first-of-type {
+      background-color: green;
+    }
+    &:last-of-type {
+      background-color: red;
+      position: relative;
+      align-items: center;
+      padding: 3px;
+      span {
+        content: "";
+        display: block;
+        width: 18px;
+        background-color: white;
+        height: 2px;
+      }
+    }
+  }
+}

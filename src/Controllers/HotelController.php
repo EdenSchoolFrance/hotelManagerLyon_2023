@@ -142,7 +142,9 @@ class HotelController
             header("Location: /showClients");
         }
         if (isset($_POST["id_resto"])) {
-            setcookie("restaurant_" . $_SESSION['idUser'] . "", true, time() + (86400 * 30), "/");
+            if (!isset($_COOKIE["restaurant" . $_SESSION["idUser"]])) {
+                setcookie("restaurant_" . $_SESSION['idUser'] . "", true, time() + (86400 * 30), "/");
+            }
         }
         $this->manager->reservation($_SESSION["idUser"]);
         header("Location: /reservation/" . $_SESSION["idUser"]);

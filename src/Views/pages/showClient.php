@@ -10,6 +10,7 @@
             <th>delete</th>
             <th>modification</th>
             <th>reservation</th>
+            <th>restaurant</th>
         </tr>
     </thead>
     <tbody>
@@ -22,7 +23,14 @@
                 <td><a href="/deleteClient/<?= $els->getid_client() ?>">delete</a></td>
                 <td><a href="/updateClient/<?= $els->getid_client() ?>">update</a></td>
                 <td><a href="/reservation/<?= $els->getid_client() ?>">reservation</a></td>
-                <?php $_SESSION["idUser"] = $els->getid_client() ?>
+                <?php if (isset($_COOKIE["restaurant_" . $els->getid_client()])) : ?>
+                    <td>
+                        <div class="confirm_resto">
+                            <a href="/showMenu"><img src="/img/icons/plus.svg" alt=""></a>
+                            <a href="/deleteMenu/<?= $_SESSION["idUser"] ?>"><span class="delete"></span></a>
+                        </div>
+                    </td>
+                <?php endif ?>
             </tr>
         <?php endforeach ?>
     </tbody>
