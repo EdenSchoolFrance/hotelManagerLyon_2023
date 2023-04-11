@@ -14,21 +14,23 @@ foreach ($boisson as $val) { ?>
     <h2><?= $val->getNameBoisson() ?></h2>
     <p><?= $val->getDescriptionBoisson() ?></p>
     <h3><?= $val->getPrixBoisson() ?></h3>
+    <input type="hidden" id="boisson" name="id_boisson" value="">
     <button class="cta" name="id_boisson" value="<?= $val->getIdBoisson() ?>">Réserver</button>
     
   </article>
 <?php } ?>
 <script>
-
-      const boissonBtn = document.querySelectorAll('button');
-      let boisson;
-      boissonBtn.forEach(e => {
-        e.addEventListener('click', ()=>{
-        boisson = encryptStorage.setItem('boisson', `${e.value}`);
+const boissonBtn = document.querySelectorAll('button'); //Réserver button
+    let boisson;
+    boissonBtn.forEach(e => { //loop on all buttons
+      e.addEventListener('click', () => { //when user select it
+        boisson = e.value; //chambre = button.id so => id chambre
+        encryptStorage.setItem('boisson', e.value); //store it encrypted
+        document.getElementById("boisson").value = boisson; //select hidden input then set id chambre 
         window.location.href = '/reservation';
       });
-      });
-     
+    });
+    </script>
     </script>
 </section>
 <?php
