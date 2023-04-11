@@ -9,7 +9,7 @@
         <div>
             <h2>search your <span>offer</span></h2>
             <form action="/showClients" method="post">
-                <div>
+                <div class="restaurant">
                     <a href="/showRestaurant/<?= $slug ?>">
                         Choissiez un restaurant
                         <span>
@@ -51,10 +51,20 @@
                     </a>
                 </div>
                 <script>
-                    document.write(`<input type="hidden" name="id_chambre" value="${encryptStorage.getItem("id_chambre")}">`);
-                    document.write(`<input type="hidden" name="id_resto" value="${encryptStorage.getItem("id_resto")}">`);
-                    document.write(`<input type="hidden" name="id_piscine" value="${encryptStorage.getItem("id_piscine")}">`);
-                    document.write(`<input type="hidden" name="id_salle" value="${encryptStorage.getItem("id_salle")}">`);
+                    if (encryptStorage.getItem(`id_chambre`) != null) {
+                        document.write(`<input type="hidden" name="id_chambre" value="${encryptStorage.getItem("id_chambre")}">`);
+                    }
+                    if (encryptStorage.getItem(`id_resto`) != null) {
+                        document.write(`<input type="hidden" name="id_resto" value="${encryptStorage.getItem("id_resto")}">`);
+                    }
+
+                    if (encryptStorage.getItem(`id_piscine`) != null) {
+                        document.write(`<input type="hidden" name="id_piscine" value="${encryptStorage.getItem("id_piscine")}">`);
+                    }
+
+                    if (encryptStorage.getItem(`id_salle`) != null) {
+                        document.write(`<input type="hidden" name="id_salle" value="${encryptStorage.getItem("id_salle")}">`);
+                    }
                 </script>
                 <input type="submit" value="Envoyer">
             </form>
@@ -63,14 +73,6 @@
 </div>
 
 <?php
-require "../src/Controllers/Breadcrumbs.php";
-$breadcrumbs = new Breadcrumbs();
-
-$breadcrumbs->add('Accueil', '/');
-$breadcrumbs->add('ShowClients', '/ShowClients');
-
-$breadcrumbs->display();
-
 $content = ob_get_clean();
 require VIEWS . "layout.php";
 ?>

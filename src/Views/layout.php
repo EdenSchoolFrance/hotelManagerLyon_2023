@@ -21,7 +21,9 @@
         <?= $header ?>
     </header>
 
+    <?php require VIEWS . "includes/ariane.php" ?>
     <main>
+        <?= $ariane ?>
         <?= $content; ?>
     </main>
     <script>

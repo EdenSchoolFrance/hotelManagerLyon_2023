@@ -1,14 +1,5 @@
 <?php ob_start() ?>
-<?php
-require "../src/Controllers/Breadcrumbs.php";
-$breadcrumbs = new Breadcrumbs();
 
-$breadcrumbs->add('Accueil', '/');
-$breadcrumbs->add('ShowClients', '/ShowClients');
-$breadcrumbs->add('Reservation', '/reservation/'.$_SESSION["idUser"]);
-
-$breadcrumbs->display();
-?>
 <h1>Our Best Salle</h1>
 <div class="showReserv">
     <?php foreach ($item as $items) : ?>

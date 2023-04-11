@@ -20,32 +20,17 @@ formInput.forEach((e) => {
   }
 });
 
-if (encryptStorage.getItem("name_piscine") != null) {
-  const div = document.createElement("div");
-  const piscine = document.querySelector("div.piscine");
-  div.innerHTML =
-    "<label for='reservation'>Choisissez les dates de reservation</label> <input type='datetime-local' name='debut_piscine' id='reservation'><input type='datetime-local' name='fin_piscine' id='reservation'>";
-  if (piscine) {
-    piscine.appendChild(div);
-  }
-}
+const arrName = ["piscine", "salle", "chambre"];
 
-if (encryptStorage.getItem("name_salle") != null) {
-  const div = document.createElement("div");
-  const salle = document.querySelector("div.salle");
-  div.innerHTML =
-    "<label for='reservation'>Choisissez les dates de reservation</label> <input type='datetime-local' name='debut_salle' id='reservation'><input type='datetime-local' name='fin_salle' id='reservation'>";
-  if (salle) {
-    salle.appendChild(div);
+arrName.forEach((e) => {
+  if (encryptStorage.getItem(`name_${e}`) != null) {
+    const div = document.createElement("div");
+    const el = document.querySelector(`div.${e}`);
+    div.innerHTML = `<label for='reservation'>Choisissez les dates de reservation</label> <input type='datetime-local' name='debut_${e}' id='reservation'><input type='datetime-local' name='fin_${e}' id='reservation'>`;
+    if (el) {
+      el.appendChild(div);
+    }
   }
-}
+});
 
-if (encryptStorage.getItem("name_chambre") != null) {
-  const div = document.createElement("div");
-  const chambre = document.querySelector("div.chambre");
-  div.innerHTML =
-    "<label for='reservation'>Choisissez les dates de reservation</label> <input type='datetime-local' name='debut_chambre' id='reservation'><input type='datetime-local' name='fin_chambre' id='reservation'>";
-  if (chambre) {
-    chambre.appendChild(div);
-  }
-}
+
