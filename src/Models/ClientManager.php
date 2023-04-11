@@ -30,18 +30,29 @@ class ClientManager
         $stmt->execute(array(
             $slug,
         ));
-        $stmt->setFetchMode(\PDO::FETCH_CLASS, "Hotel\Models\Client");
-        return $stmt->fetch();
-
-        // return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Client");
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Client");
     }
 
-    public function getAllFiltred($slug)
+    public function find($prenom, $nom, $email)
     {
-        $stmt = $this->bdd->prepare('SELECT * FROM destination LEFT JOIN contient ON contient.ID = destination.ID LEFT JOIN filtre ON filtre.ID_FILTRE = contient.ID_FILTRE WHERE filtre.NOM_FILTRE = ?');
+        $stmt = $this->bdd->prepare("SELECT * FROM client WHERE prenom_client = ? AND nom_client = ? AND email_client = ?");
         $stmt->execute(array(
-            $slug,
+            $prenom,
+            $nom,
+            $email
         ));
-        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Voyage");
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Client");
+    }
+
+    public function CreateClient($prenom, $nom, $email)
+    {
+        $stmt = $this->bdd->prepare('INSERT INTO `client` (`nom_client` , `prenom_client`, `email_client`) VALUE (?,?,?) ');
+        $stmt->execute(array(
+            $nom,
+            $prenom,
+            $email,
+
+        ));
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Client");
     }
 }

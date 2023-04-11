@@ -7,12 +7,12 @@ require '../vendor/autoload.php';
 require SRC . 'helper.php';
 
 $router = new Hotel\Router($_SERVER["REQUEST_URI"]);
-$router->get('/', "ClientController@index");
-$router->get('/client/inscription/', "ClientController@inscription_client");
-$router->get('/client', "ClientController@showclients");
-$router->get('/client/:id', "ClientController@client");
+$router->get('/', "HotelController@index");
+$router->get('/client', "HotelController@showclients");
+$router->get('/client/:id', "HotelController@client");
 
-$router->post('/register/', "VoyageController@register");
+$router->post('/client/inscription', "HotelController@inscription_client");
+// $router->post('/register/', "VoyageController@register");
 
 $router->run();
 

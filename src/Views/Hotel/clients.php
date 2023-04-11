@@ -19,8 +19,7 @@ ob_start();
                 <td> <?= $client->getemail_client(); ?></td>
                 <td><a href="/client/<?= $client->getid_client() ?>">Voir plus</a></td>
             </tr>
-        <?php var_dump(uniqid());
-        } ?>
+        <?php } ?>
     </table>
 </section>
 

@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Pacifico&family=Roboto&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/affdc3fe7d.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="scss/style.css">
+    <link rel="stylesheet" href="/scss/style.css">
 </head>
 
 <body>

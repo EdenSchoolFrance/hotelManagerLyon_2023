@@ -48,10 +48,10 @@ ob_start();
     <!-- PAGE D'INSCRIPTION DU CLIENT -->
     <h2>Que voulez-vous consulter ?</h2>
     <div id="formulaire">
-        <form action="/client/inscription/" method="post">
-            <input type="text" name="prenom" id="prenom" placeholder="Prénom">
-            <input type="text" name="nom" id="nom" placeholder="Nom">
-            <input type="email" name="email" id="email" placeholder="Exemple.exemple@exmpl.fr">
+        <form action="/client/inscription" method="post">
+            <input type="text" name="prenom" id="prenom" placeholder="Prénom" required>
+            <input type="text" name="nom" id="nom" placeholder="Nom" required>
+            <input type="email" name="email" id="email" placeholder="Exemple.exemple@exmpl.fr" required>
 
             <!-- <select name="chambre" id="select">
                 <option value="chambre">Chambre</option>
@@ -60,6 +60,9 @@ ob_start();
                 <option value="Salle">Salle</option>
             </select> -->
             <button type="submit">Yep</button>
+            <?php if (isset($_SESSION["error"]['username'])) {
+                echo "<p>" . $_SESSION["error"]['username'] . "</p>";
+            } ?>
         </form>
     </div>
     <script>
