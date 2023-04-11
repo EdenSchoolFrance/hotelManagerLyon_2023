@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 
-<body>
+<body class="h-100">
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg p-3">
             <div class="container-fluid">
@@ -24,7 +24,7 @@
                 <div class=" collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav ms-auto ">
                         <li class="nav-item">
-                            <a class="nav-link mx-2 active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link mx-2 active" aria-current="page" href="/">Home</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -40,7 +40,7 @@
                                 Réservations
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">Chambre</a></li>
+                                <li><a class="dropdown-item" href="/chambres">Chambre</a></li>
                                 <li><a class="dropdown-item" href="#">Salle</a></li>
                                 <li><a class="dropdown-item" href="#">Piscine</a></li>
                                 <li><a class="dropdown-item" href="#">Restaurant</a></li>
@@ -49,6 +49,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link mx-2" href="/stock">Stock</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-2" href="/stock">Menus</a>
                         </li>
                     </ul>
                 </div>
@@ -59,7 +62,7 @@
     <main class="container">
         <?php echo $content; ?>
     </main>
-    <footer>
+    <footer class="footer">
         <small>Copyright Hotel Management 2023</small>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>

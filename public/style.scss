@@ -10,6 +10,9 @@ body {
     margin: 0 auto;
     font-size: 2rem;
     color: #000;
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 100px;
 }
 
 // header
@@ -37,7 +40,7 @@ body {
    }
 
    .logo {
-    width: 50%;
+    width: 30%;
     margin: 40px 0 0 0;
     animation: pulse 2s ease 0s 1 normal forwards;
     animation-iteration-count:infinite;
@@ -62,14 +65,18 @@ body {
 // Footer
 
 footer {
-    font-size: 1.8rem;
-    position: fixed;
-    bottom: 0;
+    position: absolute;
     width: 100%;
+    bottom: 0;
+    font-size: 1.8rem;
+    // position: fixed;
+    // bottom: 0;
+    // width: 100%;
     text-align: center;
     background: rgb(2, 2, 51);
     color: #fff;
     padding: 8px;
+    margin: 150px 0 0 0;
 }
 
 
@@ -144,5 +151,58 @@ th, td {
     td a, td input, td img {
         vertical-align: middle;
         display: inline-block;
+    }
+}
+
+
+// Chambres
+
+.wrapper_chambres {
+    margin: 30px 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.block {
+    width: 50%;
+    border-bottom: solid 1px #fff;
+    margin: 10px 0;
+    padding: 15px;
+    img {
+        width: 50%;
+    }
+    p {
+        margin: 10px 0 0 0;
+    }
+}
+
+.green {
+    color: rgb(31, 138, 31);
+    font-weight: bold;
+}
+
+.occupe {
+    background: red;
+    border-radius: 5px;
+    padding: 5px;
+    display: inline-block;
+    margin: 10px 0 0 0;
+}
+
+.disponnible {
+    display: inline-block;
+    background: rgb(31, 138, 31);
+    margin: 10px 0 0 0;
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.6rem;
+    padding: 5px;
+}
+
+@media screen and (max-width: 720px) {
+    .block {
+        width: 100%;
     }
 }

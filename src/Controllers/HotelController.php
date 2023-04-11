@@ -65,4 +65,12 @@ class HotelController
 
         require VIEWS . 'Hotel/stock.php';
     }
+
+    // Affiche les chambres
+    public function chambres()
+    {
+        $chambres = $this->manager->chambres();
+
+        require VIEWS . 'Hotel/chambre.php';
+    }
 }

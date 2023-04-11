@@ -21,6 +21,15 @@ class Hotel
     private $name_bar;
     private $quantite_stock_bar_boisson;
 
+    private $name_chambre;
+    private $description_chambre;
+    private $image_chambre;
+    private $option_chambre;
+    private $prix_chambre;
+    private $occupe_chambre;
+    private $categorie_chambre;
+    private $id_chambre;
+
     // Accesseurs
 
     // Id_client
@@ -135,5 +144,99 @@ class Hotel
     public function setQuantiteBoisson(String $quantite_stock_bar_boisson)
     {
         $this->quantite_stock_bar_boisson = $quantite_stock_bar_boisson;
+    }
+
+
+
+    ///// CHAMBRE /////
+
+
+    // Id de la chambre
+    public function getIdChambre()
+    {
+        return $this->id_chambre;
+    }
+
+    public function setIdChambre(String $id_chambre)
+    {
+        $this->id_chambre = $id_chambre;
+    }
+
+    // Nom de la chambre
+    public function getNameChambre()
+    {
+        return $this->name_chambre;
+    }
+
+    public function setNameChambre(String $name_chambre)
+    {
+        $this->name_chambre = $name_chambre;
+    }
+
+    // Description de la chambre
+    public function getDescriptionChambre()
+    {
+        return $this->description_chambre;
+    }
+
+    public function setDescriptionChambre(String $description_chambre)
+    {
+        $this->description_chambre = $description_chambre;
+    }
+
+    // Image de la chambre
+    public function getImageChambre()
+    {
+        return $this->image_chambre;
+    }
+
+    public function setImageChambre(String $image_chambre)
+    {
+        $this->image_chambre = $image_chambre;
+    }
+
+
+    // Options de la chambre
+    public function getOptionsChambre()
+    {
+        return $this->option_chambre;
+    }
+
+    public function setOptionsChambre(String $option_chambre)
+    {
+        $this->option_chambre = $option_chambre;
+    }
+
+    // Prix de la chambre
+    public function getPrixChambre()
+    {
+        return $this->prix_chambre;
+    }
+
+    public function setPrixChambre(String $prix_chambre)
+    {
+        $this->prix_chambre = $prix_chambre;
+    }
+
+    // Occupation de la chambre
+    public function getOccupeChambre()
+    {
+        return $this->occupe_chambre;
+    }
+
+    public function setOccupeChambre(String $occupe_chambre)
+    {
+        $this->occupe_chambre = $occupe_chambre;
+    }
+
+    // Categorie de la chambre
+    public function getCategorieChambre()
+    {
+        return $this->categorie_chambre;
+    }
+
+    public function setCategorieChambre(String $categorie_chambre)
+    {
+        $this->categorie_chambre = $categorie_chambre;
     }
 }
