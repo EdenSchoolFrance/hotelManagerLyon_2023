@@ -1,0 +1,10 @@
+temps total : 27h
+
+mcd mld bdd : 2h
+
+front : 5h
+	html : 2h30min
+	css sass : 2h30min
+back : 20h
+	
+	
