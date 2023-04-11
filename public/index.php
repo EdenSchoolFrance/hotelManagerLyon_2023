@@ -10,7 +10,6 @@ $router = new Hotel\Router($_SERVER["REQUEST_URI"]);
 
 $router->get('/showClients', "HotelController@showClients");
 $router->get('/deleteMenu/:Client', "HotelController@deleteMenu");
-$router->get('/showMenu/:Client', "HotelController@showMenu");
 
 $router->get('/addClients/error', "HotelController@index");
 
@@ -25,6 +24,7 @@ $router->get('/showPiscine/:Client', "HotelController@showPiscine");
 $router->get('/showSalle/:Client', "HotelController@showSalle");
 
 $router->post('/showClients', "HotelController@addReservation");
+$router->post('/showMenu/:Client', "HotelController@showMenu");
 
 $router->post('/addClient', "HotelController@addClient");
 $router->post('/updateClient/:Client', "HotelController@updateClient");
@@ -33,5 +33,6 @@ $router->post('/showRestaurant/:Client', "HotelController@showReservation");
 $router->post('/showPiscine/:Client', "HotelController@showReservation");
 $router->post('/showSalle/:Client', "HotelController@showReservation");
 $router->post('/showClient/', "HotelController@addReservation");
+$router->post('/showClients/addMenu', "HotelController@addMenu");
 
 $router->run();

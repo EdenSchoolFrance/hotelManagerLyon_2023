@@ -8,6 +8,12 @@ class Menu
     private $description_menu;
     private $image_menu;
     private $prix_menu;
+    private $id_menu;
+
+    public function getid_menu()
+    {
+        return $this->id_menu;
+    }
 
     public function getname_menu()
     {
@@ -27,6 +33,11 @@ class Menu
     public function getprix_menu()
     {
         return $this->prix_menu;
+    }
+
+    public function setid_menu($id_menu)
+    {
+        $this->id_menu = $id_menu;
     }
 
     public function setname_menu($name_menu)

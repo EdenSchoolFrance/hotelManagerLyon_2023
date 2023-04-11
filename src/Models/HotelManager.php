@@ -2,6 +2,8 @@
 
 namespace Hotel\Models;
 
+use PDO;
+
 /** Class UserHotel **/
 class HotelManager extends BDD
 {
@@ -108,8 +110,10 @@ class HotelManager extends BDD
 
     public function reservation($slug)
     {
+        $stmt = $this->bdd->prepare('SELECT MAX(num_reservation_chambre) FROM client_chambre');
+        $stmt->execute(array());
         if (!isset($_SESSION['count'])) {
-            $_SESSION['count'] = 0;
+            $_SESSION['count'] = $stmt->fetch()[0] ?? 0;
         }
 
         $_SESSION["count"]++;
@@ -135,9 +139,16 @@ class HotelManager extends BDD
         }
     }
 
-    public function showMenu() {
+    public function showMenu()
+    {
         $stmt = $this->bdd->prepare("SELECT * FROM menu");
         $stmt->execute();
-        return $stmt->fetchAll();
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Menu");
+    }
+
+    public function addMenu()
+    {
+        $stmt = $this->bdd->prepare("INSERT INTO client_menu (id_client, id_menu, quantite_client_menu) VALUES (?, ?, ?)");
+        $stmt->execute(array($_POST["client_id"], $_POST["id_menu"], $_POST["quantity"]));
     }
 }

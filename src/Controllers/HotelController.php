@@ -157,12 +157,19 @@ class HotelController
 
     public function deleteMenu($slug)
     {
-        setcookie("restaurant_".$slug, "", time() - 3600, "/");
+        setcookie("restaurant_" . $slug, "", time() - 3600, "/");
         header("Location: /showClients");
     }
 
-    public function showMenu() {
+    public function showMenu()
+    {
         $item = $this->manager->showMenu();
         require VIEWS . "pages/menu.php";
+    }
+
+    public function addMenu()
+    {
+        $this->manager->addMenu();
+        header("Location: /showClients");
     }
 }

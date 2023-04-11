@@ -26,9 +26,13 @@
                 <?php if (isset($_COOKIE["restaurant_" . $els->getid_client()])) : ?>
                     <td>
                         <div class="confirm_resto">
-                            <a href="/showMenu/<?= $els->getid_client() ?>"><img src="/img/icons/plus.svg" alt=""></a>
+                            <form action="/showMenu/<?= $els->getid_client() ?>" method="post">
+                                <input type="submit" value="Exécuter">
+                                <input type="hidden" name="id_client" value="<?= $els->getid_client() ?>">
+                            </form>
                             <a href="/deleteMenu/<?= $els->getid_client() ?>"><span class="delete"></span></a>
                         </div>
+
                     </td>
                 <?php endif ?>
             </tr>
