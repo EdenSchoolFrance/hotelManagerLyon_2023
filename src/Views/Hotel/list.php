@@ -15,7 +15,7 @@ ob_start();
             <td><?= $el->getPrenom()?></td>
             <td><?= $el->getEmail()?></td>
             <td><a href="/delete/<?= $el->getId() ?>">Supprimer</a></td>
-            <td><a>Modifier</a></td>
+            <td><a href="/update/<?= $el->getId() ?>">Modifier</a></td>
         </tr>
         <?php
     }

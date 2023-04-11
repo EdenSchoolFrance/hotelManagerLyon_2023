@@ -36,4 +36,14 @@ class HotelController {
         $this->manager->delete($slug);
         header("Location:/list");
     }
+
+    public function updateClientView($slug){
+        $client = $this->manager->getClient($slug);
+        require VIEWS . "Hotel/update.php";
+    }
+
+    public function updateClient(){
+        $this->manager->update();
+        header("Location: /list");
+    }
 }

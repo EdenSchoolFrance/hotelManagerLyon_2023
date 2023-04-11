@@ -12,8 +12,9 @@ $router -> get('/', "HotelController@index");
 $router -> get('/list', "HotelController@list");
 $router -> get('/add', "HotelController@addClientView");
 $router -> get('/delete/:id', "HotelController@deleteClient");
-
+$router -> get('/update/:id', "HotelController@updateClientView");
 
 $router -> post('/add', "HotelController@addClient");
+$router -> post('/update', "HotelController@updateClient");
 
 $router->run();
