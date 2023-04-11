@@ -26,9 +26,8 @@ $router->get('/reservation/menus', "HotelController@showMenus"); //Show menus
 $router->get('/reservation/salles', "HotelController@showSalles"); //Show salles
 $router->get('/reservation/boissons', "HotelController@showBoissons"); //Show salles
 
+$router->post('/reservationConfirm', "HotelController@reservationInsert");
 
-//$router->get('/reservation/client:IdClient', "HotelController@showReservationOptions"); //List options réservation
-//$router->post('/reservation/options', "HotelController@reservationOptions"); //Affiche options choisies
 
 
 $router->get('/test', "HotelController@test");
