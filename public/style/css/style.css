@@ -78,6 +78,10 @@ label {
   text-decoration: underline;
 }
 
+.none {
+  display: none !important;
+}
+
 header {
   background-color: #3f90d3;
 }
@@ -238,23 +242,27 @@ div.reservation .reserv h2 {
   margin: 0 0 2rem 0;
 }
 div.reservation .reserv > div {
-  width: 50%;
+  width: 75%;
   background-color: white;
   padding: 3rem;
   border-radius: 8px;
 }
-div.reservation .reserv > div form div + div {
+div.reservation .reserv > div form div:not(.boisson div) + div {
   margin-top: 2rem;
 }
-div.reservation .reserv > div form div a {
+div.reservation .reserv > div form div:not(.boisson div) a {
   color: black;
   text-decoration: underline;
 }
-div.reservation .reserv > div form div a:hover {
+div.reservation .reserv > div form div:not(.boisson div) a:hover {
   opacity: 0.8;
 }
-div.reservation .reserv > div form div a span {
+div.reservation .reserv > div form div:not(.boisson div) a span {
   display: block;
+}
+div.reservation .reserv > div form div:not(.boisson div) .error {
+  font-size: 1.3rem;
+  color: red;
 }
 div.reservation .reserv > div form input[type=submit] {
   margin-top: 2rem;
@@ -388,6 +396,14 @@ main {
   width: 18px;
   background-color: white;
   height: 2px;
+}
+
+.boisson > div {
+  display: flex;
+  gap: 10px;
+}
+.boisson > div div {
+  margin: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

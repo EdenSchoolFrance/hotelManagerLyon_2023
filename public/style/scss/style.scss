@@ -92,6 +92,10 @@ label {
   }
 }
 
+.none {
+  display: none !important;
+}
+
 header {
   background-color: $navLink;
   nav {
@@ -275,12 +279,12 @@ div.reservation {
       margin: 0 0 2rem 0;
     }
     > div {
-      width: 50%;
+      width: 75%;
       background-color: white;
       padding: 3rem;
       border-radius: 8px;
       form {
-        div {
+        div:not(.boisson div) {
           + div {
             margin-top: 2rem;
           }
@@ -293,6 +297,10 @@ div.reservation {
             span {
               display: block;
             }
+          }
+          .error {
+            font-size: 1.3rem;
+            color: red;
           }
         }
         input[type="submit"] {
@@ -436,6 +444,16 @@ main {
         background-color: white;
         height: 2px;
       }
+    }
+  }
+}
+
+.boisson {
+  >div {
+    display: flex;
+    gap: 10px;
+    div {
+      margin: 0;
     }
   }
 }

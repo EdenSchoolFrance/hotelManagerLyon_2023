@@ -14,7 +14,7 @@
             <p class="price"><?= $items->getprix_menu() ?> €</p>
             <div>
                 <label for="quantity">quantitées de menu</label>
-                <input type="number" name="quantity" id="quantity">
+                <input type="number" name="quantity_menu" id="quantity">
             </div>
             <h2><?= $items->getname_menu() ?></h2>
             <p><?= $items->getdescription_menu() ?></p>

@@ -147,7 +147,11 @@ class HotelController
             }
         }
         $this->manager->reservation($_SESSION["idUser"]);
-        header("Location: /reservation/" . $_SESSION["idUser"]);
+        if ($_POST["error"]) {
+            header("Location: /reservation/" . $_SESSION["idUser"] . "/error");
+        } else {
+            header("Location: /showClients/");
+        }
     }
 
     public function addBreadcrumb($title, $url)
@@ -164,6 +168,8 @@ class HotelController
     public function showMenu()
     {
         $item = $this->manager->showMenu();
+        $this->addBreadcrumb('Accueil', '/');
+        $this->addBreadcrumb('ShowClients', '/ShowClients');
         require VIEWS . "pages/menu.php";
     }
 
@@ -171,5 +177,11 @@ class HotelController
     {
         $this->manager->addMenu();
         header("Location: /showClients");
+    }
+
+    public function showBoisson()
+    {
+        $item = $this->manager->showBoisson();
+        require VIEWS . "pages/boissons.php";
     }
 }

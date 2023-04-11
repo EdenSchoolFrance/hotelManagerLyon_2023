@@ -18,10 +18,12 @@ $router->get('/deleteClient/:Client', "HotelController@removeClient");
 $router->get('/updateClient/:Client', "HotelController@showUpdateClient");
 
 $router->get('/reservation/:Client', "HotelController@showReservation");
+$router->get('/reservation/:Client/error', "HotelController@showReservation");
 $router->get('/showChambre/:Client', "HotelController@showChambre");
 $router->get('/showRestaurant/:Client', "HotelController@showResto");
 $router->get('/showPiscine/:Client', "HotelController@showPiscine");
 $router->get('/showSalle/:Client', "HotelController@showSalle");
+$router->get('/showBoisson/:Client', "HotelController@showBoisson");
 
 $router->post('/showClients', "HotelController@addReservation");
 $router->post('/showMenu/:Client', "HotelController@showMenu");
@@ -32,7 +34,7 @@ $router->post('/showChambre/:Client', "HotelController@showReservation");
 $router->post('/showRestaurant/:Client', "HotelController@showReservation");
 $router->post('/showPiscine/:Client', "HotelController@showReservation");
 $router->post('/showSalle/:Client', "HotelController@showReservation");
+$router->post('/showBoisson/:Client', "HotelController@showReservation");
 $router->post('/showClient/', "HotelController@addReservation");
-$router->post('/showClients/addMenu', "HotelController@addMenu");
 
 $router->run();

@@ -8,8 +8,12 @@ class Boisson
     private $description_boisson;
     private $name_boisson;
     private $image_boisson;
+    private $prix_un_boisson;
 
- 
+    public function getprix_un_boisson()
+    {
+        return $this->prix_un_boisson;
+    }
 
     public function getImage_boisson()
     {
@@ -34,6 +38,11 @@ class Boisson
     public function getDescription_boisson()
     {
         return $this->description_boisson;
+    }
+
+    public function setprix_un_boisson($prix_un_boisson)
+    {
+        return $this->prix_un_boisson = $prix_un_boisson;
     }
 
     public function setDescription_boisson($description_boisson)

@@ -39,6 +39,9 @@
                             </script>
                         </span>
                     </a>
+                    <?php if (str_contains($_SERVER["REQUEST_URI"], "error")) : ?>
+                        <p class="error">Veuillez rentrer une date correcte</p>
+                    <?php endif ?>
                 </div>
                 <div class="salle">
                     <a href="/showSalle/<?= $slug ?>">
@@ -49,6 +52,25 @@
                             </script>
                         </span>
                     </a>
+                </div>
+                <div class="boisson">
+                    <p>Choisissez votre boisson</p>
+                    <div>
+                        <div>
+                            <label for="bar_yes">Oui</label>
+                            <input type="radio" name="bar" id="bar_yes">
+                        </div>
+                        <div>
+                            <label for="bar_no">Non</label>
+                            <input type="radio" name="bar" id="bar_no">
+                        </div>
+                    </div>
+                    <a href="/showBoisson/<?= $_SESSION["idUser"] ?>" class="none boissonLink">Voir les boissons</a>
+                    <span class="none">
+                        <script>
+                            document.write(encryptStorage.getItem("name_boisson") ?? "");
+                        </script>
+                    </span>
                 </div>
                 <script>
                     if (encryptStorage.getItem(`id_chambre`) != null) {
@@ -64,6 +86,11 @@
 
                     if (encryptStorage.getItem(`id_salle`) != null) {
                         document.write(`<input type="hidden" name="id_salle" value="${encryptStorage.getItem("id_salle")}">`);
+                    }
+
+                    if (encryptStorage.getItem(`id_boisson`) != null) {
+                        document.write(`<input type="hidden" name="id_boisson" value="${encryptStorage.getItem("id_boisson")}">`);
+                        document.write(`<input type="hidden" name="quantity_boisson" value="${encryptStorage.getItem("quantity_boisson")}">`);
                     }
                 </script>
                 <input type="submit" value="Envoyer">

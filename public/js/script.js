@@ -33,4 +33,32 @@ arrName.forEach((e) => {
   }
 });
 
+const boissonConfirm = document.querySelector(".boisson input#bar_yes");
+const boissonDisagree = document.querySelector(".boisson input#bar_no");
+const boisson = document.querySelector(".boisson");
+const boissonLink = document.querySelector(".boissonLink");
 
+if (boissonConfirm) {
+  boissonConfirm.addEventListener("click", () => {
+    boissonLink.classList.remove("none");
+    boissonLink.nextElementSibling.classList.remove("none");
+  });
+  if (encryptStorage.getItem(`name_boisson`) != null) {
+    const div = document.createElement("div");
+    div.className = "groupBoisson";
+    const el = document.querySelector(`div.boisson`);
+    div.innerHTML = `<label for='reservation'>Choisissez les dates de reservation</label> <input type='datetime-local' name='debut_boisson' id='reservation'>`;
+    if (el) {
+      el.appendChild(div);
+    }
+  }
+}
+
+if (boissonDisagree) {
+  boissonDisagree.addEventListener("click", () => {
+    const groupBoisson = document.querySelector(".groupBoisson");
+    groupBoisson.remove();
+    boissonLink.classList.add("none");
+    boissonLink.nextElementSibling.classList.add("none");
+  });
+}
