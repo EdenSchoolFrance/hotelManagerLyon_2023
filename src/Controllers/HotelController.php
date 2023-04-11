@@ -87,7 +87,7 @@ class HotelController
 
     public function show_bars()
     {
-        $restaurants = $this->manager_hotel->show_bars();
+        $bars = $this->manager_hotel->show_bars();
         require VIEWS . 'Hotel/show_bars.php';
     }
 }

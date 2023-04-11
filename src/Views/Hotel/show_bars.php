@@ -6,14 +6,12 @@ ob_start();
 <section class="show_bars">
 
 
-    <?php foreach ($piscines as $piscine) { ?>
+    <?php foreach ($bars as $bar) { ?>
         <div class="card">
-            <h3><?= $piscine->getname_piscine(); ?></h3>
-            <div class="description"><?= $piscine->getdescription_piscine(); ?></div>
-            <div class="image"><img src="/assets/<?= $piscine->getimage_piscine(); ?>" alt="Image de la piscine"></div>
-            <div class="ouverture">Ouverture: <?= $piscine->getouverture_piscine(); ?></div>
-            <div class="fermeture">Fermeture: <?= $piscine->getfermeture_piscine(); ?></div>
-            <a href="reserver/<?= $piscine->getid_piscine(); ?>" class="valider">Reserver la piscine</a>
+            <h3><?= $bar->getname_bar(); ?></h3>
+            <!-- <div class="image"><img src="/assets/<?php // $bar->getimage_bar(); 
+                                                        ?>" alt="Image de la bar"></div> -->
+            <a href="bar/<?= $bar->getid_bar(); ?>" class="valider">Voir les menus du bar</a>
         </div>
     <?php } ?>
 </section>

@@ -2,7 +2,7 @@
 
 namespace Hotel\Models;
 
-class Salles
+class Bars
 {
 
     private $id_bar;
