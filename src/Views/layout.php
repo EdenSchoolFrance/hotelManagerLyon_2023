@@ -16,10 +16,10 @@
         <nav>
             <a href="/" class="logo"><i class="fa-solid fa-hotel"></i></a>
 
-                <div class="hoverLink">
+                <!-- <div class="hoverLink">
                     <a href="/login" class="icon"><i class="fas fa-user-tie"></i></a>
                     <p class="hidden">Login</p>
-                </div>
+                </div> -->
                 <div class="hoverLink">
                     <a href="/dashboard/client" class="icon"><i class="fa-solid fa-bed"></i></a>
                     <p class="hidden">client</p>

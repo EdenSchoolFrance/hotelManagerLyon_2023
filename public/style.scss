@@ -86,6 +86,7 @@ nav {
     transition: all 0.5s ease;
     position: absolute;
     bottom: -30px;
+    color: white;
   }
   .hoverLink {
     position: relative;
@@ -111,10 +112,12 @@ label,
 p,
 h1,
 h2,
-h3,
-.white,
-#white {
-  color: white;
+h3{
+  color: #8A2424;
+}
+h1 {
+  margin: 20px 0;
+  text-align: center;
 }
 .titre {
   margin: 0.5rem 0;
@@ -142,7 +145,7 @@ h3,
 }
 .flex {
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
 }
 .border {
   border-right: 3px solid white;
@@ -164,10 +167,7 @@ main {
   background-color: #8A2424;
   color: white;
   border-radius: 15px;
-  h1 {
-    margin: 20px 0;
-    text-align: center;
-  }
+  
   .separateur {
     border-top: 4px solid white;
     border-radius: 100%;
@@ -649,6 +649,14 @@ section {
     a {
       color: #8A2424;
     }
+  }
+}
+
+.client{
+  position: relative;
+  top: -5rem;
+  h3{
+    font-size: 2.4rem;
   }
 }
 .blockCard {

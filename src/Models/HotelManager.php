@@ -23,5 +23,15 @@ class HotelManager
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
     }
-    
+    public function insert_client($nom, $prenom, $email, $password)
+    {
+        $stmt = $this->bdd->prepare("INSERT INTO client (nom_client, prenom_client, email_client, mdp_client) VALUES (?, ?, ?, ?);");
+        $stmt->execute(array(
+            $nom,
+            $prenom,
+            $email,
+            $password,
+        ));
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
 }
