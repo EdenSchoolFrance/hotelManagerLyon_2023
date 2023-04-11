@@ -48,7 +48,7 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mx-2" href="#">Stock</a>
+                            <a class="nav-link mx-2" href="/stock">Stock</a>
                         </li>
                     </ul>
                 </div>

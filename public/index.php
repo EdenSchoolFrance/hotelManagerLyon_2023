@@ -18,5 +18,7 @@ $router->post('/client/nouveau', "HotelController@addClient");
 
 $router->get('/client/delete/:id', "HotelController@deleteClient");
 
+$router->get('/stock', "HotelController@stock");
+
 
 $router->run();

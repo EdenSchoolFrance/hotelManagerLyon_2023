@@ -44,4 +44,14 @@ class HotelManager
             $slug
         ));
     }
+
+    // Select stock boissons BDD
+    public function stockboissons()
+    {
+        $stmt = $this->bdd->prepare("SELECT * FROM `bar_boisson`
+        JOIN boisson ON bar_boisson.id_boisson = boisson.id_boisson
+        JOIN bar ON bar.id_bar = bar_boisson.id_bar");
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
 }

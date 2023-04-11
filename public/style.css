@@ -30,7 +30,7 @@ body {
 .dashboard p {
   font-size: 1.6rem;
 }
-.dashboard img {
+.dashboard .logo {
   width: 50%;
   margin: 40px 0 0 0;
   animation: pulse 2s ease 0s 1 normal forwards;
@@ -88,6 +88,9 @@ footer {
 table {
   margin: 20px 0 0 0;
 }
+table img {
+  width: 5%;
+}
 
 th, td {
   color: #fff;
@@ -95,4 +98,20 @@ th, td {
 
 .red {
   color: red;
+}
+
+.wrapperimg {
+  width: 15%;
+}
+.wrapperimg img {
+  width: 70%;
+}
+
+#stocktable td {
+  vertical-align: middle;
+  text-align: center;
+}
+#stocktable td a, #stocktable td input, #stocktable td img {
+  vertical-align: middle;
+  display: inline-block;
 }/*# sourceMappingURL=style.css.map */

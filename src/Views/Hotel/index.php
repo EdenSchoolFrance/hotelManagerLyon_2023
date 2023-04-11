@@ -6,7 +6,7 @@ ob_start();
 <section class="dashboard">
     <h1>Dashboard</h1>
     <p>Application Management Hotel</p>
-    <img src="assets/logo.png" alt="logo">
+    <img src="assets/logo.png" alt="logo" class="logo">
 </section>
 <?php
 

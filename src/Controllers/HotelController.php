@@ -57,4 +57,12 @@ class HotelController
         $this->manager->suppClient($slug);
         header("location: /client/liste");
     }
+
+    // Affiche le Stock
+    public function stock()
+    {
+        $stock = $this->manager->stockboissons();
+
+        require VIEWS . 'Hotel/stock.php';
+    }
 }
