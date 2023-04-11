@@ -52,13 +52,12 @@ class HotelController
 
         if (empty($res)) {
             $this->manager->CreateClient($prenom, $nom, $email);
-            header("Location: /client");
         } else {
             $_SESSION["error"]['username'] = "La personne est déjà Inscrite";
             header("Location: /");
         }
 
-        header("Location: /");
+        header("Location: /client/");
     }
 
     public function delete_client()
@@ -72,7 +71,6 @@ class HotelController
 
         if (empty($res)) {
             $_SESSION["error"]['username'] = "La personne n'existe pas";
-            header("Location: /client/");
         } else {
             $this->manager->delete_Client($id, $prenom, $nom, $email);
             header("Location: /client/");
