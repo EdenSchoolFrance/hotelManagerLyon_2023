@@ -59,7 +59,7 @@ ob_start();
                 <option value="Retaurant">Retaurant</option>
                 <option value="Salle">Salle</option>
             </select> -->
-            <button type="submit">Yep</button>
+            <button type="submit">Ajouter la personne</button>
             <?php if (isset($_SESSION["error"]['username'])) {
                 echo "<p>" . $_SESSION["error"]['username'] . "</p>";
             } ?>

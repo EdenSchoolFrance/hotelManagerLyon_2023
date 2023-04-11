@@ -6,6 +6,7 @@ $font-family_Title: "Kaushan Script", cursive;
 $font-family_Paragraph: "Pacifico", cursive;
 $Paragraph: #000;
 $Button-color: #3f90d3;
+$Button-color-hover: #266597;
 $Nav_link: #3f90d3;
 
 //GLOBAL
@@ -65,3 +66,4 @@ body {
 @import "includes/clients";
 @import "includes/homepage";
 @import "includes/404";
+@import "includes/chambres";

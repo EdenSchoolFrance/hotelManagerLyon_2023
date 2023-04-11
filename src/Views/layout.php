@@ -31,16 +31,16 @@
                     <a href="/client" <?= true ? "id = 'on_link'" : "" ?>>Clients</a>
                 </li>
                 <li>
-                    <a href="/">Restaurant</a>
+                    <a href="/chambres/">Chambres</a>
                 </li>
                 <li>
-                    <a href="/">Spa</a>
+                    <a href="/">Restaurants</a>
                 </li>
                 <li>
-                    <a href="/">Bar</a>
+                    <a href="/">Piscines</a>
                 </li>
                 <li>
-                    <a href="/">Salle</a>
+                    <a href="/">Salles</a>
                 </li>
                 <li>
                     <a href="/catalog">Choisir une destination</a>

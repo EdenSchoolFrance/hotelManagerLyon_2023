@@ -42,8 +42,6 @@ class HotelController
         require VIEWS . 'Hotel/show_client.php';
     }
 
-
-
     public function inscription_client()
     {
         $prenom = htmlentities($_POST["prenom"]);
@@ -61,5 +59,11 @@ class HotelController
         }
 
         header("Location: /");
+    }
+
+    public function show_chambres()
+    {
+        $chambres = $this->manager_hotel->show_chambre();
+        require VIEWS . 'Hotel/show_chambres.php';
     }
 }
