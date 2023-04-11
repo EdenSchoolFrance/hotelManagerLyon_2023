@@ -652,13 +652,15 @@ section {
   }
 }
 
-.client{
+.client,.liste{
   position: relative;
   top: -5rem;
+  text-align: center;
   h3{
     font-size: 2.4rem;
   }
 }
+
 .blockCard {
   & > .card {
     margin: 0.5rem;

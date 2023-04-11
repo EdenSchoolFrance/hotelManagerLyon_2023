@@ -675,11 +675,12 @@ section.error a {
   color: #8A2424;
 }
 
-.client {
+.client, .liste {
   position: relative;
   top: -5rem;
+  text-align: center;
 }
-.client h3 {
+.client h3, .liste h3 {
   font-size: 2.4rem;
 }
 

@@ -17,9 +17,9 @@ class HotelManager
     }
 
 
-    public function getAll()
+    public function getAll_client()
     {
-        $stmt = $this->bdd->prepare('SELECT * FROM ');
+        $stmt = $this->bdd->prepare('SELECT id_client, nom_client, prenom_client FROM client');
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
     }

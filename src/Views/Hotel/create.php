@@ -3,7 +3,7 @@ ob_start();
 ?>
 
 <section class="client">
-    <h1>information sur les client</h1>
+    <h1>creer un client</h1>
     <?php
     if(isset($_SESSION['error'])){
         echo "<p>".$_SESSION['error']."</p>";

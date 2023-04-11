@@ -35,7 +35,12 @@ class HotelController
         }else{
             $password = hash("sha256", $_POST['password']);
             $this->manager->insert_client($_POST['nom'], $_POST['prenom'], $_POST['email'], $password);
-            require VIEWS . 'Hotel/client.php'; 
+            header('location:../');
         }
+    }
+    public function liste()
+    {
+        $client = $this->manager->getAll_client();
+        require VIEWS . 'Hotel/liste.php'; 
     }
 }

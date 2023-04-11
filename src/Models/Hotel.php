@@ -4,53 +4,53 @@ namespace Hotel\Models;
 
 class Hotel
 {
-    private $ID;
-    private $NOM;
-    private $PRIX;
-    private $DESCRIPTION;
-    private $FORMAT_IMG;
+    private $id_client;
+    private $nom_client;
+    private $prenom_client;
+    private $email_client;
+    private $mdp_client;
 
-    public function getIdDestination()
+    public function getIdClient()
     {
-        return $this->ID;
+        return $this->id_client;
     }
-    public function getNomDestination()
+    public function getNomClient()
     {
-        return $this->NOM;
+        return $this->nom_client ;
     }
-    public function getPrixDestination()
+    public function getPrenomClient()
     {
-        return $this->PRIX;
+        return $this->prenom_client;
     }
-    public function getDescDestination()
+    public function getEmailClient()
     {
-        return $this->DESCRIPTION;
+        return $this->email_client;
     }
-    public function getFormatImgDestination()
+    public function getMdpClient()
     {
-        return $this->FORMAT_IMG;
+        return $this->mdp_client;
     }
 
 
-    public function setIdDestination(string $IDDESTINATION)
+    public function setIdDestination(string $id_client)
     {
-        $this->ID = $IDDESTINATION;
+        $this->id_client = $id_client;
     }
-    public function setNomDestination(string $NOMDESTINATION)
+    public function setNomDestination(string $nom_client)
     {
-        $this->NOM = $NOMDESTINATION;
+        $this->nom_client = $nom_client;
     }
-    public function setPrixDestination(string $PRIXDESTINATION)
+    public function setPrenomClient(string $prenom_client)
     {
-        $this->PRIX = $PRIXDESTINATION;
+        $this->prenom_client = $prenom_client;
     }
-    public function setDescDestination(int $DESCDESTINATION)
+    public function setEmailClient(int $email_client)
     {
-        $this->DESCRIPTION = $DESCDESTINATION;
+        $this->email_client = $email_client;
     }
-    public function setFormatImgDestination(string $FORMATIMGDESTINATION)
+    public function setMdpClient(string $mdp_client)
     {
-        $this->FORMAT_IMG = $FORMATIMGDESTINATION;
+        $this->mdp_client = $mdp_client;
     }
 }
 //controller set et get pour toute la class voyage
