@@ -33,8 +33,8 @@ ob_start();
 <form class="reservation" action="confirmReservation" method="POST">
     <div>
         <label for="restaurant">Restaurants</label>
-        <select name="restaurant" id="restaurant">
-            <option value="">--Aucun--</option>
+        <select name="restaurant" id="restaurant" required>
+            <option value="0">--Aucun--</option>
             <?php
             foreach ($restaurant as $restau) { ?>
                 <option value="<?= $restau->getIdRestaurant() ?>"><?= $restau->getNameRestaurant() ?></option>
@@ -63,23 +63,41 @@ ob_start();
             <label for="piscine_false">Non</label>
             <input type="radio" name="piscine[]" id="piscine_false" class="piscinefalse" value="0">
         </div>
-
         <label for="debut">Début</label>
         <input type="datetime-local" id="debut" name="piscinedate[]" min="2023-04-10T10:00" required>
 
         <label for="fin">Fin</label>
         <input type="datetime-local" id="fin" name="piscinedate[]" max="2023-04-10T23:00" required>
     </div>
+
+
     <button type="submit" class="cta">Terminer la réservation</button>
 </form>
 <script>
-    //Restaurant select
-    const restaurantBtn = document.querySelector('#restaurant');
-    let restaurant;
-    restaurantBtn.addEventListener('change', () => {
-        restaurant = encryptStorage.setItem('restaurant', `${[restaurantBtn.selectedIndex]}`);
+    const submit = document.querySelector('button[type="submit"]');
 
+    //CHAMBRE VALUE
+    let chambreInput = document.createElement('input');
+    chambreInput.setAttribute('type', 'hidden');
+    chambreInput.setAttribute('name', 'id_chambre');
+    chambreInput.setAttribute('value', `${encryptStorage.getItem('chambre')}`);
+    submit.insertAdjacentElement('beforebegin', chambreInput);
+
+    //RESTAURANT VALUE
+    const restaurantBtn = document.querySelector('#restaurant'); //select element
+    let restaurantInput = document.createElement('input');
+    restaurantInput.setAttribute('type', 'hidden');
+    restaurantInput.setAttribute('name', 'id_restaurant');
+    restaurantInput.setAttribute('value', 0); //set input hidden default value to 0
+    submit.insertAdjacentElement('beforebegin', restaurantInput);
+
+    restaurantBtn.addEventListener('click', () => { //if user select option 
+        let restaurant = encryptStorage.setItem('restaurant', `${[restaurantBtn.selectedIndex]}`); //store value in localStorage (with encrypt api)
+        let restaurantValue = encryptStorage.getItem('restaurant'); //decrypt value to set it in input value
+        restaurantInput.setAttribute('value', `${restaurantValue}`); //option selected replace value input
     });
+
+
 
     //Bar select
     const barBtn = document.querySelector('#bar');
@@ -113,9 +131,8 @@ ob_start();
                 }
             }
         });
-        
+
     }
-   
 </script>
 <?php
 $content = ob_get_clean();

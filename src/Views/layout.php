@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Pacifico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
 </head>
+
 <body>
     <header>
         <nav>
@@ -22,22 +24,23 @@
         </nav>
     </header>
     <main class="container">
-        <?php 
+        <script>
+            if (window.location.href.indexOf('reservation') === -1 && window.location.href.indexOf('Reservation') === -1) {
+                localStorage.clear();
+            }
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/encrypt-storage@latest/dist/index.js"></script>
+        <script>
+            const encryptStorage = new EncryptStorage('secret-key-value');
+        </script>
+        <?php
         echo $content;
         ?>
     </main>
     <footer>
 
     </footer>
-    <script>
-        if (window.location.href.indexOf('reservation') === -1 && window.location.href.indexOf('Reservation') === -1){
-            localStorage.clear();
-        }   
-    </script>
-     <script src="https://cdn.jsdelivr.net/npm/encrypt-storage@latest/dist/index.js"></script>
-  <script>
-    const encryptStorage = new EncryptStorage('secret-key-value');
-  </script>
-</body>
-</html>
 
+</body>
+
+</html>
