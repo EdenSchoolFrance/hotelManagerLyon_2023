@@ -1,15 +1,17 @@
+//VARIABLES
+$blue : #65C1BE;
+
+
+
 //GLOBAL
 *{
     font-size: 62.5%;
     box-sizing: border-box;
 }
-img{
-    max-width: 100%;
-}
 body{
     margin: 0;
     font-family: 'Pacifico', cursive;
-    color: #65C1BE;
+    color: $blue;
 }
 ul{
     padding: 0;
@@ -19,7 +21,6 @@ ul{
 a{
     text-decoration: none;
 }
-
 
 
 
@@ -36,6 +37,9 @@ header{
         .logo{
             display: block;
             width: 4rem;
+            img{
+                max-width: 100%;
+            }
         }
         .open{
             cursor: pointer;
@@ -45,7 +49,7 @@ header{
                 color: black;
             }
             i:hover{
-                color: #65C1BE;
+                color: $blue;
             }
         }
         .menu{
@@ -66,7 +70,7 @@ header{
                     transition: ease .2s;
                 }
                 i:hover{
-                    color: #65C1BE;
+                    color: $blue;
                 }
             }
             ul{
@@ -81,13 +85,13 @@ header{
                         font-size: 1.7rem;
                     }
                     a:hover{
-                        color: #65C1BE;
+                        color: $blue;
                     }
                 }
             }
         }
         .opened-menu{
-            width: 100%;
+            width: 50%;
             padding: 5rem;
         }
     }
@@ -104,63 +108,221 @@ main{
         padding-block: 10rem;
         text-shadow: 4px 4px 10px #000000;
     }
+    .btn{
+        padding: 1rem 2rem;
+        background-color: #65C1BE;
+        color: #313131;
+        border-radius: 15px;
+        border: solid 1px #313131;
+        margin-top: 2rem;
+        font-size: 1.5rem;
+    }
+    .btn:hover{
+        background-color: #313131;
+        border-color: $blue;
+        color: $blue;
+    }
     
-section.homepage{
-    h1{
-        background: url('pictures/home.jpg') no-repeat;
-        background-size: cover;
-        background-position: center;
-    }
-    .allServices{
-        padding: 2rem;
-        h3{
-            font-size: 2rem;
-            text-align: center;
+    section.homepage{
+        h1{
+            background: url('pictures/home.jpg') no-repeat;
+            background-size: cover;
+            background-position: center;
         }
-        ul{
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            width: 100%;
-            li a{
-                width: 180px;
-                height: 180px;
-                margin: 2rem;
-                position: relative;
+        .allServices{
+            padding: 2rem;
+            h3{
+                font-size: 2rem;
+                text-align: center;
+            }
+            ul{
                 display: flex;
+                flex-wrap: wrap;
                 justify-content: center;
-                align-items: center;
-                overflow: hidden;
-                border: solid 2px #65C1BE;
-                border-radius: 10px;
-                transition: .2s;
-                img{
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    z-index: -1;
-                    min-height: 100%;
-                    object-fit: cover;
-                    filter: brightness(50%);
+                width: 100%;
+                li a{
+                    width: 180px;
+                    height: 180px;
+                    margin: 2rem;
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    overflow: hidden;
+                    border: solid 2px $blue;
+                    border-radius: 10px;
+                    transition: .2s;
+                    img{
+                        width: 100%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        z-index: -1;
+                        min-height: 100%;
+                        object-fit: cover;
+                        filter: brightness(50%);
+                    }
+                    h5{
+                        font-size: 2rem;
+                        text-align: center;
+                        color: #65C1BE;
+                        text-shadow: 0px 0px 10px #000000;                
+                    }
                 }
-                h5{
-                    font-size: 2rem;
-                    text-align: center;
-                    color: #65C1BE;
-                    text-shadow: 0px 0px 10px #000000;                
+                li a:hover{
+                    transform: scale(0.95);
                 }
-            }
-            li a:hover{
-                transform: scale(0.95);
             }
         }
     }
-}
     section.chambres{
         h1{
             background: url('pictures/chambres.jpg') no-repeat;
             background-size: cover;
             background-position: center;
+        }
+        .allChambres{
+            padding: 2rem;
+            ul{
+                display: flex;
+                flex-wrap: wrap;
+                li{
+                    background-color: #313131;
+                    width: 20%;
+                    margin: 2.5%;
+                    overflow: hidden;
+                    border-radius: 15px;
+                    border: solid 2px $blue;
+                    .picture{
+                        width: 100%;
+                        height: 200px;
+                        overflow: hidden;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        img{
+                            width: 110%;
+                            transition: ease 1s;
+                        }
+                    }
+                    .content{
+                        padding: 1rem;
+                        h5{
+                            font-size: 2.5rem;
+                            text-align: center;
+                            margin-bottom: 3rem;
+                        }
+                        p{
+                            font-size: 1.5rem;
+                        }
+                        .reservation{
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            .dispo{
+                                color: green;
+                            }
+                            .occupe{
+                                color: red;
+                            }
+                            a{
+                                display: block;
+                                font-size: 1.5rem;
+                                color: #313131;
+                                background-color: $blue;
+                                border-radius: 15px;
+                                padding: 0.5rem 1rem;
+
+                            }
+                        }
+
+                    }
+                }
+                li:hover{
+                    .picture{
+                        img{
+                            width: 100% !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    section.clients{
+        h1{
+            background: url('pictures/clients.jpg') no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        .allClients{
+            padding: 2rem;
+            table {
+                margin-top: 2rem;
+                border-collapse: collapse;
+                width: 100%;
+              }
+              
+              td, th {
+                border: 1px solid $blue;
+                text-align: left;
+                padding: 8px;
+                font-size: 1.5rem;
+                a{
+                    color: $blue;
+                    font-size: 1.5rem;
+                }
+              }
+              
+              tr:nth-child(even) {
+                background-color: #313131;
+              }
+        }
+        #addClient.open{
+            display: flex;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 99;
+            width: 60%;
+            height: 700px;
+            background-color: #313131;
+            border-radius: 15px;
+            border: solid 2px $blue;
+            -webkit-box-shadow: 2px 5px 18px 5px rgba(0,0,0,0.9); 
+            box-shadow: 2px 5px 18px 5px rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+            #btnCloseClient{
+                position: absolute;
+                cursor: pointer;
+                top: 0;
+                right: 4rem;
+                font-size: 5rem;
+            }
+            form{
+                width: 60%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                input{
+                    display: block;
+                    width: 100%;
+                    margin: 2rem;
+                    font-size: 1.5rem;
+                    background-color: $blue;
+                    border-radius: 15px;
+                    padding: 1rem;
+                    color: #313131;
+
+                }
+                input::placeholder{
+                    color: #313131;
+                }
+            }
+        }
+        #addClient.close{
+            display: none;
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Hotel\Models;
 
-/** Class Plat **/
+/** Class Chambre **/
 class Chambre
 {
 

@@ -5,7 +5,7 @@ ob_start();
 <section class="chambres">
     <h1>Nos Chambres</h1>
     <div class="allChambres">
-        <h3>Toutes nos chambres disponibles...</h3>
+        <h3>Toutes nos chambres...</h3>
         <ul>
             <?php foreach ($chambres as $chambre) { ?>
                 <li>
@@ -14,10 +14,21 @@ ob_start();
                     </div>
                     <div class="content">
                         <h5><?= $chambre->getName() ?></h5>
-                        <p><?= $chambre->getDesc() ?></p>
-                        <p><?= $chambre->getPrices() ?></p>
+                        <p class="desc"><?= $chambre->getDesc() ?></p>
+                        <p class="price"><?= $chambre->getPrice() ?>€ /nuit pour 1 personne</p>
+                        <div class="reservation">
+                            <?php
+                            if ($chambre->getOccupe() == 0) {
+                                echo "
+                                <p class='dispo'>disponible</p>
+                                <a href='/reservationChambre/" . $chambre->getId() . "'>reserver</a>
+                                ";
+                            } else {
+                                echo "<p class='occupe'>occupé...</p>";
+                            }
+                            ?>
+                        </div>
                     </div>
-
 
                 </li>
             <?php } ?>

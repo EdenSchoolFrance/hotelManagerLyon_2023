@@ -2,7 +2,7 @@
 
 namespace Hotel\Models;
 
-use Hotel\Models\Plat;
+use Hotel\Models\Hotel;
 
 /** Class UserManager **/
 class HotelManager

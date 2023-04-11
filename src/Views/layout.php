@@ -28,7 +28,10 @@
                 </div>
                 <ul>
                     <li>
-                        <a href="#">Chambres</a>
+                        <a href="/">Accueil</a>
+                    </li>
+                    <li>
+                        <a href="/allChambres">Chambres</a>
                     </li>
                     <li>
                         <a href="#">Restaurants/Bars</a>
@@ -40,7 +43,7 @@
                         <a href="#">Salles Evénementielles</a>
                     </li>
                     <li>
-                        <a href="#">Nos Clients</a>
+                        <a href="/clients">Nos Clients</a>
                     </li>
                 </ul>
             </div>

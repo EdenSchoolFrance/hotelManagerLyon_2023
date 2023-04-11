@@ -3,10 +3,6 @@
   box-sizing: border-box;
 }
 
-img {
-  max-width: 100%;
-}
-
 body {
   margin: 0;
   font-family: "Pacifico", cursive;
@@ -33,6 +29,9 @@ header nav {
 header nav .logo {
   display: block;
   width: 4rem;
+}
+header nav .logo img {
+  max-width: 100%;
 }
 header nav .open {
   cursor: pointer;
@@ -84,7 +83,7 @@ header nav .menu ul li a:hover {
   color: #65C1BE;
 }
 header nav .opened-menu {
-  width: 100%;
+  width: 50%;
   padding: 5rem;
 }
 
@@ -95,6 +94,20 @@ main h1 {
   text-align: center;
   padding-block: 10rem;
   text-shadow: 4px 4px 10px #000000;
+}
+main .btn {
+  padding: 1rem 2rem;
+  background-color: #65C1BE;
+  color: #313131;
+  border-radius: 15px;
+  border: solid 1px #313131;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+}
+main .btn:hover {
+  background-color: #313131;
+  border-color: #65C1BE;
+  color: #65C1BE;
 }
 main section.homepage h1 {
   background: url("pictures/home.jpg") no-repeat;
@@ -128,6 +141,7 @@ main section.homepage .allServices ul li a {
   transition: 0.2s;
 }
 main section.homepage .allServices ul li a img {
+  width: 100%;
   position: absolute;
   top: 0;
   left: 0;
@@ -150,4 +164,138 @@ main section.chambres h1 {
   background: url("pictures/chambres.jpg") no-repeat;
   background-size: cover;
   background-position: center;
+}
+main section.chambres .allChambres {
+  padding: 2rem;
+}
+main section.chambres .allChambres ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+main section.chambres .allChambres ul li {
+  background-color: #313131;
+  width: 20%;
+  margin: 2.5%;
+  overflow: hidden;
+  border-radius: 15px;
+  border: solid 2px #65C1BE;
+}
+main section.chambres .allChambres ul li .picture {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main section.chambres .allChambres ul li .picture img {
+  width: 110%;
+  transition: ease 1s;
+}
+main section.chambres .allChambres ul li .content {
+  padding: 1rem;
+}
+main section.chambres .allChambres ul li .content h5 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+main section.chambres .allChambres ul li .content p {
+  font-size: 1.5rem;
+}
+main section.chambres .allChambres ul li .content .reservation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+main section.chambres .allChambres ul li .content .reservation .dispo {
+  color: green;
+}
+main section.chambres .allChambres ul li .content .reservation .occupe {
+  color: red;
+}
+main section.chambres .allChambres ul li .content .reservation a {
+  display: block;
+  font-size: 1.5rem;
+  color: #313131;
+  background-color: #65C1BE;
+  border-radius: 15px;
+  padding: 0.5rem 1rem;
+}
+main section.chambres .allChambres ul li:hover .picture img {
+  width: 100% !important;
+}
+main section.clients h1 {
+  background: url("pictures/clients.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+main section.clients .allClients {
+  padding: 2rem;
+}
+main section.clients .allClients table {
+  margin-top: 2rem;
+  border-collapse: collapse;
+  width: 100%;
+}
+main section.clients .allClients td, main section.clients .allClients th {
+  border: 1px solid #65C1BE;
+  text-align: left;
+  padding: 8px;
+  font-size: 1.5rem;
+}
+main section.clients .allClients td a, main section.clients .allClients th a {
+  color: #65C1BE;
+  font-size: 1.5rem;
+}
+main section.clients .allClients tr:nth-child(even) {
+  background-color: #313131;
+}
+main section.clients #addClient.open {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+  width: 60%;
+  height: 700px;
+  background-color: #313131;
+  border-radius: 15px;
+  border: solid 2px #65C1BE;
+  box-shadow: 2px 5px 18px 5px rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+}
+main section.clients #addClient.open #btnCloseClient {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  right: 4rem;
+  font-size: 5rem;
+}
+main section.clients #addClient.open form {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main section.clients #addClient.open form input {
+  display: block;
+  width: 100%;
+  margin: 2rem;
+  font-size: 1.5rem;
+  background-color: #65C1BE;
+  border-radius: 15px;
+  padding: 1rem;
+  color: #313131;
+}
+main section.clients #addClient.open form input::-moz-placeholder {
+  color: #313131;
+}
+main section.clients #addClient.open form input::placeholder {
+  color: #313131;
+}
+main section.clients #addClient.close {
+  display: none;
 }/*# sourceMappingURL=style.css.map */
