@@ -31,7 +31,10 @@ ob_start();
                 </td>
                 <td>
                     <a href="/reservation" class="cta" value="<?= $client->getIdClient() ?>">Réserver</a>
-                </td>
+                </td> <?php
+                 $_SESSION['client'] = $client->getIdClient();
+                 
+                ?>
             </tr>
     </tbody>
 
@@ -44,6 +47,8 @@ ob_start();
     clientBtn.forEach(e => {
         e.addEventListener('click', () => {
             client = encryptStorage.setItem('client', `${e.getAttribute('value')}`);
+           
+            
         });
     });
 </script>

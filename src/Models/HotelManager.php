@@ -125,6 +125,22 @@ class HotelManager
  
          return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
      }
+
+     //INSERTION RESERVATION
+
+     public function addClientChambre(){
+        $stmt = $this->bdd->prepare("INSERT INTO client_chambre VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->execute(array(
+            htmlentities($_SESSION['client']),
+            htmlentities($_POST['id_chambre']),
+            htmlentities($_POST['debut_chambre']),
+            htmlentities($_POST['fin_chambre']),
+            uniqid(),
+            1
+        ));
+     }
+
+
 /*
     public function getReservationOptions()
     {

@@ -29,7 +29,7 @@ ob_start();
     </li>
 </ul>
 
-<form class="reservation" action="confirmReservation" method="POST">
+<form class="reservation" action="/reservationConfirm" method="POST">
     <div>
         <label for="restaurant">Restaurants</label>
         <select name="restaurant" id="restaurant" required>
@@ -72,6 +72,7 @@ ob_start();
 
 
 <script>
+    const form = document.querySelector('form');
     const submit = document.querySelector('button[type="submit"]');
 
     //CHAMBRE VALUE
@@ -82,36 +83,78 @@ ob_start();
         chambreInput.setAttribute('value', 0);
     }
     else{
-        chambreInput.setAttribute('value', `${encryptStorage.getItem('chambre')}`); //if user select one -> value = id chambre
+        //if user select one -> value = id chambre
+        chambreInput.setAttribute('value', `${encryptStorage.getItem('chambre')}`);
+        submit.insertAdjacentElement('beforebegin', chambreInput);
+        //if user select one -> input date
+        form.insertAdjacentHTML('afterbegin', `<div>
+        <label for="debut_chambre">Début res. chambre</label>
+        <input type="date" name="debut_chambre" id="debut_chambre">
+
+        <label for="fin_chambre">Fin res. chambre</label>
+        <input type="date" name="fin_chambre" id="fin_chambre">
+        </div>
+        `);
     }
-    submit.insertAdjacentElement('beforebegin', chambreInput);
+    
 
     //MENU VALUE
     let menuInput = document.createElement('input');
     menuInput.setAttribute('type', 'hidden');
     menuInput.setAttribute('name', 'id_menu');
-    if (localStorage.getItem('chambre') == undefined) { //if user doesn't select chambre -> value 0
-        chambreInput.setAttribute('value', 0);
+    if (localStorage.getItem('menu') == undefined) { //if user doesn't select chambre -> value 0
+        menuInput.setAttribute('value', 0);
     }
+    
     else{
-        chambreInput.setAttribute('value', `${encryptStorage.getItem('chambre')}`); //if user select one -> value = id chambre
+        menuInput.setAttribute('value', `${encryptStorage.getItem('menu')}`); //if user select one -> value = id chambre
+        submit.insertAdjacentElement('beforebegin', menuInput);
+        form.insertAdjacentHTML('afterbegin', `<div>
+            <label for="date_menu">Date menu</label>
+            <input type="date" name="date_menu" id="date_menu">
+        </div>
+        `);
     }
-    menuInput.setAttribute('value', `${encryptStorage.getItem('menu')}`);
-    submit.insertAdjacentElement('beforebegin', menuInput);
+    
 
     //SALLES VALUE
     let salleInput = document.createElement('input');
     salleInput.setAttribute('type', 'hidden');
     salleInput.setAttribute('name', 'id_salle');
-    salleInput.setAttribute('value', `${encryptStorage.getItem('salle')}`);
-    submit.insertAdjacentElement('beforebegin', salleInput);
+    if (localStorage.getItem('salle') == undefined) { //if user doesn't select salle -> value 0
+        salleInput.setAttribute('value', 0);
+    }
+    
+    else{
+        salleInput.setAttribute('value', `${encryptStorage.getItem('salle')}`); //if user select one -> value = id salle
+        submit.insertAdjacentElement('beforebegin', salleInput);
+        form.insertAdjacentHTML('afterbegin', `<div>
+        <label for="debut_salle">Début res. salle</label>
+        <input type="date" name="debut_salle" id="debut_salle">
+
+        <label for="fin_salle">Fin res. salle</label>
+        <input type="date" name="fin_salle" id="fin_salle">
+        </div>
+        `);
+    }
+
 
     //BOISSONS VALUE
     let boissonInput = document.createElement('input');
     boissonInput.setAttribute('type', 'hidden');
     boissonInput.setAttribute('name', 'id_boisson');
-    boissonInput.setAttribute('value', `${encryptStorage.getItem('boisson')}`);
-    submit.insertAdjacentElement('beforebegin', boissonInput);
+    if (localStorage.getItem('boisson') == undefined) {
+        boissonInput.setAttribute('value', '0');
+    }
+    else{
+        boissonInput.setAttribute('value', `${encryptStorage.getItem('boisson')}`);
+        submit.insertAdjacentElement('beforebegin', boissonInput);
+        form.insertAdjacentHTML('afterbegin', `<div>
+            <label for="date_boisson">Date boisson</label>
+            <input type="date" name="date_boisson" id="date_boisson">
+        </div>
+        `);
+    }
 
     /*
         //RESTAURANT VALUE

@@ -109,6 +109,12 @@ class HotelController
     }
 
 
+    public function reservationInsert(){
+        
+        $client_chambre = $this->manager->addClientChambre();
+        
+    }
+
     /*
     //Show options form
     public function showReservationOptions()
