@@ -48,13 +48,17 @@ ob_start();
     <!-- PAGE D'INSCRIPTION DU CLIENT -->
     <h2>Que voulez-vous consulter ?</h2>
     <div id="formulaire">
-        <form action="/" method="post">
-            <select name="chambre" id="select">
+        <form action="/client/inscription/" method="post">
+            <input type="text" name="prenom" id="prenom" placeholder="Prénom">
+            <input type="text" name="nom" id="nom" placeholder="Nom">
+            <input type="email" name="email" id="email" placeholder="Exemple.exemple@exmpl.fr">
+
+            <!-- <select name="chambre" id="select">
                 <option value="chambre">Chambre</option>
                 <option value="Spa">Spa</option>
                 <option value="Retaurant">Retaurant</option>
                 <option value="Salle">Salle</option>
-            </select>
+            </select> -->
             <button type="submit">Yep</button>
         </form>
     </div>

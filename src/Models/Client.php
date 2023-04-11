@@ -54,4 +54,4 @@ class Client
         $this->mdp_client = $mdp_client;
     }
 }
-//controller set et get pour toute la class filtre
+//controller set et get pour toute la class client
