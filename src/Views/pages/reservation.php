@@ -20,7 +20,7 @@
                         </span>
                     </a>
                 </div>
-                <div>
+                <div class="chambre">
                     <a href="/showChambre/<?= $slug ?>">
                         Choisissez une chambre
                         <span>
@@ -40,7 +40,7 @@
                         </span>
                     </a>
                 </div>
-                <div>
+                <div class="salle">
                     <a href="/showSalle/<?= $slug ?>">
                         Choisissez une salle
                         <span>

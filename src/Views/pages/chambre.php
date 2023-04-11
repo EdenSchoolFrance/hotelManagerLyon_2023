@@ -39,6 +39,7 @@ $breadcrumbs->display();
         e.addEventListener("click", () => {
             encryptStorage.setItem("id_chambre", e.parentElement.querySelector(".id_chambre").value);
             encryptStorage.setItem("name_chambre", e.parentElement.querySelector(".name_chambre").value);
+            sessionStorage.setItem("pd", "ddd");
         })
     })
 </script>

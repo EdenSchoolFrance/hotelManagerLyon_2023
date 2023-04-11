@@ -108,22 +108,26 @@ class HotelManager extends BDD
 
     public function reservation($slug)
     {
-        $stmt = $this->bdd->prepare('SELECT * FROM piscine WHERE id_piscine = ?');
-        $stmt->execute(array($_POST["id_piscine"]));
-        $test = $stmt->fetchAll()[0];
-
-        if (!isset($_SESSION['counter'])) {
+        if (!isset($_SESSION['count'])) {
             $_SESSION['count'] = 0;
         }
 
+        $_SESSION["count"]++;
+
         if ($_POST["id_piscine"] != "undefined") {
-            if ($test["ouverture_piscine"] <= date("H:i:s", strtotime($_POST["debut_reserv"])) && $test["fermeture_piscine"] >= date("H:i:s", strtotime($_POST["fin_reserv"]))) {
-                $_SESSION["count"]++;
+            $stmt = $this->bdd->prepare('SELECT * FROM piscine WHERE id_piscine = ?');
+            $stmt->execute(array($_POST["id_piscine"]));
+            $test = $stmt->fetchAll()[0];
+            if ($test["ouverture_piscine"] <= date("H:i:s", strtotime($_POST["debut_piscine"])) && $test["fermeture_piscine"] >= date("H:i:s", strtotime($_POST["fin_piscine"]))) {
                 $stmt = $this->bdd->prepare('INSERT INTO client_piscine (id_piscine, id_client, date_debut_reservation_piscine, date_fin_reservation_piscine, num_reservation_piscine, status_piscine) VALUES (?, ?, ?, ?, ?, ?)');
-                $stmt->execute(array($_POST["id_piscine"], $slug, date("Y-m-d", strtotime($_POST["debut_reserv"])), date("Y-m-d", strtotime($_POST["fin_reserv"])), $_SESSION["count"], ""));
-            } else {
-                echo date("H:i:s", strtotime("22:00:00"));  
+                $stmt->execute(array($_POST["id_piscine"], $slug, date("Y-m-d", strtotime($_POST["debut_piscine"])), date("Y-m-d", strtotime($_POST["fin_piscine"])), $_SESSION["count"], ""));
             }
+        }
+
+
+        if ($_POST["id_salle"] != "undefined") {
+            $stmt = $this->bdd->prepare('INSERT INTO client_salle (id_client, id_salle, date_debut_reservation_salle, date_fin_reservation_salle, num_reservation_salle, status_salle) VALUES (?, ?, ?, ?, ?, ?)');
+            $stmt->execute(array($slug, $_POST["id_salle"], date("Y-m-d", strtotime($_POST["debut_salle"])), date("Y-m-d", strtotime($_POST["fin_salle"])), $_SESSION["count"], ""));
         }
     }
 }
