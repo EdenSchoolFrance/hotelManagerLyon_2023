@@ -43,4 +43,10 @@ class HotelController
         $client = $this->manager->getAll_client();
         require VIEWS . 'Hotel/liste.php'; 
     }
+    public function get_client()
+    {
+        $client = $this->manager->get_client($_POST['liste']);
+        $reservation = $this->manager->get_reservations_client($_POST['liste']);
+        require VIEWS . 'Hotel/info_client.php'; 
+    }
 }

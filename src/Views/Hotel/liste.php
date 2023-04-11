@@ -5,7 +5,7 @@ ob_start();
 <section class="liste">
     <h1>information sur les client</h1>
     
-    <form action="./create/bdd" method="POST">
+    <form action="./liste" method="POST">
         <select name="liste">
             <?php
                 foreach ($client as $clients) {

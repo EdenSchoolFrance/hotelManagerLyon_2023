@@ -13,6 +13,7 @@ $router->get('dashboard/client/create', "HotelController@create");
 $router->get('dashboard/client/liste', "HotelController@liste");
 
 $router->post('dashboard/client/create/bdd', "HotelController@create_bdd");
+$router->post('dashboard/client/liste', "HotelController@get_client");
 $router->run();
 
 //les route get et post

@@ -34,4 +34,20 @@ class HotelManager
         ));
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
     }
+    public function get_client($id)
+    {
+        $stmt = $this->bdd->prepare('SELECT * FROM client WHERE client.id_client = ?');
+        $stmt->execute(array(
+            $id,
+        ));
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
+    public function get_reservations_client($id)
+    {
+        $stmt = $this->bdd->prepare('SELECT * FROM client_salle LEFT JOIN salle ON client_salle.id_salle = salle.id_salle WHERE client_salle.id_client = ?');
+        $stmt->execute(array(
+            $id,
+        ));
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
 }
