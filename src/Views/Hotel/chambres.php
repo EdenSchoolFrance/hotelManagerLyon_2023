@@ -21,7 +21,7 @@ ob_start();
                             if ($chambre->getOccupe() == 0) {
                                 echo "
                                 <p class='dispo'>disponible</p>
-                                <a href='/reservationChambre/" . $chambre->getId() . "'>reserver</a>
+                                <a href='/reserveChambre/" . $chambre->getId() . "'>reserver</a>
                                 ";
                             } else {
                                 echo "<p class='occupe'>occupé...</p>";

@@ -2,6 +2,7 @@
 
 namespace Hotel\Controllers;
 
+use Hotel\Models\ClientManager;
 use Hotel\Models\HotelManager;
 use Hotel\Validator;
 
@@ -21,9 +22,20 @@ class HotelController
     {
         require VIEWS . 'homepage.php';
     }
+
+    //afficher toutes les chambres
     public function allChambres()
     {
         $chambres = $this->manager->getAllChambres();
         require VIEWS . 'Hotel/chambres.php';
+    }
+
+    //afficher le formulaire de réservation d'une chambre
+    public function reserveChambre($slug)
+    {
+        $chambre = $this->manager->getChambre($slug);
+        $clientManager = new ClientManager();
+        $client = $clientManager->getAllClients();
+        require VIEWS . 'Hotel/reserveChambre.php';
     }
 }

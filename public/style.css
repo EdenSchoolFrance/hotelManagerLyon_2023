@@ -83,7 +83,7 @@ header nav .menu ul li a:hover {
   color: #65C1BE;
 }
 header nav .opened-menu {
-  width: 50%;
+  width: 30%;
   padding: 5rem;
 }
 
@@ -224,6 +224,10 @@ main section.chambres .allChambres ul li .content .reservation a {
 }
 main section.chambres .allChambres ul li:hover .picture img {
   width: 100% !important;
+}
+main section.reserveChambre h1 {
+  background-size: cover !important;
+  background-position: center !important;
 }
 main section.clients h1 {
   background: url("pictures/clients.jpg") no-repeat;

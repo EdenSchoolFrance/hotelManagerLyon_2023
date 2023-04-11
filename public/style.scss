@@ -91,7 +91,7 @@ header{
             }
         }
         .opened-menu{
-            width: 50%;
+            width: 30%;
             padding: 5rem;
         }
     }
@@ -246,6 +246,12 @@ main{
                     }
                 }
             }
+        }
+    }
+    section.reserveChambre{
+        h1{
+            background-size: cover !important;
+            background-position: center !important;
         }
     }
     section.clients{

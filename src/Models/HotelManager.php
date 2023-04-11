@@ -22,4 +22,14 @@ class HotelManager
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Chambre");
     }
+
+    public function getChambre($id)
+    {
+        $stmt = $this->bdd->prepare("SELECT * FROM chambre WHERE id_chambre = ?");
+        $stmt->execute(array(
+            $id
+        ));
+        $stmt->setFetchMode(\PDO::FETCH_CLASS, "Hotel\Models\Chambre");
+        return $stmt->fetch();
+    }
 }
