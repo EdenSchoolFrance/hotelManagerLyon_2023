@@ -13,6 +13,7 @@ ob_start();
             <th>Chambres</th>
             <th>Piscines</th>
             <th>Salles</th>
+            <th>Supprimer</th>
         </tr>
         <?php foreach ($clients as $client) { ?>
             <tr>
@@ -23,9 +24,21 @@ ob_start();
                 <td><a href="/chambres/">Reserver une chambre</a></td>
                 <td><a href="/piscines/">Reserver une piscine</a></td>
                 <td><a href="/salles/">Reserver une salle</a></td>
+                <td>
+                    <form action="/client/supprimer" method="post">
+                        <input type="hidden" name="id" value="<?= $client->getid_client() ?>">
+                        <input type="hidden" name="prenom" value="<?= $client->getprenom_client() ?>">
+                        <input type="hidden" name="nom" value="<?= $client->getnom_client() ?>">
+                        <input type="hidden" name="email" value="<?= $client->getemail_client() ?>">
+                        <button type="submit">Supprimer la personne</button>
+                    </form>
+                </td>
             </tr>
         <?php } ?>
     </table>
+    <?php if (isset($_SESSION["error"]['username'])) {
+        echo "<h2>" . $_SESSION["error"]['username'] . "</h2>";
+    } ?>
 </section>
 
 <?php

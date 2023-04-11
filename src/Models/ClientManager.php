@@ -55,4 +55,17 @@ class ClientManager
         ));
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Client");
     }
+
+    public function delete_Client($id, $nom, $prenom, $email)
+    {
+        $stmt = $this->bdd->prepare('DELETE FROM `client` WHERE id_client = ? AND prenom_client = ? AND nom_client = ? AND email_client = ?');
+        $stmt->execute(array(
+            $id,
+            $nom,
+            $prenom,
+            $email,
+
+        ));
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Client");
+    }
 }

@@ -52,13 +52,33 @@ class HotelController
 
         if (empty($res)) {
             $this->manager->CreateClient($prenom, $nom, $email);
-            header("Location:/client");
+            header("Location: /client");
         } else {
             $_SESSION["error"]['username'] = "La personne est déjà Inscrite";
             header("Location: /");
         }
 
         header("Location: /");
+    }
+
+    public function delete_client()
+    {
+        $id = htmlentities($_POST["id"]);
+        $prenom = htmlentities($_POST["prenom"]);
+        $nom = htmlentities($_POST["nom"]);
+        $email = htmlentities($_POST["email"]);
+
+        $res = $this->manager->find($prenom, $nom, $email);
+
+        if (empty($res)) {
+            $_SESSION["error"]['username'] = "La personne n'existe pas";
+            header("Location: /client/");
+        } else {
+            $this->manager->delete_Client($id, $prenom, $nom, $email);
+            header("Location: /client/");
+        }
+
+        header("Location: /client/");
     }
 
     public function show_chambres()
