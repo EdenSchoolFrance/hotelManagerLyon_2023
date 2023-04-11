@@ -154,4 +154,15 @@ class HotelController
     {
         $this->breadcrumbs[] = ["title" => $title, "url" => $url];
     }
+
+    public function deleteMenu($slug)
+    {
+        setcookie("restaurant_".$slug, "", time() - 3600, "/");
+        header("Location: /showClients");
+    }
+
+    public function showMenu() {
+        $item = $this->manager->showMenu();
+        require VIEWS . "pages/menu.php";
+    }
 }

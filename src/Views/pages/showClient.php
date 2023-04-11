@@ -26,8 +26,8 @@
                 <?php if (isset($_COOKIE["restaurant_" . $els->getid_client()])) : ?>
                     <td>
                         <div class="confirm_resto">
-                            <a href="/showMenu"><img src="/img/icons/plus.svg" alt=""></a>
-                            <a href="/deleteMenu/<?= $_SESSION["idUser"] ?>"><span class="delete"></span></a>
+                            <a href="/showMenu/<?= $els->getid_client() ?>"><img src="/img/icons/plus.svg" alt=""></a>
+                            <a href="/deleteMenu/<?= $els->getid_client() ?>"><span class="delete"></span></a>
                         </div>
                     </td>
                 <?php endif ?>

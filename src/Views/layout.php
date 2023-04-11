@@ -23,7 +23,9 @@
 
     <?php require VIEWS . "includes/ariane.php" ?>
     <main>
-        <?= $ariane ?>
+        <?php if (isset($this->breadcrumbs)) : ?>
+            <?= $ariane ?>
+        <?php endif ?>
         <?= $content; ?>
     </main>
     <script>
