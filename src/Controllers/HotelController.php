@@ -101,6 +101,6 @@ class HotelController
     public function addReservation()
     {
         $this->manager->reservation($_SESSION["idUser"]);
-
+        header("Location: /reservation/".$_SESSION["idUser"]);
     }
 }

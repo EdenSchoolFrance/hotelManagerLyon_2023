@@ -60,7 +60,7 @@ class HotelManager extends BDD
 
     public function showChambre()
     {
-        $stmt = $this->bdd->prepare('SELECT * FROM chambre');
+        $stmt = $this->bdd->prepare('SELECT * FROM chambre WHERE occupe_chambre = true');
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Chambre");
@@ -128,6 +128,11 @@ class HotelManager extends BDD
         if ($_POST["id_salle"] != "undefined") {
             $stmt = $this->bdd->prepare('INSERT INTO client_salle (id_client, id_salle, date_debut_reservation_salle, date_fin_reservation_salle, num_reservation_salle, status_salle) VALUES (?, ?, ?, ?, ?, ?)');
             $stmt->execute(array($slug, $_POST["id_salle"], date("Y-m-d", strtotime($_POST["debut_salle"])), date("Y-m-d", strtotime($_POST["fin_salle"])), $_SESSION["count"], ""));
+        }
+
+        if ($_POST["id_chambre"] != "undefined") {
+            $stmt = $this->bdd->prepare('INSERT INTO client_chambre (id_client, id_chambre, date_debut_reservation_chambre, date_fin_reservation_piscine_chambre, num_reservation_chambre, status_chambre) VALUES (?, ?, ?, ?, ?, ?)');
+            $stmt->execute(array($slug, $_POST["id_chambre"], date("Y-m-d", strtotime($_POST["debut_chambre"])), date("Y-m-d", strtotime($_POST["fin_chambre"])), $_SESSION["count"], ""));
         }
     }
 }
