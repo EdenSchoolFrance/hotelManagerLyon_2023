@@ -28,22 +28,22 @@
                     <a href="/">Hotel</a>
                 </li>
                 <li>
-                    <a href="/client" <?= true ? "id = 'on_link'" : "" ?>>Clients</a>
+                    <a href="/client/" <?= true ? "id = 'on_link'" : "" ?>>Clients</a>
                 </li>
                 <li>
                     <a href="/chambres/">Chambres</a>
                 </li>
                 <li>
-                    <a href="/">Restaurants</a>
+                    <a href="/restaurants/">Restaurants</a>
                 </li>
                 <li>
-                    <a href="/">Piscines</a>
+                    <a href="/piscines/">Piscines</a>
                 </li>
                 <li>
-                    <a href="/">Salles</a>
+                    <a href="/salles/">Salles</a>
                 </li>
                 <li>
-                    <a href="/catalog">Choisir une destination</a>
+                    <a href="/bars/">Bars</a>
                 </li>
             </ul>
         </nav>

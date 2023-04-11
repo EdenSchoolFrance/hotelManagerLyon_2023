@@ -10,7 +10,9 @@ ob_start();
             <th>Prenom</th>
             <th>Nom</th>
             <th>Email</th>
-            <th>Ajout d'informations</th>
+            <th>Chambres</th>
+            <th>Piscines</th>
+            <th>Salles</th>
         </tr>
         <?php foreach ($clients as $client) { ?>
             <tr>
@@ -19,6 +21,8 @@ ob_start();
                 <td><?= $client->getnom_client(); ?></td>
                 <td><?= $client->getemail_client(); ?></td>
                 <td><a href="/chambres/">Reserver une chambre</a></td>
+                <td><a href="/piscines/">Reserver une piscine</a></td>
+                <td><a href="/salles/">Reserver une salle</a></td>
             </tr>
         <?php } ?>
     </table>

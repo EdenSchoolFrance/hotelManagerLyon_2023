@@ -66,4 +66,28 @@ class HotelController
         $chambres = $this->manager_hotel->show_chambre();
         require VIEWS . 'Hotel/show_chambres.php';
     }
+
+    public function show_piscines()
+    {
+        $piscines = $this->manager_hotel->show_piscines();
+        require VIEWS . 'Hotel/show_piscines.php';
+    }
+
+    public function show_salles()
+    {
+        $salles = $this->manager_hotel->show_salles();
+        require VIEWS . 'Hotel/show_salles.php';
+    }
+
+    public function show_restaurants()
+    {
+        $restaurants = $this->manager_hotel->show_restaurants();
+        require VIEWS . 'Hotel/show_restaurants.php';
+    }
+
+    public function show_bars()
+    {
+        $restaurants = $this->manager_hotel->show_bars();
+        require VIEWS . 'Hotel/show_bars.php';
+    }
 }
