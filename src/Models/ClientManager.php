@@ -61,4 +61,12 @@ class ClientManager{
             $_POST["id"],
         ));
     }
+
+    public function getAllChambre(){
+        $stmt = $this->bdd->prepare("SELECT * FROM chambre");
+        $stmt->execute();
+        $stmt->setFetchMode(\PDO::FETCH_CLASS,"hotel\Models\Chambre");
+
+        return $stmt->fetchAll();
+    }
 }

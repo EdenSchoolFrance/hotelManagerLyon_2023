@@ -19,6 +19,7 @@
             <li><a href="/">Home</a></li>
             <li><a href="/list">Liste client</a></li>
             <li><a href="/add">Ajouter client</a></li>
+            <!-- <li><a href="/reservation">Faire une reservation</a></li> -->
         </ul>
     </nav>
 </header> 
