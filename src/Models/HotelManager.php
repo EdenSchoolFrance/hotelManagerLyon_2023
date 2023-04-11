@@ -34,6 +34,12 @@ class HotelManager
         ));
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
     }
+    public function update_client($nom, $prenom, $email, $password, $id)
+    {
+        $stmt = $this->bdd->prepare("UPDATE client SET nom_client=".$nom.", prenom_client=".$prenom.", email_client=".$email.", mdp_client=".$password."WHERE id_client = ".$id.";");
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
     public function get_client($id)
     {
         $stmt = $this->bdd->prepare('SELECT * FROM client WHERE client.id_client = ?');

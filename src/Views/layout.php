@@ -21,27 +21,27 @@
                     <p class="hidden">Login</p>
                 </div> -->
                 <div class="hoverLink">
-                    <a href="/dashboard/client" class="icon"><i class="fa-solid fa-bed"></i></a>
+                    <a href="/client" class="icon"><i class="fa-solid fa-bed"></i></a>
                     <p class="hidden">client</p>
                 </div>
                 <div class="hoverLink">
-                    <a href="/dashboard/backoffice/update" class="icon"><i class="fa-solid fa-utensils"></i></a>
+                    <a href="/backoffice/update" class="icon"><i class="fa-solid fa-utensils"></i></a>
                     <p class="hidden">réstaurent</p>
                 </div>
                 <div class="hoverLink">
-                    <a href="/dashboard/backoffice/supp" class="icon"><i class="fa-solid fa-wine-bottle"></i></a>
+                    <a href="/backoffice/supp" class="icon"><i class="fa-solid fa-wine-bottle"></i></a>
                     <p class="hidden">bar</p>
                 </div>
                 <div class="hoverLink">
-                    <a href="/dashboard/nouveau" class="icon"><i class="fa-regular fa-square-h"></i></a>
+                    <a href="/nouveau" class="icon"><i class="fa-regular fa-square-h"></i></a>
                     <p class="hidden">salle</p>
                 </div>
                 <div class="hoverLink">
-                    <a href="/dashboard/panier" class="icon"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a href="/panier" class="icon"><i class="fa-solid fa-cart-shopping"></i></a>
                     <p class="hidden">panier</p>
                 </div>
                 <div class="hoverLink">
-                    <a href="/dashboard/historique" class="icon"><i class="fa-solid fa-clock-rotate-left"></i></a>
+                    <a href="/historique" class="icon"><i class="fa-solid fa-clock-rotate-left"></i></a>
                     <p class="hidden">Historique</p>
                 </div>
         </nav>

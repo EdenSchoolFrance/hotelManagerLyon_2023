@@ -8,12 +8,14 @@ require SRC . 'helper.php';
 
 $router = new Hotel\Router($_SERVER["REQUEST_URI"]);
 $router->get('/', "HotelController@index");
-$router->get('dashboard/client', "HotelController@client");
-$router->get('dashboard/client/create', "HotelController@create");
-$router->get('dashboard/client/liste', "HotelController@liste");
+$router->get('/client', "HotelController@client");
+$router->get('/client/create', "HotelController@create");
+$router->get('/client/liste', "HotelController@liste");
+$router->get('/client/update', "HotelController@update");
 
-$router->post('dashboard/client/create/bdd', "HotelController@create_bdd");
-$router->post('dashboard/client/liste', "HotelController@get_client");
+$router->post('/client/create/bdd', "HotelController@create_bdd");
+$router->post('/client/liste', "HotelController@get_client");
+$router->post('/client/update', "HotelController@update_bdd");
 $router->run();
 
 //les route get et post
