@@ -57,4 +57,42 @@ footer {
   background: rgb(2, 2, 51);
   color: #fff;
   padding: 8px;
+}
+
+#form_add_client label {
+  position: absolute;
+  left: -10000px;
+}
+#form_add_client input {
+  margin: 10px;
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+  outline: none;
+}
+#form_add_client div:last-of-type {
+  margin: 10px 0 0 0;
+}
+
+.btn_submit {
+  outline: none;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+#list {
+  overflow-x: auto;
+}
+
+table {
+  margin: 20px 0 0 0;
+}
+
+th, td {
+  color: #fff;
+}
+
+.red {
+  color: red;
 }/*# sourceMappingURL=style.css.map */

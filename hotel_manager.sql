@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `bar` (
   `id_bar` int NOT NULL AUTO_INCREMENT,
   `name_bar` varchar(50) NOT NULL,
   PRIMARY KEY (`id_bar`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `bar`
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `bar_boisson` (
   `quantite_stock_bar_boisson` int NOT NULL,
   KEY `id_boisson` (`id_boisson`,`id_bar`),
   KEY `id_bar` (`id_bar`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `boisson` (
   `image_boisson` varchar(255) NOT NULL,
   `prix_un_boisson` float NOT NULL,
   PRIMARY KEY (`id_boisson`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `boisson`
@@ -96,7 +96,7 @@ CREATE TABLE IF NOT EXISTS `chambre` (
   `occupe_chambre` tinyint(1) NOT NULL,
   `categorie_chambre` varchar(50) NOT NULL,
   PRIMARY KEY (`id_chambre`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `chambre`
@@ -114,20 +114,19 @@ INSERT INTO `chambre` (`id_chambre`, `name_chambre`, `description_chambre`, `ima
 
 DROP TABLE IF EXISTS `client`;
 CREATE TABLE IF NOT EXISTS `client` (
-  `id_client` int NOT NULL AUTO_INCREMENT,
+  `id_client` varchar(100) NOT NULL,
   `nom_client` varchar(50) NOT NULL,
   `prenom_client` varchar(50) NOT NULL,
   `email_client` varchar(255) NOT NULL,
   `mdp_client` varchar(255) NOT NULL,
   PRIMARY KEY (`id_client`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `client`
 --
 
-INSERT INTO `client` (`id_client`, `nom_client`, `prenom_client`, `email_client`, `mdp_client`) VALUES
-(1, 'fgdh', 'hdfghjghfgh', 'adminoza@gmail.com', '$2y$10$IYBAvBX3Rqva0qr4NYPPMuGg2sn5AlxYtiyWqQidhycY6451uoU3C');
+
 
 -- --------------------------------------------------------
 
@@ -137,13 +136,13 @@ INSERT INTO `client` (`id_client`, `nom_client`, `prenom_client`, `email_client`
 
 DROP TABLE IF EXISTS `client_boisson`;
 CREATE TABLE IF NOT EXISTS `client_boisson` (
-  `id_client` int NOT NULL,
+  `id_client` varchar(100) NOT NULL,
   `id_boisson` int NOT NULL,
   `quantite_client_boisson` int NOT NULL,
   `date_client_boisson` date NOT NULL,
   KEY `id_client` (`id_client`,`id_boisson`),
   KEY `id_boisson` (`id_boisson`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -153,7 +152,7 @@ CREATE TABLE IF NOT EXISTS `client_boisson` (
 
 DROP TABLE IF EXISTS `client_chambre`;
 CREATE TABLE IF NOT EXISTS `client_chambre` (
-  `id_client` int NOT NULL,
+  `id_client` varchar(100) NOT NULL,
   `id_chambre` int NOT NULL,
   `date_debut_reservation_chambre` date NOT NULL,
   `date_fin_reservation_piscine_chambre` date NOT NULL,
@@ -162,7 +161,7 @@ CREATE TABLE IF NOT EXISTS `client_chambre` (
   PRIMARY KEY (`num_reservation_chambre`),
   KEY `id_client` (`id_client`,`id_chambre`),
   KEY `id_chambre` (`id_chambre`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -172,13 +171,13 @@ CREATE TABLE IF NOT EXISTS `client_chambre` (
 
 DROP TABLE IF EXISTS `client_menu`;
 CREATE TABLE IF NOT EXISTS `client_menu` (
-  `id_client` int NOT NULL,
+  `id_client` varchar(100) NOT NULL,
   `id_menu` int NOT NULL,
   `quantite_client_menu` int NOT NULL,
   `date_client_menu` date NOT NULL,
   KEY `id_client` (`id_client`,`id_menu`),
   KEY `id_menu` (`id_menu`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -189,7 +188,7 @@ CREATE TABLE IF NOT EXISTS `client_menu` (
 DROP TABLE IF EXISTS `client_piscine`;
 CREATE TABLE IF NOT EXISTS `client_piscine` (
   `id_piscine` int NOT NULL,
-  `id_client` int NOT NULL,
+  `id_client` varchar(100) NOT NULL,
   `date_debut_reservation_piscine` date NOT NULL,
   `date_fin_reservation_piscine` date NOT NULL,
   `num_reservation_piscine` int NOT NULL,
@@ -197,7 +196,7 @@ CREATE TABLE IF NOT EXISTS `client_piscine` (
   PRIMARY KEY (`num_reservation_piscine`),
   KEY `id_piscine` (`id_piscine`,`id_client`),
   KEY `id_client` (`id_client`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -207,7 +206,7 @@ CREATE TABLE IF NOT EXISTS `client_piscine` (
 
 DROP TABLE IF EXISTS `client_salle`;
 CREATE TABLE IF NOT EXISTS `client_salle` (
-  `id_client` int NOT NULL,
+  `id_client` varchar(100) NOT NULL,
   `id_salle` int NOT NULL,
   `date_debut_reservation_salle` date NOT NULL,
   `date_fin_reservation_salle` date NOT NULL,
@@ -216,7 +215,7 @@ CREATE TABLE IF NOT EXISTS `client_salle` (
   PRIMARY KEY (`num_reservation_salle`),
   KEY `id_client` (`id_client`,`id_salle`),
   KEY `id_salle` (`id_salle`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -227,13 +226,13 @@ CREATE TABLE IF NOT EXISTS `client_salle` (
 DROP TABLE IF EXISTS `facture`;
 CREATE TABLE IF NOT EXISTS `facture` (
   `id_facture` int NOT NULL AUTO_INCREMENT,
-  `id_client` int NOT NULL,
+  `id_client` varchar(100) NOT NULL,
   `num_reference` int NOT NULL,
   `date_facture` date NOT NULL,
   `total_ttc` float NOT NULL,
   PRIMARY KEY (`id_facture`),
   KEY `id_client` (`id_client`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -251,7 +250,7 @@ CREATE TABLE IF NOT EXISTS `menu` (
   `prix_un_menu` float NOT NULL,
   PRIMARY KEY (`id_menu`),
   KEY `id_restaurant` (`id_restaurant`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -269,7 +268,7 @@ CREATE TABLE IF NOT EXISTS `piscine` (
   `fermeture_piscine` time NOT NULL,
   `nettoyage_piscine` date NOT NULL,
   PRIMARY KEY (`id_piscine`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -282,7 +281,7 @@ CREATE TABLE IF NOT EXISTS `restaurant` (
   `id_restaurant` int NOT NULL AUTO_INCREMENT,
   `name_restaurant` varchar(50) NOT NULL,
   PRIMARY KEY (`id_restaurant`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -299,7 +298,7 @@ CREATE TABLE IF NOT EXISTS `salle` (
   `type_salle` varchar(50) NOT NULL,
   `options_salle` varchar(255) NOT NULL,
   PRIMARY KEY (`id_salle`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Contraintes pour les tables déchargées

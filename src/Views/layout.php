@@ -16,7 +16,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg p-3">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><i class="bi bi-building display-2"></i></a>
+                <a class="navbar-brand" href="/"><i class="bi bi-building display-2"></i></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -26,21 +26,29 @@
                         <li class="nav-item">
                             <a class="nav-link mx-2 active" aria-current="page" href="#">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link mx-2" href="#">Products</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link mx-2" href="#">Pricing</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Clients
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="/client/nouveau">Nouveau Client</a></li>
+                                <li><a class="dropdown-item" href="/client/liste">Liste</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Company
+                                Réservations
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">Blog</a></li>
-                                <li><a class="dropdown-item" href="#">About Us</a></li>
-                                <li><a class="dropdown-item" href="#">Contact us</a></li>
+                                <li><a class="dropdown-item" href="#">Chambre</a></li>
+                                <li><a class="dropdown-item" href="#">Salle</a></li>
+                                <li><a class="dropdown-item" href="#">Piscine</a></li>
+                                <li><a class="dropdown-item" href="#">Restaurant</a></li>
+                                <li><a class="dropdown-item" href="#">Bar</a></li>
                             </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-2" href="#">Stock</a>
                         </li>
                     </ul>
                 </div>
