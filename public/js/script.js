@@ -49,9 +49,9 @@ arrName.forEach((e) => {
       allSelect.insertAdjacentHTML(
         "beforeend",
         `<div class='date'>
-      <input type='${
-        e == "piscine" ? "datetime-local" : "date"
-      }' name='debut_${e}'><input type='${
+      <input class="debut_${e}" type='${
+          e == "piscine" ? "datetime-local" : "date"
+        }' name='debut_${e}'><input class="fin_${e}" type='${
           e == "piscine" ? "datetime-local" : "date"
         }' name='fin_${e}'></div>`
       );
@@ -93,6 +93,8 @@ arrName.forEach((e) => {
       if (encryptStorage.getItem(`name_${e}`)) {
         encryptStorage.removeItem(`name_${e}`);
         encryptStorage.removeItem(`id_${e}`);
+        encryptStorage.removeItem(`debut_${e}`);
+        encryptStorage.removeItem(`fin_${e}`);
 
         if (encryptStorage.getItem(`quantity_boisson`)) {
           encryptStorage.removeItem(`quantity_boisson`);
@@ -102,8 +104,32 @@ arrName.forEach((e) => {
 
     if (select) {
       select.addEventListener("change", () => {
-        select.nextElementSibling.href = `/showBoisson/${select[select.selectedIndex].value}`;
-      })
+        select.nextElementSibling.href = `/showBoisson/${
+          select[select.selectedIndex].value
+        }`;
+      });
     }
+  }
+});
+
+arrName.forEach((e) => {
+  const timeDebut = document.querySelector(`.debut_${e}`);
+  const timeFin = document.querySelector(`.fin_${e}`);
+  if (timeFin) {
+    timeFin.addEventListener("input", () => {
+      if (encryptStorage.getItem(`name_${e}`)) {
+        encryptStorage.setItem(`fin_${e}`, timeFin.value);
+      }
+    });
+    timeFin.value = encryptStorage.getItem(`fin_${e}`);
+  }
+
+  if (timeDebut) {
+    timeDebut.addEventListener("input", () => {
+      if (encryptStorage.getItem(`name_${e}`)) {
+        encryptStorage.setItem(`debut_${e}`, timeDebut.value);
+      }
+    });
+    timeDebut.value = encryptStorage.getItem(`debut_${e}`);
   }
 });
