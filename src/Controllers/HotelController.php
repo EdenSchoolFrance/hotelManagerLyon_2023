@@ -125,12 +125,24 @@ class HotelController
     public function reserve_chambres()
     {
         $user = $_SESSION["user"]["id_user"];
+        $id_chambre = $_POST["id_chambre"];
         $deb_date = $_POST["deb_date"];
         $fin_date = $_POST["fin_date"];
         $num_reserve = uniqid();
-        $id_chambre = $_POST["id_chambre"];
 
         $this->manager->reserve_chambres($user, $id_chambre, $deb_date, $fin_date, $num_reserve);
         header("Location: /client/");
+    }
+
+    public function reserve_piscines()
+    {
+        $user = $_SESSION["user"]["id_user"];
+        $id_piscine = $_POST["id_piscine"];
+        $deb_date = $_POST["deb_date"];
+        $fin_date = $_POST["fin_date"];
+        $num_reserve = uniqid();
+
+        $this->manager->reserve_piscines($user, $id_piscine, $deb_date, $fin_date, $num_reserve);
+        header("Location: /piscines/");
     }
 }

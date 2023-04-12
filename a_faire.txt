@@ -1,0 +1,10 @@
+Tests unitaire
+css
+extends (bdd)
+Relecture /!\Attntion aux erreurs/!\
+Finisr les reservations de piscine
+Faire la reservation
+faire en sorte que les chambres ne puissent pas se faire commander si elles le sont déjà
+(Lors de la requette d'affichage 'show_chambres' faire: si chambre occupée, alors faire un btn rouge)
+
+Completer le readme
