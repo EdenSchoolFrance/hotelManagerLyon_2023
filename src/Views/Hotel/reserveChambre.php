@@ -19,6 +19,7 @@ ob_start();
     <?php } ?>
     <div class="reserveForm">
         <form action="/validReserveChambre" method="post">
+            <input type="hidden" value="<?= $chambre->getId() ?>" name="idChambre">
             <select name="client" id="client">
                 <option value="">-- Choisissez un client --</option>
                 <?php foreach ($clients as $client) { ?>
@@ -31,8 +32,9 @@ ob_start();
             </div>
             <div class="input-label">
                 <label for="date_fin">Sélectionner la date de fin du séjour :</label>
-                <input type="date" name="date_debut" id="date_debut">
+                <input type="date" name="date_fin" id="date_fin">
             </div>
+            <button type="submit" class="btn">Réserver</button>
 
         </form>
 
