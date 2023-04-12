@@ -34,7 +34,6 @@ Donc les options dans une vue séparée en dehors du formulaire (chambre, salle.
 
 La valeur des options choisies sont stockées en localStorage puis envoyées avec le formulaire.
 Pour les options ayant leur vue redirigeant sur une autre page, elles sont stockées en localStorage puis leur valeur est stockée dans in input hidden qui déchiffre les valeurs pour enfin être envoyées avec le form.
-+
 
 ## Tâches + estimation du temps
 ### BDD

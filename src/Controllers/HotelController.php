@@ -133,7 +133,7 @@ class HotelController
         if (isset($_POST['id_boisson'])) {
             $client_boisson = $this->manager->addClientBoisson();
         }
-        if (isset($_POST['id_piscine'])) {
+        if (isset($_POST['piscine'])) {
             $client_piscine = $this->manager->addClientPiscine();
         }
         header('Location: /');

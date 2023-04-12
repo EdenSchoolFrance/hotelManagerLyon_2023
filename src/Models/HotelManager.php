@@ -24,7 +24,7 @@ class HotelManager extends ConstructorManager
     {
         $stmt = $this->bdd->prepare("SELECT * FROM client");
         $stmt->execute(array());
-        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Clients");
     }
 
     //SELECT CLIENT BY ID (find)
@@ -34,7 +34,7 @@ class HotelManager extends ConstructorManager
         $stmt->execute(array(
             htmlentities($slug)
         ));
-        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Clients");
     }
 
     //UPDATE CLIENT
@@ -105,7 +105,7 @@ class HotelManager extends ConstructorManager
     {
         $stmt = $this->bdd->prepare("SELECT * FROM chambre WHERE occupe_chambre = '0'");
         $stmt->execute(array());
-        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Chambres");
     }
 
     //SELECT ALL MENUS
@@ -113,7 +113,7 @@ class HotelManager extends ConstructorManager
     {
         $stmt = $this->bdd->prepare("SELECT * FROM menu");
         $stmt->execute(array());
-        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\MenusRestaurants");
     }
 
     //SELECT ALL SALLES
@@ -121,7 +121,7 @@ class HotelManager extends ConstructorManager
     {
         $stmt = $this->bdd->prepare("SELECT * FROM salle");
         $stmt->execute(array());
-        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Salles");
     }
 
     //SELECT ALL RESTAURANTS
@@ -129,7 +129,7 @@ class HotelManager extends ConstructorManager
     {
         $stmt = $this->bdd->prepare("SELECT * FROM restaurant");
         $stmt->execute(array());
-        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\MenusRestaurants");
     }
 
     //SELECT ALL BARS
@@ -137,7 +137,7 @@ class HotelManager extends ConstructorManager
     {
         $stmt = $this->bdd->prepare("SELECT * FROM bar");
         $stmt->execute(array());
-        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\BarsBoissons");
     }
 
     //SELECT BOISSONS WITH ID_BAR SELECTED
@@ -147,7 +147,7 @@ class HotelManager extends ConstructorManager
         $stmt->execute(array(
             $_COOKIE['id_bar']
         ));
-        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\BarsBoissons");
     }
 
     //SELECT ALL PISCINES
@@ -155,7 +155,7 @@ class HotelManager extends ConstructorManager
     {
         $stmt = $this->bdd->prepare("SELECT * FROM piscine");
         $stmt->execute(array());
-        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Piscines");
     }
 
 

@@ -38,5 +38,4 @@ $router->get('/logout/', "UserController@logout");
 $router->post('/register/', "UserController@register");
 $router->post('/login/', "UserController@login");
 
-
 $router->run();
