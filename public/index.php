@@ -17,5 +17,6 @@ $router -> get('/reservation/:id', "HotelController@reservationView");
 
 $router -> post('/add', "HotelController@addClient");
 $router -> post('/update', "HotelController@updateClient");
+$router -> post('/addReservation', "HotelController@addReservation");
 
 $router->run();

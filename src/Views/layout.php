@@ -13,7 +13,8 @@
     <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script> 
 
 </head> 
-<header> 
+<body>
+    <header> 
     <nav>
         <ul>
             <li><a href="/">Home</a></li>
@@ -22,14 +23,15 @@
             <!-- <li><a href="/reservation">Faire une reservation</a></li> -->
         </ul>
     </nav>
-</header> 
-<main> 
-    <?php echo $content; ?> 
-</main> 
-<footer> 
+    </header> 
+    <main> 
+        <?php echo $content; ?> 
+    </main> 
+    <footer> 
 
-</footer> 
-<body> 
+    </footer> 
+</body>
+
 <?php 
 unset($_SESSION['error']); 
 unset($_SESSION['old']); 

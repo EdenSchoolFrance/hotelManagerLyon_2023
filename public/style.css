@@ -42,4 +42,8 @@ table tr a {
 }
 table tr a:hover {
   text-decoration: underline;
+}
+
+.hidden {
+  display: none;
 }/*# sourceMappingURL=style.css.map */

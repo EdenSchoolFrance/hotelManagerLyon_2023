@@ -50,6 +50,13 @@ class HotelController {
     public function reservationView($slug){
         $client = $this->manager->getClient($slug);
         $chambres = $this->manager->getAllChambre();
+        $piscines = $this->manager->getAllPiscine();
+        $salles = $this->manager->getAllSalle();
         require VIEWS . "Hotel/reservation.php";
+    }
+
+    public function addReservation(){
+        $this->manager->addReservation();
+        header("Location: /list");
     }
 }
