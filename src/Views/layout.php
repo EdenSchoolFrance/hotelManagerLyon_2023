@@ -37,10 +37,18 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Chambres
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="/chambres">Réserver une chambres</a></li>
+                                <li><a class="dropdown-item" href="/chambres/indisponnibles">Chambres occupées</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Réservations
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="/chambres">Chambre</a></li>
                                 <li><a class="dropdown-item" href="#">Salle</a></li>
                                 <li><a class="dropdown-item" href="#">Piscine</a></li>
                                 <li><a class="dropdown-item" href="#">Restaurant</a></li>
@@ -51,7 +59,7 @@
                             <a class="nav-link mx-2" href="/stock">Stock</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mx-2" href="/stock">Menus</a>
+                            <a class="nav-link mx-2" href="#">Menus</a>
                         </li>
                     </ul>
                 </div>

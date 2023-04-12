@@ -73,4 +73,46 @@ class HotelController
 
         require VIEWS . 'Hotel/chambre.php';
     }
+
+    // Affichage pour Reserver une chambre
+    public function reserverChambre($slug)
+    {
+        $checker = $this->manager->checkreservation($slug);
+        if ($checker) {
+            $clients = $this->manager->clients();
+            $chambre = $this->manager->chambreReservation($slug);
+            require VIEWS . 'Hotel/reserver_chambre.php';
+        } else {
+            header('Location: /chambres');
+        }
+    }
+
+    // Reserver une chambre
+    public function ConfirmationReservationChambre($slug)
+    {
+        if ($_POST['clients'] === "Selectionner un client" || $_POST['datedebut'] === "" || $_POST['datefin'] === "") {
+            header('Location: /chambre/reserver/' . $slug);
+        } else {
+            $this->manager->ajouterReservationChambre($slug, $_POST['clients'], $_POST['datedebut'], $_POST['datefin']);
+            $this->manager->updateChambreIndisponnible($slug);
+            header('Location: /chambres');
+        }
+    }
+
+
+    // Chambres reservées par les clients 
+    public function chambresClients()
+    {
+        $chambresclients = $this->manager->ChambresClients();
+
+        require VIEWS . 'Hotel/chambres_clients.php';
+    }
+
+    // Supprimer reservation chambre 
+    public function deleteReservationChambre($slug)
+    {
+        $this->manager->deleteReservationChambre($slug);
+        $this->manager->updateChambreDisponnible($slug);
+        header('Location: /chambres/indisponnibles');
+    }
 }

@@ -63,4 +63,72 @@ class HotelManager
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
     }
+
+    // Select chambres reservation BDD
+    public function chambreReservation($slug)
+    {
+        $stmt = $this->bdd->prepare("SELECT * FROM `chambre` WHERE id_chambre = ?");
+        $stmt->execute(array(
+            $slug
+        ));
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
+
+    // Check securite reservation possible
+    public function checkreservation($slug)
+    {
+        $stmt = $this->bdd->prepare("SELECT * FROM `chambre` WHERE id_chambre = ? AND occupe_chambre = '0' ");
+        $stmt->execute(array($slug));
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
+
+    // Ajouter reservation Chambre BDD
+    public function ajouterReservationChambre($slug, $client, $dated, $datef)
+    {
+        $stmt = $this->bdd->prepare("INSERT INTO `client_chambre`(`id_client`, `id_chambre`, `date_debut_reservation_chambre`, `date_fin_reservation_piscine_chambre`, `num_reservation_chambre`, `status_chambre`) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->execute(array(
+            $client,
+            $slug,
+            $dated,
+            $datef,
+            uniqid(),
+            "0"
+        ));
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
+
+    // Update to Indisponnible Chambre
+    public function updateChambreIndisponnible($slug)
+    {
+        $stmt = $this->bdd->prepare("UPDATE `chambre` SET `occupe_chambre`='1' WHERE id_chambre = ?");
+        $stmt->execute(array(
+            $slug
+        ));
+    }
+
+    // Update to Disponnible Chambre
+    public function updateChambreDisponnible($slug)
+    {
+        $stmt = $this->bdd->prepare("UPDATE `chambre` SET `occupe_chambre`='0' WHERE id_chambre = ?");
+        $stmt->execute(array(
+            $slug
+        ));
+    }
+
+    // Chambres prise par les clients
+    public function ChambresClients()
+    {
+        $stmt = $this->bdd->prepare("SELECT * FROM `client_chambre`
+        JOIN chambre ON client_chambre.id_chambre = chambre.id_chambre
+        JOIN client ON client_chambre.id_client = client.id_client");
+        $stmt->execute(array());
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
+
+    // Supprimer reservation chambre
+    public function deleteReservationChambre($slug)
+    {
+        $stmt = $this->bdd->prepare("DELETE FROM `client_chambre` WHERE id_chambre = ?");
+        $stmt->execute(array($slug));
+    }
 }

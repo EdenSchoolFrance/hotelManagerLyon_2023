@@ -167,4 +167,17 @@ th, td {
   .block {
     width: 100%;
   }
+}
+.wrapper_reserver {
+  margin: 20px 0 0 0;
+}
+.wrapper_reserver select {
+  font-size: 1.8rem;
+}
+.wrapper_reserver .btn_submit {
+  margin: 15px 0 0 0;
+}
+
+#form_reserver div {
+  margin: 15px 0 0 0;
 }/*# sourceMappingURL=style.css.map */

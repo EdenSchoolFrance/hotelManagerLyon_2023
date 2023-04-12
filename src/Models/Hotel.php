@@ -29,6 +29,8 @@ class Hotel
     private $occupe_chambre;
     private $categorie_chambre;
     private $id_chambre;
+    private $date_debut_reservation_chambre;
+    private $date_fin_reservation_piscine_chambre;
 
     // Accesseurs
 
@@ -149,6 +151,28 @@ class Hotel
 
 
     ///// CHAMBRE /////
+
+    // Reservation chambre date debut
+    public function getDateDebut()
+    {
+        return $this->date_debut_reservation_chambre;
+    }
+
+    public function setDateDebut(String $date_debut_reservation_chambre)
+    {
+        $this->date_debut_reservation_chambre = $date_debut_reservation_chambre;
+    }
+
+    // Reservation chambre date fint
+    public function getDateFin()
+    {
+        return $this->date_fin_reservation_piscine_chambre;
+    }
+
+    public function setDateFin(String $date_fin_reservation_piscine_chambre)
+    {
+        $this->date_fin_reservation_piscine_chambre = $date_fin_reservation_piscine_chambre;
+    }
 
 
     // Id de la chambre
