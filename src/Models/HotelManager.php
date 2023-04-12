@@ -171,11 +171,19 @@ class HotelManager extends BDD
         $stmt->execute(array($_POST["client_id"], $_POST["id_menu"], $_POST["quantity_menu"]));
     }
 
-    public function showBoisson()
+    public function showBoisson($slug)
     {
-        $stmt = $this->bdd->prepare("SELECT * FROM boisson");
-        $stmt->execute();
+        $stmt = $this->bdd->prepare("SELECT * FROM boisson JOIN bar_boisson ON boisson.id_boisson = bar_boisson.id_boisson WHERE bar_boisson.id_boisson = ?");
+        $stmt->execute(array($slug));
 
         return $stmt->fetchAll(PDO::FETCH_CLASS, "Hotel\Models\Boisson");
+    }
+
+    public function showBar()
+    {
+        $stmt = $this->bdd->prepare("SELECT * FROM bar JOIN bar_boisson ON bar.id_bar = bar_boisson.id_bar");
+        $stmt->execute();
+
+        return $stmt->fetchAll();
     }
 }

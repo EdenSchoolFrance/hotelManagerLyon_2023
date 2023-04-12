@@ -82,6 +82,7 @@ class HotelController
         }
         $resto = $this->manager->showRestoSpecifique();
         $chambre = $this->manager->showChambreSpecifique();
+        $bar = $this->manager->showBar();
         $this->addBreadcrumb('Accueil', '/');
         $this->addBreadcrumb('ShowClients', '/ShowClients');
         require VIEWS . "pages/reservation.php";
@@ -151,11 +152,6 @@ class HotelController
         } else {
             header("Location: /showClients/");
         }
-        echo "<script>
-                Object.keys(localStorage).forEach(function(key){
-                    localStorage.removeItem(key);
-                });
-            </script>";
     }
 
     public function addBreadcrumb($title, $url)
@@ -180,12 +176,18 @@ class HotelController
     public function addMenu()
     {
         $this->manager->addMenu();
+        $this->addBreadcrumb('Accueil', '/');
+        $this->addBreadcrumb('ShowClients', '/ShowClients');
+        $this->addBreadcrumb('Reservation', '/reservation/' . $_SESSION["idUser"]);
         header("Location: /showClients");
     }
 
-    public function showBoisson()
+    public function showBoisson($slug)
     {
-        $item = $this->manager->showBoisson();
+        $item = $this->manager->showBoisson($slug);
+        $this->addBreadcrumb('Accueil', '/');
+        $this->addBreadcrumb('ShowClients', '/ShowClients');
+        $this->addBreadcrumb('Reservation', '/reservation/' . $_SESSION["idUser"]);
         require VIEWS . "pages/boissons.php";
     }
 }

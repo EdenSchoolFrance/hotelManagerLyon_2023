@@ -39,6 +39,11 @@
         <?php endforeach ?>
     </tbody>
 </table>
+<script>
+    Object.keys(localStorage).forEach(function(key) {
+        localStorage.removeItem(key);
+    });
+</script>
 <?php
 $content = ob_get_clean();
 require VIEWS . "layout.php";

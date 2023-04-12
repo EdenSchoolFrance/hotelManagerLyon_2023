@@ -23,7 +23,7 @@ $router->get('/showChambre/:Client', "HotelController@showChambre");
 $router->get('/showRestaurant/:Client', "HotelController@showResto");
 $router->get('/showPiscine/:Client', "HotelController@showPiscine");
 $router->get('/showSalle/:Client', "HotelController@showSalle");
-$router->get('/showBoisson/:Client', "HotelController@showBoisson");
+$router->get('/showBoisson/:Bar', "HotelController@showBoisson");
 
 $router->post('/showClients', "HotelController@addReservation");
 $router->post('/showMenu/:Client', "HotelController@showMenu");

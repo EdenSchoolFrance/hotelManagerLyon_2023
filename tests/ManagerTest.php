@@ -8,20 +8,11 @@ use Hotel\Models\HotelManager;
 use Hotel\Models\Hotel;
 use Hotel\Models\piscine;
 
-define("SRC", '../src/');
-define("CONTROLLERS", '../src/Controllers/');
-define("MODELS", '../src/Models/');
-define("VIEWS", '../src/Views/');
-
-define('HOST', '127.0.0.1');
-define('DATABASE', 'hotel_manager');
-define('USER', 'root');
-define('PASSWORD', '');
+include "../hotelManagerLyon_2023/src/config/config.php";
 
 
 final class ManagerTest extends TestCase
 {
-    protected $bdd;
 
     public function testShowPiscine()
     {

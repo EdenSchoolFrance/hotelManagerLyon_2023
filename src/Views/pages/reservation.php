@@ -77,7 +77,7 @@
                     </a>
                 </div>
                 <div class="boisson">
-                    <h3>Boissons</h3>
+                    <h3>Bar</h3>
                     <div>
                         <div>
                             <label for="boisson_yes">Oui</label>
@@ -88,12 +88,20 @@
                             <input type="radio" name="boisson" id="boisson_no">
                         </div>
                     </div>
-                    <a href="/showBoisson/<?= $slug ?>" class="none">
+                    <select name="bar_select" class="none">
+                        <?php foreach ($bar as $bars) : ?>
+                            <option value="<?= $bars["id_boisson"] ?>"><?= $bars["name_bar"] ?></option>
+                        <?php endforeach ?>
+                    </select>
+                    <a href="/showBoisson/1" class="none">
                         Choisissez une boisson
                     </a>
-                    <!-- <a href="/showBoisson/<?= $_SESSION["idUser"] ?>" class="none boissonLink">Voir les boissons</a> -->
                 </div>
+                <?php
+                $test = $slug;
+                ?>
                 <script>
+                    encryptStorage.setItem("id_user", "<?= $slug ?>")
                     if (encryptStorage.getItem(`id_chambre`) != null) {
                         document.write(`<input type="hidden" name="id_chambre" value="${encryptStorage.getItem("id_chambre")}">`);
                     }
