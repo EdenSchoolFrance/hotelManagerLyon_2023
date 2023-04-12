@@ -23,7 +23,7 @@ class HotelManager extends BDD
 
     public function addClient()
     {
-        $stmt = $this->bdd->prepare("INSERT INTO " . $_POST["test"] . "(nom_client, prenom_client, email_client) VALUES (?, ?, ?)");
+        $stmt = $this->bdd->prepare("INSERT INTO client (nom_client, prenom_client, email_client) VALUES (?, ?, ?)");
         $stmt->execute(array(
             htmlentities($_POST["firstName"]),
             htmlentities($_POST["lastName"]),
@@ -39,6 +39,31 @@ class HotelManager extends BDD
 
     public function removeClient($slug)
     {
+
+        $stmt = $this->bdd->prepare("DELETE FROM client_boisson WHERE id_client = ?");
+        $stmt->execute(array(
+            $slug
+        ));
+
+        $stmt = $this->bdd->prepare("DELETE FROM client_chambre WHERE id_client = ?");
+        $stmt->execute(array(
+            $slug
+        ));
+
+        $stmt = $this->bdd->prepare("DELETE FROM client_salle WHERE id_client = ?");
+        $stmt->execute(array(
+            $slug
+        ));
+
+        $stmt = $this->bdd->prepare("DELETE FROM client_piscine WHERE id_client = ?");
+        $stmt->execute(array(
+            $slug
+        ));
+
+        $stmt = $this->bdd->prepare("DELETE FROM client_menu WHERE id_client = ?");
+        $stmt->execute(array(
+            $slug
+        ));
 
         $stmt = $this->bdd->prepare("DELETE FROM client WHERE id_client = ?");
         $stmt->execute(array(
@@ -64,7 +89,7 @@ class HotelManager extends BDD
 
     public function showChambre()
     {
-        $stmt = $this->bdd->prepare('SELECT * FROM chambre WHERE occupe_chambre = true');
+        $stmt = $this->bdd->prepare('SELECT * FROM chambre WHERE occupe_chambre = false');
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Chambre");
@@ -140,6 +165,9 @@ class HotelManager extends BDD
         if (isset($_POST["id_chambre"])) {
             $stmt = $this->bdd->prepare('INSERT INTO client_chambre (id_client, id_chambre, date_debut_reservation_chambre, date_fin_reservation_piscine_chambre, num_reservation_chambre, status_chambre) VALUES (?, ?, ?, ?, ?, ?)');
             $stmt->execute(array($slug, $_POST["id_chambre"], date("Y-m-d", strtotime($_POST["debut_chambre"])), date("Y-m-d", strtotime($_POST["fin_chambre"])), $_SESSION["count"], ""));
+
+            $stmt = $this->bdd->prepare('UPDATE chambre SET occupe_chambre = 1 WHERE id_chambre = ?');
+            $stmt->execute(array($_POST["id_chambre"]));
         }
 
         $stmt = $this->bdd->prepare('SELECT * FROM bar_boisson');

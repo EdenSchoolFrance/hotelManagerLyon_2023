@@ -31,7 +31,6 @@
         <input type="submit" value="submit">
         <input type="reset" value="cancel">
     </div>
-    <input type="hidden" name="test" value="client">
 </form>
 <?php
 $content = ob_get_clean();

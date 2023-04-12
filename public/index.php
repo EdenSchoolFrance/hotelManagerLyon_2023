@@ -36,5 +36,6 @@ $router->post('/showPiscine/:Client', "HotelController@showReservation");
 $router->post('/showSalle/:Client', "HotelController@showReservation");
 $router->post('/showBoisson/:Client', "HotelController@showReservation");
 $router->post('/showClient/', "HotelController@addReservation");
+$router->post('/addMenu/:Client', "HotelController@addMenu");
 
 $router->run();

@@ -1,7 +1,7 @@
 <?php ob_start() ?>
 <div class="showReserv">
     <?php foreach ($item as $items) : ?>
-        <form action="/showClients/addMenu/<?= $_SESSION["idUser"] ?>" method="post">
+        <form action="/addMenu/<?= $_SESSION["idUser"] ?>" method="post">
             <div class="anim">
                 <img src="/img/icons/plus.svg" alt="">
             </div>
