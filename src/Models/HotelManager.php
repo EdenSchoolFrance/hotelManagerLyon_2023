@@ -41,4 +41,17 @@ class HotelManager
         ));
         return $stmt;
     }
+
+    public function validReserveChambre($num_reserv, $id_chambre, $id_client, $date_debut, $date_fin)
+    {
+        $stmt = $this->bdd->prepare("INSERT INTO client_chambre(id_client, id_chambre, date_debut_reservation_chambre, date_fin_reservation_chambre, num_reservation_chambre, status_chambre) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->execute(array(
+            $id_client,
+            $id_chambre,
+            $date_debut,
+            $date_fin,
+            $num_reserv,
+            0,
+        ));
+    }
 }

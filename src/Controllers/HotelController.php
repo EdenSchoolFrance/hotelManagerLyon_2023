@@ -40,6 +40,7 @@ class HotelController
 
         require VIEWS . 'Hotel/reserveChambre.php';
     }
+
     //valider la réservation d'une chambre
     public function validReserveChambre()
     {
@@ -49,21 +50,28 @@ class HotelController
         $date_debut = $_POST['date_debut'];
         $date_fin = $_POST['date_fin'];
 
-        $reservations = $this->manager->getReservationsByChambre($id_chambre);
         //verification disponibilités
-        $dispo = true;
+        $reservations = $this->manager->getReservationsByChambre($id_chambre);
         while ($ligne = $reservations->fetch()) {
             if ($date_debut > $ligne['date_debut_reservation_chambre'] && $date_debut < $ligne['date_fin_reservation_chambre']) {
-                $dispo = false;
+                $_SESSION["error"]['dispo'] = "Les dates que vous avez sélectionnez ne sont pas disponibles, veuillez verifier les disponibilités ci-dessus.";
+                header('Location: /reserveChambre/' . $id_chambre . '?error=dispo');
+                break;
             } else if ($date_fin > $ligne['date_debut_reservation_chambre'] && $date_fin < $ligne['date_fin_reservation_chambre']) {
-                $dispo = false;
+                $_SESSION["error"]['dispo'] = "Les dates que vous avez sélectionnez ne sont pas disponibles, veuillez verifier les disponibilités ci-dessus.";
+                header('Location: /reserveChambre/' . $id_chambre . '?error=dispo');
+                break;
             } else if ($ligne['date_debut_reservation_chambre'] > $date_debut && $ligne['date_debut_reservation_chambre'] < $date_fin) {
-                $dispo = false;
+                $_SESSION["error"]['dispo'] = "Les dates que vous avez sélectionnez ne sont pas disponibles, veuillez verifier les disponibilités ci-dessus.";
+                header('Location: /reserveChambre/' . $id_chambre . '?error=dispo');
+                break;
             } else if ($ligne['date_fin_reservation_chambre'] > $date_debut && $ligne['date_fin_reservation_chambre'] < $date_fin) {
-                $dispo = false;
+                $_SESSION["error"]['dispo'] = "Les dates que vous avez sélectionnez ne sont pas disponibles, veuillez verifier les disponibilités ci-dessus.";
+                header('Location: /reserveChambre/' . $id_chambre . '?error=dispo');
+                break;
             }
         }
-
-        require VIEWS . 'Hotel/reserveChambre.php';
+        $this->manager->validReserveChambre($num_reservation, $id_chambre, $id_client, $date_debut, $date_fin);
+        header('Location: /allChambres');
     }
 }

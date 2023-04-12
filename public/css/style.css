@@ -230,7 +230,7 @@ main section.reserveChambre h1 {
   background-position: center !important;
 }
 main section.reserveChambre .reservations {
-  padding: 2rem;
+  padding: 3rem;
 }
 main section.reserveChambre .reservations ul {
   list-style: circle;
@@ -275,6 +275,10 @@ main section.reserveChambre .reserveForm .input-label label {
   font-size: 1.5rem;
   display: block;
   margin: 1rem 0;
+}
+main section.reserveChambre .reserveForm .error {
+  font-size: 1.5rem;
+  color: red;
 }
 main section.clients h1 {
   background: url("../pictures/clients.jpg") no-repeat;

@@ -4,10 +4,10 @@ ob_start();
 
 <section class="reserveChambre">
     <h1 style="background: url('../pictures/<?= $chambre->getImg() ?>') no-repeat;">Réserver la <?= $chambre->getName() ?></h1>
-    <?php
-    if ($reservations->rowCount() > 0) {
-    ?>
-        <div class="reservations">
+    <div class="reservations">
+        <?php
+        if ($reservations->rowCount() > 0) {
+        ?>
             <h3>La <?= $chambre->getName() ?> est déja réserver aux dates suivantes :</h3>
             <ul>
                 <?php while ($ligne = $reservations->fetch()) { ?>
@@ -15,8 +15,10 @@ ob_start();
                 <?php } ?>
 
             </ul>
-        </div>
-    <?php } ?>
+        <?php } else { ?>
+            <h3>Cette chambre n'est pas encore réservée...</h3>
+        <?php } ?>
+    </div>
     <div class="reserveForm">
         <form action="/validReserveChambre" method="post">
             <input type="hidden" value="<?= $chambre->getId() ?>" name="idChambre">
@@ -34,6 +36,11 @@ ob_start();
                 <label for="date_fin">Sélectionner la date de fin du séjour :</label>
                 <input type="date" name="date_fin" id="date_fin">
             </div>
+            <?php if (isset($_GET['error'])) {
+                if ($_GET['error'] == 'dispo') {
+                    echo "<p class='error'>" . $_SESSION['error']['dispo'] . "</p>";
+                }
+            } ?>
             <button type="submit" class="btn">Réserver</button>
 
         </form>

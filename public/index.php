@@ -12,7 +12,7 @@ $router->get('/', "HotelController@index");
 //CHAMBRES
 $router->get('allChambres/', "HotelController@allChambres");
 $router->get('reserveChambre/:chambre/', "HotelController@reserveChambre");
-$router->post('validReserveChambre/:chambre/', "HotelController@validReserveChambre");
+$router->post('validReserveChambre/', "HotelController@validReserveChambre");
 //CLIENTS
 $router->get('clients/', "ClientController@allClients");
 $router->post('addClient/', "ClientController@addClient");

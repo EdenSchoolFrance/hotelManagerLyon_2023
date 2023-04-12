@@ -254,7 +254,7 @@ main{
             background-position: center !important;
         }
         .reservations{
-            padding: 2rem;
+            padding: 3rem;
             ul{
                 list-style: circle;
                 padding-left: 5rem;
@@ -299,6 +299,10 @@ main{
                     display: block;
                     margin: 1rem 0;
                 }
+            }
+            .error{
+                font-size: 1.5rem;
+                color: red;
             }
             
         }
