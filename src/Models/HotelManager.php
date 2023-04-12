@@ -4,24 +4,10 @@ namespace Hotel\Models;
 
 use Hotel\Models\Hotel;
 
-class HotelManager
+class HotelManager extends ConstructorManager
 {
     private $manager;
     private $validator;
-
-    private $bdd;
-
-    public function __construct()
-    {
-        $this->bdd = new \PDO('mysql:host=' . HOST . ';dbname=' . DATABASE . ';charset=utf8;', USER, PASSWORD);
-        $this->bdd->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-    }
-
-    public function getBdd()
-    {
-        return $this->bdd;
-    }
-
 
     //INSERT CLIENT
     public function addNewClient()

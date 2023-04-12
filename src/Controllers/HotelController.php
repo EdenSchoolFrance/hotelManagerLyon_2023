@@ -85,11 +85,13 @@ class HotelController
         $chambre = $this->manager->getChambres();
         require VIEWS . 'Hotel/Reservation/chambres.php';
     }
+
     public function showMenus()
     {
         $menu = $this->manager->getMenus();
         require VIEWS . 'Hotel/Reservation/menus.php';
     }
+
     public function showSalles()
     {
         $salle = $this->manager->getSalles();
@@ -120,20 +122,7 @@ class HotelController
         if (isset($_POST['piscine'])) {
             $client_piscine = $this->manager->addClientPiscine();
         }
+        header('Location: /');
     }
 
-    /*
-    //Show options form
-    public function showReservationOptions()
-    {
-        require VIEWS . 'Hotel/Reservation/chooseOptions.php';
-    }
-
-    //Show options results
-    public function reservationOptions()
-    {
-        $options = $this->manager->getReservationOptions();
-        require VIEWS . 'Hotel/Reservation/reservationOptions.php';
-    }
-    */
 }
