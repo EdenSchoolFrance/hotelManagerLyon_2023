@@ -37,7 +37,21 @@ ob_start();
         </form>
     </div>
 </section>
+<script>
+    //open and close form to add client
+    const btnOpenAddClient = document.querySelector("#btnAddClient");
+    const btnCloseAddClient = document.querySelector("#btnCloseClient");
+    const formAddClient = document.querySelector("#addClient");
 
+    btnOpenAddClient.addEventListener("click", () => {
+        formAddClient.classList.remove("close");
+        formAddClient.classList.add("open");
+    });
+    btnCloseAddClient.addEventListener("click", () => {
+        formAddClient.classList.remove("open");
+        formAddClient.classList.add("close");
+    });
+</script>
 <?php
 $content = ob_get_clean();
 require VIEWS . 'layout.php';

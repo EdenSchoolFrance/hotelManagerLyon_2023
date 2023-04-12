@@ -34,8 +34,10 @@ class HotelController
     public function reserveChambre($slug)
     {
         $chambre = $this->manager->getChambre($slug);
+        $reservations = $this->manager->getReservationsByChambre($slug);
         $clientManager = new ClientManager();
-        $client = $clientManager->getAllClients();
+        $clients = $clientManager->getAllClients();
+
         require VIEWS . 'Hotel/reserveChambre.php';
     }
 }

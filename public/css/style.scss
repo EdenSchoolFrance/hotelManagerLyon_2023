@@ -125,7 +125,7 @@ main{
     
     section.homepage{
         h1{
-            background: url('pictures/home.jpg') no-repeat;
+            background: url('../pictures/home.jpg') no-repeat;
             background-size: cover;
             background-position: center;
         }
@@ -177,7 +177,7 @@ main{
     }
     section.chambres{
         h1{
-            background: url('pictures/chambres.jpg') no-repeat;
+            background: url('../pictures/chambres.jpg') no-repeat;
             background-size: cover;
             background-position: center;
         }
@@ -253,10 +253,59 @@ main{
             background-size: cover !important;
             background-position: center !important;
         }
+        .reservations{
+            padding: 2rem;
+            ul{
+                list-style: circle;
+                padding-left: 5rem;
+                li{
+                    font-size: 1.5rem;
+                }
+            }
+        }
+        .reserveForm{
+            width: 50%;
+            margin: 5rem auto 0;
+            background-color: #313131;
+            padding: 2rem;
+            border-radius: 15px;
+            border: solid 2px $blue;
+            text-align: center;
+
+            select{
+                font-size: 1.5rem;
+                width: 40%;
+                background-color: $blue;
+                color: #313131;
+                border-radius: 15px;
+                text-align: center;
+                padding: 0.5rem 1rem;
+                option{
+                    font-size: 1.5rem;
+                }
+            }
+            .input-label{
+                margin: 2rem 0;
+                input{
+                    font-size: 1.5rem;
+                    background-color: $blue;
+                    border-radius: 15px;
+                    color: #313131;
+                    padding: 0.5rem 1rem;
+                    width: 40%;
+                }
+                label{
+                    font-size: 1.5rem;
+                    display: block;
+                    margin: 1rem 0;
+                }
+            }
+            
+        }
     }
     section.clients{
         h1{
-            background: url('pictures/clients.jpg') no-repeat;
+            background: url('../pictures/clients.jpg') no-repeat;
             background-size: cover;
             background-position: center;
         }

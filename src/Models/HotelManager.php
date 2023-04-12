@@ -32,4 +32,13 @@ class HotelManager
         $stmt->setFetchMode(\PDO::FETCH_CLASS, "Hotel\Models\Chambre");
         return $stmt->fetch();
     }
+
+    public function getReservationsByChambre($id)
+    {
+        $stmt = $this->bdd->prepare("SELECT * FROM client_chambre JOIN client ON client_chambre.id_client = client.id_client WHERE id_chambre = ?");
+        $stmt->execute(array(
+            $id
+        ));
+        return $stmt;
+    }
 }

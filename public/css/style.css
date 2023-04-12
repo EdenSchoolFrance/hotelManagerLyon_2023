@@ -110,7 +110,7 @@ main .btn:hover {
   color: #65C1BE;
 }
 main section.homepage h1 {
-  background: url("pictures/home.jpg") no-repeat;
+  background: url("../pictures/home.jpg") no-repeat;
   background-size: cover;
   background-position: center;
 }
@@ -161,7 +161,7 @@ main section.homepage .allServices ul li a:hover {
   transform: scale(0.95);
 }
 main section.chambres h1 {
-  background: url("pictures/chambres.jpg") no-repeat;
+  background: url("../pictures/chambres.jpg") no-repeat;
   background-size: cover;
   background-position: center;
 }
@@ -229,8 +229,55 @@ main section.reserveChambre h1 {
   background-size: cover !important;
   background-position: center !important;
 }
+main section.reserveChambre .reservations {
+  padding: 2rem;
+}
+main section.reserveChambre .reservations ul {
+  list-style: circle;
+  padding-left: 5rem;
+}
+main section.reserveChambre .reservations ul li {
+  font-size: 1.5rem;
+}
+main section.reserveChambre .reserveForm {
+  width: 50%;
+  margin: 5rem auto 0;
+  background-color: #313131;
+  padding: 2rem;
+  border-radius: 15px;
+  border: solid 2px #65C1BE;
+  text-align: center;
+}
+main section.reserveChambre .reserveForm select {
+  font-size: 1.5rem;
+  width: 40%;
+  background-color: #65C1BE;
+  color: #313131;
+  border-radius: 15px;
+  text-align: center;
+  padding: 0.5rem 1rem;
+}
+main section.reserveChambre .reserveForm select option {
+  font-size: 1.5rem;
+}
+main section.reserveChambre .reserveForm .input-label {
+  margin: 2rem 0;
+}
+main section.reserveChambre .reserveForm .input-label input {
+  font-size: 1.5rem;
+  background-color: #65C1BE;
+  border-radius: 15px;
+  color: #313131;
+  padding: 0.5rem 1rem;
+  width: 40%;
+}
+main section.reserveChambre .reserveForm .input-label label {
+  font-size: 1.5rem;
+  display: block;
+  margin: 1rem 0;
+}
 main section.clients h1 {
-  background: url("pictures/clients.jpg") no-repeat;
+  background: url("../pictures/clients.jpg") no-repeat;
   background-size: cover;
   background-position: center;
 }
