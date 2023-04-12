@@ -284,7 +284,7 @@ div.reservation {
       padding: 3rem;
       border-radius: 8px;
       form {
-        div:not(.boisson div) {
+        div:not(.boisson div, .chambre div, .piscine div, .salle div, .resto div) {
           + div {
             margin-top: 2rem;
           }
@@ -314,10 +314,14 @@ div.reservation {
   }
 }
 
-.resto {
+.resto, .boisson, .chambre, .salle, .piscine {
+  >div {
+    display: flex;
+  }
+}
+
+.resto, .restaurant {
   display: flex;
-  justify-content: center;
-  gap: 20px;
   margin-top: 3rem;
   form {
     padding: 2rem;
@@ -336,6 +340,17 @@ div.reservation {
       padding: 1rem;
     }
   }
+  p {
+    margin: 0;
+  }
+}
+
+.resto {
+  flex-direction: column;
+}
+
+.restaurant {
+  justify-content: center;
 }
 
 main {
@@ -426,12 +441,17 @@ main {
 .confirm_resto {
   display: flex;
   gap: 10px;
+  button {
+    background-color: green;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    padding: 3px;
+  }
   a {
     display: flex;
     border-radius: 50%;
-    &:first-of-type {
-      background-color: green;
-    }
     &:last-of-type {
       background-color: red;
       position: relative;
@@ -449,7 +469,7 @@ main {
 }
 
 .boisson {
-  >div {
+  > div {
     display: flex;
     gap: 10px;
     div {

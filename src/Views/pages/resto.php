@@ -1,7 +1,7 @@
 <?php ob_start() ?>
 
 <h1>Our Best Rooms</h1>
-<div class="resto">
+<div class="restaurant">
     <?php foreach ($item as $items) : ?>
         <form action="/showRestaurant/<?= $_SESSION["idUser"] ?>" method="post">
             <input type="hidden" class="id_resto" name="id_resto" value="<?= $items["id_restaurant"] ?>">
@@ -12,7 +12,6 @@
     <?php endforeach ?>
 </div>
 <script>
-    const encryptStorage = new EncryptStorage("storageType");
     const input = document.querySelectorAll("input[type=submit]");
     input.forEach(e => {
         e.addEventListener("click", (event) => {

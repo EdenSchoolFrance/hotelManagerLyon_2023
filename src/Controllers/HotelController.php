@@ -152,6 +152,11 @@ class HotelController
         } else {
             header("Location: /showClients/");
         }
+        echo "<script>
+                Object.keys(localStorage).forEach(function(key){
+                    localStorage.removeItem(key);
+                });
+            </script>";
     }
 
     public function addBreadcrumb($title, $url)

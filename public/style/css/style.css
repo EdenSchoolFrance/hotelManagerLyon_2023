@@ -247,20 +247,20 @@ div.reservation .reserv > div {
   padding: 3rem;
   border-radius: 8px;
 }
-div.reservation .reserv > div form div:not(.boisson div) + div {
+div.reservation .reserv > div form div:not(.boisson div, .chambre div, .piscine div, .salle div, .resto div) + div {
   margin-top: 2rem;
 }
-div.reservation .reserv > div form div:not(.boisson div) a {
+div.reservation .reserv > div form div:not(.boisson div, .chambre div, .piscine div, .salle div, .resto div) a {
   color: black;
   text-decoration: underline;
 }
-div.reservation .reserv > div form div:not(.boisson div) a:hover {
+div.reservation .reserv > div form div:not(.boisson div, .chambre div, .piscine div, .salle div, .resto div) a:hover {
   opacity: 0.8;
 }
-div.reservation .reserv > div form div:not(.boisson div) a span {
+div.reservation .reserv > div form div:not(.boisson div, .chambre div, .piscine div, .salle div, .resto div) a span {
   display: block;
 }
-div.reservation .reserv > div form div:not(.boisson div) .error {
+div.reservation .reserv > div form div:not(.boisson div, .chambre div, .piscine div, .salle div, .resto div) .error {
   font-size: 1.3rem;
   color: red;
 }
@@ -271,27 +271,40 @@ div.reservation .reserv div.piscine {
   flex-direction: column;
 }
 
-.resto {
+.resto > div, .boisson > div, .chambre > div, .salle > div, .piscine > div {
   display: flex;
-  justify-content: center;
-  gap: 20px;
+}
+
+.resto, .restaurant {
+  display: flex;
   margin-top: 3rem;
 }
-.resto form {
+.resto form, .restaurant form {
   padding: 2rem;
   background-color: white;
   width: 20rem;
   border-radius: 8px;
 }
-.resto form p {
+.resto form p, .restaurant form p {
   margin-bottom: 5rem;
   font-size: 2rem;
 }
-.resto form input[type=submit] {
+.resto form input[type=submit], .restaurant form input[type=submit] {
   border: 1px solid rgba(158, 156, 158, 0.5);
   cursor: pointer;
   background: none;
   padding: 1rem;
+}
+.resto p, .restaurant p {
+  margin: 0;
+}
+
+.resto {
+  flex-direction: column;
+}
+
+.restaurant {
+  justify-content: center;
 }
 
 main {
@@ -377,12 +390,17 @@ main {
   display: flex;
   gap: 10px;
 }
+.confirm_resto button {
+  background-color: green;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  padding: 3px;
+}
 .confirm_resto a {
   display: flex;
   border-radius: 50%;
-}
-.confirm_resto a:first-of-type {
-  background-color: green;
 }
 .confirm_resto a:last-of-type {
   background-color: red;

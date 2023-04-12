@@ -20,7 +20,6 @@
     <?php endforeach ?>
 </div>
 <script>
-    const encryptStorage = new EncryptStorage("storageType");
     const input = document.querySelectorAll("input[type=submit]");
     input.forEach(e => {
         e.addEventListener("click", () => {

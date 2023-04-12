@@ -20,7 +20,9 @@
     <header>
         <?= $header ?>
     </header>
-
+    <script>
+        const encryptStorage = new EncryptStorage("storageType");
+    </script>
     <?php require VIEWS . "includes/ariane.php" ?>
     <main>
         <?php if (isset($this->breadcrumbs)) : ?>
@@ -28,19 +30,6 @@
         <?php endif ?>
         <?= $content; ?>
     </main>
-    <script>
-        if (window.location.href.includes("showClients") || window.location.href.includes("addClient")) {
-            localStorage.removeItem("name_chambre")
-            localStorage.removeItem("name_resto")
-            localStorage.removeItem("name_piscine")
-            localStorage.removeItem("name_salle");
-
-            localStorage.removeItem("id_chambre");
-            localStorage.removeItem("id_resto");
-            localStorage.removeItem("id_piscine");
-            localStorage.removeItem("id_salle");
-        }
-    </script>
 </body>
 
 </html>

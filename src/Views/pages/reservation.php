@@ -9,36 +9,50 @@
         <div>
             <h2>search your <span>offer</span></h2>
             <form action="/showClients" method="post">
-                <div class="restaurant">
+                <div class="resto">
                     <a href="/showRestaurant/<?= $slug ?>">
                         Choissiez un restaurant
-                        <span>
-                            <script>
-                                const encryptStorage = new EncryptStorage("storageType");
-                                document.write(encryptStorage.getItem("name_resto") ?? "");
-                            </script>
-                        </span>
                     </a>
+                    <div>
+                        <div>
+                            <label for="resto_yes">Oui</label>
+                            <input type="radio" name="resto" id="resto_yes">
+                        </div>
+                        <div>
+                            <label for="resto_no">Non</label>
+                            <input type="radio" name="resto" id="resto_no">
+                        </div>
+                    </div>
                 </div>
                 <div class="chambre">
                     <a href="/showChambre/<?= $slug ?>">
                         Choisissez une chambre
-                        <span>
-                            <script>
-                                document.write(encryptStorage.getItem("name_chambre") ?? "");
-                            </script>
-                        </span>
                     </a>
+                    <div>
+                        <div>
+                            <label for="chambre_yes">Oui</label>
+                            <input type="radio" name="chambre" id="chambre_yes">
+                        </div>
+                        <div>
+                            <label for="chambre_no">Non</label>
+                            <input type="radio" name="bar" id="chambre_no">
+                        </div>
+                    </div>
                 </div>
                 <div class="piscine">
                     <a href="/showPiscine/<?= $slug ?>">
                         Choisissez une piscine
-                        <span>
-                            <script>
-                                document.write(encryptStorage.getItem("name_piscine") ?? "");
-                            </script>
-                        </span>
                     </a>
+                    <div>
+                        <div>
+                            <label for="piscine_yes">Oui</label>
+                            <input type="radio" name="piscine" id="piscine_yes">
+                        </div>
+                        <div>
+                            <label for="piscine_no">Non</label>
+                            <input type="radio" name="piscine" id="piscine_no">
+                        </div>
+                    </div>
                     <?php if (str_contains($_SERVER["REQUEST_URI"], "error")) : ?>
                         <p class="error">Veuillez rentrer une date correcte</p>
                     <?php endif ?>
@@ -46,31 +60,33 @@
                 <div class="salle">
                     <a href="/showSalle/<?= $slug ?>">
                         Choisissez une salle
-                        <span>
-                            <script>
-                                document.write(encryptStorage.getItem("name_salle") ?? "");
-                            </script>
-                        </span>
                     </a>
-                </div>
-                <div class="boisson">
-                    <p>Choisissez votre boisson</p>
                     <div>
                         <div>
-                            <label for="bar_yes">Oui</label>
-                            <input type="radio" name="bar" id="bar_yes">
+                            <label for="salle_yes">Oui</label>
+                            <input type="radio" name="salle" id="salle_yes">
                         </div>
                         <div>
-                            <label for="bar_no">Non</label>
-                            <input type="radio" name="bar" id="bar_no">
+                            <label for="salle_no">Non</label>
+                            <input type="radio" name="salle" id="salle_no">
+                        </div>
+                    </div>
+                </div>
+                <div class="boisson">
+                    <a href="/showBoisson/<?= $slug ?>">
+                        Choisissez une boisson
+                    </a>
+                    <div>
+                        <div>
+                            <label for="boisson_yes">Oui</label>
+                            <input type="radio" name="boisson" id="boisson_yes">
+                        </div>
+                        <div>
+                            <label for="boisson_no">Non</label>
+                            <input type="radio" name="boisson" id="boisson_no">
                         </div>
                     </div>
                     <a href="/showBoisson/<?= $_SESSION["idUser"] ?>" class="none boissonLink">Voir les boissons</a>
-                    <span class="none">
-                        <script>
-                            document.write(encryptStorage.getItem("name_boisson") ?? "");
-                        </script>
-                    </span>
                 </div>
                 <script>
                     if (encryptStorage.getItem(`id_chambre`) != null) {
