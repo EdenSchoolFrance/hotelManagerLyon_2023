@@ -108,4 +108,10 @@ class HotelController
         $bars = $this->manager_hotel->show_bars();
         require VIEWS . 'Hotel/show_bars.php';
     }
+
+    public function show_menus($slug)
+    {
+        $menus = $this->manager_hotel->show_menus($slug);
+        require VIEWS . 'Hotel/show_menus.php';
+    }
 }

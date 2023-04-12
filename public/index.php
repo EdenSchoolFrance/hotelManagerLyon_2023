@@ -1,6 +1,4 @@
-<?php
-
-session_start();
+<?php session_start();
 
 require '../src/config/config.php';
 require '../vendor/autoload.php';
@@ -14,7 +12,9 @@ $router->get('/chambres/', "HotelController@show_chambres");
 $router->get('/piscines/', "HotelController@show_piscines");
 $router->get('/salles/', "HotelController@show_salles");
 $router->get('/restaurants/', "HotelController@show_restaurants");
+$router->get('/restaurants/:id', "HotelController@show_menus");
 $router->get('/bars/', "HotelController@show_bars");
+
 
 $router->post('/client/inscription', "HotelController@inscription_client");
 $router->post('/client/supprimer', "HotelController@delete_client");

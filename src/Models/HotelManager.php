@@ -7,6 +7,7 @@ use Hotel\Models\Piscines;
 use Hotel\Models\Salles;
 use Hotel\Models\Restaurants;
 use Hotel\Models\Bars;
+use Hotel\Models\Menus;
 
 
 /** Class UserManager **/
@@ -54,5 +55,14 @@ class HotelManager
         $stmt = $this->bdd->prepare('SELECT * FROM bar');
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Bars");
+    }
+
+    public function show_menus($slug)
+    {
+        $stmt = $this->bdd->prepare('SELECT * FROM menu WHERE id_restaurant = ?');
+        $stmt->execute(array(
+            $slug,
+        ));
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Menus");
     }
 }
