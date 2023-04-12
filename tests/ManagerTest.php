@@ -30,4 +30,12 @@ final class ManagerTest extends TestCase
 
         $this->assertContainsOnlyInstancesOf(piscine::class, $piscines);
     }
+
+    public function testShowAll()
+    {
+        $hotelManager = new HotelManager();
+        $piscines = $hotelManager->show();
+
+        $this->assertContainsOnlyInstancesOf(hotel::class, $piscines);
+    }
 }

@@ -13,13 +13,4 @@ class BDD
 
         return $this->bdd;
     }
-
-    /* public static function getInstance()
-    {
-        if (self::$instance === null) {
-            new BDD();
-        }
-
-        return self::$instance;
-    } */
 }
