@@ -11,7 +11,6 @@ class HotelController
     private $manager;
     private $validator;
     private $breadcrumbs = [];
-    private $addBreadcrumb;
 
     public function __construct()
     {

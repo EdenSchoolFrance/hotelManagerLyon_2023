@@ -8,6 +8,8 @@ use PDO;
 class HotelManager extends BDD
 {
 
+    protected $bdd;
+
     public function find($email)
     {
         $stmt = $this->bdd->prepare("SELECT * FROM client WHERE email_client = ?");

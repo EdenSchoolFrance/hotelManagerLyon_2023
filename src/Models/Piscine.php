@@ -9,8 +9,6 @@ class piscine
     private $name_piscine;
     private $image_piscine;
 
-    
-
     public function getId_piscine()
     {
         return $this->id_piscine;
