@@ -72,17 +72,11 @@ class HotelController
         require VIEWS . 'Hotel/Reservation/quiReserve.php';
     }
 
-/*
-    public function showReservationOptions()
-    {
-        $chambres = $this->manager->getChambres();
-        require VIEWS . 'Hotel/Reservation/chambres.php';
-    }
-*/
     public function showOptions()
     {
         $restaurant = $this->manager->getRestaurants();
         $bar = $this->manager->getBars();
+        $piscine = $this->manager->getPiscines();
         require VIEWS . 'Hotel/Reservation/options.php';
     }
 
@@ -101,18 +95,31 @@ class HotelController
         $salle = $this->manager->getSalles();
         require VIEWS . 'Hotel/Reservation/salles.php';
     }
-    
+
     public function showBoissons()
     {
         $boisson = $this->manager->getBoissons();
         require VIEWS . 'Hotel/Reservation/boissons.php';
     }
 
-
-    public function reservationInsert(){
-        
-        $client_chambre = $this->manager->addClientChambre();
-        
+    //Insert reservation with all selected options
+    public function reservationInsert()
+    {
+        if (isset($_POST['id_chambre'])) {
+            $client_chambre = $this->manager->addClientChambre();
+        }
+        if (isset($_POST['id_menu'])) {
+            $client_menu = $this->manager->addClientMenu();
+        }
+        if (isset($_POST['id_salle'])) {
+            $client_salle = $this->manager->addClientSalle();
+        }
+        if (isset($_POST['id_boisson'])) {
+            $client_boisson = $this->manager->addClientBoisson();
+        }
+        if (isset($_POST['piscine'])) {
+            $client_piscine = $this->manager->addClientPiscine();
+        }
     }
 
     /*

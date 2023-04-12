@@ -22,7 +22,6 @@ class HotelManager
         return $this->bdd;
     }
 
-   
 
     //INSERT CLIENT
     public function addNewClient()
@@ -43,7 +42,8 @@ class HotelManager
 
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
     }
-    //SELECT CLIENT ID
+
+    //SELECT CLIENT BY ID
     public function getClient($slug)
     {
         $stmt = $this->bdd->prepare("SELECT * FROM client WHERE id_client = ?");
@@ -74,6 +74,8 @@ class HotelManager
         ));
     }
 
+    //SELECT FUNCTIONS
+    //SELECT ALL CHAMBRES
     public function getChambres()
     {
         $stmt = $this->bdd->prepare("SELECT * FROM chambre WHERE occupe_chambre = '0'");
@@ -82,53 +84,62 @@ class HotelManager
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
     }
 
-     //SELECT ALL MENUS
-     public function getMenus()
-     {
-         $stmt = $this->bdd->prepare("SELECT * FROM menu");
-         $stmt->execute(array());
- 
-         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
-     }
+    //SELECT ALL MENUS
+    public function getMenus()
+    {
+        $stmt = $this->bdd->prepare("SELECT * FROM menu");
+        $stmt->execute(array());
 
-     //SELECT ALL SALLES
-     public function getSalles()
-     {
-         $stmt = $this->bdd->prepare("SELECT * FROM salle");
-         $stmt->execute(array());
- 
-         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
-     }
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
 
-      //SELECT ALL RESTAURANTS
-      public function getRestaurants()
-      {
-          $stmt = $this->bdd->prepare("SELECT * FROM restaurant");
-          $stmt->execute(array());
-  
-          return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
-      }
+    //SELECT ALL SALLES
+    public function getSalles()
+    {
+        $stmt = $this->bdd->prepare("SELECT * FROM salle");
+        $stmt->execute(array());
 
-       //SELECT ALL BARS
-     public function getBars()
-     {
-         $stmt = $this->bdd->prepare("SELECT * FROM bar");
-         $stmt->execute(array());
- 
-         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
-     }
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
 
-     public function getBoissons()
-     {
-         $stmt = $this->bdd->prepare("SELECT * FROM boisson");
-         $stmt->execute(array());
- 
-         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
-     }
+    //SELECT ALL RESTAURANTS
+    public function getRestaurants()
+    {
+        $stmt = $this->bdd->prepare("SELECT * FROM restaurant");
+        $stmt->execute(array());
 
-     //INSERTION RESERVATION
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
 
-     public function addClientChambre(){
+    //SELECT ALL BARS
+    public function getBars()
+    {
+        $stmt = $this->bdd->prepare("SELECT * FROM bar");
+        $stmt->execute(array());
+
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
+    //SELECT ALL BOISSONS
+    public function getBoissons()
+    {
+        $stmt = $this->bdd->prepare("SELECT * FROM boisson");
+        $stmt->execute(array());
+
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
+    //SELECT ALL PISCINES
+    public function getPiscines()
+    {
+        $stmt = $this->bdd->prepare("SELECT * FROM piscine");
+        $stmt->execute(array());
+
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
+
+
+    //INSERTION RESERVATION
+    public function addClientChambre()
+    {
         $stmt = $this->bdd->prepare("INSERT INTO client_chambre VALUES (?, ?, ?, ?, ?, ?)");
         $stmt->execute(array(
             htmlentities($_SESSION['client']),
@@ -138,20 +149,53 @@ class HotelManager
             uniqid(),
             1
         ));
-     }
-
-
-/*
-    public function getReservationOptions()
-    {
-        $options = $_POST['option'];
-        foreach ($options as $option) {
-            $stmt = $this->bdd->prepare("SELECT * FROM " . $option . "");
-            $stmt->execute(array());
-            $result = $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
-            return $result;
-        }
-        
     }
-    */
+
+    public function addClientMenu()
+    {
+        $stmt = $this->bdd->prepare("INSERT INTO client_menu VALUES (?, ?, ?, ?)");
+        $stmt->execute(array(
+            htmlentities($_SESSION['client']),
+            htmlentities($_POST['id_menu']),
+            htmlentities($_POST['quantite_menu']),
+            htmlentities($_POST['date_menu']),
+        ));
+    }
+
+    public function addClientSalle()
+    {
+        $stmt = $this->bdd->prepare("INSERT INTO client_salle VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->execute(array(
+            htmlentities($_SESSION['client']),
+            htmlentities($_POST['id_salle']),
+            htmlentities($_POST['debut_salle']),
+            htmlentities($_POST['fin_salle']),
+            uniqid(),
+            1
+        ));
+    }
+
+    public function addClientBoisson()
+    {
+        $stmt = $this->bdd->prepare("INSERT INTO client_boisson VALUES (?, ?, ?, ?)");
+        $stmt->execute(array(
+            htmlentities($_SESSION['client']),
+            htmlentities($_POST['id_boisson']),
+            htmlentities($_POST['quantite_boisson']),
+            htmlentities($_POST['date_boisson']),
+        ));
+    }
+
+    public function addClientPiscine()
+    {
+        $stmt = $this->bdd->prepare("INSERT INTO client_piscine VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->execute(array(
+            htmlentities($_POST['piscine']),
+            htmlentities($_SESSION['client']),
+            htmlentities($_POST['debut_piscine']),
+            htmlentities($_POST['fin_piscine']),
+            uniqid(),
+            1
+        ));
+    }
 }

@@ -53,18 +53,20 @@ ob_start();
         </select>
     </div>
     <div>
-        <div>
-            <p>Piscine</p>
-            <label for="piscine_true">Oui</label>
-            <input type="radio" name="piscine[]" id="piscine_true" value="1">
-            <label for="piscine_false">Non</label>
-            <input type="radio" name="piscine[]" id="piscine_false" class="piscinefalse" value="0">
-        </div>
 
-        <label for="debut">Début</label>
-        <input type="datetime-local" id="debut" name="piscinedate[]" min="2023-04-10T10:00" required>
-        <label for="fin">Fin</label>
-        <input type="datetime-local" id="fin" name="piscinedate[]" max="2023-04-10T23:00" required>
+        <label for="piscine">Piscine</label>
+        <select name="piscine" id="piscine" required>
+            <option value="0">--Non--</option>
+            <?php
+            foreach ($piscine as $piscine) { ?>
+                <option value="<?= $piscine->getIdPiscine() ?>"><?= $piscine->getNamePiscine() ?></option>
+            <?php } ?>
+        </select>
+
+        <label for="debut_piscine">Début</label>
+        <input type="date" id="debut_piscine" class="piscinedate" name="debut_piscine" required disabled>
+        <label for="fin_piscine">Fin</label>
+        <input type="date" id="fin_piscine" class="piscinedate" name="fin_piscine" required disabled>
     </div>
 
     <button type="submit" class="cta">Terminer la réservation</button>
@@ -81,8 +83,7 @@ ob_start();
     chambreInput.setAttribute('name', 'id_chambre');
     if (localStorage.getItem('chambre') == undefined) { //if user doesn't select chambre -> value 0
         chambreInput.setAttribute('value', 0);
-    }
-    else{
+    } else {
         //if user select one -> value = id chambre
         chambreInput.setAttribute('value', `${encryptStorage.getItem('chambre')}`);
         submit.insertAdjacentElement('beforebegin', chambreInput);
@@ -96,7 +97,7 @@ ob_start();
         </div>
         `);
     }
-    
+
 
     //MENU VALUE
     let menuInput = document.createElement('input');
@@ -104,18 +105,18 @@ ob_start();
     menuInput.setAttribute('name', 'id_menu');
     if (localStorage.getItem('menu') == undefined) { //if user doesn't select chambre -> value 0
         menuInput.setAttribute('value', 0);
-    }
-    
-    else{
+    } else {
         menuInput.setAttribute('value', `${encryptStorage.getItem('menu')}`); //if user select one -> value = id chambre
         submit.insertAdjacentElement('beforebegin', menuInput);
         form.insertAdjacentHTML('afterbegin', `<div>
             <label for="date_menu">Date menu</label>
             <input type="date" name="date_menu" id="date_menu">
+            <label for="quantite_menu">Quantité menu</label>
+            <input type="number" name="quantite_menu" id="quantite_menu">
         </div>
         `);
     }
-    
+
 
     //SALLES VALUE
     let salleInput = document.createElement('input');
@@ -123,9 +124,7 @@ ob_start();
     salleInput.setAttribute('name', 'id_salle');
     if (localStorage.getItem('salle') == undefined) { //if user doesn't select salle -> value 0
         salleInput.setAttribute('value', 0);
-    }
-    
-    else{
+    } else {
         salleInput.setAttribute('value', `${encryptStorage.getItem('salle')}`); //if user select one -> value = id salle
         submit.insertAdjacentElement('beforebegin', salleInput);
         form.insertAdjacentHTML('afterbegin', `<div>
@@ -145,13 +144,14 @@ ob_start();
     boissonInput.setAttribute('name', 'id_boisson');
     if (localStorage.getItem('boisson') == undefined) {
         boissonInput.setAttribute('value', '0');
-    }
-    else{
+    } else {
         boissonInput.setAttribute('value', `${encryptStorage.getItem('boisson')}`);
         submit.insertAdjacentElement('beforebegin', boissonInput);
         form.insertAdjacentHTML('afterbegin', `<div>
             <label for="date_boisson">Date boisson</label>
             <input type="date" name="date_boisson" id="date_boisson">
+            <label for="quantite_boisson">Quantité boisson</label>
+            <input type="number" name="quantite_boisson" id="quantite_boisson">
         </div>
         `);
     }
@@ -186,33 +186,19 @@ ob_start();
         bar = encryptStorage.setItem('bar', `${[barBtn.selectedIndex]}`);
     });
 
-    //Piscine radio
-    const piscineBtn = document.getElementsByName('piscine[]');
-    const piscineDateBtn = document.getElementsByName('piscinedate[]');
-    let piscine;
-    let piscine_debut;
-    let piscine_fin;
-    for (let i = 0; i < piscineBtn.length; i++) {
-        piscineBtn[i].addEventListener('change', () => {
-            piscine = encryptStorage.setItem('piscine', piscineBtn[i].value);
-
-            for (let j = 0; j < piscineDateBtn.length; j++) {
-                if (piscineBtn[i].value == 1) {
-                    piscineDateBtn[j].disabled = false;
-                    piscineDateBtn[j].addEventListener('change', () => {
-                        piscine_debut = encryptStorage.setItem('piscine_debut', `${piscineDateBtn[0].value}`);
-                        piscine_fin = encryptStorage.setItem('piscine_fin', `${piscineDateBtn[1].value}`);
-                    });
-
-                } else {
-                    piscineDateBtn[j].disabled = true;
-                    piscine_debut = encryptStorage.setItem('piscine_debut', 0);
-                    piscine_fin = encryptStorage.setItem('piscine_fin', 0);
-                }
+    //Piscine select
+    const piscineBtn = document.querySelector('#piscine');
+    const piscineDateBtn = document.querySelectorAll('.piscinedate');
+    piscineBtn.addEventListener('click', () => {
+        piscineDateBtn.forEach(e => {
+            console.log()
+            if (piscineBtn.value == 0) {
+                e.disabled = true;
+            } else {
+                e.disabled = false;
             }
-        });
-
-    }
+        })
+    })
 </script>
 <?php
 $content = ob_get_clean();
