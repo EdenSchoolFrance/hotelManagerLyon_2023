@@ -67,6 +67,8 @@ class HotelController {
         $_SESSION['old'] = $_POST;
 
         if (!$this->validator->errors()) {
+            $info = array("id_client"=> $_POST["client"], "id_chambre" => $_POST["choosed"], "debut" =>$_POST["debut"], "fin" => $_POST["fin"]);
+            $this->manager->addClientChambre($info);
             print_r($_POST);
         } else{
             header("Location: /chambre");

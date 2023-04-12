@@ -81,6 +81,9 @@ html body main section article .carousel-item img {
 html body main section form {
   width: 50%;
 }
+html body main section form .error {
+  color: red;
+}
 html body main section form button {
   margin: 10px auto;
   display: block;
@@ -116,6 +119,7 @@ html body main section form div article p {
 html body main section form div article p span {
   text-decoration: underline;
   font-weight: bold;
+  color: black;
 }
 html body main section form #chambre {
   flex-direction: row;

@@ -30,8 +30,8 @@ ob_start();
                         }
                     }
                 ?>
-            <span class="error"><?php echo error("chambre");?></span>
         </div>
+        <span class="error"><?php echo error("choosed");?></span>
         <div>
             <label for="debut"><i class="fa-solid fa-hourglass-start"></i>Debut :</label>
             <input type="date" id="debut" name='debut'aria-describedby="debut" autocomplete="on" value="<?php echo old("debut");?>">
@@ -42,7 +42,7 @@ ob_start();
             <input type="date" name='fin' id="fin" autocomplete="on" value="<?php echo old("fin");?>">
             <span class="error"><?php echo error("fin");?></span>
         </div>
-        <button type="submit" class="button" id="connexion">Choisir</button>
+        <button type="submit" class="button" id="ajouter">ajouter</button>
         <span class="error"><?php echo error("message");?></span>
     </form>
     <?php if(success()) echo "<script>alert('" . success() . "')</script>"; ?>
