@@ -19,7 +19,7 @@
         <nav>
             <ul>
                 <li><a href="/"><img src="/img/logo.png" alt="logo"></a></li>
-                <li><a href="#">Réserver une chambre</a></li>
+                <li><a href="/galleriepiscine">Gallerie Piscines</a></li>
             </ul>
         </nav>
     </header>

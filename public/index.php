@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 require '../src/config/config.php';
@@ -19,15 +18,16 @@ $router->get('/update/:IdClient', "HotelController@showUpdateClient"); //Update 
 $router->post('/update/:IdClient', "HotelController@updateClient"); //Update client request
 
 //RESERVATION
-$router->get('/newReservation', "HotelController@quiReserve"); //Select user qui réserve
-$router->get('/reservation', "HotelController@showOptions");
+$router->get('/newReservation', "HotelController@quiReserve"); //Select user who reserves
+$router->get('/reservation', "HotelController@showOptions"); //Show reservations options + form
 $router->get('/reservation/chambres', "HotelController@showChambres"); //Show chambres
 $router->get('/reservation/menus', "HotelController@showMenus"); //Show menus
 $router->get('/reservation/salles', "HotelController@showSalles"); //Show salles
-$router->get('/reservation/boissons', "HotelController@showBoissons"); //Show salles
+$router->get('/reservation/boissons', "HotelController@showBoissons"); //Show boissons
+$router->post('/reservationConfirm', "HotelController@reservationInsert"); //Insert reservation
 
-$router->post('/reservationConfirm', "HotelController@reservationInsert");
-
+//GALLERIE
+$router->get('/galleriepiscine', "HotelController@showPiscines"); //Show piscine
 
 
 $router->get('/test', "HotelController@test");

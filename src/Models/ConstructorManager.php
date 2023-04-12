@@ -16,4 +16,5 @@ class ConstructorManager
     {
         return $this->bdd;
     }
+
 }

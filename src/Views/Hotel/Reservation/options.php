@@ -2,32 +2,6 @@
 ob_start();
 ?>
 <h1>Choisissez vos options</h1>
-<ul class="action">
-    <li>
-        <a href="reservation/chambres">
-            <i class="fa-solid fa-bed" style="color: #fff;"></i>
-            <h2>Voir toutes les chambres</h2>
-        </a>
-    </li>
-    <li>
-        <a href="reservation/menus">
-            <i class="fa-solid fa-burger" style="color: #fff;"></i>
-            <h2>Voir tous les menus</h2>
-        </a>
-    </li>
-    <li>
-        <a href="reservation/salles">
-            <i class="fa-regular fa-hospital" style="color: #fff;"></i>
-            <h2>Voir toutes les salles</h2>
-        </a>
-    </li>
-    <li>
-        <a href="reservation/boissons">
-            <i class="fa-solid fa-utensils" style="color: #fff;"></i>
-            <h2>Voir toutes les boissons</h2>
-        </a>
-    </li>
-</ul>
 
 <form class="reservation" action="/reservationConfirm" method="POST">
     <div>
@@ -72,6 +46,33 @@ ob_start();
     <button type="submit" class="cta">Terminer la réservation</button>
 </form>
 
+<ul class="action">
+    <li>
+        <a href="reservation/chambres">
+            <i class="fa-solid fa-bed" style="color: #fff;"></i>
+            <h2>Voir toutes les chambres</h2>
+        </a>
+    </li>
+    <li>
+        <a href="reservation/menus">
+            <i class="fa-solid fa-burger" style="color: #fff;"></i>
+            <h2>Voir tous les menus</h2>
+        </a>
+    </li>
+    <li>
+        <a href="reservation/salles">
+            <i class="fa-regular fa-hospital" style="color: #fff;"></i>
+            <h2>Voir toutes les salles</h2>
+        </a>
+    </li>
+    <li>
+        <a href="reservation/boissons">
+            <i class="fa-solid fa-utensils" style="color: #fff;"></i>
+            <h2>Voir toutes les boissons</h2>
+        </a>
+    </li>
+</ul>
+
 
 <script>
     const form = document.querySelector('form');
@@ -115,6 +116,7 @@ ob_start();
             <input type="number" name="quantite_menu" id="quantite_menu" value="1">
         </div>
         `);
+
     }
 
 
@@ -182,8 +184,10 @@ ob_start();
     //Bar select
     const barBtn = document.querySelector('#bar');
     let bar;
-    barBtn.addEventListener('click', () => {
+    barBtn.addEventListener('change', () => {
         bar = encryptStorage.setItem('bar', `${[barBtn.selectedIndex]}`);
+       let id_bar = barBtn.options[barBtn.selectedIndex].value;
+        document.cookie = `id_bar=${id_bar}`;
     });
 
     //Piscine select

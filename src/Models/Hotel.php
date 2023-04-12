@@ -29,6 +29,7 @@ class Hotel
         private $id_bar;
         private $name_bar;
 
+        //PISCINE
         private $id_piscine;
         private $name_piscine;
         private $description_piscine;
@@ -50,7 +51,7 @@ class Hotel
         private $name_boisson;
         private $description_boisson;
         private $image_boisson;
-        private $prix_un_boisson;
+        private $prix_boisson;
 
         //CLIENTS
         private $id_client;
@@ -415,12 +416,12 @@ class Hotel
 
         public function getPrixBoisson()
         {
-                return $this->prix_un_boisson;
+                return $this->prix_boisson;
         }
 
-        public function setPrixBoisson($prix_un_boisson)
+        public function setPrixBoisson($prix_boisson)
         {
-                return $this->prix_un_boisson = $prix_un_boisson;
+                return $this->prix_boisson = $prix_boisson;
         }
 
         public function getNameRestaurant()

@@ -1,5 +1,4 @@
 <?php
-
 namespace Hotel\Models;
 
 use Hotel\Models\Hotel;
@@ -25,22 +24,32 @@ class HotelManager extends ConstructorManager
     {
         $stmt = $this->bdd->prepare("SELECT * FROM client");
         $stmt->execute(array());
-
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
     }
 
-    //SELECT CLIENT BY ID
+    //SELECT CLIENT BY ID (find)
     public function findClient($slug)
     {
         $stmt = $this->bdd->prepare("SELECT * FROM client WHERE id_client = ?");
         $stmt->execute(array(
             htmlentities($slug)
         ));
-
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
     }
 
+    //UPDATE CLIENT
+    public function updateClient($slug)
+    {
+        $stmt = $this->bdd->prepare("UPDATE client SET nom_client = ?, prenom_client = ?, email_client = ? WHERE id_client = ?");
+        $stmt->execute(array(
+            htmlentities($_POST['nom']),
+            htmlentities($_POST['prenom']),
+            htmlentities($_POST['email']),
+            htmlentities($slug),
+        ));
+    }
 
+    //DELETE CLIENT
     public function deleteClient($slug)
     {
         $stmt = $this->bdd->prepare("DELETE FROM client WHERE id_client = ?");
@@ -49,6 +58,7 @@ class HotelManager extends ConstructorManager
         ));
     }
 
+    //DELETE CLIENT WITH OPTIONS FOREIGN KEY
     public function deleteClientBoisson($slug)
     {
         $stmt = $this->bdd->prepare("DELETE FROM client_boisson WHERE id_client = ?");
@@ -89,24 +99,12 @@ class HotelManager extends ConstructorManager
         ));
     }
 
-    public function updateClient($slug)
-    {
-        $stmt = $this->bdd->prepare("UPDATE client SET nom_client = ?, prenom_client = ?, email_client = ? WHERE id_client = ?");
-        $stmt->execute(array(
-            htmlentities($_POST['nom']),
-            htmlentities($_POST['prenom']),
-            htmlentities($_POST['email']),
-            htmlentities($slug),
-        ));
-    }
 
-    //SELECT FUNCTIONS
     //SELECT ALL CHAMBRES
     public function getChambres()
     {
         $stmt = $this->bdd->prepare("SELECT * FROM chambre WHERE occupe_chambre = '0'");
         $stmt->execute(array());
-
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
     }
 
@@ -115,7 +113,6 @@ class HotelManager extends ConstructorManager
     {
         $stmt = $this->bdd->prepare("SELECT * FROM menu");
         $stmt->execute(array());
-
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
     }
 
@@ -124,7 +121,6 @@ class HotelManager extends ConstructorManager
     {
         $stmt = $this->bdd->prepare("SELECT * FROM salle");
         $stmt->execute(array());
-
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
     }
 
@@ -133,7 +129,6 @@ class HotelManager extends ConstructorManager
     {
         $stmt = $this->bdd->prepare("SELECT * FROM restaurant");
         $stmt->execute(array());
-
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
     }
 
@@ -142,23 +137,24 @@ class HotelManager extends ConstructorManager
     {
         $stmt = $this->bdd->prepare("SELECT * FROM bar");
         $stmt->execute(array());
-
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
     }
-    //SELECT ALL BOISSONS
-    public function getBoissons()
+
+    //SELECT BOISSONS WITH ID_BAR SELECTED
+    public function getBoissonsBar()
     {
-        $stmt = $this->bdd->prepare("SELECT * FROM boisson");
-        $stmt->execute(array());
-
+        $stmt = $this->bdd->prepare("SELECT * FROM boisson JOIN bar_boisson ON boisson.id_boisson = bar_boisson.id_boisson WHERE bar_boisson.id_bar = ?");
+        $stmt->execute(array(
+            $_COOKIE['id_bar']
+        ));
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
     }
+
     //SELECT ALL PISCINES
     public function getPiscines()
     {
         $stmt = $this->bdd->prepare("SELECT * FROM piscine");
         $stmt->execute(array());
-
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
     }
 
@@ -173,7 +169,7 @@ class HotelManager extends ConstructorManager
             htmlentities($_POST['debut_chambre']),
             htmlentities($_POST['fin_chambre']),
             uniqid(),
-            1
+            1, //si l'utilisateur réserve une chambre, elle devient occupée, donc status 1
         ));
     }
 

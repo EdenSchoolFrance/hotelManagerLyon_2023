@@ -1,5 +1,4 @@
 <?php
-
 namespace Hotel\Controllers;
 
 use Hotel\Models\HotelManager;
@@ -26,6 +25,7 @@ class HotelController
         require VIEWS . 'Hotel/test.php';
     }
 
+    //Show add client form
     public function showNewClient()
     {
         require VIEWS . 'Hotel/Client/newClient.php';
@@ -45,6 +45,7 @@ class HotelController
         require VIEWS . 'Hotel/Client/allClients.php';
     }
 
+    //Delete client and all foreign key
     public function deleteClient($slug)
     {
         $this->manager->deleteClientBoisson($slug);
@@ -53,7 +54,6 @@ class HotelController
         $this->manager->deleteClientPiscine($slug);
         $this->manager->deleteClientSalle($slug);
         $this->manager->deleteClient($slug);
-        
         header('Location: /allClients');
     }
 
@@ -64,20 +64,21 @@ class HotelController
         require VIEWS . 'Hotel/Client/updateClient.php';
     }
 
-    //Update client infos
+    //Update client
     public function updateClient($slug)
     {
         $changes = $this->manager->updateClient($slug);
         header('Location: /allClients');
     }
 
-    //Select reservation user
+    //Select user who reserves
     public function quiReserve()
     {
         $clients = $this->manager->getClients();
         require VIEWS . 'Hotel/Reservation/quiReserve.php';
     }
 
+    //Show options form
     public function showOptions()
     {
         $restaurant = $this->manager->getRestaurants();
@@ -86,6 +87,7 @@ class HotelController
         require VIEWS . 'Hotel/Reservation/options.php';
     }
 
+    //Options
     public function showChambres()
     {
         $chambre = $this->manager->getChambres();
@@ -106,8 +108,14 @@ class HotelController
 
     public function showBoissons()
     {
-        $boisson = $this->manager->getBoissons();
+        $boisson = $this->manager->getBoissonsBar();
         require VIEWS . 'Hotel/Reservation/boissons.php';
+    }
+
+    public function showPiscines()
+    {
+        $piscine = $this->manager->getPiscines();
+        require VIEWS . 'Hotel/piscines.php';
     }
 
     //Insert reservation with all selected options
@@ -125,10 +133,9 @@ class HotelController
         if (isset($_POST['id_boisson'])) {
             $client_boisson = $this->manager->addClientBoisson();
         }
-        if (isset($_POST['piscine'])) {
+        if (isset($_POST['id_piscine'])) {
             $client_piscine = $this->manager->addClientPiscine();
         }
         header('Location: /');
     }
-
 }
