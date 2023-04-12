@@ -13,7 +13,16 @@ ob_start();
             <div class="image"><img src="/assets/<?= $piscine->getimage_piscine(); ?>" alt="Image de la piscine"></div>
             <div class="ouverture">Ouverture: <?= $piscine->getouverture_piscine(); ?></div>
             <div class="fermeture">Fermeture: <?= $piscine->getfermeture_piscine(); ?></div>
-            <a href="reserver/<?= $piscine->getid_piscine(); ?>" class="valider">Reserver la piscine</a>
+            <form action="/piscine/reserver/" method="post">
+                <div class="date">
+                    <p><input type="date" name="deb_date" id="deb-date"></p>
+                    <p><input type="date" name="fin_date" id="fin_date"></p>
+                </div>
+
+                <input type="hidden" name="id_chambre" value="<?= $piscine->getid_piscine(); ?>">
+                <button type="submit" class="valider">Reserver la piscine</button>
+            </form>
+
         </div>
     <?php } ?>
 </section>

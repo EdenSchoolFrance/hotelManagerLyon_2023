@@ -68,4 +68,23 @@ class ClientManager
         ));
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Client");
     }
+
+    public function reserve_chambres($user, $id_chambre, $deb_date, $fin_date, $num_reserve)
+    {
+        $stmt = $this->bdd->prepare('INSERT INTO `client_chambre`(`id_client`, `id_chambre`, `date_debut_reservation_chambre`, `date_fin_reservation_piscine_chambre`, `num_reservation_chambre`) VALUES (?,?,?,?,?)');
+        $stmt->execute(array(
+            $user,
+            $id_chambre,
+            $deb_date,
+            $fin_date,
+            $num_reserve,
+        ));
+
+        $stmt = $this->bdd->prepare('UPDATE `chambre` SET `occupe_chambre`= :occupe WHERE `id_chambre` = :id_chambre');
+        $stmt->execute(array(
+            'occupe' => 1,
+            ':id_chambre' => $id_chambre,
+        ));
+        return;
+    }
 }

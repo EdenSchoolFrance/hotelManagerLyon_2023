@@ -79,39 +79,58 @@ class HotelController
         header("Location: /client/");
     }
 
+    // Affichage des chambres
     public function show_chambres()
     {
         $chambres = $this->manager_hotel->show_chambre();
         require VIEWS . 'Hotel/show_chambres.php';
     }
 
+    // Affichage des piscines
     public function show_piscines()
     {
         $piscines = $this->manager_hotel->show_piscines();
         require VIEWS . 'Hotel/show_piscines.php';
     }
 
+    // Affichage des salles
     public function show_salles()
     {
         $salles = $this->manager_hotel->show_salles();
         require VIEWS . 'Hotel/show_salles.php';
     }
 
+    // Affichage des restaurants
     public function show_restaurants()
     {
         $restaurants = $this->manager_hotel->show_restaurants();
         require VIEWS . 'Hotel/show_restaurants.php';
     }
 
+    // Affichage des bars
     public function show_bars()
     {
         $bars = $this->manager_hotel->show_bars();
         require VIEWS . 'Hotel/show_bars.php';
     }
 
+    // Affichage des menus (des restaurants)
     public function show_menus($slug)
     {
         $menus = $this->manager_hotel->show_menus($slug);
         require VIEWS . 'Hotel/show_menus.php';
+    }
+
+    // Reservation de chambre
+    public function reserve_chambres()
+    {
+        $user = $_SESSION["user"]["id_user"];
+        $deb_date = $_POST["deb_date"];
+        $fin_date = $_POST["fin_date"];
+        $num_reserve = uniqid();
+        $id_chambre = $_POST["id_chambre"];
+
+        $this->manager->reserve_chambres($user, $id_chambre, $deb_date, $fin_date, $num_reserve);
+        header("Location: /client/");
     }
 }

@@ -15,7 +15,8 @@ ob_start();
             <th>Salles</th>
             <th>Supprimer</th>
         </tr>
-        <?php foreach ($clients as $client) { ?>
+        <?php foreach ($clients as $client) {
+            $_SESSION["user"]["id_user"] = $client->getid_client(); ?>
             <tr>
                 <td><?= $client->getid_client(); ?></td>
                 <td><?= $client->getprenom_client(); ?></td>
