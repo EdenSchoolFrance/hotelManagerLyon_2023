@@ -10,9 +10,7 @@
             <h2>search your <span>offer</span></h2>
             <form action="/showClients" method="post">
                 <div class="resto">
-                    <a href="/showRestaurant/<?= $slug ?>">
-                        Choissiez un restaurant
-                    </a>
+                    <h3>Restaurants</h3>
                     <div>
                         <div>
                             <label for="resto_yes">Oui</label>
@@ -23,11 +21,12 @@
                             <input type="radio" name="resto" id="resto_no">
                         </div>
                     </div>
+                    <a href="/showRestaurant/<?= $slug ?>" class="none">
+                        Choissiez un restaurant
+                    </a>
                 </div>
                 <div class="chambre">
-                    <a href="/showChambre/<?= $slug ?>">
-                        Choisissez une chambre
-                    </a>
+                    <h3>Chambres</h3>
                     <div>
                         <div>
                             <label for="chambre_yes">Oui</label>
@@ -35,14 +34,15 @@
                         </div>
                         <div>
                             <label for="chambre_no">Non</label>
-                            <input type="radio" name="bar" id="chambre_no">
+                            <input type="radio" name="chambre" id="chambre_no">
                         </div>
                     </div>
+                    <a href="/showChambre/<?= $slug ?>" class="none">
+                        Choisissez une chambre
+                    </a>
                 </div>
                 <div class="piscine">
-                    <a href="/showPiscine/<?= $slug ?>">
-                        Choisissez une piscine
-                    </a>
+                    <h3>Piscines</h3>
                     <div>
                         <div>
                             <label for="piscine_yes">Oui</label>
@@ -53,14 +53,15 @@
                             <input type="radio" name="piscine" id="piscine_no">
                         </div>
                     </div>
+                    <a href="/showPiscine/<?= $slug ?>" class="none">
+                        Choisissez une piscine
+                    </a>
                     <?php if (str_contains($_SERVER["REQUEST_URI"], "error")) : ?>
                         <p class="error">Veuillez rentrer une date correcte</p>
                     <?php endif ?>
                 </div>
                 <div class="salle">
-                    <a href="/showSalle/<?= $slug ?>">
-                        Choisissez une salle
-                    </a>
+                    <h3>Salles</h3>
                     <div>
                         <div>
                             <label for="salle_yes">Oui</label>
@@ -71,11 +72,12 @@
                             <input type="radio" name="salle" id="salle_no">
                         </div>
                     </div>
+                    <a href="/showSalle/<?= $slug ?>" class="none">
+                        Choisissez une salle
+                    </a>
                 </div>
                 <div class="boisson">
-                    <a href="/showBoisson/<?= $slug ?>">
-                        Choisissez une boisson
-                    </a>
+                    <h3>Boissons</h3>
                     <div>
                         <div>
                             <label for="boisson_yes">Oui</label>
@@ -86,7 +88,10 @@
                             <input type="radio" name="boisson" id="boisson_no">
                         </div>
                     </div>
-                    <a href="/showBoisson/<?= $_SESSION["idUser"] ?>" class="none boissonLink">Voir les boissons</a>
+                    <a href="/showBoisson/<?= $slug ?>" class="none">
+                        Choisissez une boisson
+                    </a>
+                    <!-- <a href="/showBoisson/<?= $_SESSION["idUser"] ?>" class="none boissonLink">Voir les boissons</a> -->
                 </div>
                 <script>
                     if (encryptStorage.getItem(`id_chambre`) != null) {

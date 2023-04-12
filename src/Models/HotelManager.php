@@ -142,7 +142,6 @@ class HotelManager extends BDD
 
         $stmt = $this->bdd->prepare('SELECT * FROM bar_boisson');
         $stmt->execute();
-
         if (isset($_POST["id_boisson"])) {
             $stock = $stmt->fetchAll()[0]["quantite_stock_bar_boisson"];
             if ($stock >= $_POST["quantity_boisson"]) {
