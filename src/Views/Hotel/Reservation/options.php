@@ -112,7 +112,7 @@ ob_start();
             <label for="date_menu">Date menu</label>
             <input type="date" name="date_menu" id="date_menu">
             <label for="quantite_menu">Quantité menu</label>
-            <input type="number" name="quantite_menu" id="quantite_menu">
+            <input type="number" name="quantite_menu" id="quantite_menu" value="1">
         </div>
         `);
     }
@@ -151,7 +151,7 @@ ob_start();
             <label for="date_boisson">Date boisson</label>
             <input type="date" name="date_boisson" id="date_boisson">
             <label for="quantite_boisson">Quantité boisson</label>
-            <input type="number" name="quantite_boisson" id="quantite_boisson">
+            <input type="number" name="quantite_boisson" id="quantite_boisson" value="1">
         </div>
         `);
     }

@@ -47,14 +47,20 @@ class HotelController
 
     public function deleteClient($slug)
     {
+        $this->manager->deleteClientBoisson($slug);
+        $this->manager->deleteClientChambre($slug);
+        $this->manager->deleteClientMenu($slug);
+        $this->manager->deleteClientPiscine($slug);
+        $this->manager->deleteClientSalle($slug);
         $this->manager->deleteClient($slug);
+        
         header('Location: /allClients');
     }
 
     //Show update client form
     public function showUpdateClient($slug)
     {
-        $client = $this->manager->getClient($slug);
+        $client = $this->manager->findClient($slug);
         require VIEWS . 'Hotel/Client/updateClient.php';
     }
 

@@ -30,7 +30,7 @@ class HotelManager extends ConstructorManager
     }
 
     //SELECT CLIENT BY ID
-    public function getClient($slug)
+    public function findClient($slug)
     {
         $stmt = $this->bdd->prepare("SELECT * FROM client WHERE id_client = ?");
         $stmt->execute(array(
@@ -44,6 +44,46 @@ class HotelManager extends ConstructorManager
     public function deleteClient($slug)
     {
         $stmt = $this->bdd->prepare("DELETE FROM client WHERE id_client = ?");
+        $stmt->execute(array(
+            htmlentities($slug),
+        ));
+    }
+
+    public function deleteClientBoisson($slug)
+    {
+        $stmt = $this->bdd->prepare("DELETE FROM client_boisson WHERE id_client = ?");
+        $stmt->execute(array(
+            htmlentities($slug),
+        ));
+    }
+
+    public function deleteClientChambre($slug)
+    {
+        $stmt = $this->bdd->prepare("DELETE FROM client_chambre WHERE id_client = ?");
+        $stmt->execute(array(
+            htmlentities($slug),
+        ));
+    }
+
+    public function deleteClientMenu($slug)
+    {
+        $stmt = $this->bdd->prepare("DELETE FROM client_menu WHERE id_client = ?");
+        $stmt->execute(array(
+            htmlentities($slug),
+        ));
+    }
+
+    public function deleteClientSalle($slug)
+    {
+        $stmt = $this->bdd->prepare("DELETE FROM client_salle WHERE id_client = ?");
+        $stmt->execute(array(
+            htmlentities($slug),
+        ));
+    }
+
+    public function deleteClientPiscine($slug)
+    {
+        $stmt = $this->bdd->prepare("DELETE FROM client_piscine WHERE id_client = ?");
         $stmt->execute(array(
             htmlentities($slug),
         ));
