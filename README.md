@@ -34,3 +34,21 @@ Donc les options dans une vue séparée en dehors du formulaire (chambre, salle.
 
 La valeur des options choisies sont stockées en localStorage puis envoyées avec le formulaire.
 Pour les options ayant leur vue redirigeant sur une autre page, elles sont stockées en localStorage puis leur valeur est stockée dans in input hidden qui déchiffre les valeurs pour enfin être envoyées avec le form.
++
+
+## Tâches + estimation du temps
+### BDD
+- MCD (1h)
+- MLD (20 min)
+- Créer BDD (15 min si créée manuellement, BDD déjà prête pour ce projet donc 0min)
+
+### CRUD CLIENT
+- Ajout Client (1h)
+- Affichage Client (30min)
+- Modification Client (1h)
+- Supression Client (30min)
+
+### RÉSERVATION
+- Affichage options (chambres, salles, menus, piscine)... (3h)
+- Affichage options ne nécésitant pas de vues (bar, restaurant) (1h)
+- Insertion réservation (2h)
