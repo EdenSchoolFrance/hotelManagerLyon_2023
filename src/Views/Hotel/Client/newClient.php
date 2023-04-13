@@ -5,11 +5,13 @@ ob_start();
   <div>
     <label for="nom">Nom client</label>
     <input type="text" name="nom" id="nom" placeholder="John">
+
   </div>
 
   <div>
     <label for="prenom">Prénom client</label>
     <input type="text" name="prenom" id="prenom" placeholder="Doe">
+  
   </div>
 
   <div>

@@ -27,6 +27,15 @@ class HotelManager extends ConstructorManager
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Clients");
     }
 
+    public function findClientEmail($email)
+    {
+        $stmt = $this->bdd->prepare("SELECT * FROM client WHERE email_client = ?");
+        $stmt->execute(array(
+            htmlentities($email)
+        ));
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Clients");
+    }
+
     //SELECT CLIENT BY ID (find)
     public function findClient($slug)
     {

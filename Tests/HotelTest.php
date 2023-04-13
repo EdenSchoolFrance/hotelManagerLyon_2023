@@ -1,23 +1,32 @@
 <?php
 
-namespace Hotel;
+declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
-use PHPUnit\Framework\InvalidArgumentException;
+
 use Hotel\Models\HotelManager;
 use Hotel\Models\Clients;
+use Hotel\Models\MenusRestaurants;
+use Hotel\Models\Piscines;
 
-include 'src/config/config.php';
+include "../hotelManagerLyon_2023/src/config/config.php";
 
-class HotelTest extends TestCase
+
+final class HotelTest extends TestCase
 {
-
-    protected $hm;
-
-    public function testGetClients()
+    
+    public function testShowPiscines()
     {
-        $this->hm = new HotelManager();
-
-        $clients = $this->hm->getClients();
+        $hotelManager = new HotelManager();
+        $piscines = $hotelManager->getPiscines();
+        $this->assertContainsOnlyInstancesOf(Piscines::class, $piscines);
     }
+
+    public function testShowMenus()
+    {
+        $hotelManager = new HotelManager();
+        $menus = $hotelManager->getMenus();
+        $this->assertContainsOnlyInstancesOf(MenusRestaurants::class, $menus);
+    }
+    
 }
