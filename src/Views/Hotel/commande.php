@@ -1,6 +1,7 @@
 <?php
 ob_start();
 ?>
+<section class="card">
 <h1>Faire une commande</h1>
 
     <p>Prenom : <?= $client->getPrenom() ?></p>
@@ -48,7 +49,7 @@ ob_start();
                     <label for="<?= $boisson->getId_boisson() ?>"> | quantité :</label>
                     <input type="number" name="<?= $boisson->getId_boisson() ?>" id="<?= $boisson->getId_boisson() ?>">
 
-                    <input type="submit" value="Valider la commande">
+                    <input type="submit" value="Valider la commande" class="button">
                 </form>
             </div>
             <br>
@@ -57,8 +58,7 @@ ob_start();
         ?>
         </ul>
     </div>
-    
-
+</section>
 <script src="../js/commande.js"></script>
 <?php
 $content = ob_get_clean();

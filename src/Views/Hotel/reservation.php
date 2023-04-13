@@ -1,6 +1,7 @@
 <?php
 ob_start();
 ?>
+<section class="card">
 <h1>Faire une reservation</h1>
 <form action="/addReservation" method="POST">
     <input type="hidden" value="<?= $client->getId() ?>" name="clientId">
@@ -65,8 +66,9 @@ ob_start();
         </div>
     </div>
 
-    <input type="submit">
+    <input type="submit" class="button">
 </form>
+</section>
 <script src="../js/reservation.js"></script>
 <?php
 $content = ob_get_clean();

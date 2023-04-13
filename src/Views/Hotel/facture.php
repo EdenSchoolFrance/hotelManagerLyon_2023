@@ -2,6 +2,7 @@
 ob_start();
 $total = 0;
 ?>
+<section class="card">
 <h1>Factures</h1>
 <p>Client : <?= $client->getPrenom() ?> <?= $client->getNom() ?></p>
 <p>Email : <?= $client->getEmail() ?></p>
@@ -99,7 +100,7 @@ $total = 0;
 <form action="/addFacture" method="POST">
     <input type="hidden" value="<?= $total ?>" name="total">
     <input type="hidden" value="<?= $client->getId()?>" name="clientId">
-    <input type="submit" value="Créer la facture">
+    <input type="submit" value="Créer la facture" class="button">
 </form>
 <h3>Facture Payer :</h3>
 <?php 
@@ -129,6 +130,7 @@ if($factures == null){
     }
     ?>
 </table>
+</section>
 <?php
 }
 $content = ob_get_clean();

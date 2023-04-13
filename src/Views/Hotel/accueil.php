@@ -1,7 +1,7 @@
 <?php
 ob_start();
 ?>
-Hi
+Bienvenue sur HotelManager
 <?php
 $content = ob_get_clean();
 require VIEWS . 'layout.php';

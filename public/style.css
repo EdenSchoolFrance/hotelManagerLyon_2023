@@ -4,6 +4,11 @@ html {
 
 body {
   font-size: 2rem;
+  font-family: "Pacifico", cursive;
+}
+
+h1, h2, h3 {
+  font-family: "Kaushan Script", cursive;
 }
 
 nav ul {
@@ -16,9 +21,29 @@ nav ul li {
 nav ul li a {
   color: black;
   text-decoration: none;
+  transition: 0.2s;
 }
 nav ul li a:hover {
   color: #3F90D3;
+  transition: 0.2s;
+}
+
+.card {
+  border: #3F90D3 solid 1px;
+  display: inline-block;
+  padding: 20px;
+}
+
+.button {
+  border: #3F90D3 solid 1px;
+  background: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.button:hover {
+  background-color: #3F90D3;
+  transition: 0.2s;
 }
 
 table {
@@ -40,12 +65,14 @@ table tr a {
   cursor: pointer;
   text-decoration: none;
   color: black;
+  transition: 0.3s;
 }
 table tr a:hover {
   text-decoration: underline;
 }
 table tr:not(:first-child):hover {
   background-color: #ccc;
+  transition: 0.3s;
 }
 
 .hidden {

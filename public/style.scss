@@ -1,6 +1,10 @@
 html{font-size: 62.5%;}
 body{
     font-size: 2rem;
+    font-family: 'Pacifico', cursive;
+}
+h1,h2,h3{
+    font-family: 'Kaushan Script', cursive;
 }
 nav{
     ul{
@@ -11,12 +15,30 @@ nav{
             a{
                 color: black;
                 text-decoration: none;
+                transition: 0.2s;
                 &:hover{
                     color: #3F90D3;
+                    transition: 0.2s;
                 }
             }
             
         }
+    }
+}
+.card{
+    border: #3F90D3 solid 1px;
+    display: inline-block;
+    padding: 20px;
+}
+.button{
+    border: #3F90D3 solid 1px;
+    background: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: 0.2s;
+    &:hover{
+        background-color: #3F90D3;
+        transition: 0.2s;
     }
 }
 
@@ -37,12 +59,14 @@ table {
             cursor: pointer;
             text-decoration: none;
             color: black;
+            transition: 0.3s;
             &:hover{
                 text-decoration: underline;
             }
         }
         &:not(:first-child):hover{
             background-color: #ccc;
+            transition: 0.3s;
         }
     }
 }
