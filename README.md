@@ -1,3 +1,9 @@
+
+
+
+
+## Consignes :
+
 # hotelManagerLyon_2023
 
 Development of a management software for the Eden Hotel.  It will allow hotel employees to manage the reservation of rooms, restaurants, swimming pool, conference room, etc.

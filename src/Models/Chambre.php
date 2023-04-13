@@ -11,6 +11,8 @@ class Chambre {
     private $prix_chambre;
     private $occupe_chambre;
     private $categorie_chambre;
+    private $date_debut_reservation_chambre;
+    private $date_fin_reservation_chambre;
 
     public function getId_chambre()
     {
@@ -87,6 +89,32 @@ class Chambre {
     public function setCategorie_chambre($categorie_chambre)
     {
         $this->categorie_chambre = $categorie_chambre;
+        return $this;
+    }
+
+
+
+    public function getDate_debut_reservation_chambre()
+    {
+        return $this->date_debut_reservation_chambre;
+    }
+
+    public function setDate_debut_reservation_chambre($date_debut_reservation_chambre)
+    {
+        $this->date_debut_reservation_chambre = $date_debut_reservation_chambre;
+
+        return $this;
+    }
+
+    public function getDate_fin_reservation_chambre()
+    {
+        return $this->date_fin_reservation_chambre;
+    }
+
+    public function setDate_fin_reservation_chambre($date_fin_reservation_chambre)
+    {
+        $this->date_fin_reservation_chambre = $date_fin_reservation_chambre;
+
         return $this;
     }
 }

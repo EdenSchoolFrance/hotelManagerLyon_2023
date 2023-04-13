@@ -9,6 +9,7 @@ class Boisson {
     private $description_boisson;
     private $options_chambre;
     private $prix_boisson;
+    private $quantite_client_boisson;
 
 
     public function getId_boisson()
@@ -69,6 +70,18 @@ class Boisson {
     public function setPrix_boisson($prix_boisson)
     {
         $this->prix_boisson = $prix_boisson;
+
+        return $this;
+    }
+
+    public function getQuantite_client_boisson()
+    {
+        return $this->quantite_client_boisson;
+    }
+
+    public function setQuantite_client_boisson($quantite_client_boisson)
+    {
+        $this->quantite_client_boisson = $quantite_client_boisson;
 
         return $this;
     }

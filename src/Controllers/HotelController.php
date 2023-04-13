@@ -76,4 +76,22 @@ class HotelController {
         $this->manager->addCommandeMenu();
         header("Location: /list");
     }
+
+    public function factureView($slug){
+        $client = $this->manager->getClient($slug);
+        $factures = $this->manager->getFacture($slug);
+
+        $boissons = $this->manager->getClient_boisson($slug);
+        $chambres = $this->manager->getClient_chambre($slug);
+        $menus = $this->manager->getClient_menu($slug);
+        $piscines = $this->manager->getClient_piscine($slug);
+        $salles = $this->manager->getClient_salle($slug);
+
+        require VIEWS . "Hotel/facture.php";
+    }
+
+    public function addFacture(){
+        $this->manager->addFacture();
+        header("Location: /list");
+    }
 }

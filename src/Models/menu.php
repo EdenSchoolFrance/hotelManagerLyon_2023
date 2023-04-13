@@ -9,6 +9,7 @@ class Menu {
     private $description_menu;
     private $options_chambre;
     private $prix_menu;
+    private $quantite_client_menu;
 
 
     public function getId_menu()
@@ -69,6 +70,19 @@ class Menu {
     public function setPrix_menu($prix_menu)
     {
         $this->prix_menu = $prix_menu;
+
+        return $this;
+    }
+
+
+    public function getQuantite_client_menu()
+    {
+        return $this->quantite_client_menu;
+    }
+
+    public function setQuantite_client_menu($quantite_client_menu)
+    {
+        $this->quantite_client_menu = $quantite_client_menu;
 
         return $this;
     }

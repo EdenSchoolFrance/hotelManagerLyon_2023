@@ -9,7 +9,9 @@ class Salle {
     private $description_salle;
     private $type_salle;
     private $options_salle;
-
+    private $prix_salle;
+    private $date_debut_reservation_salle;
+    private $date_fin_reservation_salle;
 
     public function getId_salle()
     {
@@ -68,6 +70,43 @@ class Salle {
     public function setOptions_salle($options_salle)
     {
         $this->options_salle = $options_salle;
+
+        return $this;
+    }
+
+    
+    public function getPrix_salle()
+    {
+        return $this->prix_salle;
+    }
+
+    public function setPrix_salle($prix_salle)
+    {
+        $this->prix_salle = $prix_salle;
+
+        return $this;
+    }
+
+    public function getDate_debut_reservation_salle()
+    {
+        return $this->date_debut_reservation_salle;
+    }
+
+    public function setDate_debut_reservation_salle($date_debut_reservation_salle)
+    {
+        $this->date_debut_reservation_salle = $date_debut_reservation_salle;
+
+        return $this;
+    }
+
+    public function getDate_fin_reservation_salle()
+    {
+        return $this->date_fin_reservation_salle;
+    }
+
+    public function setDate_fin_reservation_salle($date_fin_reservation_salle)
+    {
+        $this->date_fin_reservation_salle = $date_fin_reservation_salle;
 
         return $this;
     }
