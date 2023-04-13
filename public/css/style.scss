@@ -33,10 +33,10 @@ header{
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 2rem;
+        padding: 1rem 2rem;
         .logo{
             display: block;
-            width: 4rem;
+            width: 3rem;
             img{
                 max-width: 100%;
             }
@@ -351,13 +351,13 @@ main{
             }
         }
     }
-    section.clients{
+    section.clients, section.historique-commandes{
         h1{
             background: url('../pictures/clients.jpg') no-repeat;
             background-size: cover;
             background-position: center;
         }
-        .allClients{
+        .allClients, .allReservations{
             padding: 2rem;
             text-align: center;
             table {

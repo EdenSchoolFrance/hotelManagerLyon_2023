@@ -51,4 +51,14 @@ class ClientController
             header('Location: /clients');
         }
     }
+
+    public function historiqueClient($slug)
+    {
+        $client = $this->manager->getClient($slug);
+        $reservationsChambre = $this->manager->getReservationsChambreByClient($slug);
+        $reservationsSalle = $this->manager->getReservationsSalleByClient($slug);
+        $consommationsRestaurant = $this->manager->getConsoRestoByClient($slug);
+        $consommationsBar = $this->manager->getConsoBarByClient($slug);
+        require VIEWS . 'Hotel/historique_commandes.php';
+    }
 }

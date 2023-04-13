@@ -24,11 +24,11 @@ header nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem;
+  padding: 1rem 2rem;
 }
 header nav .logo {
   display: block;
-  width: 4rem;
+  width: 3rem;
 }
 header nav .logo img {
   max-width: 100%;
@@ -316,35 +316,35 @@ main section.restaurant-bar .allResto ul, main section.restaurant-bar .allBar ul
 main section.restaurant-bar .allResto ul li, main section.restaurant-bar .allBar ul li {
   margin-right: 2rem;
 }
-main section.clients h1 {
+main section.clients h1, main section.historique-commandes h1 {
   background: url("../pictures/clients.jpg") no-repeat;
   background-size: cover;
   background-position: center;
 }
-main section.clients .allClients {
+main section.clients .allClients, main section.clients .allReservations, main section.historique-commandes .allClients, main section.historique-commandes .allReservations {
   padding: 2rem;
   text-align: center;
 }
-main section.clients .allClients table {
+main section.clients .allClients table, main section.clients .allReservations table, main section.historique-commandes .allClients table, main section.historique-commandes .allReservations table {
   margin-top: 2rem;
   border-collapse: collapse;
   width: 80%;
   margin: 4rem auto 0;
 }
-main section.clients .allClients td, main section.clients .allClients th {
+main section.clients .allClients td, main section.clients .allClients th, main section.clients .allReservations td, main section.clients .allReservations th, main section.historique-commandes .allClients td, main section.historique-commandes .allClients th, main section.historique-commandes .allReservations td, main section.historique-commandes .allReservations th {
   border: 1px solid #65C1BE;
   text-align: left;
   padding: 8px;
   font-size: 1.5rem;
 }
-main section.clients .allClients td a, main section.clients .allClients th a {
+main section.clients .allClients td a, main section.clients .allClients th a, main section.clients .allReservations td a, main section.clients .allReservations th a, main section.historique-commandes .allClients td a, main section.historique-commandes .allClients th a, main section.historique-commandes .allReservations td a, main section.historique-commandes .allReservations th a {
   color: #65C1BE;
   font-size: 1.5rem;
 }
-main section.clients .allClients tr:nth-child(even) {
+main section.clients .allClients tr:nth-child(even), main section.clients .allReservations tr:nth-child(even), main section.historique-commandes .allClients tr:nth-child(even), main section.historique-commandes .allReservations tr:nth-child(even) {
   background-color: #313131;
 }
-main section.clients #addClient.open {
+main section.clients #addClient.open, main section.historique-commandes #addClient.open {
   display: flex;
   position: absolute;
   top: 50%;
@@ -360,20 +360,20 @@ main section.clients #addClient.open {
   justify-content: center;
   align-items: center;
 }
-main section.clients #addClient.open #btnCloseClient {
+main section.clients #addClient.open #btnCloseClient, main section.historique-commandes #addClient.open #btnCloseClient {
   position: absolute;
   cursor: pointer;
   top: 0;
   right: 4rem;
   font-size: 5rem;
 }
-main section.clients #addClient.open form {
+main section.clients #addClient.open form, main section.historique-commandes #addClient.open form {
   width: 60%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-main section.clients #addClient.open form input {
+main section.clients #addClient.open form input, main section.historique-commandes #addClient.open form input {
   display: block;
   width: 100%;
   margin: 2rem;
@@ -383,12 +383,12 @@ main section.clients #addClient.open form input {
   padding: 1rem;
   color: #313131;
 }
-main section.clients #addClient.open form input::-moz-placeholder {
+main section.clients #addClient.open form input::-moz-placeholder, main section.historique-commandes #addClient.open form input::-moz-placeholder {
   color: #313131;
 }
-main section.clients #addClient.open form input::placeholder {
+main section.clients #addClient.open form input::placeholder, main section.historique-commandes #addClient.open form input::placeholder {
   color: #313131;
 }
-main section.clients #addClient.close {
+main section.clients #addClient.close, main section.historique-commandes #addClient.close {
   display: none;
 }/*# sourceMappingURL=style.css.map */

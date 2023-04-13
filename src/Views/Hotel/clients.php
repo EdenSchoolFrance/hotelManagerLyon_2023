@@ -17,9 +17,9 @@ ob_start();
                     <td><?= $client->getNom() ?></td>
                     <td><?= $client->getPrenom() ?></td>
                     <td><?= $client->getMail() ?></td>
-                    <td><a href="/historiqueClient">Historique</a></td>
-                    <td><a href="/updateClient">Modifier</a></td>
-                    <td><a href="/deleteClient">Supprimer</a></td>
+                    <td><a href="/historiqueClient/<?= $client->getId() ?>">Historique</a></td>
+                    <td><a href="/updateClient/<?= $client->getId() ?>">Modifier</a></td>
+                    <td><a href="/deleteClient/<?= $client->getId() ?>">Supprimer</a></td>
                 </tr>
             <?php } ?>
         </table>
