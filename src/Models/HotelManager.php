@@ -2,6 +2,7 @@
 
 namespace Hotel\Models;
 
+use Hotel\Models\Bdd;
 use Hotel\Models\Chambres;
 use Hotel\Models\Piscines;
 use Hotel\Models\Salles;
@@ -11,16 +12,10 @@ use Hotel\Models\Menus;
 
 
 /** Class UserManager **/
-class HotelManager
+class HotelManager extends Bdd
 {
 
-    private $bdd;
 
-    public function __construct()
-    {
-        $this->bdd = new \PDO('mysql:host=' . HOST . ';dbname=' . DATABASE . ';charset=utf8;', USER, PASSWORD);
-        $this->bdd->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-    }
 
     public function show_chambre()
     {
