@@ -1,5 +1,3 @@
 Relecture /!\Attention aux erreurs/!\
 
-faire en sorte que les chambres ne puissent pas se faire commander si elles le sont déjà
-(Lors de la requette d'affichage 'show_chambres' faire: si chambre occupée, alors faire un btn rouge)
 Remplir correctement la BDD

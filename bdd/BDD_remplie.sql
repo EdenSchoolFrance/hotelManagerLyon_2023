@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 12 avr. 2023 à 16:27
+-- Généré le : jeu. 13 avr. 2023 à 17:59
 -- Version du serveur : 10.4.24-MariaDB
 -- Version de PHP : 8.1.6
 
@@ -37,7 +37,9 @@ CREATE TABLE `bar` (
 --
 
 INSERT INTO `bar` (`id_bar`, `name_bar`) VALUES
-(1, 'Le Drink');
+(1, 'Le Drink'),
+(64382403, 'Bar de Lyon'),
+(643824863, 'Bar de Paris');
 
 -- --------------------------------------------------------
 
@@ -70,7 +72,9 @@ CREATE TABLE `boisson` (
 --
 
 INSERT INTO `boisson` (`id_boisson`, `name_boisson`, `description_boisson`, `image_boisson`, `prix_un_boisson`) VALUES
-(1, 'gsdfg', 'sdghf', '626686ba8c531-Quad Ice Road 3.jpg', 22);
+(1, 'coca', 'Boisson unique et pétillante', 'P1060839 bis.jpg', 2),
+(2, 'Orangina', 'Boisson à l\'orange petillant', 'P1060839 bis.jpg', 2),
+(3, 'Bière', 'Boisson alcolisée', 'P1060839 bis.jpg', 3);
 
 -- --------------------------------------------------------
 
@@ -95,7 +99,8 @@ CREATE TABLE `chambre` (
 
 INSERT INTO `chambre` (`id_chambre`, `name_chambre`, `description_chambre`, `image_chambre`, `options_chambre`, `prix_chambre`, `occupe_chambre`, `categorie_chambre`) VALUES
 (2, 'chambre 201', 'Chambre avec vue sur la mer et spa sur le balcon', '6412ec575a81a.jpg', 'Mini_bar', 110, 1, 'premiere_classe'),
-(3, 'chambre 200', 'sdfg gsgq qsgs gSG', 'maurice.jpg', 'dfs', 10, 0, 'fsd');
+(3, 'chambre 200', 'sdfg gsgq qsgs gSG', 'maurice.jpg', 'dfs', 10, 0, 'fsd'),
+(643825335, 'Chambre 122', 'Chambre avec suite parentale et vue sur la mer', 'caraibes1.jpg', 'Possibilité de se faire livrer directement dans la chambre', 200, 0, '');
 
 -- --------------------------------------------------------
 
@@ -138,6 +143,13 @@ CREATE TABLE `client_boisson` (
   `date_client_boisson` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Déchargement des données de la table `client_boisson`
+--
+
+INSERT INTO `client_boisson` (`id_client`, `id_boisson`, `quantite_client_boisson`, `date_client_boisson`) VALUES
+(643529540, 1, 5, '2023-04-13');
+
 -- --------------------------------------------------------
 
 --
@@ -158,7 +170,7 @@ CREATE TABLE `client_chambre` (
 --
 
 INSERT INTO `client_chambre` (`id_client`, `id_chambre`, `date_debut_reservation_chambre`, `date_fin_reservation_piscine_chambre`, `num_reservation_chambre`, `status_chambre`) VALUES
-(643529540, 2, '2023-04-14', '2023-04-18', 6436, '');
+(643529540, 2, '2023-04-17', '2023-04-19', 6437, '');
 
 -- --------------------------------------------------------
 
@@ -172,6 +184,13 @@ CREATE TABLE `client_menu` (
   `quantite_client_menu` int(11) NOT NULL,
   `date_client_menu` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `client_menu`
+--
+
+INSERT INTO `client_menu` (`id_client`, `id_menu`, `quantite_client_menu`, `date_client_menu`) VALUES
+(643529537, 67, 5, '2023-04-13');
 
 -- --------------------------------------------------------
 
@@ -188,6 +207,13 @@ CREATE TABLE `client_piscine` (
   `status_piscine` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Déchargement des données de la table `client_piscine`
+--
+
+INSERT INTO `client_piscine` (`id_piscine`, `id_client`, `date_debut_reservation_piscine`, `date_fin_reservation_piscine`, `num_reservation_piscine`, `status_piscine`) VALUES
+(789, 643529540, '2023-04-14', '2023-04-15', 6437, '');
+
 -- --------------------------------------------------------
 
 --
@@ -202,6 +228,13 @@ CREATE TABLE `client_salle` (
   `num_reservation_salle` int(11) NOT NULL,
   `status_salle` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `client_salle`
+--
+
+INSERT INTO `client_salle` (`id_client`, `id_salle`, `date_debut_reservation_salle`, `date_fin_reservation_salle`, `num_reservation_salle`, `status_salle`) VALUES
+(643529540, 4892, '2023-04-14', '2023-04-15', 6437, '');
 
 -- --------------------------------------------------------
 
@@ -237,7 +270,9 @@ CREATE TABLE `menu` (
 --
 
 INSERT INTO `menu` (`id_menu`, `id_restaurant`, `name_menu`, `description_menu`, `image_menu`, `prix_un_menu`) VALUES
-(67, 83, 'Entrée plats desserts', 'Au choix sur la carte, un plat, une entrée et un dessert.', 'P1060839 bis.jpg', 15);
+(67, 83, 'Entrée plats desserts', 'Au choix sur la carte, un plat, une entrée et un dessert.', 'P1060839 bis.jpg', 15),
+(64382566, 84, 'Entrée', 'Au choix sur la carte', 'P1060839 bis.jpg', 5),
+(643825989, 83, 'Entrée plats', 'Au choix sur la carte', 'P1060839 bis.jpg', 20);
 
 -- --------------------------------------------------------
 
@@ -260,7 +295,8 @@ CREATE TABLE `piscine` (
 --
 
 INSERT INTO `piscine` (`id_piscine`, `name_piscine`, `description_piscine`, `image_piscine`, `ouverture_piscine`, `fermeture_piscine`, `nettoyage_piscine`) VALUES
-(789, 'Piscine de saint-Vulbas', 'Cette piscine contient un bassin australien, convient à tout type d\'enfant et à n\'importe quel âge !', '6412ed9f7e731.jpg', '08:30:00', '17:30:00', '2023-04-01');
+(789, 'Piscine de saint-Vulbas', 'Cette piscine contient un bassin australien, convient à tout type d\'enfant et à n\'importe quel âge !', '6412ed9f7e731.jpg', '08:30:00', '17:30:00', '2023-04-01'),
+(643825122, 'Piscine de Lyon', 'Accessible à tout âge', '6412eed915d2e.jpg', '08:30:00', '17:50:00', '2023-04-30');
 
 -- --------------------------------------------------------
 
@@ -416,25 +452,25 @@ ALTER TABLE `salle`
 -- AUTO_INCREMENT pour la table `bar`
 --
 ALTER TABLE `bar`
-  MODIFY `id_bar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_bar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=643824864;
 
 --
 -- AUTO_INCREMENT pour la table `boisson`
 --
 ALTER TABLE `boisson`
-  MODIFY `id_boisson` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_boisson` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `chambre`
 --
 ALTER TABLE `chambre`
-  MODIFY `id_chambre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_chambre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=643825336;
 
 --
 -- AUTO_INCREMENT pour la table `client`
 --
 ALTER TABLE `client`
-  MODIFY `id_client` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=643529544;
+  MODIFY `id_client` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=643529545;
 
 --
 -- AUTO_INCREMENT pour la table `facture`
@@ -446,13 +482,13 @@ ALTER TABLE `facture`
 -- AUTO_INCREMENT pour la table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=643825990;
 
 --
 -- AUTO_INCREMENT pour la table `piscine`
 --
 ALTER TABLE `piscine`
-  MODIFY `id_piscine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=790;
+  MODIFY `id_piscine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=643825123;
 
 --
 -- AUTO_INCREMENT pour la table `restaurant`
