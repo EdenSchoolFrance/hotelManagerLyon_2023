@@ -30,7 +30,6 @@ $router->post('/reservationConfirm', "HotelController@reservationInsert"); //Ins
 $router->get('/galleriepiscine', "HotelController@showPiscines"); //Show piscine
 
 
-$router->get('/test', "HotelController@test");
 $router->get('/register/', "UserController@showRegister");
 $router->get('/login/', "UserController@showLogin");
 $router->get('/logout/', "UserController@logout");

@@ -17,23 +17,27 @@ class HotelController
 
     public function index()
     {
+        if(isset($_SESSION['client'])){
+            $_SESSION['client'] = "";
+        }
         require VIEWS . 'Hotel/index.php';
-    }
-
-    public function test()
-    {
-        require VIEWS . 'Hotel/test.php';
     }
 
     //Show add client form
     public function showNewClient()
     {
+        if(isset($_SESSION['client'])){
+            $_SESSION['client'] = "";
+        }
         require VIEWS . 'Hotel/Client/newClient.php';
     }
 
     //Insert client
     public function addNewClient()
     {
+        if(isset($_SESSION['client'])){
+            $_SESSION['client'] = "";
+        }
         $newClient = $this->manager->addNewClient();
         header('Location: /allClients');
     }
@@ -41,6 +45,9 @@ class HotelController
     //Show all clients
     public function showClients()
     {
+        if(isset($_SESSION['client'])){
+            $_SESSION['client'] = "";
+        }
         $clients = $this->manager->getClients();
         require VIEWS . 'Hotel/Client/allClients.php';
     }
@@ -48,6 +55,9 @@ class HotelController
     //Delete client and all foreign key
     public function deleteClient($slug)
     {
+        if(!isset($_SESSION['client'])){
+            header('Location: /newReservation');
+        }
         $this->manager->deleteClientBoisson($slug);
         $this->manager->deleteClientChambre($slug);
         $this->manager->deleteClientMenu($slug);
@@ -60,6 +70,9 @@ class HotelController
     //Show update client form
     public function showUpdateClient($slug)
     {
+        if(isset($_SESSION['client'])){
+            $_SESSION['client'] = "";
+        }
         $client = $this->manager->findClient($slug);
         require VIEWS . 'Hotel/Client/updateClient.php';
     }
@@ -67,6 +80,9 @@ class HotelController
     //Update client
     public function updateClient($slug)
     {
+        if(isset($_SESSION['client'])){
+            $_SESSION['client'] = "";
+        }
         $changes = $this->manager->updateClient($slug);
         header('Location: /allClients');
     }
@@ -81,10 +97,15 @@ class HotelController
     //Show options form
     public function showOptions()
     {
-        $restaurant = $this->manager->getRestaurants();
-        $bar = $this->manager->getBars();
-        $piscine = $this->manager->getPiscines();
-        require VIEWS . 'Hotel/Reservation/options.php';
+        if(!isset($_SESSION['client'])){
+            header('Location: /newReservation');
+        }
+        else{
+            $restaurant = $this->manager->getRestaurants();
+            $bar = $this->manager->getBars();
+            $piscine = $this->manager->getPiscines();
+            require VIEWS . 'Hotel/Reservation/options.php';
+        }
     }
 
     //Options
@@ -124,6 +145,23 @@ class HotelController
         if (isset($_POST['id_chambre'])) {
             $client_chambre = $this->manager->addClientChambre();
         }
+        /*if (isset($_POST['debut_chambre']) && isset($_POST['fin_chambre'])) {
+                if ($_POST['debut_chambre'] > $_POST['fin_chambre']) {
+                    require VIEWS . 'Hotel/Reservation/options.php';
+                    echo 'la date de début ne peut pas être ultérieure à la date de fin';
+                }
+                else if ($_POST['debut_chambre'] < $_POST['fin_chambre']) {
+                    require VIEWS . 'Hotel/Reservation/options.php';
+                    echo 'la date de fin ne peut pas être antérieure à la date de début';
+                }
+                else{
+                    
+                }
+            }
+            else{
+                require VIEWS . 'Hotel/Reservation/options.php';
+                echo 'veuillez remplir tous les champs dates';
+            }*/
         if (isset($_POST['id_menu'])) {
             $client_menu = $this->manager->addClientMenu();
         }
@@ -133,7 +171,7 @@ class HotelController
         if (isset($_POST['id_boisson'])) {
             $client_boisson = $this->manager->addClientBoisson();
         }
-        if (isset($_POST['piscine'])) {
+        if (isset($_POST['piscine']) && $_POST['piscine'] != 0) {
             $client_piscine = $this->manager->addClientPiscine();
         }
         header('Location: /');

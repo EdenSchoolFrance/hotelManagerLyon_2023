@@ -1,5 +1,7 @@
 <?php
 ob_start();
+$_SESSION['client'] = $_COOKIE['client'];
+echo $_SESSION['client'];
 ?>
 <h1>Choisissez vos options</h1>
 

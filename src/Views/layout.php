@@ -27,6 +27,8 @@
         <script>
             if (window.location.href.indexOf('reservation') === -1 && window.location.href.indexOf('Reservation') === -1) {
                 localStorage.clear();
+                document.cookie = 'client' + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                document.cookie = 'id_bar' + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
             }
         </script>
         <script src="https://cdn.jsdelivr.net/npm/encrypt-storage@latest/dist/index.js"></script>
@@ -38,9 +40,7 @@
         ?>
     </main>
     <footer>
-
     </footer>
-
 </body>
 
 </html>

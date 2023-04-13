@@ -172,7 +172,7 @@ class HotelManager extends ConstructorManager
     public function addClientChambre()
     {
         $stmt = $this->bdd->prepare("INSERT INTO client_chambre VALUES (?, ?, ?, ?, ?, ?)");
-        $stmt->execute(array(
+        $stmt->execute(array(   
             htmlentities($_SESSION['client']),
             htmlentities($_POST['id_chambre']),
             htmlentities($_POST['debut_chambre']),
