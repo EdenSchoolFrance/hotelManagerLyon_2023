@@ -1,3 +1,5 @@
+//Affiche les input number dans la page commande
+
 const boisson = document.querySelectorAll(".boisson");
 const quantite = document.querySelectorAll(".quantite");
 
@@ -16,7 +18,7 @@ const quantiteM = document.querySelectorAll(".quantiteM");
 
 for(let i = 0;i < menu.length; i++){
     menu[i].addEventListener("click", ()=>{
-        for(let i = 0;i < quantiteM.length; i++){
+        for(let i = 0;i < quantite.length; i++){
             quantiteM[i].classList.add("hidden")
         }
         console.log("test")

@@ -1,3 +1,5 @@
+//Affiche les input date des select dans la page reservation
+
 const select = document.querySelectorAll("select");
 const date = document.querySelectorAll(".date");
 

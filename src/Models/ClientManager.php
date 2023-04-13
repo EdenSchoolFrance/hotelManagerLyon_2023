@@ -4,6 +4,7 @@ namespace hotel\Models;
 class ClientManager{
     private $bdd;
 
+    //base de donnée
     public function __construct() {
         $this->bdd = new \PDO('mysql:host='.HOST.';dbname=' . DATABASE . ';charset=utf8;' , USER, PASSWORD);
         $this->bdd->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
@@ -14,8 +15,10 @@ class ClientManager{
         return $this->bdd;
     }
 
-    public function add(){
+     //---------- Gestion client ---------
 
+    //Ajoute un client à la basez de donnée
+    public function add(){
         $stmt = $this->bdd->prepare("INSERT INTO client(id_client, nom_client, prenom_client, email_client) VALUES (?, ?, ?, ?)");
                 $stmt->execute(array(
                     uniqid(),
@@ -27,6 +30,7 @@ class ClientManager{
         header("Location:/");
     }
 
+    //Recupère tout les client
     public function getAllClient(){
         $stmt = $this->bdd->prepare("SELECT * FROM client");
         $stmt->execute();
@@ -35,6 +39,7 @@ class ClientManager{
         return $stmt->fetchAll();
     }
 
+    //Recupère un client en question
     public function getClient($id){
         $stmt = $this->bdd->prepare("SELECT * FROM client WHERE id_client = ?");
         $stmt->execute(array(
@@ -84,6 +89,7 @@ class ClientManager{
         ));
     }
 
+    //Mis à jour d'un client
     public function update(){
         $stmt = $this->bdd->prepare("UPDATE client SET nom_client = ?, prenom_client = ?, email_client = ? WHERE id_client = ?");
         $stmt->execute(array(
@@ -94,6 +100,9 @@ class ClientManager{
         ));
     }
 
+    //---------- Get all: chambre, piscine, salle, boisson, menu ---------
+
+    //Recupère toute les chamnbres
     public function getAllChambre(){
         $stmt = $this->bdd->prepare("SELECT * FROM chambre");
         $stmt->execute();
@@ -102,6 +111,7 @@ class ClientManager{
         return $stmt->fetchAll();
     }
 
+    //Recupère toute les piscines
     public function getAllPiscine(){
         $stmt = $this->bdd->prepare("SELECT * FROM piscine");
         $stmt->execute();
@@ -110,6 +120,7 @@ class ClientManager{
         return $stmt->fetchAll();
     }
 
+    //Recupère toute les salles
     public function getAllSalle(){
         $stmt = $this->bdd->prepare("SELECT * FROM salle");
         $stmt->execute();
@@ -118,6 +129,7 @@ class ClientManager{
         return $stmt->fetchAll();
     }
 
+    //Recupère toute les boissons
     public function getAllBoisson(){
         $stmt = $this->bdd->prepare("SELECT * FROM boisson");
         $stmt->execute();
@@ -126,6 +138,7 @@ class ClientManager{
         return $stmt->fetchAll();
     }
 
+    //Recupère toute les menus
     public function getAllMenu(){
         $stmt = $this->bdd->prepare("SELECT * FROM menu");
         $stmt->execute();
