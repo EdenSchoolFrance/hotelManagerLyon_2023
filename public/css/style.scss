@@ -91,7 +91,7 @@ header{
             }
         }
         .opened-menu{
-            width: 30%;
+            width: 40%;
             padding: 5rem;
         }
     }
@@ -182,14 +182,14 @@ main{
             background-position: center;
         }
     }
-    section.restaurant{
+    section.restaurant, section.bar{
         h1{
             background-size: cover !important;
             background-position: center !important;
         }
     }
-    section.chambres, section.restaurant{
-        .allChambres, .allMenu{
+    section.chambres, section.restaurant, section.bar{
+        .allChambres, .allMenu, .allBoisson{
             padding: 2rem;
             ul{
                 display: flex;
@@ -249,14 +249,14 @@ main{
                 li:hover{
                     .picture{
                         img{
-                            width: 120% !important;
+                            width: 130% !important;
                         }
                     }
                 }
             }
         }
     }
-    section.reserveChambre, section.commandMenu{
+    section.reserveChambre, section.commandMenu, section.commandBoisson{
         h1{
             background-size: cover !important;
             background-position: center !important;
