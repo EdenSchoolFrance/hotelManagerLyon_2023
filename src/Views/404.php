@@ -1,6 +1,8 @@
 <?php
 ob_start();
-
+if(isset($_SESSION['error'])){
+    echo "<p style='text-align : center;'>".$_SESSION['error']."</p>";
+}
 ?>
 
 <section class="error">

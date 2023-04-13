@@ -9,7 +9,7 @@ ob_start();
         echo "<p style='text-align : center;'>".$_SESSION['error']."</p>";
     }
     ?>
-    <form action="./create/bdd" method="POST" enctype="multipart/form-data">
+    <form action="/salle/create/bdd" method="POST" enctype="multipart/form-data">
         <select name="client">
             <?php
                 foreach ($client as $clients) {

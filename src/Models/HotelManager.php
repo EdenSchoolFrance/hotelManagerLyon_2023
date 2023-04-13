@@ -74,6 +74,14 @@ class HotelManager
         ));
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
     }
+    public function verif_reserver($id)
+    {
+        $stmt = $this->bdd->prepare('SELECT type_salle FROM salle WHERE id_salle = ?');
+        $stmt->execute(array(
+            $id,
+        ));
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
     public function delete_client($id)
 {
     // Supprimer les données liées dans la table "client_salle"

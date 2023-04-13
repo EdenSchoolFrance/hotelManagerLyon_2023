@@ -111,10 +111,16 @@ class HotelController
             $_SESSION['error']="un champ et vide ou comptien des caracter speciaux ou la date de debut est apres celle de fin";
             header('location:./');
         }else{
-            $date = date_create($_POST['datedeb']);
-            $date1 = date_create($_POST['datefin']);
-            $this->manager->insert_reservation($_POST['client'],$_POST['salle'],date_format($date, 'Y-m-d'),date_format($date1, 'Y-m-d'),$_POST['status_salle']);
-            header('location:../');
+            $verif = $this->manager->verif_reserver($_POST['salle']);
+            if($verif[0]->getTypeSalle()=="reserver"){
+                $_SESSION["error"]="salle deja reserver";
+                header('location:./');
+            }else{
+                $date = date_create($_POST['datedeb']);
+                $date1 = date_create($_POST['datefin']);
+                $this->manager->insert_reservation($_POST['client'],$_POST['salle'],date_format($date, 'Y-m-d'),date_format($date1, 'Y-m-d'),$_POST ['status_salle']);
+                header('location:../');
+            }
         }
     }
 }
