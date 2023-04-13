@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 13 avr. 2023 à 17:59
+-- Généré le : jeu. 13 avr. 2023 à 20:20
 -- Version du serveur : 10.4.24-MariaDB
 -- Version de PHP : 8.1.6
 
@@ -72,9 +72,9 @@ CREATE TABLE `boisson` (
 --
 
 INSERT INTO `boisson` (`id_boisson`, `name_boisson`, `description_boisson`, `image_boisson`, `prix_un_boisson`) VALUES
-(1, 'coca', 'Boisson unique et pétillante', 'P1060839 bis.jpg', 2),
-(2, 'Orangina', 'Boisson à l\'orange petillant', 'P1060839 bis.jpg', 2),
-(3, 'Bière', 'Boisson alcolisée', 'P1060839 bis.jpg', 3);
+(1, 'coca', 'Boisson unique et pétillante', 'coca.jpg', 2),
+(2, 'Orangina', 'Boisson à l\'orange petillant', 'orangina.webp', 2),
+(3, 'Bière', 'Boisson alcolisée', 'bière.webp', 3);
 
 -- --------------------------------------------------------
 
@@ -128,7 +128,8 @@ INSERT INTO `client` (`id_client`, `nom_client`, `prenom_client`, `email_client`
 (642263290, 'Richard', 'Botant', 'Richou_ptilou_69@jaimail.net', 'Y_a_pa_2_mo_de_pass_ici'),
 (643529537, 'Sanchez', 'luka', 'sanchez_luka@jaimolle.com', ''),
 (643529540, 'test', 'test', 'test@test.test', ''),
-(643529542, 'Sanchis', 'Tom', 'tsanchis@edenschool.fr', '');
+(643529542, 'Sanchis', 'Tom', 'tsanchis@edenschool.fr', ''),
+(643529545, 'FIOGER', 'Valerie', 'jmmclaira@gmail.com', '');
 
 -- --------------------------------------------------------
 
@@ -170,7 +171,8 @@ CREATE TABLE `client_chambre` (
 --
 
 INSERT INTO `client_chambre` (`id_client`, `id_chambre`, `date_debut_reservation_chambre`, `date_fin_reservation_piscine_chambre`, `num_reservation_chambre`, `status_chambre`) VALUES
-(643529540, 2, '2023-04-17', '2023-04-19', 6437, '');
+(643529540, 2, '2023-04-17', '2023-04-19', 6437, ''),
+(643529545, 2, '2023-07-01', '2023-08-31', 643845, '');
 
 -- --------------------------------------------------------
 
@@ -190,7 +192,8 @@ CREATE TABLE `client_menu` (
 --
 
 INSERT INTO `client_menu` (`id_client`, `id_menu`, `quantite_client_menu`, `date_client_menu`) VALUES
-(643529537, 67, 5, '2023-04-13');
+(643529537, 67, 5, '2023-04-13'),
+(643529545, 67, 8, '2023-04-13');
 
 -- --------------------------------------------------------
 
@@ -212,7 +215,8 @@ CREATE TABLE `client_piscine` (
 --
 
 INSERT INTO `client_piscine` (`id_piscine`, `id_client`, `date_debut_reservation_piscine`, `date_fin_reservation_piscine`, `num_reservation_piscine`, `status_piscine`) VALUES
-(789, 643529540, '2023-04-14', '2023-04-15', 6437, '');
+(789, 643529540, '2023-04-14', '2023-04-15', 6437, ''),
+(643825122, 643529545, '2023-07-01', '2023-07-31', 643845, '');
 
 -- --------------------------------------------------------
 
@@ -270,9 +274,9 @@ CREATE TABLE `menu` (
 --
 
 INSERT INTO `menu` (`id_menu`, `id_restaurant`, `name_menu`, `description_menu`, `image_menu`, `prix_un_menu`) VALUES
-(67, 83, 'Entrée plats desserts', 'Au choix sur la carte, un plat, une entrée et un dessert.', 'P1060839 bis.jpg', 15),
-(64382566, 84, 'Entrée', 'Au choix sur la carte', 'P1060839 bis.jpg', 5),
-(643825989, 83, 'Entrée plats', 'Au choix sur la carte', 'P1060839 bis.jpg', 20);
+(67, 83, 'Entrée plats desserts', 'Au choix sur la carte, un plat, une entrée et un dessert.', 'entreplatdessert.jfif', 15),
+(64382566, 84, 'Entrée', 'Au choix sur la carte', 'plat.jfif', 5),
+(643825989, 83, 'Entrée plats', 'Au choix sur la carte', 'entreejfif.jfif', 20);
 
 -- --------------------------------------------------------
 
@@ -337,7 +341,7 @@ CREATE TABLE `salle` (
 --
 
 INSERT INTO `salle` (`id_salle`, `name_salle`, `description_salle`, `image_salle`, `type_salle`, `options_salle`) VALUES
-(4892, 'Salle des fêtes', 'Salle pouvant accueillir un D-J des pistolets à bulles et plein d\'autres outils de ce style.', 'maldives.jpg', 'Ouvert à tous', 'D-J, Cage à lumière, scène surélevé');
+(4892, 'Salle des fêtes', 'Salle pouvant accueillir un D-J des pistolets à bulles et plein d\'autres outils de ce style.', 'maldives.jpg', 'Ouvert à tous', 'D-J, Cage à lumière, scène surélevée');
 
 --
 -- Index pour les tables déchargées
@@ -470,7 +474,7 @@ ALTER TABLE `chambre`
 -- AUTO_INCREMENT pour la table `client`
 --
 ALTER TABLE `client`
-  MODIFY `id_client` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=643529545;
+  MODIFY `id_client` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=643529546;
 
 --
 -- AUTO_INCREMENT pour la table `facture`
