@@ -10,6 +10,8 @@ class HotelManager extends BDD
 
     protected $bdd;
 
+    //function that allows to recover all the clients and to check if the email exists or not
+
     public function find($email)
     {
         $stmt = $this->bdd->prepare("SELECT * FROM client WHERE email_client = ?");
@@ -21,6 +23,8 @@ class HotelManager extends BDD
         return $stmt->fetch();
     }
 
+    //function for add Client
+
     public function addClient()
     {
         $stmt = $this->bdd->prepare("INSERT INTO client (nom_client, prenom_client, email_client) VALUES (?, ?, ?)");
@@ -31,11 +35,15 @@ class HotelManager extends BDD
         ));
     }
 
+    //function for update Client
+
     public function updateClient($slug)
     {
         $stmt = $this->bdd->prepare("UPDATE client SET nom_client = ?, prenom_client = ?, email_client = ? WHERE id_client = ?");
         $stmt->execute(array(htmlentities($_POST["lastName"]), htmlentities($_POST["firstName"]), htmlentities($_POST["email"]), $slug));
     }
+
+    //function for remove Client and all reservation who has reservation
 
     public function removeClient($slug)
     {
@@ -78,6 +86,8 @@ class HotelManager extends BDD
         ));
     }
 
+    //show All client
+
     public function show()
     {
         $stmt = $this->bdd->prepare('SELECT * FROM client');
@@ -85,6 +95,8 @@ class HotelManager extends BDD
 
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
     }
+
+    //get all client in relation to its id
 
     public function showSpecifiqueClient($slug)
     {
@@ -94,6 +106,8 @@ class HotelManager extends BDD
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
     }
 
+    //show all chambre which is occupied
+
     public function showChambre()
     {
         $stmt = $this->bdd->prepare('SELECT * FROM chambre WHERE occupe_chambre = false');
@@ -101,6 +115,8 @@ class HotelManager extends BDD
 
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Chambre");
     }
+
+    //shows all chambre in relation to its id
 
     public function showChambreSpecifique()
     {
@@ -110,6 +126,8 @@ class HotelManager extends BDD
         return $stmt->fetch();
     }
 
+    //shows all restaurant in relation to its id
+
     public function showRestoSpecifique()
     {
         $stmt = $this->bdd->prepare('SELECT * FROM restaurant WHERE id_restaurant = ?');
@@ -117,6 +135,8 @@ class HotelManager extends BDD
 
         return $stmt->fetch();
     }
+
+    //shows all restaurant
 
     public function showResto()
     {
@@ -126,6 +146,8 @@ class HotelManager extends BDD
         return $stmt->fetchAll();
     }
 
+    //shows all swimming pool
+
     public function showPiscine()
     {
         $stmt = $this->bdd->prepare('SELECT * FROM piscine');
@@ -134,6 +156,8 @@ class HotelManager extends BDD
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Piscine");
     }
 
+    //shows all salle
+
     public function showSalle()
     {
         $stmt = $this->bdd->prepare('SELECT * FROM salle');
@@ -141,6 +165,8 @@ class HotelManager extends BDD
 
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Salle");
     }
+
+    //add reservation of option taken
 
     public function reservation($slug)
     {
@@ -205,6 +231,8 @@ class HotelManager extends BDD
         }
     }
 
+    //show all menu
+
     public function showMenu()
     {
         $stmt = $this->bdd->prepare("SELECT * FROM menu");
@@ -212,11 +240,15 @@ class HotelManager extends BDD
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Menu");
     }
 
+    //add menu
+
     public function addMenu()
     {
         $stmt = $this->bdd->prepare("INSERT INTO client_menu (id_client, id_menu, quantite_client_menu, date_client_menu) VALUES (?, ?, ?, ?)");
         $stmt->execute(array($_POST["client_id"], $_POST["id_menu"], $_POST["quantity_menu"] ?? 1, $_POST["debut_menu"]));
     }
+
+    //show all boisson in relation to its id_bar
 
     public function showBoisson($slug)
     {
@@ -225,6 +257,8 @@ class HotelManager extends BDD
 
         return $stmt->fetchAll(PDO::FETCH_CLASS, "Hotel\Models\Boisson");
     }
+
+    //show allBar
 
     public function showBar()
     {
