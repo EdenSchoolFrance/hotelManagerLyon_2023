@@ -45,6 +45,12 @@ class HotelManager extends BDD
             $slug
         ));
 
+        $stmt = $this->bdd->prepare("UPDATE chambre JOIN client_chambre ON chambre.id_chambre = client_chambre.id_chambre SET occupe_chambre = ? WHERE id_client = ?");
+        $stmt->execute(array(
+            "0",
+            $slug
+        ));
+
         $stmt = $this->bdd->prepare("DELETE FROM client_chambre WHERE id_client = ?");
         $stmt->execute(array(
             $slug
@@ -64,6 +70,7 @@ class HotelManager extends BDD
         $stmt->execute(array(
             $slug
         ));
+
 
         $stmt = $this->bdd->prepare("DELETE FROM client WHERE id_client = ?");
         $stmt->execute(array(
