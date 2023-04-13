@@ -56,6 +56,22 @@ class Hotel
     private $num_reservation_chambre;
     private $status_chambre;
 
+    //table bar
+    private $id_bar;
+    private $name_bar;
+
+    //table boisson
+    private $id_boisson;
+    private $name_boisson;
+    private $description_boisson;
+    private $image_boisson;
+    private $prix_un_boisson;
+    
+    //table bar_boisson
+    private $quantite_stock_bar_boisson;
+
+    //le total
+    private $total;
     //table client
     //get
     public function getIdClient()
@@ -386,4 +402,85 @@ class Hotel
     public function setStatusChambre($status_chambre) {
         $this->status_chambre = $status_chambre;
     }
+
+    //table bar
+    //get
+    public function getIdBar() {
+        return $this->id_bar;
+    }
+    public function getNameBar() {
+        return $this->name_bar;
+    }
+
+    //set
+    public function setIdBar($id_bar) {
+        $this->id_bar = $id_bar;
+    }
+    public function setNameBar($name_bar) {
+        $this->name_bar = $name_bar;
+    }
+    
+    //table boisson
+    //get
+    public function getIdBoisson() {
+        return $this->id_boisson;
+    }
+    
+    public function getNameBoisson() {
+        return $this->name_boisson;
+    }
+    
+    public function getDescriptionBoisson() {
+        return $this->description_boisson;
+    }
+    
+    public function getImageBoisson() {
+        return $this->image_boisson;
+    }
+    
+    public function getPrix_unBoisson() {
+        return $this->prix_un_boisson;
+    }
+
+    //set
+    public function setIdBoisson($id_boisson) {
+        $this->id_boisson = $id_boisson;
+    }
+    
+    public function setNameBoisson($name_boisson) {
+        $this->name_boisson = $name_boisson;
+    }
+    
+    public function setDescriptionBoisson($description_boisson) {
+        $this->description_boisson = $description_boisson;
+    }
+    
+    public function setImageBoisson($image_boisson) {
+        $this->image_boisson = $image_boisson;
+    }
+    
+    public function setPrixUnBoisson($prix_un_boisson) {
+        $this->prix_un_boisson = $prix_un_boisson;
+    }
+
+    //table bar_boisson
+    //get
+    public function getQuantiteBoisson() {
+        return $this->quantite_stock_bar_boisson;
+    }
+    //set
+    public function setQuantiteBoisson($quantite_stock_bar_boisson) {
+        $this->quantite_stock_bar_boisson = $quantite_stock_bar_boisson;
+    }
+    //le total
+    //get
+    public function getTotal() {
+        return $this->total;
+    }
+    //set
+    public function setTotal($total) {
+        $this->total = $total;
+    }
+    
 }
+

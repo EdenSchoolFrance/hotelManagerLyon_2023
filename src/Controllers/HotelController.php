@@ -127,6 +127,36 @@ class HotelController
             }
         }
     }
+    public function bar(){
+        $option='bar';
+        require VIEWS . 'Hotel/salle.php'; 
+    }
+    public function bar_create(){
+        $client = $this->manager->getAll_client();
+        $bar = $this->manager->getAll_bar();
+        $boisson = $this->manager->getAll_boisson();
+        require VIEWS . 'Hotel/bar_create.php'; 
+    }
+    public function bar_create_bdd()
+    {
+        if($_POST['quantite']==""||htmlentities($_POST['quantite'])!=$_POST['quantite']||$_POST["quantite"] <= "0"){
+            $_SESSION['error']="un champ et vide ou comptien des caracter ou il ya un nombre negatife de boisson commander";
+            header('location:./');
+        }else{
+            $verif = $this->manager->verif_boisson($_POST['bar'],$_POST['salle']);
+            $date1 = date('Y-m-d');
+            if(intval($verif[0]->getQuantiteBoisson())-intval($_POST['quantite'])>=0){
+                $total = $this->manager->get_total($_POST['salle'],$_POST['quantite']);
+                $date = date_create($_POST['datedeb']);
+                $this->manager->insert_reservation_boisson($_POST['client'],$_POST['salle'],$_POST['quantite'],date_format($date, 'Y-m-d'));
+                $this->manager->insert_facture($_POST['client'],$date1,$total[0]->getTotal());
+                header('location:../');
+            }else{
+                $_SESSION['error']="pas assez de stock";
+                header('location:./');
+            }
+        }
+    }
     public function piscine(){
         $option='piscine';
         require VIEWS . 'Hotel/salle.php'; 

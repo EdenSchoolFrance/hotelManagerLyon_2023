@@ -41,6 +41,18 @@ class HotelManager
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
     }
+    public function getAll_bar()
+    {
+        $stmt = $this->bdd->prepare('SELECT id_bar, name_bar FROM bar');
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
+    public function getAll_boisson()
+    {
+        $stmt = $this->bdd->prepare('SELECT id_boisson, name_boisson FROM boisson');
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
     public function insert_reservation($id_client, $id_salle, $datedeb, $datefin, $status)
     {
         $stmt = $this->bdd->prepare("INSERT INTO client_salle (id_client, id_salle, date_debut_reservation_salle, date_fin_reservation_salle, status_salle) VALUES (?, ?, ?, ?, ?);");
@@ -62,6 +74,17 @@ class HotelManager
             $datedeb,
             $datefin,
             $status
+        ));
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
+    public function insert_reservation_boisson($id_client, $id_boisson, $quantite, $datedeb)
+    {
+        $stmt = $this->bdd->prepare("INSERT INTO client_boisson (id_client, id_boisson, quantite_client_boisson , date_client_boisson) VALUES (?, ?, ?, ?);");
+        $stmt->execute(array(
+            $id_client,
+            $id_boisson,
+            $quantite,
+            $datedeb,
         ));
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
     }
@@ -119,6 +142,15 @@ class HotelManager
         $stmt = $this->bdd->prepare('SELECT type_salle FROM salle WHERE id_salle = ?');
         $stmt->execute(array(
             $id,
+        ));
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
+    public function verif_boisson($bar,$boisson)
+    {
+        $stmt = $this->bdd->prepare('SELECT quantite_stock_bar_boisson FROM bar_boisson WHERE id_bar = ? AND id_boisson = ?');
+        $stmt->execute(array(
+            $bar,
+            $boisson
         ));
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
     }
@@ -198,5 +230,21 @@ class HotelManager
     ));
 
     //j'ai dabord supprimer les parent avent le client pour pas avoir d'erreur avec les cle primaire
+    }
+    public function get_total($boisson , $quantite){
+        $stmt = $this->bdd->prepare('SELECT prix_un_boisson * ? AS total FROM boisson WHERE id_boisson = ?');
+        $stmt->execute(array(
+            $quantite,
+            $boisson
+        ));
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
+    public function insert_facture($id,$date,$total){
+        $stmt = $this->bdd->prepare("INSERT INTO facture (id_client, date_facture, total_ttc) VALUES (?, ?, ?);");
+        $stmt->execute(array(
+            $id,
+            $date,
+            $total
+        ));
     }
 }
