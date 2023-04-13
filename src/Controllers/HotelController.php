@@ -172,8 +172,17 @@ class HotelController
         $user = $_SESSION["user"]["id_user"];
         $id_menu = $_POST["id_menu"];
         $quantite = $_POST["quantite"];
+        $date = date(DATE_W3C);
 
-        $this->manager->reserve_menus($user, $id_menu, $quantite);
+        $res = $this->manager->find_reserve_menus($user);
+
+        if (empty($res)) {
+            $this->manager->reserve_menus($user, $id_menu, $quantite, $date);
+        } else {
+            $quantite += $res[0]->getquantite_client_menu();
+            $this->manager->update_reserve_menus($user, $quantite);
+        }
+
         header("Location: /client/" . $_SESSION['user']['id_user'] . "");
     }
 
@@ -190,7 +199,7 @@ class HotelController
         if (empty($res)) {
             $this->manager->reserve_boissons($user, $id_boisson, $quantite, $date);
         } else {
-            $quantite = $res +  $_POST["quantite"];
+            $quantite += $res[0]->getquantite_client_boisson();
             $this->manager->update_reserve_boissons($user, $quantite);
         }
 

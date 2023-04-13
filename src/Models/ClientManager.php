@@ -106,24 +106,44 @@ class ClientManager extends Bdd
         return;
     }
 
-    public function reserve_menus($user, $id_menu, $quantite)
+    public function find_reserve_menus($user)
     {
-        $stmt = $this->bdd->prepare('INSERT INTO `client_menu`(`id_client`, `id_menu`, `quantite_client_menu`) VALUES (?,?,?)');
+        $stmt = $this->bdd->prepare("SELECT quantite_client_menu FROM client_menu WHERE `id_client` = :user");
+        $stmt->execute(array(
+            'user' => $user,
+        ));
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Menus");
+    }
+
+    public function reserve_menus($user, $id_menu, $quantite, $date)
+    {
+        $stmt = $this->bdd->prepare('INSERT INTO `client_menu`(`id_client`, `id_menu`, `quantite_client_menu`, `date_client_menu`) VALUES (?,?,?,?)');
         $stmt->execute(array(
             $user,
             $id_menu,
             $quantite,
+            $date,
+        ));
+        return;
+    }
+
+    public function update_reserve_menus($user, $quantite)
+    {
+        $stmt = $this->bdd->prepare('UPDATE `client_menu` SET `quantite_client_menu`= :quantite WHERE `id_client` = :user');
+        $stmt->execute(array(
+            'quantite' => $quantite,
+            'user' => $user,
         ));
         return;
     }
 
     public function find_reserve_boissons($user)
     {
-        $stmt = $this->bdd->prepare("SELECT quantite_client_boisson FROM client_boisson WHERE  WHERE `id_client` = :user");
+        $stmt = $this->bdd->prepare("SELECT quantite_client_boisson FROM client_boisson WHERE `id_client` = :user");
         $stmt->execute(array(
             'user' => $user,
         ));
-        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Boisson");
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Boissons");
     }
 
     public function reserve_boissons($user, $id_boisson, $quantite, $date)

@@ -11,6 +11,7 @@ class Menus
     private $description_menu;
     private $image_menu;
     private $prix_un_menu;
+    private $quantite_client_menu;
 
 
     public function getid_menu()
@@ -37,6 +38,10 @@ class Menus
     {
         return $this->prix_un_menu;
     }
+    public function getquantite_client_menu()
+    {
+        return $this->quantite_client_menu;
+    }
 
 
     public function setid_menu($id_menu)
@@ -62,6 +67,10 @@ class Menus
     public function setprix_un_menu($prix_un_menu)
     {
         $this->prix_un_menu = $prix_un_menu;
+    }
+    public function setquantite_client_menu($quantite_client_menu)
+    {
+        $this->quantite_client_menu = $quantite_client_menu;
     }
 }
 //controller set et get pour tous les bars
