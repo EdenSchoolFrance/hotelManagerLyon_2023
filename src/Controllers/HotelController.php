@@ -17,7 +17,7 @@ class HotelController {
         $this->validator = new Validator();
     }
 
-    // Show all webpage for the client
+    // Function qui affiche les pages
 
     public function index() {
         require VIEWS . 'Hotel/accueil.php';
@@ -44,6 +44,7 @@ class HotelController {
         require VIEWS . 'Hotel/salle.php';
     }
 
+    // Function qui permet d'ajouter un client en base de donnée
 
     public function addClient() {
 
@@ -68,6 +69,8 @@ class HotelController {
         }
     }
 
+    // Function qui permet d'ajouter en base de donnée la relation client, Chambre
+
     public function addClientChambre(){
         $this->validator->validate([
             "client"=>["required"],
@@ -86,6 +89,8 @@ class HotelController {
         }
     }
 
+    // Function qui permet d'ajouter en base de donnée la relation client, Salle
+
     public function addClientSalle(){
         $this->validator->validate([
             "client"=>["required"],
@@ -103,11 +108,12 @@ class HotelController {
             header("Location: /salle");
         }
     }
-
+    
+    // Permet de supprimer de la base de donnée un client
+    
     public function removeClient($slug){
         $this->ClientManager->removeClient($slug);
         header("Location: /gestionclient");
     }
-
 
 }

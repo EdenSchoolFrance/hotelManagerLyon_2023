@@ -4,12 +4,12 @@ namespace Hotel\Models;
 /** Class Salle **/
 class Salle {
 
-    private $id_salle; // id de la chambre
-    private $name_salle;// nom de la chambre
-    private $description_salle; // description de la chambre
-    private $image_salle; // image de la chambre
-    private $type_salle; // options de la chambre
-    private $options_salle; // prix de la chambre
+    private $id_salle; // id de la Salle
+    private $name_salle;// nom de la Salle
+    private $description_salle; // description de la Salle
+    private $image_salle; // image de la Salle
+    private $type_salle; // options de la Salle
+    private $options_salle; // prix de la Salle
 
     public function getId() {
         return $this->id_salle;
