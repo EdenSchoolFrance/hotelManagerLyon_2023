@@ -16,6 +16,7 @@ html {
 }
 body {
   margin: 0;
+  font-family: $font-family_Paragraph;
 }
 ul {
   padding: 0;
@@ -28,7 +29,6 @@ a {
 }
 
 body {
-  font-family: $font-family_Paragraph;
   header {
     display: flex;
     justify-content: space-between;

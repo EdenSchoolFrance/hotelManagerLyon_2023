@@ -2,6 +2,7 @@
 
 namespace Phoenix\Models;
 
+/** Class pour les commandes **/
 class Commandes
 {
     private $ID_COMMANDES;

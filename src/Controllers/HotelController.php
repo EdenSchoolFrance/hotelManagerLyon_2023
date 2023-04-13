@@ -7,7 +7,6 @@ namespace Hotel\Controllers;
 use DateTime;
 use Hotel\Models\HotelManager;
 use Hotel\Models\ClientManager;
-use Hotel\Validator;
 
 /** Class UserController **/
 class HotelController
@@ -15,14 +14,12 @@ class HotelController
     //private $manager;
     private $manager_hotel;
     private $manager;
-    private $validator;
 
     public function __construct()
     {
+        //variable pour tous les manager
         $this->manager_hotel = new HotelManager();
         $this->manager = new ClientManager();
-        $this->validator = new Validator();
-        //variable pour tous les manager
     }
 
     // Affichage de la page principale
@@ -133,11 +130,11 @@ class HotelController
     // Reservation de chambre
     public function reserve_chambres()
     {
-        $user = $_SESSION["user"]["id_user"];
-        $id_chambre = $_POST["id_chambre"];
-        $deb_date = $_POST["deb_date"];
-        $fin_date = $_POST["fin_date"];
-        $num_reserve = uniqid();
+        $user = htmlentities($_SESSION["user"]["id_user"]);
+        $id_chambre = htmlentities($_POST["id_chambre"]);
+        $deb_date = htmlentities($_POST["deb_date"]);
+        $fin_date = htmlentities($_POST["fin_date"]);
+        $num_reserve = htmlentities(uniqid());
 
         $this->manager->reserve_chambres($user, $id_chambre, $deb_date, $fin_date, $num_reserve);
         header("Location: /client/" . $_SESSION['user']['id_user'] . "");
@@ -145,11 +142,11 @@ class HotelController
 
     public function reserve_piscines()
     {
-        $user = $_SESSION["user"]["id_user"];
-        $id_piscine = $_POST["id_piscine"];
-        $deb_date = $_POST["deb_date"];
-        $fin_date = $_POST["fin_date"];
-        $num_reserve = uniqid();
+        $user = htmlentities($_SESSION["user"]["id_user"]);
+        $id_piscine = htmlentities($_POST["id_piscine"]);
+        $deb_date = htmlentities($_POST["deb_date"]);
+        $fin_date = htmlentities($_POST["fin_date"]);
+        $num_reserve = htmlentities(uniqid());
 
         $this->manager->reserve_piscines($user, $id_piscine, $deb_date, $fin_date, $num_reserve);
         header("Location: /client/" . $_SESSION['user']['id_user'] . "");
@@ -157,11 +154,11 @@ class HotelController
 
     public function reserve_salles()
     {
-        $user = $_SESSION["user"]["id_user"];
-        $id_salle = $_POST["id_salle"];
-        $deb_date = $_POST["deb_date"];
-        $fin_date = $_POST["fin_date"];
-        $num_reserve = uniqid();
+        $user = htmlentities($_SESSION["user"]["id_user"]);
+        $id_salle = htmlentities($_POST["id_salle"]);
+        $deb_date = htmlentities($_POST["deb_date"]);
+        $fin_date = htmlentities($_POST["fin_date"]);
+        $num_reserve = htmlentities(uniqid());
 
         $this->manager->reserve_salles($user, $id_salle, $deb_date, $fin_date, $num_reserve);
         header("Location: /client/" . $_SESSION['user']['id_user'] . "");
@@ -169,9 +166,9 @@ class HotelController
 
     public function reserve_menus()
     {
-        $user = $_SESSION["user"]["id_user"];
-        $id_menu = $_POST["id_menu"];
-        $quantite = $_POST["quantite"];
+        $user = htmlentities($_SESSION["user"]["id_user"]);
+        $id_menu = htmlentities($_POST["id_menu"]);
+        $quantite = htmlentities($_POST["quantite"]);
         $date = date(DATE_W3C);
 
         $res = $this->manager->find_reserve_menus($user);
@@ -189,9 +186,9 @@ class HotelController
     public function reserve_boissons()
     {
 
-        $user = $_SESSION["user"]["id_user"];
-        $id_boisson = $_POST["id_boisson"];
-        $quantite = $_POST["quantite"];
+        $user = htmlentities($_SESSION["user"]["id_user"]);
+        $id_boisson = htmlentities($_POST["id_boisson"]);
+        $quantite = htmlentities($_POST["quantite"]);
         $date = date(DATE_W3C);
 
         $res = $this->manager->find_reserve_boissons($user);

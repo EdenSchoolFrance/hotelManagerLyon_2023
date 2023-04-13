@@ -2,6 +2,7 @@
 
 namespace Hotel\Models;
 
+/** Class des chambres **/
 class Chambres
 {
     private $id_chambre;
@@ -71,4 +72,4 @@ class Chambres
         $this->categorie_chambre = $categorie_chambre;
     }
 }
-//controller set et get pour toute la class client
+//controller set et get pour toutes les chambres

@@ -2,6 +2,7 @@
 
 namespace Hotel\Models;
 
+/** Class pour les piscines **/
 class Piscines
 {
 

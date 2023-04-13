@@ -2,6 +2,7 @@
 
 namespace Hotel\Models;
 
+/** Class des bars **/
 class Bars
 {
 

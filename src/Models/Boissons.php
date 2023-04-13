@@ -2,6 +2,7 @@
 
 namespace Hotel\Models;
 
+/** Class des boissons **/
 class Boissons
 {
 
@@ -73,4 +74,4 @@ class Boissons
         $this->date_client_boisson = $date_client_boisson;
     }
 }
-//controller set et get pour tous les bars
+//controller set et get pour toutes les boissons

@@ -2,6 +2,7 @@
 
 namespace Hotel\Models;
 
+/** Class des clients **/
 class Client
 {
 
@@ -54,4 +55,4 @@ class Client
         $this->mdp_client = $mdp_client;
     }
 }
-//controller set et get pour toute la class client
+//controller set et get pour tous les clients
