@@ -206,10 +206,14 @@ class HotelController
                 $_SESSION["error"]="chambre deja reserver";
                 header('location:./');
             }else{
+                $date2 = date('Y-m-d');
+                $total = $this->manager->get_chambre_total($_POST['salle']);
                 $date = date_create($_POST['datedeb']);
                 $date1 = date_create($_POST['datefin']);
                 $this->manager->insert_reservation_chambre($_POST['client'],$_POST['salle'],date_format($date, 'Y-m-d'),date_format($date1, 'Y-m-d'),$_POST ['status_salle']);
                 $this->manager->update_reservation_chambre($_POST['noccupe'],$_POST['salle']);
+                $this->manager->insert_facture($_POST['client'],$date2,$total[0]->getPrixChambre());
+                //j'ai mis juste le prix de la chambre parce que il ni avait pas marquer si on faire prix * nombre de personne
                 header('location:../');
             }
         }

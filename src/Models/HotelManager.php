@@ -41,6 +41,14 @@ class HotelManager
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
     }
+    public function get_chambre_total($id)
+    {
+        $stmt = $this->bdd->prepare('SELECT prix_chambre FROM chambre WHERE id_chambre = ?');
+        $stmt->execute(array(
+            $id
+        ));
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
     public function getAll_bar()
     {
         $stmt = $this->bdd->prepare('SELECT id_bar, name_bar FROM bar');
