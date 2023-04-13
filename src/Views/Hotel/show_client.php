@@ -11,8 +11,10 @@ ob_start();
             <th>Nom</th>
             <th>Email</th>
             <th>Chambres</th>
+            <th>Restaurants</th>
             <th>Piscines</th>
             <th>Salles</th>
+            <th>Bars</th>
             <th>Supprimer</th>
         </tr>
         <?php foreach ($clients as $client) {
@@ -23,8 +25,10 @@ ob_start();
                 <td><?= $client->getnom_client(); ?></td>
                 <td><?= $client->getemail_client(); ?></td>
                 <td><a href="/chambres/">Reserver une chambre</a></td>
+                <td><a href="/restaurants/">Consommation au restaurant</a></td>
                 <td><a href="/piscines/">Reserver une piscine</a></td>
                 <td><a href="/salles/">Reserver une salle</a></td>
+                <td><a href="/bars/">Consommation au bar</a></td>
                 <td>
                     <form action="/client/supprimer" method="post">
                         <input type="hidden" name="id" value="<?= $client->getid_client() ?>">

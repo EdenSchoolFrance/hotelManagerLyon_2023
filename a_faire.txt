@@ -1,8 +1,8 @@
 Tests unitaire
-extends (bdd)
 Relecture /!\Attention aux erreurs/!\
 Faire la reservation
 faire en sorte que les chambres ne puissent pas se faire commander si elles le sont déjà
 (Lors de la requette d'affichage 'show_chambres' faire: si chambre occupée, alors faire un btn rouge)
+scss sur le tableau lors de l'affichage des clients
 
 Completer le readme
