@@ -260,15 +260,16 @@ div.reservation .reserv > div form div:not(.boisson div, .chambre div, .piscine 
 div.reservation .reserv > div form div:not(.boisson div, .chambre div, .piscine div, .salle div, .resto div) a span {
   display: block;
 }
-div.reservation .reserv > div form div:not(.boisson div, .chambre div, .piscine div, .salle div, .resto div) .error {
-  font-size: 1.3rem;
-  color: red;
-}
 div.reservation .reserv > div form input[type=submit] {
   margin-top: 2rem;
 }
 div.reservation .reserv div.piscine {
   flex-direction: column;
+}
+
+.error {
+  font-size: 1.3rem;
+  color: red;
 }
 
 .resto > div, .boisson > div, .chambre > div, .salle > div, .piscine > div {

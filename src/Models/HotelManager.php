@@ -151,45 +151,57 @@ class HotelManager extends BDD
         }
 
         $_SESSION["count"]++;
+        $bool = false;
 
-        if (isset($_POST["id_piscine"])) {
-            $stmt = $this->bdd->prepare('SELECT * FROM piscine WHERE id_piscine = ?');
-            $stmt->execute(array($_POST["id_piscine"]));
-            $test = $stmt->fetchAll()[0];
-            if ($test["ouverture_piscine"] <= date("H:i:s", strtotime($_POST["debut_piscine"])) && $test["fermeture_piscine"] >= date("H:i:s", strtotime($_POST["fin_piscine"]))) {
-                $stmt = $this->bdd->prepare('INSERT INTO client_piscine (id_piscine, id_client, date_debut_reservation_piscine, date_fin_reservation_piscine, num_reservation_piscine, status_piscine) VALUES (?, ?, ?, ?, ?, ?)');
-                $stmt->execute(array($_POST["id_piscine"], $slug, date("Y-m-d", strtotime($_POST["debut_piscine"])), date("Y-m-d", strtotime($_POST["fin_piscine"])), $_SESSION["count"], ""));
-            } else {
-                $_POST["error"] = "error";
+        foreach (array_keys($_POST) as $name) {
+            if (empty($_POST[$name])) {
+                $bool = true;
             }
         }
 
-        if (isset($_POST["id_salle"])) {
-            $stmt = $this->bdd->prepare('INSERT INTO client_salle (id_client, id_salle, date_debut_reservation_salle, date_fin_reservation_salle, num_reservation_salle, status_salle) VALUES (?, ?, ?, ?, ?, ?)');
-            $stmt->execute(array($slug, $_POST["id_salle"], date("Y-m-d", strtotime($_POST["debut_salle"])), date("Y-m-d", strtotime($_POST["fin_salle"])), $_SESSION["count"], ""));
-        }
-
-        if (isset($_POST["id_chambre"])) {
-            $stmt = $this->bdd->prepare('INSERT INTO client_chambre (id_client, id_chambre, date_debut_reservation_chambre, date_fin_reservation_piscine_chambre, num_reservation_chambre, status_chambre) VALUES (?, ?, ?, ?, ?, ?)');
-            $stmt->execute(array($slug, $_POST["id_chambre"], date("Y-m-d", strtotime($_POST["debut_chambre"])), date("Y-m-d", strtotime($_POST["fin_chambre"])), $_SESSION["count"], ""));
-
-            $stmt = $this->bdd->prepare('UPDATE chambre SET occupe_chambre = 1 WHERE id_chambre = ?');
-            $stmt->execute(array($_POST["id_chambre"]));
-        }
-
-        $stmt = $this->bdd->prepare('SELECT * FROM bar_boisson');
-        $stmt->execute();
-        if (isset($_POST["id_boisson"])) {
-            $stock = $stmt->fetchAll()[0]["quantite_stock_bar_boisson"];
-            if ($stock >= $_POST["quantity_boisson"]) {
-                $stmt = $this->bdd->prepare('UPDATE bar_boisson SET quantite_stock_bar_boisson = ? WHERE id_boisson = ?');
-                $stmt->execute(array(($stock - $_POST["quantity_boisson"]), $_POST["id_boisson"]));
-
-                $stmt = $this->bdd->prepare('INSERT INTO client_boisson (id_client, id_boisson, quantite_client_boisson, date_client_boisson) VALUES (?, ?, ?, ?)');
-                $stmt->execute(array($slug, $_POST["id_boisson"], $_POST["quantity_boisson"], $_POST["debut_boisson"]));
-            } else {
-                echo "stock";
+        if ($bool == false) {
+            if (isset($_POST["id_piscine"])) {
+                $stmt = $this->bdd->prepare('SELECT * FROM piscine WHERE id_piscine = ?');
+                $stmt->execute(array($_POST["id_piscine"]));
+                $getInfo = $stmt->fetchAll()[0];
+                if ($getInfo["ouverture_piscine"] <= date("H:i:s", strtotime($_POST["debut_piscine"])) && $getInfo["fermeture_piscine"] >= date("H:i:s", strtotime($_POST["fin_piscine"]))) {
+                    $stmt = $this->bdd->prepare('INSERT INTO client_piscine (id_piscine, id_client, date_debut_reservation_piscine, date_fin_reservation_piscine, num_reservation_piscine, status_piscine) VALUES (?, ?, ?, ?, ?, ?)');
+                    $stmt->execute(array($_POST["id_piscine"], $slug, date("Y-m-d", strtotime($_POST["debut_piscine"])), date("Y-m-d", strtotime($_POST["fin_piscine"])), $_SESSION["count"], ""));
+                }
             }
+
+            if (isset($_POST["id_salle"])) {
+                $stmt = $this->bdd->prepare('INSERT INTO client_salle (id_client, id_salle, date_debut_reservation_salle, date_fin_reservation_salle, num_reservation_salle, status_salle) VALUES (?, ?, ?, ?, ?, ?)');
+                $stmt->execute(array($slug, $_POST["id_salle"], date("Y-m-d", strtotime($_POST["debut_salle"])), date("Y-m-d", strtotime($_POST["fin_salle"])), $_SESSION["count"], ""));
+            }
+
+            if (isset($_POST["id_salle"])) {
+                $stmt = $this->bdd->prepare('INSERT INTO client_salle (id_client, id_salle, date_debut_reservation_salle, date_fin_reservation_salle, num_reservation_salle, status_salle) VALUES (?, ?, ?, ?, ?, ?)');
+                $stmt->execute(array($slug, $_POST["id_salle"], date("Y-m-d", strtotime($_POST["debut_salle"])), date("Y-m-d", strtotime($_POST["fin_salle"])), $_SESSION["count"], ""));
+            }
+
+            if (isset($_POST["id_chambre"])) {
+                $stmt = $this->bdd->prepare('INSERT INTO client_chambre (id_client, id_chambre, date_debut_reservation_chambre, date_fin_reservation_piscine_chambre, num_reservation_chambre, status_chambre) VALUES (?, ?, ?, ?, ?, ?)');
+                $stmt->execute(array($slug, $_POST["id_chambre"], date("Y-m-d", strtotime($_POST["debut_chambre"])), date("Y-m-d", strtotime($_POST["fin_chambre"])), $_SESSION["count"], ""));
+
+                $stmt = $this->bdd->prepare('UPDATE chambre SET occupe_chambre = 1 WHERE id_chambre = ?');
+                $stmt->execute(array($_POST["id_chambre"]));
+            }
+
+            $stmt = $this->bdd->prepare('SELECT * FROM bar_boisson');
+            $stmt->execute();
+            if (isset($_POST["id_boisson"]) && !empty($_POST["quantity_boisson"])) {
+                $stock = $stmt->fetchAll()[0]["quantite_stock_bar_boisson"];
+                if ($stock >= ($_POST["quantity_boisson"] ?? 1)) {
+                    $stmt = $this->bdd->prepare('UPDATE bar_boisson SET quantite_stock_bar_boisson = ? WHERE id_boisson = ?');
+                    $stmt->execute(array(($stock - $_POST["quantity_boisson"] ?? "1"), $_POST["id_boisson"]));
+
+                    $stmt = $this->bdd->prepare('INSERT INTO client_boisson (id_client, id_boisson, quantite_client_boisson, date_client_boisson) VALUES (?, ?, ?, ?)');
+                    $stmt->execute(array($slug, $_POST["id_boisson"], $_POST["quantity_boisson"] ?? 1, $_POST["debut_boisson"]));
+                }
+            }
+        } else {
+            $_POST["error"] = "error";
         }
     }
 
@@ -202,8 +214,8 @@ class HotelManager extends BDD
 
     public function addMenu()
     {
-        $stmt = $this->bdd->prepare("INSERT INTO client_menu (id_client, id_menu, quantite_client_menu) VALUES (?, ?, ?)");
-        $stmt->execute(array($_POST["client_id"], $_POST["id_menu"], $_POST["quantity_menu"]));
+        $stmt = $this->bdd->prepare("INSERT INTO client_menu (id_client, id_menu, quantite_client_menu, date_client_menu) VALUES (?, ?, ?, ?)");
+        $stmt->execute(array($_POST["client_id"], $_POST["id_menu"], $_POST["quantity_menu"] ?? 1, $_POST["debut_menu"]));
     }
 
     public function showBoisson($slug)

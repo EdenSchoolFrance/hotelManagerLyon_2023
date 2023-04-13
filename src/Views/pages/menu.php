@@ -16,6 +16,10 @@
                 <label for="quantity">quantitées de menu</label>
                 <input type="number" name="quantity_menu" id="quantity">
             </div>
+            <div>
+                <label for="date">date</label>
+                <input type="date" name="debut_menu" id="date">
+            </div>
             <h2><?= $items->getname_menu() ?></h2>
             <p><?= $items->getdescription_menu() ?></p>
             <input type="submit" value="">

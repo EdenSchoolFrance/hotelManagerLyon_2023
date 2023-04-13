@@ -298,10 +298,6 @@ div.reservation {
               display: block;
             }
           }
-          .error {
-            font-size: 1.3rem;
-            color: red;
-          }
         }
         input[type="submit"] {
           margin-top: 2rem;
@@ -312,6 +308,11 @@ div.reservation {
       flex-direction: column;
     }
   }
+}
+
+.error {
+  font-size: 1.3rem;
+  color: red;
 }
 
 .resto, .boisson, .chambre, .salle, .piscine {

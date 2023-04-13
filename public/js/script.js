@@ -51,9 +51,13 @@ arrName.forEach((e) => {
         `<div class='date'>
       <input class="debut_${e}" type='${
           e == "piscine" ? "datetime-local" : "date"
-        }' name='debut_${e}'><input class="fin_${e}" type='${
-          e == "piscine" ? "datetime-local" : "date"
-        }' name='fin_${e}'></div>`
+        }' name='debut_${e}'>${
+          e != "boisson" && e != "resto"
+            ? `<input class="fin_${e}" type='${
+                e == "piscine" ? "datetime-local" : "date"
+              }' name='fin_${e}'>`
+            : ""
+        }</div>`
       );
     }
 
@@ -115,6 +119,12 @@ arrName.forEach((e) => {
 arrName.forEach((e) => {
   const timeDebut = document.querySelector(`.debut_${e}`);
   const timeFin = document.querySelector(`.fin_${e}`);
+
+  /*if (encryptStorage.getItem(`name_${e}`)) {
+    encryptStorage.setItem(`debut_${e}`);
+    encryptStorage.setItem(`fin_${e}`);
+  }*/
+
   if (timeFin) {
     timeFin.addEventListener("input", () => {
       if (encryptStorage.getItem(`name_${e}`)) {
@@ -133,4 +143,3 @@ arrName.forEach((e) => {
     timeDebut.value = encryptStorage.getItem(`debut_${e}`);
   }
 });
-

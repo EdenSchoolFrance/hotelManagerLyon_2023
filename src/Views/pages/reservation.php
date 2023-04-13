@@ -56,9 +56,6 @@
                     <a href="/showPiscine/<?= $slug ?>" class="none">
                         Choisissez une piscine
                     </a>
-                    <?php if (str_contains($_SERVER["REQUEST_URI"], "error")) : ?>
-                        <p class="error">Veuillez rentrer une date correcte</p>
-                    <?php endif ?>
                 </div>
                 <div class="salle">
                     <h3>Salles</h3>
@@ -97,6 +94,9 @@
                         Choisissez une boisson
                     </a>
                 </div>
+                <?php if (str_contains($_SERVER["REQUEST_URI"], "error")) : ?>
+                        <p class="error">Une erreur est survenu veuillez vérififiez que tous les champs soit correct</p>
+                    <?php endif ?>
                 <?php
                 $test = $slug;
                 ?>
