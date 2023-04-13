@@ -1,5 +1,7 @@
 <?php
 
+//add Bdd to inherit
+
 namespace Hotel\Models;
 
 class BDD

@@ -2,6 +2,8 @@
 
 namespace Hotel\Models;
 
+//getter setter for menu table
+
 class Menu
 {
     private $name_menu;

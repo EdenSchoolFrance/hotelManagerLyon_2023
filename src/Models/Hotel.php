@@ -2,6 +2,8 @@
 
 namespace Hotel\Models;
 
+//getter setter for hotel table
+
 class Hotel
 {
     private $id_client;

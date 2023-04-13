@@ -2,6 +2,8 @@
 
 namespace Hotel\Models;
 
+//getter setter for boisson table
+
 class Boisson
 {
     private $id_boisson;

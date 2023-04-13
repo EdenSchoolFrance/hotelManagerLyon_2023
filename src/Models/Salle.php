@@ -2,6 +2,8 @@
 
 namespace Hotel\Models;
 
+//getter setter for salle table
+
 class salle
 {
     private $id_salle;
