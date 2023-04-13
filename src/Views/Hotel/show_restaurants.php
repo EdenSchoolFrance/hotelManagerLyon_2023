@@ -3,7 +3,7 @@ ob_start();
 ?>
 
 
-<section class="show_salles">
+<section class="show">
 
 
     <?php foreach ($restaurants as $restaurant) { ?>

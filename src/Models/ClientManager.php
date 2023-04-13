@@ -9,8 +9,6 @@ use Hotel\Models\Bdd;
 class ClientManager extends Bdd
 {
 
-
-
     public function getAllClients()
     {
         $stmt = $this->bdd->prepare('SELECT * FROM client ORDER BY nom_client');

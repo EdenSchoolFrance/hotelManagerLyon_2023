@@ -3,19 +3,12 @@
 namespace Hotel\Models;
 
 use Hotel\Models\Bdd;
-use Hotel\Models\Chambres;
-use Hotel\Models\Piscines;
-use Hotel\Models\Salles;
-use Hotel\Models\Restaurants;
-use Hotel\Models\Bars;
-use Hotel\Models\Menus;
+
 
 
 /** Class UserManager **/
 class HotelManager extends Bdd
 {
-
-
 
     public function show_chambre()
     {

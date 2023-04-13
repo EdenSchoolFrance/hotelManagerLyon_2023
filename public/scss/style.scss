@@ -60,13 +60,9 @@ body {
   }
 }
 
-@import "includes/clients";
-@import "includes/show_client";
-@import "includes/homepage";
-@import "includes/404";
-@import "includes/chambres";
-@import "includes/piscines";
-@import "includes/salles";
-@import "includes/restaurants";
+@import "includes/card";
 @import "includes/menus";
-@import "includes/bars";
+@import "includes/404";
+@import "includes/clients";
+@import "includes/homepage";
+@import "includes/show_client";

@@ -3,7 +3,7 @@ ob_start();
 ?>
 
 
-<section class="show_piscine">
+<section class="show">
 
 
     <?php foreach ($piscines as $piscine) { ?>

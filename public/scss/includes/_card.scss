@@ -1,4 +1,4 @@
-.show_chambres {
+.show {
   margin-top: 45px;
   display: flex;
   align-items: center;
@@ -44,10 +44,10 @@
       height: 30px;
       border-radius: 5px;
       margin: 5.7px 0px;
-    }
-    .valider:hover {
-      border: solid 1px $Button-color;
-      background-color: $Button-color-hover;
+      &:hover {
+        border: solid 1px $Button-color;
+        background-color: $Button-color-hover;
+      }
     }
   }
 }
