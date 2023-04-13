@@ -17,7 +17,10 @@ $router->get('reserveChambre/:chambre/', "ChambreController@reserveChambre");
 $router->post('validReserveChambre/', "ChambreController@validReserveChambre");
 
 //RESTAURANTS
-$router->get('food/', "FoodController@allResto");
+$router->get('food/', "FoodController@allRestoBar");
+$router->get('restaurant/:idrestaurant/', "FoodController@restaurant");
+$router->get('commandMenu/:idmenu/', "FoodController@commandMenu");
+$router->get('bar/:idbar/', "FoodController@bar");
 
 //CLIENTS
 $router->get('clients/', "ClientController@allClients");

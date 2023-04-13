@@ -181,7 +181,15 @@ main{
             background-size: cover;
             background-position: center;
         }
-        .allChambres{
+    }
+    section.restaurant{
+        h1{
+            background-size: cover !important;
+            background-position: center !important;
+        }
+    }
+    section.chambres, section.restaurant{
+        .allChambres, .allMenu{
             padding: 2rem;
             ul{
                 display: flex;
@@ -201,7 +209,7 @@ main{
                         justify-content: center;
                         align-items: center;
                         img{
-                            width: 110%;
+                            width: 150%;
                             transition: ease 1s;
                         }
                     }
@@ -241,7 +249,7 @@ main{
                 li:hover{
                     .picture{
                         img{
-                            width: 100% !important;
+                            width: 120% !important;
                         }
                     }
                 }
@@ -305,6 +313,27 @@ main{
                 color: red;
             }
             
+        }
+    }
+    section.restaurant-bar{
+        h1{
+            background: url('../pictures/restaurants.jpg') no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        .allResto, .allBar{
+            padding: 2rem;
+            h3{
+                font-size: 3rem;
+            }
+            ul{
+                width: 100%;
+                display: flex;
+                padding-left: 2rem;
+                li{
+                    margin-right: 2rem;
+                }
+            }
         }
     }
     section.clients{

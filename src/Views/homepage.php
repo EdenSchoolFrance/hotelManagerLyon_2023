@@ -14,13 +14,13 @@ ob_start();
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="/food">
                     <img src="pictures/restaurants.jpg" alt="">
                     <h5>Nos Restaurants / Bars</h5>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="/piscine">
                     <img src="pictures/piscines.jpg" alt="">
                     <h5>Nos Piscines</h5>
                 </a>
