@@ -133,4 +133,21 @@ class HotelManager extends Bdd
         $stmt->execute(array($id));
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
     }
+
+
+    // Tests Unitaires
+
+    public function findchambre($chambre)
+    {
+        $stmt = $this->bdd->prepare("SELECT * FROM chambre WHERE name_chambre = :name");
+        $stmt->execute(array("name" => $chambre));
+        return $stmt->setFetchMode(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
+
+    public function findbarboisson($id)
+    {
+        $stmt = $this->bdd->prepare("SELECT * FROM bar_boisson WHERE quantite_stock_bar_boisson > 0 AND id_bar = :id");
+        $stmt->execute(array("id" => $id));
+        return $stmt->setFetchMode(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
 }
