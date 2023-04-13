@@ -6,7 +6,7 @@ ob_start();
     <h1>information sur les <?=$option?></h1>
 
     <div class="flex">
-        <a href="./<?=$option?>/create/"><h3>reserver</h3></a>
+        <a href="./create/"><h3>reserver</h3></a>
     </div>
 
 </section>

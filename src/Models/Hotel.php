@@ -72,6 +72,18 @@ class Hotel
 
     //le total
     private $total;
+
+    //table restaurant
+    private $id_restaurant;
+    private $name_restaurant;
+
+    //table menu
+    private $id_menu;
+    private $name_menu;
+    private $description_menu;
+    private $image_menu;
+    private $prix_un_menu;
+
     //table client
     //get
     public function getIdClient()
@@ -472,6 +484,7 @@ class Hotel
     public function setQuantiteBoisson($quantite_stock_bar_boisson) {
         $this->quantite_stock_bar_boisson = $quantite_stock_bar_boisson;
     }
+    
     //le total
     //get
     public function getTotal() {
@@ -482,5 +495,64 @@ class Hotel
         $this->total = $total;
     }
     
+    //table restaurant
+    //get
+    public function getIdRestaurant() {
+        return $this->id_restaurant;
+    }
+    public function getNameRestaurant() {
+        return $this->name_restaurant;
+    }
+
+    //set
+    public function setIdRestaurant($id) {
+        $this->id_restaurant = $id;
+    }
+    public function setNameRestaurant($name) {
+        $this->name_restaurant = $name;
+    }
+
+    //table menu
+    //get
+    public function getIdMenu() {
+        return $this->id_menu;
+    }
+
+    public function getNameMenu() {
+      return $this->name_menu;
+    }
+
+    public function getDescriptionMenu() {
+      return $this->description_menu;
+    }
+
+    public function getImageMenu() {
+      return $this->image_menu;
+    }
+
+    public function getPrixUnMenu() {
+      return $this->prix_un_menu;
+    }
+    
+    //set
+    public function setIdMenu($id) {
+        $this->id_menu = $id;
+    }
+
+    public function setNameMenu($name) {
+      $this->name_menu = $name;
+    }
+
+    public function setDescriptionMenu($description) {
+      $this->description_menu = $description;
+    }
+
+    public function setImageMenu($image) {
+      $this->image_menu = $image;
+    }
+
+    public function setPrixUnMenu($prix) {
+      $this->prix_un_menu = $prix;
+    }
 }
 

@@ -53,6 +53,18 @@ class HotelManager
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
     }
+    public function getAll_restaurant()
+    {
+        $stmt = $this->bdd->prepare('SELECT id_restaurant, name_restaurant FROM restaurant');
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
+    public function getAll_menu()
+    {
+        $stmt = $this->bdd->prepare('SELECT id_menu, name_menu FROM menu');
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
     public function insert_reservation($id_client, $id_salle, $datedeb, $datefin, $status)
     {
         $stmt = $this->bdd->prepare("INSERT INTO client_salle (id_client, id_salle, date_debut_reservation_salle, date_fin_reservation_salle, status_salle) VALUES (?, ?, ?, ?, ?);");
@@ -83,6 +95,17 @@ class HotelManager
         $stmt->execute(array(
             $id_client,
             $id_boisson,
+            $quantite,
+            $datedeb,
+        ));
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
+    public function insert_reservation_menu($id_client, $id_menu, $quantite, $datedeb)
+    {
+        $stmt = $this->bdd->prepare("INSERT INTO client_menu (id_client, id_menu, quantite_client_menu , date_client_menu) VALUES (?, ?, ?, ?);");
+        $stmt->execute(array(
+            $id_client,
+            $id_menu,
             $quantite,
             $datedeb,
         ));
@@ -236,6 +259,14 @@ class HotelManager
         $stmt->execute(array(
             $quantite,
             $boisson
+        ));
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
+    public function get_total_menu($menu , $quantite){
+        $stmt = $this->bdd->prepare('SELECT prix_un_menu * ? AS total FROM menu WHERE id_menu = ?');
+        $stmt->execute(array(
+            $quantite,
+            $menu
         ));
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
     }

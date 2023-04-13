@@ -21,7 +21,7 @@
                     <p class="hidden">client</p>
                 </div>
                 <div class="hoverLink">
-                    <a href="/restaurent/" class="icon"><i class="fa-solid fa-utensils"></i></a>
+                    <a href="/restaurant/" class="icon"><i class="fa-solid fa-utensils"></i></a>
                     <p class="hidden">réstaurent</p>
                 </div>
                 <div class="hoverLink">

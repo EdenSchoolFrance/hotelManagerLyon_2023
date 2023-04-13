@@ -214,4 +214,28 @@ class HotelController
             }
         }
     }
+    public function restaurant(){
+        $option='restaurant';
+        require VIEWS . 'Hotel/salle.php'; 
+    }
+    public function restaurant_create(){
+        $client = $this->manager->getAll_client();
+        $restaurant = $this->manager->getAll_restaurant();
+        $menu = $this->manager->getAll_menu();
+        require VIEWS . 'Hotel/restaurant_create.php'; 
+    }
+    public function restaurant_create_bdd()
+    {
+        if($_POST['quantite']==""||htmlentities($_POST['quantite'])!=$_POST['quantite']||$_POST["quantite"] <= "0"){
+            $_SESSION['error']="un champ et vide ou comptien des caracter ou il ya un nombre negatife de boisson commander";
+            header('location:./');
+        }else{
+            $date1 = date('Y-m-d');
+            $total = $this->manager->get_total_menu($_POST['menu'],$_POST['quantite']);
+            $date = date_create($_POST['datedeb']);
+            $this->manager->insert_reservation_menu($_POST['client'],$_POST['menu'],$_POST['quantite'],date_format($date, 'Y-m-d'));
+            $this->manager->insert_facture($_POST['client'],$date1,$total[0]->getTotal());
+            header('location:../');
+        }
+    }
 }
