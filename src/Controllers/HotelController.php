@@ -131,7 +131,7 @@ class HotelController
         $num_reserve = uniqid();
 
         $this->manager->reserve_chambres($user, $id_chambre, $deb_date, $fin_date, $num_reserve);
-        header("Location: /client/");
+        header("Location: /client/" . $_SESSION['user']['id_user'] . "");
     }
 
     public function reserve_piscines()
@@ -143,6 +143,18 @@ class HotelController
         $num_reserve = uniqid();
 
         $this->manager->reserve_piscines($user, $id_piscine, $deb_date, $fin_date, $num_reserve);
-        header("Location: /piscines/");
+        header("Location: /client/" . $_SESSION['user']['id_user'] . "");
+    }
+
+    public function reserve_salles()
+    {
+        $user = $_SESSION["user"]["id_user"];
+        $id_salle = $_POST["id_salle"];
+        $deb_date = $_POST["deb_date"];
+        $fin_date = $_POST["fin_date"];
+        $num_reserve = uniqid();
+
+        $this->manager->reserve_salles($user, $id_salle, $deb_date, $fin_date, $num_reserve);
+        header("Location: /client/" . $_SESSION['user']['id_user'] . "");
     }
 }

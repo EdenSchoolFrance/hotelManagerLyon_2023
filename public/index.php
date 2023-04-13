@@ -30,6 +30,7 @@ $router->post('/client/supprimer', "HotelController@delete_client");
 // Reservations
 $router->post('/chambres/reserver/', "HotelController@reserve_chambres");
 $router->post('/piscines/reserver/', "HotelController@reserve_piscines");
+$router->post('/salles/reserver/', "HotelController@reserve_salles");
 
 
 $router->run();

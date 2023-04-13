@@ -28,7 +28,7 @@
                     <a href="/">Hotel</a>
                 </li>
                 <li>
-                    <a href="/client/" <?= true ? "id = 'on_link'" : "" ?>>Clients</a>
+                    <a href="/client/">Clients</a>
                 </li>
                 <li>
                     <a href="/chambres/">Chambres</a>

@@ -90,10 +90,23 @@ class ClientManager
 
     public function reserve_piscines($user, $id_piscine, $deb_date, $fin_date, $num_reserve)
     {
-        $stmt = $this->bdd->prepare('INSERT INTO `client_piscine`(`id_piscine`, `id_client`, `date_debut_reservation_piscine`, `date_fin_reservation_piscine`, `num_reservation_piscine`) VALUES ("?","?","?","?","?")');
+        $stmt = $this->bdd->prepare('INSERT INTO `client_piscine`(`id_piscine`, `id_client`, `date_debut_reservation_piscine`, `date_fin_reservation_piscine`, `num_reservation_piscine`) VALUES (?,?,?,?,?)');
+        $stmt->execute(array(
+            $id_piscine,
+            $user,
+            $deb_date,
+            $fin_date,
+            $num_reserve,
+        ));
+        return;
+    }
+
+    public function reserve_salles($user, $id_salle, $deb_date, $fin_date, $num_reserve)
+    {
+        $stmt = $this->bdd->prepare('INSERT INTO `client_salle`(`id_client`, `id_salle`, `date_debut_reservation_salle`, `date_fin_reservation_salle`, `num_reservation_salle`) VALUES (?,?,?,?,?)');
         $stmt->execute(array(
             $user,
-            $id_piscine,
+            $id_salle,
             $deb_date,
             $fin_date,
             $num_reserve,
