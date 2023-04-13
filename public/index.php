@@ -15,7 +15,10 @@ $router->get('/client/delete/:id', "HotelController@deleteClient");
 $router->get('/stock', "HotelController@stock");
 $router->get('/chambres', "HotelController@chambres");
 $router->get('/chambre/reserver/:id', "HotelController@reserverChambre");
-$router->get('/chambres/indisponnibles/', "HotelController@chambresClients");
+
+$router->get('/logs/clients/', "HotelController@logClients");
+
+$router->post('/logs/', "HotelController@logs");
 
 $router->post('/client/nouveau', "HotelController@addClient");
 $router->post('/chambre/reserver/confirmer/:id', "HotelController@ConfirmationReservationChambre");

@@ -4,23 +4,21 @@ ob_start();
 ?>
 
 <section class="dashboard">
-    <h1>Liste des Chambres Ocuppées</h1>
+    <h1>Reservation / Achats</h1>
     <div id="list">
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">Nom / Prénom</th>
                     <th scope="col">Chambre</th>
                     <th scope="col">Date debut</th>
-                    <th scope="col">Date Fin</th>
+                    <th scope="col">Date fin</th>
                     <th scope="col">#</th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($chambresclients as $list) {
+                <?php foreach ($clients as $list) {
                 ?>
                     <tr>
-                        <td><?= $list->getNomClient() . ' ' . $list->getPrenomClient() ?></td>
                         <td><?= $list->getNameChambre() ?></td>
                         <td><?= $list->getDateDebut() ?></td>
                         <td><?= $list->getDateFin() ?></td>

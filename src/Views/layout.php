@@ -33,15 +33,7 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item" href="/client/nouveau">Nouveau Client</a></li>
                                 <li><a class="dropdown-item" href="/client/liste">Liste</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Chambres
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="/chambres">Réserver une chambres</a></li>
-                                <li><a class="dropdown-item" href="/chambres/indisponnibles">Chambres occupées</a></li>
+                                <li><a class="dropdown-item" href="/logs/clients">Reservations / Achats</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -49,6 +41,7 @@
                                 Réservations
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="/chambres">Chambre</a></li>
                                 <li><a class="dropdown-item" href="#">Salle</a></li>
                                 <li><a class="dropdown-item" href="#">Piscine</a></li>
                                 <li><a class="dropdown-item" href="#">Restaurant</a></li>

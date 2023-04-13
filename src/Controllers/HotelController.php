@@ -99,20 +99,31 @@ class HotelController
         }
     }
 
-
-    // Chambres reservées par les clients 
-    public function chambresClients()
-    {
-        $chambresclients = $this->manager->ChambresClients();
-
-        require VIEWS . 'Hotel/chambres_clients.php';
-    }
-
     // Supprimer reservation chambre 
     public function deleteReservationChambre($slug)
     {
         $this->manager->deleteReservationChambre($slug);
         $this->manager->updateChambreDisponnible($slug);
-        header('Location: /chambres/indisponnibles');
+        header('Location: /logs/');
+    }
+
+
+    // Afffichage page recherche Reservations achats des clients
+    public function logClients()
+    {
+        $clients = $this->manager->clients();
+        require VIEWS . 'Hotel/logs_clients.php';
+    }
+
+
+    // Recherche Reservations achats du client
+    public function logs()
+    {
+        $clients = $this->manager->searchReservationChambreClient($_POST['clients']);
+        $boissons = $this->manager->searchReservationChambreClient($_POST['clients']);
+        $salle = $this->manager->searchReservationChambreClient($_POST['clients']);
+        $piscine = $this->manager->searchReservationChambreClient($_POST['clients']);
+        $menu = $this->manager->searchReservationChambreClient($_POST['clients']);
+        require VIEWS . 'Hotel/logs.php';
     }
 }

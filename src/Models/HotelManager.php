@@ -3,18 +3,11 @@
 namespace Hotel\Models;
 
 use Hotel\Models\Hotel;
+use Hotel\Models\Bdd;
 
 /** Class HotelManager **/
-class HotelManager
+class HotelManager extends Bdd
 {
-
-    private $bdd;
-
-    public function __construct()
-    {
-        $this->bdd = new \PDO('mysql:host=' . HOST . ';dbname=' . DATABASE . ';charset=utf8;', USER, PASSWORD);
-        $this->bdd->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-    }
     // Ajout Client BDD
     public function store()
     {
@@ -130,5 +123,14 @@ class HotelManager
     {
         $stmt = $this->bdd->prepare("DELETE FROM `client_chambre` WHERE id_chambre = ?");
         $stmt->execute(array($slug));
+    }
+
+
+    // Rechercher reservation chambre dun client
+    public function searchReservationChambreClient($id)
+    {
+        $stmt = $this->bdd->prepare("SELECT * FROM `client_chambre` JOIN chambre ON client_chambre.id_chambre = chambre.id_chambre WHERE id_client = ?");
+        $stmt->execute(array($id));
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
     }
 }
