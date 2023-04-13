@@ -60,8 +60,8 @@ class HotelManager extends BDD
 
         $stmt = $this->bdd->prepare("UPDATE chambre JOIN client_chambre ON chambre.id_chambre = client_chambre.id_chambre SET occupe_chambre = ? WHERE id_client = ?");
         $stmt->execute(array(
-            "0",
-            $slug
+            htmlentities("0"),
+            htmlentities($slug)
         ));
 
         $stmt = $this->bdd->prepare("DELETE FROM client_chambre WHERE id_client = ?");
@@ -197,26 +197,26 @@ class HotelManager extends BDD
                 $getInfo = $stmt->fetchAll()[0];
                 if ($getInfo["ouverture_piscine"] <= date("H:i:s", strtotime($_POST["debut_piscine"])) && $getInfo["fermeture_piscine"] >= date("H:i:s", strtotime($_POST["fin_piscine"]))) {
                     $stmt = $this->bdd->prepare('INSERT INTO client_piscine (id_piscine, id_client, date_debut_reservation_piscine, date_fin_reservation_piscine, num_reservation_piscine, status_piscine) VALUES (?, ?, ?, ?, ?, ?)');
-                    $stmt->execute(array($_POST["id_piscine"], $slug, date("Y-m-d", strtotime($_POST["debut_piscine"])), date("Y-m-d", strtotime($_POST["fin_piscine"])), $_SESSION["count"], ""));
+                    $stmt->execute(array(htmlentities($_POST["id_piscine"]), htmlentities($slug), htmlentities(date("Y-m-d", strtotime($_POST["debut_piscine"]))), htmlentities(date("Y-m-d", strtotime($_POST["fin_piscine"]))), htmlentities($_SESSION["count"]), htmlentities("")));
                 }
             }
 
             if (isset($_POST["id_salle"])) {
                 $stmt = $this->bdd->prepare('INSERT INTO client_salle (id_client, id_salle, date_debut_reservation_salle, date_fin_reservation_salle, num_reservation_salle, status_salle) VALUES (?, ?, ?, ?, ?, ?)');
-                $stmt->execute(array($slug, $_POST["id_salle"], date("Y-m-d", strtotime($_POST["debut_salle"])), date("Y-m-d", strtotime($_POST["fin_salle"])), $_SESSION["count"], ""));
+                $stmt->execute(array(htmlentities($slug), htmlentities($_POST["id_salle"]), htmlentities(date("Y-m-d", strtotime($_POST["debut_salle"]))), htmlentities(date("Y-m-d", strtotime($_POST["fin_salle"]))), htmlentities($_SESSION["count"]), htmlentities("")));
             }
 
             if (isset($_POST["id_salle"])) {
                 $stmt = $this->bdd->prepare('INSERT INTO client_salle (id_client, id_salle, date_debut_reservation_salle, date_fin_reservation_salle, num_reservation_salle, status_salle) VALUES (?, ?, ?, ?, ?, ?)');
-                $stmt->execute(array($slug, $_POST["id_salle"], date("Y-m-d", strtotime($_POST["debut_salle"])), date("Y-m-d", strtotime($_POST["fin_salle"])), $_SESSION["count"], ""));
+                $stmt->execute(array(htmlentities($slug), htmlentities($_POST["id_salle"]), htmlentities(date("Y-m-d", strtotime($_POST["debut_salle"]))), htmlentities(date("Y-m-d", strtotime($_POST["fin_salle"]))), htmlentities($_SESSION["count"]), htmlentities("")));
             }
 
             if (isset($_POST["id_chambre"])) {
                 $stmt = $this->bdd->prepare('INSERT INTO client_chambre (id_client, id_chambre, date_debut_reservation_chambre, date_fin_reservation_piscine_chambre, num_reservation_chambre, status_chambre) VALUES (?, ?, ?, ?, ?, ?)');
-                $stmt->execute(array($slug, $_POST["id_chambre"], date("Y-m-d", strtotime($_POST["debut_chambre"])), date("Y-m-d", strtotime($_POST["fin_chambre"])), $_SESSION["count"], ""));
+                $stmt->execute(array(htmlentities($slug), htmlentities($_POST["id_chambre"]), htmlentities(date("Y-m-d", strtotime($_POST["debut_chambre"]))), htmlentities(date("Y-m-d", strtotime($_POST["fin_chambre"]))), htmlentities($_SESSION["count"]), htmlentities("")));
 
                 $stmt = $this->bdd->prepare('UPDATE chambre SET occupe_chambre = 1 WHERE id_chambre = ?');
-                $stmt->execute(array($_POST["id_chambre"]));
+                $stmt->execute(array(htmlentities($_POST["id_chambre"])));
             }
 
             $stmt = $this->bdd->prepare('SELECT * FROM bar_boisson');
@@ -225,10 +225,10 @@ class HotelManager extends BDD
                 $stock = $stmt->fetchAll()[0]["quantite_stock_bar_boisson"];
                 if ($stock >= ($_POST["quantity_boisson"] ?? 1)) {
                     $stmt = $this->bdd->prepare('UPDATE bar_boisson SET quantite_stock_bar_boisson = ? WHERE id_boisson = ?');
-                    $stmt->execute(array(($stock - $_POST["quantity_boisson"] ?? "1"), $_POST["id_boisson"]));
+                    $stmt->execute(array(htmlentities(($stock - $_POST["quantity_boisson"] ?? "1")), htmlentities($_POST["id_boisson"])));
 
                     $stmt = $this->bdd->prepare('INSERT INTO client_boisson (id_client, id_boisson, quantite_client_boisson, date_client_boisson) VALUES (?, ?, ?, ?)');
-                    $stmt->execute(array($slug, $_POST["id_boisson"], $_POST["quantity_boisson"] ?? 1, $_POST["debut_boisson"]));
+                    $stmt->execute(array(htmlentities($slug), htmlentities($_POST["id_boisson"]), htmlentities($_POST["quantity_boisson"] ?? 1), htmlentities($_POST["debut_boisson"])));
                 }
             }
         } else {
@@ -250,7 +250,7 @@ class HotelManager extends BDD
     public function addMenu()
     {
         $stmt = $this->bdd->prepare("INSERT INTO client_menu (id_client, id_menu, quantite_client_menu, date_client_menu) VALUES (?, ?, ?, ?)");
-        $stmt->execute(array($_POST["client_id"], $_POST["id_menu"], $_POST["quantity_menu"] ?? 1, $_POST["debut_menu"]));
+        $stmt->execute(array(htmlentities($_POST["client_id"]), htmlentities($_POST["id_menu"]), htmlentities($_POST["quantity_menu"] ?? 1), htmlentities($_POST["debut_menu"])));
     }
 
     //show all boisson in relation to its id_bar
@@ -319,7 +319,7 @@ class HotelManager extends BDD
     public function addFacture()
     {
         $stmt = $this->bdd->prepare("INSERT INTO facture (id_facture, id_client, num_reference, date_facture, total_ttc) VALUES (?, ?, ?, ?, ?)");
-        $stmt->execute(array($_POST["id_facture"], $_POST["id_client"], $_POST["id_client"], $_POST["date_facture"], $_POST["total_facture"]));
+        $stmt->execute(array(htmlentities($_POST["id_facture"]), htmlentities($_POST["id_client"]), htmlentities($_POST["id_client"]), htmlentities($_POST["date_facture"]), htmlentities($_POST["total_facture"])));
 
         return $stmt->fetchAll();
     }
