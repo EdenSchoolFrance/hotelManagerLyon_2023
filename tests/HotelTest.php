@@ -5,34 +5,25 @@ declare(strict_types=1);
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
-use PHPUnit\Framework\InvalidArgumentException;
-use Hotel\Models\HotelManager;
-
+// use PHPUnit\Framework\InvalidArgumentException;
+use Hotel\Models\ClientManager;
 
 include 'src/config/config.php';
 
 final class HotelTest extends TestCase
 {
 
-
-    protected $tm;
-
-    public function initTestEnvironment()
+    public function testBoissons()
     {
-        $this->tm = new HotelManager;
-    }
+        $test = new ClientManager;
 
-    public function testChambre()
-    {
-        $t = new HotelManager;
-
-        $this->assertEquals("6435f3101e8f2", $t->findchambre("Chambre 213"));
+        $this->assertEquals("test", $test->recherche_client("643529540"));
     }
 
     public function testStockBarBoisson()
     {
-        $t = new HotelManager;
+        $t = new ClientManager;
 
-        $this->assertEquals("1", $t->findbarboisson("1"));
+        $this->assertEquals("1", $t->recherche_piscine("1"));
     }
 }

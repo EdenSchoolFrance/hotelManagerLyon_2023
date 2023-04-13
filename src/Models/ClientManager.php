@@ -167,4 +167,24 @@ class ClientManager extends Bdd
         ));
         return;
     }
+
+    // Requettes pour les tests unitaire
+
+    public function recherche_client($id_client)
+    {
+        $stmt = $this->bdd->prepare("SELECT * FROM client WHERE email_client = ?");
+        $stmt->execute(array(
+            $id_client,
+        ));
+        return $stmt->setFetchMode(\PDO::FETCH_CLASS, "Hotel\Models\Client");
+    }
+
+    public function recherche_piscine($id_piscine)
+    {
+        $stmt = $this->bdd->prepare("SELECT * FROM client WHERE email_client = ?");
+        $stmt->execute(array(
+            $id_piscine,
+        ));
+        return $stmt->setFetchMode(\PDO::FETCH_CLASS, "Hotel\Models\Client");
+    }
 }
