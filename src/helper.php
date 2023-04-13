@@ -12,6 +12,10 @@ function success() {
     return isset($_SESSION["success"]) ? $_SESSION["success"] : "";
 }
 
+function erreur() {
+    return isset($_SESSION["erreur"]) ? $_SESSION["erreur"] : "";
+}
+
 function escape($data) {
     return stripslashes(trim(htmlspecialchars($data)));
 }

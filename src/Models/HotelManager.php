@@ -31,39 +31,57 @@ class HotelManager {
     }
 
     public function addClientChambre($info){
-        // $subscription_expiration_date = new DateTime($info["debut"]);
-        // $now_date = new DateTime($info["fin"]);
-        // $diff =  floor(($now_date->getTimestamp() - $subscription_expiration_date->getTimestamp()) / 86400);
+        $subscription_expiration_date = new DateTime($info["debut"]);
+        $now_date = new DateTime($info["fin"]);
+        $diff =  floor(($now_date->getTimestamp() - $subscription_expiration_date->getTimestamp()) / 86400);
+        print_r($info);
+        $stmt = $this->bdd->prepare(
+            "SELECT * FROM `client_chambre` 
+            WHERE id_chambre = ? AND ((`date_debut_reservation_chambre` <= ? AND `date_fin_reservation_chambre` >= ?) 
+            OR (`date_debut_reservation_chambre` <= ? AND `date_fin_reservation_chambre` >= ?) 
+            OR (`date_debut_reservation_chambre` >= ? AND `date_fin_reservation_chambre` <= ?))"
+        );
+        $stmt->execute(array(
+            $info["id_chambre"],
+            $info["debut"],
+            $info["debut"],
+            $info["fin"],
+            $info["fin"],
+            $info["debut"],
+            $info["fin"]
+        ));
 
-        // $stmt = $this->bdd->prepare("UPDATE `chambre` SET `occupe_chambre`= 1 WHERE id_chambre = ?");
-        // $stmt->execute(array(
-        //     $info["id_chambre"]
-        // ));
+        if(!$stmt->fetch()){
+            $stmt = $this->bdd->prepare("SELECT `prix_chambre` FROM `chambre` WHERE id_chambre = ?");
+            $stmt->execute(array(
+                $info["id_chambre"]
+            ));
 
-        // $stmt = $this->bdd->prepare("SELECT `name_chambre`, `prix_chambre` FROM `chambre` WHERE id_chambre = ?");
-        // $stmt->execute(array(
-        //     $info["id_chambre"]
-        // ));
-        // $stmt->setFetchMode(\PDO::FETCH_CLASS,"Hotel\Models\Chambre");
-        // $res = $stmt->fetch();
-        // $numChambre = $res->getName();
-        // $prix = $res->getPrix() * $diff;        
+            $stmt->setFetchMode(\PDO::FETCH_CLASS,"Hotel\Models\Chambre");
+            $prix = $stmt->fetch()->getPrix() * $diff;        
 
-        // $stmt = $this->bdd->prepare("INSERT INTO `client_chambre`(`id_client`, `id_chambre`, `date_debut_reservation_chambre`, `date_fin_reservation_chambre`, `num_reservation_chambre`, `status_chambre`) VALUES (?,?,?,?,?,?)");
-        // $stmt->execute(array(
-        //     $info["id_client"],
-        //     $info["id_chambre"],
-        //     $info["debut"],
-        //     $info["fin"],
-        //     $numChambre,
-        //     "reserve"
-        // ));
+            $stmt = $this->bdd->prepare("INSERT INTO `client_chambre`(`id_client`, `id_chambre`, `date_debut_reservation_chambre`, `date_fin_reservation_chambre`, `status_chambre`) VALUES (?,?,?,?,?)");
+            $stmt->execute(array(
+                $info["id_client"],
+                $info["id_chambre"],
+                $info["debut"],
+                $info["fin"],
+                "reserve"
+            ));
 
-        // $stmt = $this->bdd->prepare("INSERT INTO `facture`(`id_client`, `num_reference`, `date_facture`, `total_ttc`) VALUES (?,?,NOW(),?)");
-        // $stmt->execute(array(
-        //     $info["id_client"],
-        //     uniqid(),
-        //     $prix
-        // ));
+            $stmt = $this->bdd->prepare("INSERT INTO `facture`(`id_client`, `num_reference`, `date_facture`, `total_ttc`) VALUES (?,?,NOW(),?)");
+            $stmt->execute(array(
+                $info["id_client"],
+                uniqid(),
+                $prix
+            ));
+
+            $_SESSION["success"] = "Client bien ajouté !";
+            header("Location: /chambre");
+        } else{
+            $_SESSION["erreur"] = "La date demandé est déjà prise";
+            header("Location: /chambre");
+        }
+        
     }
 }

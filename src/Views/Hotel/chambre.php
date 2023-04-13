@@ -46,6 +46,7 @@ ob_start();
         <span class="error"><?php echo error("message");?></span>
     </form>
     <?php if(success()) echo "<script>alert('" . success() . "')</script>"; ?>
+    <?php if(erreur()) echo "<script>alert('" . erreur() . "')</script>"; ?>
 </section>
 <?php
 $content = ob_get_clean();
