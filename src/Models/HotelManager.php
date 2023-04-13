@@ -267,4 +267,40 @@ class HotelManager extends BDD
 
         return $stmt->fetchAll();
     }
+
+    //show table chambre, salle, menu, piscine, boisson
+
+    public function showAll($slug)
+    {
+        $stmt = $this->bdd->prepare("SELECT * FROM client_boisson JOIN boisson ON client_boisson.id_boisson = boisson.id_boisson WHERE client_boisson.id_client = ?");
+        $stmt->execute(array($slug));
+
+        $boisson = $stmt->fetchAll(PDO::FETCH_CLASS, "Hotel\Models\Boisson");
+
+        $stmt = $this->bdd->prepare("SELECT * FROM client_chambre JOIN chambre ON client_chambre.id_chambre = chambre.id_chambre WHERE client_chambre.id_client = ?");
+        $stmt->execute(array($slug));
+
+        $chambre = $stmt->fetchAll(PDO::FETCH_CLASS, "Hotel\Models\Chambre");
+
+        $stmt = $this->bdd->prepare("SELECT * FROM client_salle JOIN salle ON client_salle.id_salle = salle.id_salle WHERE client_salle.id_client = ?");
+        $stmt->execute(array($slug));
+
+        $salle = $stmt->fetchAll(PDO::FETCH_CLASS, "Hotel\Models\Salle");
+
+        $stmt = $this->bdd->prepare("SELECT * FROM client_piscine JOIN piscine ON client_piscine.id_piscine = piscine.id_piscine WHERE client_piscine.id_client = ?");
+        $stmt->execute(array($slug));
+
+        $piscine = $stmt->fetchAll(PDO::FETCH_CLASS, "Hotel\Models\Piscine");
+
+        $stmt = $this->bdd->prepare("SELECT * FROM client_menu JOIN menu ON client_menu.id_menu = menu.id_menu WHERE client_menu.id_client = ?");
+        $stmt->execute(array($slug));
+
+        $menu = $stmt->fetchAll(PDO::FETCH_CLASS, "Hotel\Models\Menu");
+
+        $result = [
+            "boissons" => $boisson, "chambres" => $chambre, "salles" => $salle, "piscine" => $piscine, "menu" => $menu
+        ];
+
+        return $result;
+    }
 }

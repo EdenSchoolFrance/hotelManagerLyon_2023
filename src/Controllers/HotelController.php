@@ -226,4 +226,12 @@ class HotelController
         $this->addBreadcrumb('Reservation', '/reservation/' . $_SESSION["idUser"]);
         require VIEWS . "pages/boissons.php";
     }
+
+    //show facture
+
+    public function showFacture($slug)
+    {
+        $item = $this->manager->showAll($slug);
+        require VIEWS . "pages/facture.php";
+    }
 }

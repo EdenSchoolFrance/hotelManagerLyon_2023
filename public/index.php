@@ -16,6 +16,7 @@ $router->get('/addClients/error', "HotelController@showAddClient");
 $router->get('/addClient', "HotelController@showAddClient");
 $router->get('/deleteClient/:Client', "HotelController@removeClient");
 $router->get('/updateClient/:Client', "HotelController@showUpdateClient");
+$router->get('/facture/:Client', "HotelController@showFacture");
 
 $router->get('/reservation/:Client', "HotelController@showReservation");
 $router->get('/reservation/:Client/error', "HotelController@showReservation");
