@@ -6,7 +6,7 @@ Projet eden school lyon, avril 2023
 ### Mise en place du projet :
 
 - Créé la base de donné dans PhpMyAdmin et nommé la "hotelmanager"
-- Importer la bdd "hotel_manager.sql"
+- Importer la bdd "hotelmanager.sql"
 - Créer les auto load avec la commande dump-autoload dans une console à la racine du dossier
 - Lancer apache et MySQL dans xampp
 - Lancer le serveur avec une console dans le dossier public (hotelManagerLyon_2023/public) avec la commande php -S localhost:8000 (faire la commande avec gitBash si ça ne fonctionne pas)
@@ -28,6 +28,7 @@ Projet eden school lyon, avril 2023
 - Création de facture
 - commentaires
 - test unitaire
+- base de donnée mis à jour
 
 ### Non opérationnel
 
