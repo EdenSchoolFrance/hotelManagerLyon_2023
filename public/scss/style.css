@@ -78,7 +78,8 @@ body header ul li:hover {
   font-size: 20px;
 }
 .show .card .deb_date,
-.show .card .fin_date {
+.show .card .fin_date,
+.show .card .quantite {
   margin: 15px 0;
 }
 .show .card .valider {
@@ -109,13 +110,7 @@ body header ul li:hover {
   font-size: 2.4rem;
 }
 
-.show_client {
-  width: 100%;
-  height: 100%;
-}
 .show_client table {
-  width: 50%;
-  display: block;
   margin: 5px auto;
   font-size: 2.1rem;
 }
@@ -126,7 +121,15 @@ body header ul li:hover {
   border: solid 1px black;
   padding: 5px;
   margin: 0;
-  padding: 0;
+  padding: 15px;
+}
+.show_client table td button,
+.show_client table td a,
+.show_client table tr button,
+.show_client table tr a,
+.show_client table th button,
+.show_client table th a {
+  padding: 10px;
 }
 
 .homepage {
@@ -156,13 +159,7 @@ body header ul li:hover {
   margin: 7px 3px;
 }
 
-.clients {
-  width: 100%;
-  height: 100%;
-}
 .clients table {
-  width: 50%;
-  display: block;
   margin: 5px auto;
   font-size: 2.1rem;
 }
@@ -173,5 +170,10 @@ body header ul li:hover {
   border: solid 1px black;
   padding: 5px;
   margin: 0;
-  padding: 0;
+  padding: 25px;
+}
+.clients table td a,
+.clients table tr a,
+.clients table th a {
+  padding: 30px;
 }/*# sourceMappingURL=style.css.map */

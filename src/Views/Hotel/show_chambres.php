@@ -6,7 +6,7 @@ ob_start();
 
     <?php foreach ($chambres as $chambre) { ?>
         <div class="card">
-            <h3><a href=""><?= $chambre->getdescription_chambre(); ?></a></h3>
+            <h3><?= $chambre->getdescription_chambre(); ?></a></h3>
             <p class="option"><?= $chambre->getoptions_chambre(); ?></p>
             <img src="/assets/<?= $chambre->getimage_chambre(); ?>" alt="Image de la chambre">
             <p class="prix"><?= $chambre->getprix_chambre(); ?> €</p>
