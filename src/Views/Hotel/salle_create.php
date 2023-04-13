@@ -27,19 +27,27 @@ ob_start();
                     foreach ($piscine as $piscines) {
                         echo "<option value=".$piscines->getIdPiscine().">Nom : ".$piscines->getNamePiscine()."</option>";
                     }
+                }else if($option==="Chambre"){
+                    foreach ($chambre as $chambres) {
+                        echo "<option value=".$chambres->getIdChambre().">Nom : ".$chambres->getNameChambre()."</option>";
+                    }
                 }
             ?>
         </select>
         <?php
-                if($option==="Piscine"){
-                    ?>
-                    <input type="time" name="datetime">
-                    <?php
-                }
-            ?>
+            if($option==="Piscine"){
+        ?>
+            <input type="time" name="datetime">
+        <?php
+            }else if($option==="Chambre"){
+        ?>
+            <input type="number" name="noccupe" required placeholder="nombre d'occupent">
+        <?php
+            }
+        ?>
         <input type="date" name="datedeb">
         <input type="date" name="datefin">
-        <input type="text" name="status_salle">
+        <input type="text" name="status_salle" placeholder="status">
         <input type="submit" value="reserver">
     </form>
 

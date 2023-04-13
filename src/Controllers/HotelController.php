@@ -47,6 +47,8 @@ class HotelController
     {
         $client = $this->manager->get_client($_POST['liste']);
         $reservation = $this->manager->get_reservations_client($_POST['liste']);
+        $reservationPiscine = $this->manager->get_reservations_Piscine_client($_POST['liste']);
+        // $reservationChambre = $this->manager->get_reservations_client($_POST['liste']);
         require VIEWS . 'Hotel/info_client.php'; 
     }
     public function update()
@@ -150,6 +152,35 @@ class HotelController
             }else{
                 $_SESSION["error"]="la piscine et fermer ou un nettoyage et pendant la date";
                 header('location:./');
+            }
+        }
+    }
+    public function chambre(){
+        $option='chambre';
+        require VIEWS . 'Hotel/salle.php'; 
+    }
+    public function chambre_create(){
+        $client = $this->manager->getAll_client();
+        $chambre = $this->manager->getAll_chambre();
+        $option='Chambre';
+        require VIEWS . 'Hotel/salle_create.php'; 
+    }
+    public function chambre_create_bdd()
+    {
+        if($_POST['status_salle']==""||htmlentities($_POST['status_salle'])!=$_POST['status_salle']||$_POST['noccupe']==""||$_POST['noccupe']<=0||htmlentities($_POST['noccupe'])!=$_POST['noccupe']||$_POST["datedeb"] > $_POST["datefin"]){
+            $_SESSION['error']="un champ et vide ou comptien des caracter speciaux ou la date de debut est apres celle de fin ou il ya moin de 0 occupent qui reserve";
+            header('location:./');
+        }else{
+            $verif = $this->manager->verif_reserver_chambre($_POST['salle']);
+            if($verif[0]->getOccupeChambre()!="0"){
+                $_SESSION["error"]="chambre deja reserver";
+                header('location:./');
+            }else{
+                $date = date_create($_POST['datedeb']);
+                $date1 = date_create($_POST['datefin']);
+                $this->manager->insert_reservation_chambre($_POST['client'],$_POST['salle'],date_format($date, 'Y-m-d'),date_format($date1, 'Y-m-d'),$_POST ['status_salle']);
+                $this->manager->update_reservation_chambre($_POST['noccupe'],$_POST['salle']);
+                header('location:../');
             }
         }
     }

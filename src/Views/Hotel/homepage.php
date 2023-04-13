@@ -8,6 +8,7 @@ ob_start();
 </section>
 
 <?php
+echo uniqid();
 $content = ob_get_clean();
 
 require VIEWS . 'layout.php';

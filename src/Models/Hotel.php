@@ -40,6 +40,22 @@ class Hotel
     private $fermeture_piscine;
     private $nettoyage_piscine;
 
+    //table chambre
+    private $id_chambre;
+    private $name_chambre;
+    private $description_chambre;
+    private $image_chambre;
+    private $options_chambre;
+    private $prix_chambre;
+    private $occupe_chambre;
+    private $categorie_chambre;
+
+    //table client_chambre
+    private $date_debut_reservation_chambre;
+    private $date_fin_reservation_chambre;
+    private $num_reservation_chambre;
+    private $status_chambre;
+
     //table client
     //get
     public function getIdClient()
@@ -269,5 +285,105 @@ class Hotel
 
     public function setNettoyagePiscine($nettoyage_piscine) {
         $this->nettoyage_piscine = $nettoyage_piscine;
+    }
+    //get
+    public function getIdChambre() {
+        return $this->id_chambre;
+    }
+
+    public function getNameChambre() {
+        return $this->name_chambre;
+    }
+
+    public function getDescriptionChambre() {
+        return $this->description_chambre;
+    }
+
+    public function getImageChambre() {
+        return $this->image_chambre;
+    }
+
+    public function getOptionsChambre() {
+        return $this->options_chambre;
+    }
+
+    public function getPrixChambre() {
+        return $this->prix_chambre;
+    }
+
+    public function getOccupeChambre() {
+        return $this->occupe_chambre;
+    }
+
+    public function getCategorieChambre() {
+        return $this->categorie_chambre;
+    }
+
+    //set
+    public function setIdChambre($id_chambre) {
+        $this->id_chambre = $id_chambre;
+    }
+
+    public function setNameChambre($name_chambre) {
+        $this->name_chambre = $name_chambre;
+    }
+
+    public function setDescriptionChambre($description_chambre) {
+        $this->description_chambre = $description_chambre;
+    }
+
+    public function setImageChambre($image_chambre) {
+        $this->image_chambre = $image_chambre;
+    }
+
+    public function setOptionsChambre($options_chambre) {
+        $this->options_chambre = $options_chambre;
+    }
+
+    public function setPrixChambre($prix_chambre) {
+        $this->prix_chambre = $prix_chambre;
+    }
+
+    public function setOccupeChambre($occupe_chambre) {
+        $this->occupe_chambre = $occupe_chambre;
+    }
+
+    public function setCategorieChambre($categorie_chambre) {
+        $this->categorie_chambre = $categorie_chambre;
+    }
+
+    //table client_chambre
+    //get
+    public function getDateDebutReservationChambre() {
+        return $this->date_debut_reservation_chambre;
+    }
+    
+    public function getDateFinReservationChambre() {
+        return $this->date_fin_reservation_chambre;
+    }
+    
+    public function getNumReservationChambre() {
+        return $this->num_reservation_chambre;
+    }
+    
+    public function getStatusChambre() {
+        return $this->status_chambre;
+    }
+    
+    //set
+    public function setDateDebutReservationChambre($date_debut_reservation_chambre) {
+        $this->date_debut_reservation_chambre = $date_debut_reservation_chambre;
+    }
+    
+    public function setDateFinReservationChambre($date_fin_reservation_chambre) {
+        $this->date_fin_reservation_chambre = $date_fin_reservation_chambre;
+    }
+    
+    public function setNumReservationChambre($num_reservation_chambre) {
+        $this->num_reservation_chambre = $num_reservation_chambre;
+    }
+    
+    public function setStatusChambre($status_chambre) {
+        $this->status_chambre = $status_chambre;
     }
 }

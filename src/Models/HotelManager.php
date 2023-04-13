@@ -35,6 +35,12 @@ class HotelManager
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
     }
+    public function getAll_chambre()
+    {
+        $stmt = $this->bdd->prepare('SELECT id_chambre, name_chambre FROM chambre');
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
     public function insert_reservation($id_client, $id_salle, $datedeb, $datefin, $status)
     {
         $stmt = $this->bdd->prepare("INSERT INTO client_salle (id_client, id_salle, date_debut_reservation_salle, date_fin_reservation_salle, status_salle) VALUES (?, ?, ?, ?, ?);");
@@ -92,6 +98,14 @@ class HotelManager
         ));
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
     }
+    public function get_reservations_Piscine_client($id)
+    {
+        $stmt = $this->bdd->prepare('SELECT * FROM client_piscine LEFT JOIN piscine ON client_piscine.id_piscine = piscine.id_piscine WHERE client_piscine.id_client = ?');
+        $stmt->execute(array(
+            $id,
+        ));
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
     public function verif_reserver($id)
     {
         $stmt = $this->bdd->prepare('SELECT type_salle FROM salle WHERE id_salle = ?');
@@ -109,6 +123,32 @@ class HotelManager
             $datefin,
             $datetime
         ));
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
+    public function verif_reserver_chambre($id)
+    {
+        $stmt = $this->bdd->prepare('SELECT occupe_chambre FROM chambre WHERE id_chambre = ?');
+        $stmt->execute(array(
+            $id,
+        ));
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
+    public function insert_reservation_chambre($id_client, $id_salle, $datedeb, $datefin, $status)
+    {
+        $stmt = $this->bdd->prepare("INSERT INTO client_chambre (id_client, id_chambre, date_debut_reservation_chambre, date_fin_reservation_chambre, status_chambre) VALUES (?, ?, ?, ?, ?);");
+        $stmt->execute(array(
+            $id_client,
+            $id_salle,
+            $datedeb,
+            $datefin,
+            $status
+        ));
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
+    public function update_reservation_chambre($noccupe,$id)
+    {
+        $stmt = $this->bdd->prepare("UPDATE chambre SET occupe_chambre=".$noccupe." WHERE id_chambre = ".$id.";");
+        $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
     }
     public function delete_client($id)
