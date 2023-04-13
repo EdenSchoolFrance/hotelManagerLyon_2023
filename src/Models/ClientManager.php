@@ -87,4 +87,29 @@ class ClientManager
         ));
         return $stmt;
     }
+
+    //delete client
+    public function deleteClient($id_client)
+    {
+        $stmt = $this->bdd->prepare('DELETE FROM `client_chambre` WHERE id_client = ?');
+        $stmt->execute(array(
+            $id_client,
+        ));
+        $stmt = $this->bdd->prepare('DELETE FROM `client_salle` WHERE id_client = ?');
+        $stmt->execute(array(
+            $id_client,
+        ));
+        $stmt = $this->bdd->prepare('DELETE FROM `client_boisson` WHERE id_client = ?');
+        $stmt->execute(array(
+            $id_client,
+        ));
+        $stmt = $this->bdd->prepare('DELETE FROM `client_menu` WHERE id_client = ?');
+        $stmt->execute(array(
+            $id_client,
+        ));
+        $stmt = $this->bdd->prepare('DELETE FROM `client` WHERE id_client = ?');
+        $stmt->execute(array(
+            $id_client,
+        ));
+    }
 }

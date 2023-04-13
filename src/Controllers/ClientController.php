@@ -61,4 +61,10 @@ class ClientController
         $consommationsBar = $this->manager->getConsoBarByClient($slug);
         require VIEWS . 'Hotel/historique_commandes.php';
     }
+
+    public function deleteClient($slug)
+    {
+        $this->manager->deleteClient($slug);
+        header('Location: /clients');
+    }
 }

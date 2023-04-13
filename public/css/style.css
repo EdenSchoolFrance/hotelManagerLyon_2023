@@ -114,20 +114,20 @@ main section.homepage h1 {
   background-size: cover;
   background-position: center;
 }
-main section.homepage .allServices {
+main section.homepage .allServices, main section.homepage .others {
   padding: 2rem;
 }
-main section.homepage .allServices h3 {
+main section.homepage .allServices h3, main section.homepage .others h3 {
   font-size: 2rem;
   text-align: center;
 }
-main section.homepage .allServices ul {
+main section.homepage .allServices ul, main section.homepage .others ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
 }
-main section.homepage .allServices ul li a {
+main section.homepage .allServices ul li a, main section.homepage .others ul li a {
   width: 180px;
   height: 180px;
   margin: 2rem;
@@ -140,7 +140,7 @@ main section.homepage .allServices ul li a {
   border-radius: 10px;
   transition: 0.2s;
 }
-main section.homepage .allServices ul li a img {
+main section.homepage .allServices ul li a img, main section.homepage .others ul li a img {
   width: 100%;
   position: absolute;
   top: 0;
@@ -151,13 +151,13 @@ main section.homepage .allServices ul li a img {
      object-fit: cover;
   filter: brightness(50%);
 }
-main section.homepage .allServices ul li a h5 {
+main section.homepage .allServices ul li a h5, main section.homepage .others ul li a h5 {
   font-size: 2rem;
   text-align: center;
   color: #65C1BE;
   text-shadow: 0px 0px 10px #000000;
 }
-main section.homepage .allServices ul li a:hover {
+main section.homepage .allServices ul li a:hover, main section.homepage .others ul li a:hover {
   transform: scale(0.95);
 }
 main section.chambres h1 {

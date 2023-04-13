@@ -27,6 +27,17 @@ ob_start();
             </li>
         </ul>
     </div>
+    <div class="others">
+        <h3>Gérer les clients / factures</h3>
+        <ul>
+            <li>
+                <a href="/clients">
+                    <img src="pictures/clients.jpg" alt="">
+                    <h5>Nos Clients</h5>
+                </a>
+            </li>
+        </ul>
+    </div>
 </section>
 
 <?php

@@ -37,7 +37,6 @@ $router->post('validReserveSalle/', "SalleController@validReserveSalle");
 $router->get('clients/', "ClientController@allClients");
 $router->post('addClient/', "ClientController@addClient");
 $router->get('historiqueClient/:idclient/', "ClientController@historiqueClient");
-$router->get('updateClient/:idclient/', "ClientController@deleteClient");
 $router->get('deleteClient/:idclient/', "ClientController@deleteClient");
 
 

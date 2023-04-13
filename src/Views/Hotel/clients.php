@@ -10,7 +10,7 @@ ob_start();
             <tr>
                 <th>Nom</th>
                 <th>Prenom</th>
-                <th colspan="4">Email</th>
+                <th colspan="3">Email</th>
             </tr>
             <?php foreach ($clients as $client) { ?>
                 <tr>
@@ -18,7 +18,6 @@ ob_start();
                     <td><?= $client->getPrenom() ?></td>
                     <td><?= $client->getMail() ?></td>
                     <td><a href="/historiqueClient/<?= $client->getId() ?>">Historique</a></td>
-                    <td><a href="/updateClient/<?= $client->getId() ?>">Modifier</a></td>
                     <td><a href="/deleteClient/<?= $client->getId() ?>">Supprimer</a></td>
                 </tr>
             <?php } ?>
