@@ -1,29 +1,40 @@
-# hotelManagerLyon_2023
+# Recette_Lyon_MVC_A2
 
-Development of a management software for the Eden Hotel.  It will allow hotel employees to manage the reservation of rooms, restaurants, swimming pool, conference room, etc.
+pour le projet pensait à installer xampp : https://www.apachefriends.org/fr/index.html
 
-## Features
-See [specifications](cahier-de-charge.pdf)
+et composer : https://getcomposer.org/download/
 
-On ne gère que les stocks des boissons mais pas du restaurant
+lancez
 
-On ne gère pas les livraisons ni les groupes
+-Apache
+-MySQL
+prenez le fichier hotel_manager.sql dans le dossier bdd
 
+cliquer sur admin a coté de MySQL et importer la bdd dans Php my admin
 
-## Préparer / concevoir votre futur développement :
-> modéliser le modèle conceptuel 
-> modéliser le modèle logique 
-> expliquer et argumenter la démarche à suivre pour développer la tâche demandée : 
-   - découper en tâches unitaires et sous-tâches 
-   - estimer le temps nécessaire pour réaliser les tâches
+penser à changer nom a la ligne 8 du src/config/config.php si vous l'avez pas appelé comme moi
 
-## Créer la maquette HTML avec du scss
+puis meter les autres fichier dans le htdocs dans xampp (il est à la racine du disque normalement)
 
-## Le projet en MVC doit contenir au moins un héritage
+dans le fichier lancer la console et faite
 
-## Déposer votre projet sur une branche à votre nom
+-$ composer install
 
-## Créer quelques tests unitaires
+ensuit aller dans le dossier public lancer la console et faite
 
-##  Graphic chart
-Title: #3F90D3; Title font: Kaushan Script Paragraph: #000 paragraph font: Pacifico Button: #3F90D3; Nav link: #3F90D3;
+-php -S localhost:8000
+
+chose faite
+
+-crud client
+-reservation salle
+-reservation piscine
+-reservation bar
+-reservation chambre
+-reservation restaurant
+-test unitaire
+
+chose pas faite
+
+-stystem de back office (salle,piscine,bar,chambre,restaurant)
+-login register
