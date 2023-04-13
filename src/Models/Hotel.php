@@ -84,6 +84,16 @@ class Hotel
     private $image_menu;
     private $prix_un_menu;
 
+    //table client_boisson
+    private $num_commende_boisson;
+    private $quantite_client_boisson;
+    private $date_client_boisson;
+
+    //table client_menus
+    private $num_commende_menu;
+    private $quantite_client_menu;
+    private $date_client_menu;
+
     //table client
     //get
     public function getIdClient()
@@ -553,6 +563,60 @@ class Hotel
 
     public function setPrixUnMenu($prix) {
       $this->prix_un_menu = $prix;
+    }
+
+    //table client_boisson
+    //get
+    public function getNumCommendeBoisson() {
+        return $this->num_commende_boisson;
+    }
+
+
+    public function getQuantiteClientBoisson() {
+      return $this->quantite_client_boisson;
+    }
+
+    public function getDateClientBoisson() {
+      return $this->date_client_boisson;
+    }
+
+    //set
+    public function setNumCommendeBoisson($num) {
+        $this->num_commende_boisson = $num;
+    }
+
+    public function setQuantiteClientBoisson($quantite) {
+      $this->quantite_client_boisson = $quantite;
+    }
+
+    public function setDateClientBoisson($date) {
+      $this->date_client_boisson = $date;
+    }
+
+    //table client_menu
+    //get
+    public function getNumCommendeMenu() {
+        return $this->num_commende_menu;
+    }
+    public function getQuantiteClientMenu() {
+      return $this->quantite_client_menu;
+    }
+
+    public function getDateClientMenu() {
+      return $this->date_client_menu;
+    }
+
+    //set
+
+    public function setNumCommendeMenu($num) {
+        $this->num_commende_menu = $num;
+    }
+    public function setQuantiteClientMenu($quantite) {
+      $this->quantite_client_menu = $quantite;
+    }
+
+    public function setDateClientMenu($date) {
+      $this->date_client_menu = $date;
     }
 }
 

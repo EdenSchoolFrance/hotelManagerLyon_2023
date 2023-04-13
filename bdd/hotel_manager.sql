@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 13 avr. 2023 à 14:01
+-- Généré le : jeu. 13 avr. 2023 à 16:39
 -- Version du serveur : 10.4.24-MariaDB
 -- Version de PHP : 8.2.0
 
@@ -37,7 +37,7 @@ CREATE TABLE `bar` (
 --
 
 INSERT INTO `bar` (`id_bar`, `name_bar`) VALUES
-(1, 'kjgh');
+(1, 'le bar');
 
 -- --------------------------------------------------------
 
@@ -50,6 +50,13 @@ CREATE TABLE `bar_boisson` (
   `id_bar` int(11) NOT NULL,
   `quantite_stock_bar_boisson` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `bar_boisson`
+--
+
+INSERT INTO `bar_boisson` (`id_boisson`, `id_bar`, `quantite_stock_bar_boisson`) VALUES
+(1, 1, 52);
 
 -- --------------------------------------------------------
 
@@ -70,7 +77,7 @@ CREATE TABLE `boisson` (
 --
 
 INSERT INTO `boisson` (`id_boisson`, `name_boisson`, `description_boisson`, `image_boisson`, `prix_un_boisson`) VALUES
-(1, 'gsdfg', 'sdghf', '626686ba8c531-Quad Ice Road 3.jpg', 22);
+(1, 'coca-cola', 'flemme', '6437efc39f591.png', 22);
 
 -- --------------------------------------------------------
 
@@ -116,13 +123,7 @@ CREATE TABLE `client` (
 --
 
 INSERT INTO `client` (`id_client`, `nom_client`, `prenom_client`, `email_client`, `mdp_client`) VALUES
-(2, 'michel', 'michel', 'michel@michel.michel', '10b05c446ea776cdcae1ab10f5dcdbad5eeb9250a8b6f62752e6d4e755850fab'),
-(11, 'Doe', 'John', 'johndoe@example.com', 'password'),
-(12, 'Doe', 'John', 'johndoe@example.com', 'password'),
-(13, 'Doe', 'John', 'johndoe@example.com', 'password'),
-(14, 'Doe', 'John', 'johndoe@example.com', 'password'),
-(15, 'Doe', 'John', 'johndoe@example.com', 'password'),
-(16, 'Doe', 'John', 'johndoe@example.com', 'password');
+(2, 'michel', 'michel', 'michel@michel.michel', '10b05c446ea776cdcae1ab10f5dcdbad5eeb9250a8b6f62752e6d4e755850fab');
 
 -- --------------------------------------------------------
 
@@ -131,11 +132,22 @@ INSERT INTO `client` (`id_client`, `nom_client`, `prenom_client`, `email_client`
 --
 
 CREATE TABLE `client_boisson` (
+  `num_commende_boisson` int(11) NOT NULL,
   `id_client` int(11) NOT NULL,
   `id_boisson` int(11) NOT NULL,
   `quantite_client_boisson` int(11) NOT NULL,
   `date_client_boisson` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `client_boisson`
+--
+
+INSERT INTO `client_boisson` (`num_commende_boisson`, `id_client`, `id_boisson`, `quantite_client_boisson`, `date_client_boisson`) VALUES
+(1, 2, 1, 4, '2023-04-14'),
+(2, 2, 1, 4, '2023-04-14'),
+(3, 2, 1, 4, '2023-04-14'),
+(4, 2, 1, 5, '2023-04-15');
 
 -- --------------------------------------------------------
 
@@ -157,7 +169,8 @@ CREATE TABLE `client_chambre` (
 --
 
 INSERT INTO `client_chambre` (`id_client`, `id_chambre`, `date_debut_reservation_chambre`, `date_fin_reservation_chambre`, `num_reservation_chambre`, `status_chambre`) VALUES
-(2, 2, '2023-04-11', '2023-04-23', 1, 'sale( ͡° ͜ʖ ͡°)');
+(2, 2, '2023-04-11', '2023-04-23', 1, 'sale( ͡° ͜ʖ ͡°)'),
+(2, 2, '2023-04-12', '2023-04-16', 3, 'sale( ͡° ͜ʖ ͡°)');
 
 -- --------------------------------------------------------
 
@@ -166,11 +179,19 @@ INSERT INTO `client_chambre` (`id_client`, `id_chambre`, `date_debut_reservation
 --
 
 CREATE TABLE `client_menu` (
+  `num_commende_menu` int(11) NOT NULL,
   `id_client` int(11) NOT NULL,
   `id_menu` int(11) NOT NULL,
   `quantite_client_menu` int(11) NOT NULL,
   `date_client_menu` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `client_menu`
+--
+
+INSERT INTO `client_menu` (`num_commende_menu`, `id_client`, `id_menu`, `quantite_client_menu`, `date_client_menu`) VALUES
+(1, 2, 1, 3, '2023-04-21');
 
 -- --------------------------------------------------------
 
@@ -192,7 +213,6 @@ CREATE TABLE `client_piscine` (
 --
 
 INSERT INTO `client_piscine` (`id_piscine`, `id_client`, `date_debut_reservation_piscine`, `date_fin_reservation_piscine`, `num_reservation_piscine`, `status_piscine`) VALUES
-(1, 11, '2023-04-13', '2023-04-14', 1, 'PItagore'),
 (1, 2, '2023-04-12', '2023-04-13', 2, 'PItagore');
 
 -- --------------------------------------------------------
@@ -226,10 +246,18 @@ INSERT INTO `client_salle` (`id_client`, `id_salle`, `date_debut_reservation_sal
 CREATE TABLE `facture` (
   `id_facture` int(11) NOT NULL,
   `id_client` int(11) NOT NULL,
-  `num_reference` int(11) NOT NULL,
   `date_facture` date NOT NULL,
   `total_ttc` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `facture`
+--
+
+INSERT INTO `facture` (`id_facture`, `id_client`, `date_facture`, `total_ttc`) VALUES
+(1, 2, '2023-04-13', 110),
+(2, 2, '2023-04-13', 3000),
+(3, 2, '2023-04-13', 11);
 
 -- --------------------------------------------------------
 
@@ -245,6 +273,13 @@ CREATE TABLE `menu` (
   `image_menu` varchar(255) NOT NULL,
   `prix_un_menu` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `menu`
+--
+
+INSERT INTO `menu` (`id_menu`, `id_restaurant`, `name_menu`, `description_menu`, `image_menu`, `prix_un_menu`) VALUES
+(1, 1, 'manu', 'ouai', '6437f094d95b1.jpg', 1000);
 
 -- --------------------------------------------------------
 
@@ -279,6 +314,13 @@ CREATE TABLE `restaurant` (
   `id_restaurant` int(11) NOT NULL,
   `name_restaurant` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `restaurant`
+--
+
+INSERT INTO `restaurant` (`id_restaurant`, `name_restaurant`) VALUES
+(1, 'le resteau');
 
 -- --------------------------------------------------------
 
@@ -341,8 +383,9 @@ ALTER TABLE `client`
 -- Index pour la table `client_boisson`
 --
 ALTER TABLE `client_boisson`
-  ADD KEY `id_client` (`id_client`,`id_boisson`),
-  ADD KEY `id_boisson` (`id_boisson`);
+  ADD PRIMARY KEY (`num_commende_boisson`),
+  ADD KEY `id_boisson` (`id_boisson`),
+  ADD KEY `id_client` (`id_client`);
 
 --
 -- Index pour la table `client_chambre`
@@ -356,6 +399,7 @@ ALTER TABLE `client_chambre`
 -- Index pour la table `client_menu`
 --
 ALTER TABLE `client_menu`
+  ADD PRIMARY KEY (`num_commende_menu`),
   ADD KEY `id_client` (`id_client`,`id_menu`),
   ADD KEY `id_menu` (`id_menu`);
 
@@ -436,10 +480,22 @@ ALTER TABLE `client`
   MODIFY `id_client` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
+-- AUTO_INCREMENT pour la table `client_boisson`
+--
+ALTER TABLE `client_boisson`
+  MODIFY `num_commende_boisson` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT pour la table `client_chambre`
 --
 ALTER TABLE `client_chambre`
-  MODIFY `num_reservation_chambre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `num_reservation_chambre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT pour la table `client_menu`
+--
+ALTER TABLE `client_menu`
+  MODIFY `num_commende_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `client_piscine`
@@ -457,13 +513,13 @@ ALTER TABLE `client_salle`
 -- AUTO_INCREMENT pour la table `facture`
 --
 ALTER TABLE `facture`
-  MODIFY `id_facture` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_facture` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `piscine`
@@ -475,7 +531,7 @@ ALTER TABLE `piscine`
 -- AUTO_INCREMENT pour la table `restaurant`
 --
 ALTER TABLE `restaurant`
-  MODIFY `id_restaurant` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_restaurant` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `salle`
