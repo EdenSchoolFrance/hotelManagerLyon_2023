@@ -134,7 +134,7 @@ body form.client button.cta {
   font-size: 2rem;
 }
 body form.reservation {
-  margin-top: 5rem;
+  margin: 2rem 5rem;
   background-color: rgba(90, 159, 215, 0.8117647059);
   color: white;
   display: flex;

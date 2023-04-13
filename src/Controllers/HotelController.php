@@ -159,9 +159,6 @@ class HotelController
 
     public function showPiscines()
     {
-        if (!isset($_SESSION['client']) || !isset($_COOKIE['client'])) {
-            header('Location: /newReservation');
-        }
         $piscine = $this->manager->getPiscines();
         require VIEWS . 'Hotel/piscines.php';
     }

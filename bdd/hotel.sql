@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 04 avr. 2023 à 17:17
--- Version du serveur : 10.4.25-MariaDB
--- Version de PHP : 8.1.10
+-- Généré le : jeu. 13 avr. 2023 à 17:57
+-- Version du serveur : 10.4.27-MariaDB
+-- Version de PHP : 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,14 +30,15 @@ SET time_zone = "+00:00";
 CREATE TABLE `bar` (
   `id_bar` int(11) NOT NULL,
   `name_bar` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `bar`
 --
 
 INSERT INTO `bar` (`id_bar`, `name_bar`) VALUES
-(1, 'kjgh');
+(1, 'Bar Nord'),
+(2, 'Bar Sud');
 
 -- --------------------------------------------------------
 
@@ -49,7 +50,19 @@ CREATE TABLE `bar_boisson` (
   `id_boisson` int(11) NOT NULL,
   `id_bar` int(11) NOT NULL,
   `quantite_stock_bar_boisson` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `bar_boisson`
+--
+
+INSERT INTO `bar_boisson` (`id_boisson`, `id_bar`, `quantite_stock_bar_boisson`) VALUES
+(1, 1, 10),
+(2, 1, 8),
+(3, 1, 15),
+(4, 2, 8),
+(5, 2, 26),
+(6, 2, 36);
 
 -- --------------------------------------------------------
 
@@ -62,15 +75,20 @@ CREATE TABLE `boisson` (
   `name_boisson` varchar(50) NOT NULL,
   `description_boisson` varchar(255) NOT NULL,
   `image_boisson` varchar(255) NOT NULL,
-  `prix_un_boisson` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `prix_boisson` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `boisson`
 --
 
-INSERT INTO `boisson` (`id_boisson`, `name_boisson`, `description_boisson`, `image_boisson`, `prix_un_boisson`) VALUES
-(1, 'gsdfg', 'sdghf', '626686ba8c531-Quad Ice Road 3.jpg', 22);
+INSERT INTO `boisson` (`id_boisson`, `name_boisson`, `description_boisson`, `image_boisson`, `prix_boisson`) VALUES
+(1, 'Boisson 1', 'qdergyht bfgxdh ,n:fb fdlb^ù$', 'boisson1.jpg', 22),
+(2, 'Boisson 2', '', 'boisson2.jpg', 5),
+(3, 'Boisson 3', '', 'boisson3.jpg', 7),
+(4, 'Boisson 4', '', 'boisson4.jpg', 10),
+(5, 'Boisson 5', '', 'boisson5.jpg', 15),
+(6, 'Boisson 6', '', 'boisson6.jpg', 19);
 
 -- --------------------------------------------------------
 
@@ -87,7 +105,7 @@ CREATE TABLE `chambre` (
   `prix_chambre` double NOT NULL,
   `occupe_chambre` tinyint(1) NOT NULL,
   `categorie_chambre` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `chambre`
@@ -113,14 +131,14 @@ CREATE TABLE `client` (
   `prenom_client` varchar(50) NOT NULL,
   `email_client` varchar(255) NOT NULL,
   `mdp_client` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `client`
 --
 
 INSERT INTO `client` (`id_client`, `nom_client`, `prenom_client`, `email_client`, `mdp_client`) VALUES
-(1, 'fgdh', 'hdfghjghfgh', 'adminoza@gmail.com', '$2y$10$IYBAvBX3Rqva0qr4NYPPMuGg2sn5AlxYtiyWqQidhycY6451uoU3C');
+(58, 'dsd', 'qsdsqdqsd', 'azz@a.com', '');
 
 -- --------------------------------------------------------
 
@@ -133,7 +151,7 @@ CREATE TABLE `client_boisson` (
   `id_boisson` int(11) NOT NULL,
   `quantite_client_boisson` int(11) NOT NULL,
   `date_client_boisson` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -145,10 +163,17 @@ CREATE TABLE `client_chambre` (
   `id_client` int(11) NOT NULL,
   `id_chambre` int(11) NOT NULL,
   `date_debut_reservation_chambre` date NOT NULL,
-  `date_fin_reservation_piscine_chambre` date NOT NULL,
-  `num_reservation_chambre` int(11) NOT NULL,
+  `date_fin_reservation_chambre` date NOT NULL,
+  `num_reservation_chambre` varchar(13) NOT NULL,
   `status_chambre` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `client_chambre`
+--
+
+INSERT INTO `client_chambre` (`id_client`, `id_chambre`, `date_debut_reservation_chambre`, `date_fin_reservation_chambre`, `num_reservation_chambre`, `status_chambre`) VALUES
+(58, 2, '2023-04-24', '2023-04-29', '6438223f3a92e', '1');
 
 -- --------------------------------------------------------
 
@@ -161,7 +186,14 @@ CREATE TABLE `client_menu` (
   `id_menu` int(11) NOT NULL,
   `quantite_client_menu` int(11) NOT NULL,
   `date_client_menu` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `client_menu`
+--
+
+INSERT INTO `client_menu` (`id_client`, `id_menu`, `quantite_client_menu`, `date_client_menu`) VALUES
+(58, 3, 1, '2023-04-10');
 
 -- --------------------------------------------------------
 
@@ -174,9 +206,9 @@ CREATE TABLE `client_piscine` (
   `id_client` int(11) NOT NULL,
   `date_debut_reservation_piscine` date NOT NULL,
   `date_fin_reservation_piscine` date NOT NULL,
-  `num_reservation_piscine` int(11) NOT NULL,
+  `num_reservation_piscine` varchar(13) NOT NULL,
   `status_piscine` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -189,9 +221,9 @@ CREATE TABLE `client_salle` (
   `id_salle` int(11) NOT NULL,
   `date_debut_reservation_salle` date NOT NULL,
   `date_fin_reservation_salle` date NOT NULL,
-  `num_reservation_salle` int(11) NOT NULL,
+  `num_reservation_salle` varchar(13) NOT NULL,
   `status_salle` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -205,7 +237,7 @@ CREATE TABLE `facture` (
   `num_reference` int(11) NOT NULL,
   `date_facture` date NOT NULL,
   `total_ttc` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -220,14 +252,19 @@ CREATE TABLE `menu` (
   `description_menu` varchar(255) NOT NULL,
   `image_menu` varchar(255) NOT NULL,
   `prix_menu` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `menu`
 --
 
 INSERT INTO `menu` (`id_menu`, `id_restaurant`, `name_menu`, `description_menu`, `image_menu`, `prix_menu`) VALUES
-(1, 1, 'Menu 1', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point o', '642c3626659d0', 15);
+(1, 1, 'Menu 1', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point o', 'menu1.jpg', 15),
+(2, 1, 'Menu 2', '', 'menu2.jpg', 20),
+(3, 1, 'Menu 3', '', 'menu3.jpg', 14),
+(4, 2, 'Menu 4', '', 'menu4.jpg', 18),
+(5, 2, 'Menu 5', '', 'menu5.jpg', 22),
+(6, 2, 'Menu 6', '', 'menu6.jpg', 17);
 
 -- --------------------------------------------------------
 
@@ -243,7 +280,15 @@ CREATE TABLE `piscine` (
   `ouverture_piscine` time NOT NULL,
   `fermeture_piscine` time NOT NULL,
   `nettoyage_piscine` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `piscine`
+--
+
+INSERT INTO `piscine` (`id_piscine`, `name_piscine`, `description_piscine`, `image_piscine`, `ouverture_piscine`, `fermeture_piscine`, `nettoyage_piscine`) VALUES
+(1, 'Piscine Nord', 'lorem ipsumlorem ipsumlorem ipsum', 'piscine1.jpg', '10:00:00', '23:00:00', '0000-00-00'),
+(2, 'Piscine Sud', 'lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum', 'piscine2.jpg', '10:00:00', '23:00:00', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -254,7 +299,7 @@ CREATE TABLE `piscine` (
 CREATE TABLE `restaurant` (
   `id_restaurant` int(11) NOT NULL,
   `name_restaurant` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `restaurant`
@@ -277,7 +322,16 @@ CREATE TABLE `salle` (
   `image_salle` varchar(255) NOT NULL,
   `type_salle` varchar(50) NOT NULL,
   `options_salle` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `salle`
+--
+
+INSERT INTO `salle` (`id_salle`, `name_salle`, `description_salle`, `image_salle`, `type_salle`, `options_salle`) VALUES
+(1, 'Salle 1', 'lorem ipsum', 'salle1.jpg', '1', 'boissons, climatisation'),
+(2, 'Salle 2', '', 'salle2.jpg', '', 'chauffage'),
+(3, 'Salle 3', '', 'salle3.jpg', '', '');
 
 --
 -- Index pour les tables déchargées
@@ -392,13 +446,13 @@ ALTER TABLE `salle`
 -- AUTO_INCREMENT pour la table `bar`
 --
 ALTER TABLE `bar`
-  MODIFY `id_bar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_bar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `boisson`
 --
 ALTER TABLE `boisson`
-  MODIFY `id_boisson` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_boisson` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `chambre`
@@ -410,7 +464,7 @@ ALTER TABLE `chambre`
 -- AUTO_INCREMENT pour la table `client`
 --
 ALTER TABLE `client`
-  MODIFY `id_client` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_client` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT pour la table `facture`
@@ -422,25 +476,25 @@ ALTER TABLE `facture`
 -- AUTO_INCREMENT pour la table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `piscine`
 --
 ALTER TABLE `piscine`
-  MODIFY `id_piscine` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_piscine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `restaurant`
 --
 ALTER TABLE `restaurant`
-  MODIFY `id_restaurant` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_restaurant` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `salle`
 --
 ALTER TABLE `salle`
-  MODIFY `id_salle` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_salle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Contraintes pour les tables déchargées
