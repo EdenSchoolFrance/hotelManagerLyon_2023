@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le : mar. 04 avr. 2023 à 08:53
--- Version du serveur : 8.0.27
--- Version de PHP : 8.2.3
+-- Hôte : 127.0.0.1
+-- Généré le : jeu. 13 avr. 2023 à 14:01
+-- Version du serveur : 10.4.24-MariaDB
+-- Version de PHP : 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `hotel_manager`
+-- Base de données : `hotel`
 --
 
 -- --------------------------------------------------------
@@ -27,12 +27,10 @@ SET time_zone = "+00:00";
 -- Structure de la table `bar`
 --
 
-DROP TABLE IF EXISTS `bar`;
-CREATE TABLE IF NOT EXISTS `bar` (
-  `id_bar` int NOT NULL AUTO_INCREMENT,
-  `name_bar` varchar(50) NOT NULL,
-  PRIMARY KEY (`id_bar`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 ;
+CREATE TABLE `bar` (
+  `id_bar` int(11) NOT NULL,
+  `name_bar` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `bar`
@@ -47,14 +45,11 @@ INSERT INTO `bar` (`id_bar`, `name_bar`) VALUES
 -- Structure de la table `bar_boisson`
 --
 
-DROP TABLE IF EXISTS `bar_boisson`;
-CREATE TABLE IF NOT EXISTS `bar_boisson` (
-  `id_boisson` int NOT NULL,
-  `id_bar` int NOT NULL,
-  `quantite_stock_bar_boisson` int NOT NULL,
-  KEY `id_boisson` (`id_boisson`,`id_bar`),
-  KEY `id_bar` (`id_bar`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
+CREATE TABLE `bar_boisson` (
+  `id_boisson` int(11) NOT NULL,
+  `id_bar` int(11) NOT NULL,
+  `quantite_stock_bar_boisson` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -62,15 +57,13 @@ CREATE TABLE IF NOT EXISTS `bar_boisson` (
 -- Structure de la table `boisson`
 --
 
-DROP TABLE IF EXISTS `boisson`;
-CREATE TABLE IF NOT EXISTS `boisson` (
-  `id_boisson` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `boisson` (
+  `id_boisson` int(11) NOT NULL,
   `name_boisson` varchar(50) NOT NULL,
   `description_boisson` varchar(255) NOT NULL,
   `image_boisson` varchar(255) NOT NULL,
-  `prix_un_boisson` float NOT NULL,
-  PRIMARY KEY (`id_boisson`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 ;
+  `prix_un_boisson` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `boisson`
@@ -85,26 +78,24 @@ INSERT INTO `boisson` (`id_boisson`, `name_boisson`, `description_boisson`, `ima
 -- Structure de la table `chambre`
 --
 
-DROP TABLE IF EXISTS `chambre`;
-CREATE TABLE IF NOT EXISTS `chambre` (
-  `id_chambre` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `chambre` (
+  `id_chambre` int(11) NOT NULL,
   `name_chambre` varchar(50) NOT NULL,
   `description_chambre` text NOT NULL,
   `image_chambre` varchar(255) NOT NULL,
   `options_chambre` varchar(255) NOT NULL,
   `prix_chambre` double NOT NULL,
   `occupe_chambre` tinyint(1) NOT NULL,
-  `categorie_chambre` varchar(50) NOT NULL,
-  PRIMARY KEY (`id_chambre`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 ;
+  `categorie_chambre` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `chambre`
 --
 
 INSERT INTO `chambre` (`id_chambre`, `name_chambre`, `description_chambre`, `image_chambre`, `options_chambre`, `prix_chambre`, `occupe_chambre`, `categorie_chambre`) VALUES
-(2, 'chambre 200', 'sdfg gsgq qsgs gSG', '6266861bd2117-Quad Ice Road 3.jpg', 'dfs', 11, 0, 'fsd'),
-(3, 'chambre 200', 'sdfg gsgq qsgs gSG', '6266862e23224-Quad Ice Road 3.jpg', 'dfs', 10, 0, 'fsd');
+(2, 'chambre 200', 'sdfg gsgq qsgs gSG', '6437e242ec1ba.jpg', 'dfs', 11, 3, 'fsd'),
+(3, 'chambre 201', 'sdfg gsgq qsgs gSG', '6437e233ac96b.jpg', 'dfs', 10, 0, 'fsd');
 
 -- --------------------------------------------------------
 
@@ -112,22 +103,26 @@ INSERT INTO `chambre` (`id_chambre`, `name_chambre`, `description_chambre`, `ima
 -- Structure de la table `client`
 --
 
-DROP TABLE IF EXISTS `client`;
-CREATE TABLE IF NOT EXISTS `client` (
-  `id_client` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `client` (
+  `id_client` int(11) NOT NULL,
   `nom_client` varchar(50) NOT NULL,
   `prenom_client` varchar(50) NOT NULL,
   `email_client` varchar(255) NOT NULL,
-  `mdp_client` varchar(255) NOT NULL,
-  PRIMARY KEY (`id_client`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 ;
+  `mdp_client` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `client`
 --
 
 INSERT INTO `client` (`id_client`, `nom_client`, `prenom_client`, `email_client`, `mdp_client`) VALUES
-(1, 'fgdh', 'hdfghjghfgh', 'adminoza@gmail.com', '$2y$10$IYBAvBX3Rqva0qr4NYPPMuGg2sn5AlxYtiyWqQidhycY6451uoU3C');
+(2, 'michel', 'michel', 'michel@michel.michel', '10b05c446ea776cdcae1ab10f5dcdbad5eeb9250a8b6f62752e6d4e755850fab'),
+(11, 'Doe', 'John', 'johndoe@example.com', 'password'),
+(12, 'Doe', 'John', 'johndoe@example.com', 'password'),
+(13, 'Doe', 'John', 'johndoe@example.com', 'password'),
+(14, 'Doe', 'John', 'johndoe@example.com', 'password'),
+(15, 'Doe', 'John', 'johndoe@example.com', 'password'),
+(16, 'Doe', 'John', 'johndoe@example.com', 'password');
 
 -- --------------------------------------------------------
 
@@ -135,15 +130,12 @@ INSERT INTO `client` (`id_client`, `nom_client`, `prenom_client`, `email_client`
 -- Structure de la table `client_boisson`
 --
 
-DROP TABLE IF EXISTS `client_boisson`;
-CREATE TABLE IF NOT EXISTS `client_boisson` (
-  `id_client` int NOT NULL,
-  `id_boisson` int NOT NULL,
-  `quantite_client_boisson` int NOT NULL,
-  `date_client_boisson` date NOT NULL,
-  KEY `id_client` (`id_client`,`id_boisson`),
-  KEY `id_boisson` (`id_boisson`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
+CREATE TABLE `client_boisson` (
+  `id_client` int(11) NOT NULL,
+  `id_boisson` int(11) NOT NULL,
+  `quantite_client_boisson` int(11) NOT NULL,
+  `date_client_boisson` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -151,18 +143,21 @@ CREATE TABLE IF NOT EXISTS `client_boisson` (
 -- Structure de la table `client_chambre`
 --
 
-DROP TABLE IF EXISTS `client_chambre`;
-CREATE TABLE IF NOT EXISTS `client_chambre` (
-  `id_client` int NOT NULL,
-  `id_chambre` int NOT NULL,
+CREATE TABLE `client_chambre` (
+  `id_client` int(11) NOT NULL,
+  `id_chambre` int(11) NOT NULL,
   `date_debut_reservation_chambre` date NOT NULL,
-  `date_fin_reservation_piscine_chambre` date NOT NULL,
-  `num_reservation_chambre` int NOT NULL,
-  `status_chambre` varchar(50) NOT NULL,
-  PRIMARY KEY (`num_reservation_chambre`),
-  KEY `id_client` (`id_client`,`id_chambre`),
-  KEY `id_chambre` (`id_chambre`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
+  `date_fin_reservation_chambre` date NOT NULL,
+  `num_reservation_chambre` int(11) NOT NULL,
+  `status_chambre` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `client_chambre`
+--
+
+INSERT INTO `client_chambre` (`id_client`, `id_chambre`, `date_debut_reservation_chambre`, `date_fin_reservation_chambre`, `num_reservation_chambre`, `status_chambre`) VALUES
+(2, 2, '2023-04-11', '2023-04-23', 1, 'sale( ͡° ͜ʖ ͡°)');
 
 -- --------------------------------------------------------
 
@@ -170,15 +165,12 @@ CREATE TABLE IF NOT EXISTS `client_chambre` (
 -- Structure de la table `client_menu`
 --
 
-DROP TABLE IF EXISTS `client_menu`;
-CREATE TABLE IF NOT EXISTS `client_menu` (
-  `id_client` int NOT NULL,
-  `id_menu` int NOT NULL,
-  `quantite_client_menu` int NOT NULL,
-  `date_client_menu` date NOT NULL,
-  KEY `id_client` (`id_client`,`id_menu`),
-  KEY `id_menu` (`id_menu`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
+CREATE TABLE `client_menu` (
+  `id_client` int(11) NOT NULL,
+  `id_menu` int(11) NOT NULL,
+  `quantite_client_menu` int(11) NOT NULL,
+  `date_client_menu` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -186,18 +178,22 @@ CREATE TABLE IF NOT EXISTS `client_menu` (
 -- Structure de la table `client_piscine`
 --
 
-DROP TABLE IF EXISTS `client_piscine`;
-CREATE TABLE IF NOT EXISTS `client_piscine` (
-  `id_piscine` int NOT NULL,
-  `id_client` int NOT NULL,
+CREATE TABLE `client_piscine` (
+  `id_piscine` int(11) NOT NULL,
+  `id_client` int(11) NOT NULL,
   `date_debut_reservation_piscine` date NOT NULL,
   `date_fin_reservation_piscine` date NOT NULL,
-  `num_reservation_piscine` int NOT NULL,
-  `status_piscine` varchar(50) NOT NULL,
-  PRIMARY KEY (`num_reservation_piscine`),
-  KEY `id_piscine` (`id_piscine`,`id_client`),
-  KEY `id_client` (`id_client`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
+  `num_reservation_piscine` int(11) NOT NULL,
+  `status_piscine` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `client_piscine`
+--
+
+INSERT INTO `client_piscine` (`id_piscine`, `id_client`, `date_debut_reservation_piscine`, `date_fin_reservation_piscine`, `num_reservation_piscine`, `status_piscine`) VALUES
+(1, 11, '2023-04-13', '2023-04-14', 1, 'PItagore'),
+(1, 2, '2023-04-12', '2023-04-13', 2, 'PItagore');
 
 -- --------------------------------------------------------
 
@@ -205,18 +201,21 @@ CREATE TABLE IF NOT EXISTS `client_piscine` (
 -- Structure de la table `client_salle`
 --
 
-DROP TABLE IF EXISTS `client_salle`;
-CREATE TABLE IF NOT EXISTS `client_salle` (
-  `id_client` int NOT NULL,
-  `id_salle` int NOT NULL,
+CREATE TABLE `client_salle` (
+  `id_client` int(11) NOT NULL,
+  `id_salle` int(11) NOT NULL,
   `date_debut_reservation_salle` date NOT NULL,
   `date_fin_reservation_salle` date NOT NULL,
-  `num_reservation_salle` int NOT NULL,
-  `status_salle` varchar(50) NOT NULL,
-  PRIMARY KEY (`num_reservation_salle`),
-  KEY `id_client` (`id_client`,`id_salle`),
-  KEY `id_salle` (`id_salle`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
+  `num_reservation_salle` int(11) NOT NULL,
+  `status_salle` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `client_salle`
+--
+
+INSERT INTO `client_salle` (`id_client`, `id_salle`, `date_debut_reservation_salle`, `date_fin_reservation_salle`, `num_reservation_salle`, `status_salle`) VALUES
+(2, 1, '2023-04-20', '2023-04-29', 1, 'salle( ͡° ͜ʖ ͡°)');
 
 -- --------------------------------------------------------
 
@@ -224,16 +223,13 @@ CREATE TABLE IF NOT EXISTS `client_salle` (
 -- Structure de la table `facture`
 --
 
-DROP TABLE IF EXISTS `facture`;
-CREATE TABLE IF NOT EXISTS `facture` (
-  `id_facture` int NOT NULL AUTO_INCREMENT,
-  `id_client` int NOT NULL,
-  `num_reference` int NOT NULL,
+CREATE TABLE `facture` (
+  `id_facture` int(11) NOT NULL,
+  `id_client` int(11) NOT NULL,
+  `num_reference` int(11) NOT NULL,
   `date_facture` date NOT NULL,
-  `total_ttc` float NOT NULL,
-  PRIMARY KEY (`id_facture`),
-  KEY `id_client` (`id_client`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
+  `total_ttc` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -241,17 +237,14 @@ CREATE TABLE IF NOT EXISTS `facture` (
 -- Structure de la table `menu`
 --
 
-DROP TABLE IF EXISTS `menu`;
-CREATE TABLE IF NOT EXISTS `menu` (
-  `id_menu` int NOT NULL AUTO_INCREMENT,
-  `id_restaurant` int NOT NULL,
+CREATE TABLE `menu` (
+  `id_menu` int(11) NOT NULL,
+  `id_restaurant` int(11) NOT NULL,
   `name_menu` varchar(50) NOT NULL,
   `description_menu` varchar(255) NOT NULL,
   `image_menu` varchar(255) NOT NULL,
-  `prix_un_menu` float NOT NULL,
-  PRIMARY KEY (`id_menu`),
-  KEY `id_restaurant` (`id_restaurant`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
+  `prix_un_menu` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -259,17 +252,22 @@ CREATE TABLE IF NOT EXISTS `menu` (
 -- Structure de la table `piscine`
 --
 
-DROP TABLE IF EXISTS `piscine`;
-CREATE TABLE IF NOT EXISTS `piscine` (
-  `id_piscine` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `piscine` (
+  `id_piscine` int(11) NOT NULL,
   `name_piscine` varchar(255) NOT NULL,
   `description_piscine` text NOT NULL,
   `image_piscine` varchar(255) NOT NULL,
   `ouverture_piscine` time NOT NULL,
   `fermeture_piscine` time NOT NULL,
-  `nettoyage_piscine` date NOT NULL,
-  PRIMARY KEY (`id_piscine`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
+  `nettoyage_piscine` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `piscine`
+--
+
+INSERT INTO `piscine` (`id_piscine`, `name_piscine`, `description_piscine`, `image_piscine`, `ouverture_piscine`, `fermeture_piscine`, `nettoyage_piscine`) VALUES
+(1, 'l\'odyssée de PIscine', 'non', '6437b584e500d.jpg', '08:30:00', '20:30:20', '2023-04-20');
 
 -- --------------------------------------------------------
 
@@ -277,12 +275,10 @@ CREATE TABLE IF NOT EXISTS `piscine` (
 -- Structure de la table `restaurant`
 --
 
-DROP TABLE IF EXISTS `restaurant`;
-CREATE TABLE IF NOT EXISTS `restaurant` (
-  `id_restaurant` int NOT NULL AUTO_INCREMENT,
-  `name_restaurant` varchar(50) NOT NULL,
-  PRIMARY KEY (`id_restaurant`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
+CREATE TABLE `restaurant` (
+  `id_restaurant` int(11) NOT NULL,
+  `name_restaurant` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -290,16 +286,202 @@ CREATE TABLE IF NOT EXISTS `restaurant` (
 -- Structure de la table `salle`
 --
 
-DROP TABLE IF EXISTS `salle`;
-CREATE TABLE IF NOT EXISTS `salle` (
-  `id_salle` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `salle` (
+  `id_salle` int(11) NOT NULL,
   `name_salle` varchar(52) NOT NULL,
   `description_salle` text NOT NULL,
   `image_salle` varchar(255) NOT NULL,
   `type_salle` varchar(50) NOT NULL,
-  `options_salle` varchar(255) NOT NULL,
-  PRIMARY KEY (`id_salle`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
+  `options_salle` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `salle`
+--
+
+INSERT INTO `salle` (`id_salle`, `name_salle`, `description_salle`, `image_salle`, `type_salle`, `options_salle`) VALUES
+(1, 'jean la salle', 'non', '64351fb6bf1e4.jpg', 'reserver', 'non');
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `bar`
+--
+ALTER TABLE `bar`
+  ADD PRIMARY KEY (`id_bar`);
+
+--
+-- Index pour la table `bar_boisson`
+--
+ALTER TABLE `bar_boisson`
+  ADD KEY `id_boisson` (`id_boisson`,`id_bar`),
+  ADD KEY `id_bar` (`id_bar`);
+
+--
+-- Index pour la table `boisson`
+--
+ALTER TABLE `boisson`
+  ADD PRIMARY KEY (`id_boisson`);
+
+--
+-- Index pour la table `chambre`
+--
+ALTER TABLE `chambre`
+  ADD PRIMARY KEY (`id_chambre`);
+
+--
+-- Index pour la table `client`
+--
+ALTER TABLE `client`
+  ADD PRIMARY KEY (`id_client`);
+
+--
+-- Index pour la table `client_boisson`
+--
+ALTER TABLE `client_boisson`
+  ADD KEY `id_client` (`id_client`,`id_boisson`),
+  ADD KEY `id_boisson` (`id_boisson`);
+
+--
+-- Index pour la table `client_chambre`
+--
+ALTER TABLE `client_chambre`
+  ADD PRIMARY KEY (`num_reservation_chambre`),
+  ADD KEY `id_client` (`id_client`,`id_chambre`),
+  ADD KEY `id_chambre` (`id_chambre`);
+
+--
+-- Index pour la table `client_menu`
+--
+ALTER TABLE `client_menu`
+  ADD KEY `id_client` (`id_client`,`id_menu`),
+  ADD KEY `id_menu` (`id_menu`);
+
+--
+-- Index pour la table `client_piscine`
+--
+ALTER TABLE `client_piscine`
+  ADD PRIMARY KEY (`num_reservation_piscine`),
+  ADD KEY `id_piscine` (`id_piscine`,`id_client`),
+  ADD KEY `id_client` (`id_client`);
+
+--
+-- Index pour la table `client_salle`
+--
+ALTER TABLE `client_salle`
+  ADD PRIMARY KEY (`num_reservation_salle`),
+  ADD KEY `id_client` (`id_client`,`id_salle`),
+  ADD KEY `id_salle` (`id_salle`);
+
+--
+-- Index pour la table `facture`
+--
+ALTER TABLE `facture`
+  ADD PRIMARY KEY (`id_facture`),
+  ADD KEY `id_client` (`id_client`);
+
+--
+-- Index pour la table `menu`
+--
+ALTER TABLE `menu`
+  ADD PRIMARY KEY (`id_menu`),
+  ADD KEY `id_restaurant` (`id_restaurant`);
+
+--
+-- Index pour la table `piscine`
+--
+ALTER TABLE `piscine`
+  ADD PRIMARY KEY (`id_piscine`);
+
+--
+-- Index pour la table `restaurant`
+--
+ALTER TABLE `restaurant`
+  ADD PRIMARY KEY (`id_restaurant`);
+
+--
+-- Index pour la table `salle`
+--
+ALTER TABLE `salle`
+  ADD PRIMARY KEY (`id_salle`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `bar`
+--
+ALTER TABLE `bar`
+  MODIFY `id_bar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT pour la table `boisson`
+--
+ALTER TABLE `boisson`
+  MODIFY `id_boisson` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT pour la table `chambre`
+--
+ALTER TABLE `chambre`
+  MODIFY `id_chambre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT pour la table `client`
+--
+ALTER TABLE `client`
+  MODIFY `id_client` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT pour la table `client_chambre`
+--
+ALTER TABLE `client_chambre`
+  MODIFY `num_reservation_chambre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT pour la table `client_piscine`
+--
+ALTER TABLE `client_piscine`
+  MODIFY `num_reservation_piscine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT pour la table `client_salle`
+--
+ALTER TABLE `client_salle`
+  MODIFY `num_reservation_salle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT pour la table `facture`
+--
+ALTER TABLE `facture`
+  MODIFY `id_facture` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `menu`
+--
+ALTER TABLE `menu`
+  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `piscine`
+--
+ALTER TABLE `piscine`
+  MODIFY `id_piscine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT pour la table `restaurant`
+--
+ALTER TABLE `restaurant`
+  MODIFY `id_restaurant` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `salle`
+--
+ALTER TABLE `salle`
+  MODIFY `id_salle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Contraintes pour les tables déchargées
