@@ -2,7 +2,7 @@
 ob_start();
 ?>
 <section>
-    <form action="/chambre/" method="POST">
+    <form action="/salle/" method="POST">
         <div>
             <label for="name"><i class="fas fa-user-tie"></i>Client :</label>
             <select name="client" id="client">
@@ -17,19 +17,16 @@ ob_start();
             <span class="error"><?php echo error("client");?></span>
         </div>
         <div id="chambre">
-            <label for="chambre"><i class="fa-solid fa-bed"></i>Chambre :</label>
+            <label for="salle"><i class="fa-solid fa-bed"></i>Salle :</label>
                 <?php
-                    foreach($allChambre as $chambre){
-                        if($chambre->getOccupe() == "0"){
-                            echo '<article>';
-                            echo '<h2>' . $chambre->getName() . '</h2>';
-                            echo '<img src="' . URL . "/db/chambre/" . $chambre->getImg() . '">'; 
-                            echo '<p> <span>Description:</span> ' . $chambre->getDescription() . "</p>";
-                            echo '<p> <span>Options:</span> ' . $chambre->getOptions() . "</p>";
-                            echo '<p> <span>Prix:</span> ' . $chambre->getPrix() . "€</p>";
-                            echo '<input type="radio" name="choosed" value="' . $chambre->getId() . '">';
-                            echo '</article>';
-                        }
+                    foreach($allSalle as $salle){
+                        echo '<article>';
+                        echo '<h2>' . $salle->getName() . '</h2>';
+                        echo '<img src="' . URL . "/db/salle/" . $salle->getImg() . '">'; 
+                        echo '<p> <span>Description:</span> ' . $salle->getDescription() . "</p>";
+                        echo '<p> <span>Options:</span> ' . $salle->getOptions() . "</p>";
+                        echo '<input type="radio" name="choosed" value="' . $salle->getId() . '">';
+                        echo '</article>';
                     }
                 ?>
         </div>

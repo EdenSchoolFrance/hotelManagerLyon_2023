@@ -38,6 +38,13 @@ class HotelController {
         require VIEWS . 'Hotel/chambre.php';
     }
 
+    public function salle() {
+        $allClient = $this->ClientManager->getAll();
+        $allSalle = $this->manager->getAllSalle();
+        require VIEWS . 'Hotel/salle.php';
+    }
+
+
     public function addClient() {
 
         $this->validator->validate([
@@ -76,6 +83,24 @@ class HotelController {
             $this->manager->addClientChambre($info);
         } else{
             header("Location: /chambre");
+        }
+    }
+
+    public function addClientSalle(){
+        $this->validator->validate([
+            "client"=>["required"],
+            "choosed"=>["required"],
+            "debut"=>["required"],
+            "fin"=>["required"],
+        ]);
+        
+        $_SESSION['old'] = $_POST;
+
+        if (!$this->validator->errors()) {
+            $info = array("id_client"=> $_POST["client"], "id_salle" => $_POST["choosed"], "debut" =>$_POST["debut"], "fin" => $_POST["fin"]);
+            $this->manager->addClientSalle($info);
+        } else{
+            header("Location: /salle");
         }
     }
 

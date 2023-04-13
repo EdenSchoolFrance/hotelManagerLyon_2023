@@ -20,6 +20,13 @@ class HotelManager {
         return $stmt->fetchAll();
     }
 
+    public function getAllSalle(){
+        $stmt = $this->bdd->prepare("SELECT * FROM `salle`");
+        $stmt->execute();
+        $stmt->setFetchMode(\PDO::FETCH_CLASS,"Hotel\Models\Salle");
+        return $stmt->fetchAll();
+    }
+
     public function store($info){
         $stmt = $this->bdd->prepare("INSERT INTO `client`(`nom_client`, `prenom_client`, `email_client`, `téléphone`) VALUES (?,?,?,?)");
         $stmt->execute(array(
@@ -34,7 +41,6 @@ class HotelManager {
         $subscription_expiration_date = new DateTime($info["debut"]);
         $now_date = new DateTime($info["fin"]);
         $diff =  floor(($now_date->getTimestamp() - $subscription_expiration_date->getTimestamp()) / 86400);
-        print_r($info);
         $stmt = $this->bdd->prepare(
             "SELECT * FROM `client_chambre` 
             WHERE id_chambre = ? AND ((`date_debut_reservation_chambre` <= ? AND `date_fin_reservation_chambre` >= ?) 
@@ -82,6 +88,43 @@ class HotelManager {
             $_SESSION["erreur"] = "La date demandé est déjà prise";
             header("Location: /chambre");
         }
-        
+    }
+
+    public function addClientSalle($info){
+        $subscription_expiration_date = new DateTime($info["debut"]);
+        $now_date = new DateTime($info["fin"]);
+        $diff =  floor(($now_date->getTimestamp() - $subscription_expiration_date->getTimestamp()) / 86400);
+        $stmt = $this->bdd->prepare(
+            "SELECT * FROM `client_salle` 
+            WHERE id_salle = ? AND ((`date_debut_reservation_salle` <= ? AND `date_fin_reservation_salle` >= ?) 
+            OR (`date_debut_reservation_salle` <= ? AND `date_fin_reservation_salle` >= ?) 
+            OR (`date_debut_reservation_salle` >= ? AND `date_fin_reservation_salle` <= ?))"
+        );
+        $stmt->execute(array(
+            $info["id_salle"],
+            $info["debut"],
+            $info["debut"],
+            $info["fin"],
+            $info["fin"],
+            $info["debut"],
+            $info["fin"]
+        ));
+
+        if(!$stmt->fetch()){
+            $stmt = $this->bdd->prepare("INSERT INTO `client_salle`(`id_client`, `id_salle`, `date_debut_reservation_salle`, `date_fin_reservation_salle`, `status_salle`) VALUES (?,?,?,?,?)");
+            $stmt->execute(array(
+                $info["id_client"],
+                $info["id_salle"],
+                $info["debut"],
+                $info["fin"],
+                "reserve"
+            ));
+
+            $_SESSION["success"] = "Salle bien réservée !";
+            header("Location: /salle");
+        } else{
+            $_SESSION["erreur"] = "La date demandé est déjà prise";
+            header("Location: /salle");
+        }
     }
 }

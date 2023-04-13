@@ -3,12 +3,12 @@
   - MCD `0 heure`
   - Mise en place de la base de données `0`
 - Développement du site `41 heures`
-  - Front `8 heures`
+  - Front `9 heures`
       - Header/Menu/Footer `2 heures`
       - Page accueil `2 heures`
       - Page Ajout client `1 heures`
       - Page client chambre `1 heures`
-      - Page Louer une salle `1 heures`
+      - Page Suppression client `1 heures`
       - Page Louer piscine `1 heures`
   - Back `17 heures`
       - Mise en place du MVC `8 heures`

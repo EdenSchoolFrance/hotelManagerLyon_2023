@@ -69,7 +69,7 @@ ob_start();
         </div>
     </article>
     <article>
-        <h2><a href="/client">Louer une salle</a></h2>
+        <h2><a href="/salle">Louer une salle</a></h2>
         <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators2" data-slide-to="0" class="active"></li>
