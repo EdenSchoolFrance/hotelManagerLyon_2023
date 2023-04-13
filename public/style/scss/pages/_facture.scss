@@ -35,6 +35,10 @@ div.facture {
       text-transform: uppercase;
       font-weight: normal;
     }
+
+    li {
+      text-transform: capitalize;
+    }
     thead {
       tr {
         th {

@@ -32,8 +32,10 @@
                                 <input type="hidden" name="id_client" value="<?= $els->getid_client() ?>">
                             </form>
                             <a href="/deleteMenu/<?= $els->getid_client() ?>"><span class="delete"></span></a>
-                        </div>  
+                        </div>
                     </td>
+                <?php else : ?>
+                    <td></td>
                 <?php endif ?>
                 <td><a href="/facture/<?= $els->getid_client() ?>">ajouter une facture</a></td>
             </tr>

@@ -48,6 +48,11 @@ class HotelManager extends BDD
     public function removeClient($slug)
     {
 
+        $stmt = $this->bdd->prepare("DELETE FROM facture WHERE id_client = ?");
+        $stmt->execute(array(
+            $slug
+        ));
+
         $stmt = $this->bdd->prepare("DELETE FROM client_boisson WHERE id_client = ?");
         $stmt->execute(array(
             $slug

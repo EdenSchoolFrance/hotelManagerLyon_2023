@@ -84,7 +84,16 @@ Aller sur reservation dans show client sur le client souhaité puis cliqué sur 
 
 Puis cliquer sur Envoyer
 
+##### Ajouter un menu
+
+Pour ajouter un menu Aller dans la reservation du clients
+
+cliquer sur le bouton Oui en dessous de Restaurants pui sélectionner le restaurant entrer la date en cliquer sur Envoyer tous en bas.
+
+Puis dans ShowClient 2 cercle de couleur avec un plus est une bar est apparu.
+
+Cliquer sur le cercle rouge pour supprimer la reservation du restaurant, cliquer sur le cercle vert pour choisir le menu
+
 ###### Temps total
 
-Total: 23 H 40 min
-Soit ≈ 6 jours
+Total: 62 H
