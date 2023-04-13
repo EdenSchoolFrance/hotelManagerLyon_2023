@@ -1,5 +1,39 @@
+# HotelManager
 
+Site fictif de gestion d'hotel. Fais avec l'architecture MVC
+Projet eden school lyon, avril 2023
 
+### Mise en place du projet :
+
+- Créé la base de donné dans PhpMyAdmin et nommé la "hotelmanager"
+- Importer la bdd "hotel_manager.sql"
+- Créer les auto load avec la commande dump-autoload dans une console à la racine du dossier
+- Lancer apache et MySQL dans xampp
+- Lancer le serveur avec une console dans le dossier public (hotelManagerLyon_2023/public) avec la commande php -S localhost:8000 (faire la commande avec gitBash si ça ne fonctionne pas)
+- Aller sur le site avec un navigateur à l'adresse http://localhost:8000/
+
+### Fonctionnalité du projet :
+
+- CRUD client
+   - Ajouter client
+   - Supprimer client
+   - Update client
+- Création de commande
+   - Boissons
+   - menus
+- Création de reservation
+   - Chambres
+   - Piscines
+   - Salles
+- Création de facture
+- commentaires
+- test unitaire
+
+### Non opérationnel
+
+- sécurité
+- gestion images
+- empêcher la reservation de chambre déjà reserver
 
 
 ## Consignes :
