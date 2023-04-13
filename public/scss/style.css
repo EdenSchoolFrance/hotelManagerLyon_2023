@@ -135,6 +135,10 @@ body header ul li:hover {
 .homepage {
   width: 100%;
 }
+.homepage h2 {
+  text-align: center;
+  font-size: 3.2rem;
+}
 .homepage #formulaire {
   display: flex;
   justify-content: center;

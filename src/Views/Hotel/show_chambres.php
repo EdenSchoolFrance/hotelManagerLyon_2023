@@ -2,8 +2,8 @@
 ob_start();
 ?>
 
+<!-- Affichage des chambres -->
 <section class="show">
-
     <?php foreach ($chambres as $chambre) { ?>
         <div class="card">
             <h3><?= $chambre->getdescription_chambre(); ?></a></h3>

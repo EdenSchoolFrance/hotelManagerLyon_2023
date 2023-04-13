@@ -2,8 +2,9 @@
 ob_start();
 ?>
 
-
+<!-- Retour sur la page -->
 <a href="/restaurants/" class="Back">Revenir aux restaurants</a>
+<!-- Affichage des menus -->
 <section class="show">
     <?php foreach ($menus as $menu) { ?>
         <!-- Ici mettre le titre des restaurants (pour rappel) -->

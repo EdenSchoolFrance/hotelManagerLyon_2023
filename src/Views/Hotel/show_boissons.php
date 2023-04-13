@@ -2,8 +2,9 @@
 ob_start();
 ?>
 
-
+<!-- Retour sur la page des bars -->
 <a href="/bars/" class="Back">Revenir aux bars</a>
+<!-- Affichage des boissons -->
 <section class="show">
     <?php foreach ($boissons as $boisson) { ?>
         <!-- Ici mettre le titre des restaurants (pour rappel) -->

@@ -45,20 +45,13 @@ ob_start();
             }
         }
     </style>
-    <!-- PAGE D'INSCRIPTION DU CLIENT -->
-    <h2>Que voulez-vous consulter ?</h2>
+    <!-- PAGE D'INSCRIPTION DU CLIENT (et page d'accueuil) -->
+    <h2>* Ajouter un client *</h2>
     <div id="formulaire">
         <form action="/client/inscription" method="post">
             <input type="text" name="prenom" id="prenom" placeholder="Prénom" required>
             <input type="text" name="nom" id="nom" placeholder="Nom" required>
             <input type="email" name="email" id="email" placeholder="Exemple.exemple@exmpl.fr" required>
-
-            <!-- <select name="chambre" id="select">
-                <option value="chambre">Chambre</option>
-                <option value="Spa">Spa</option>
-                <option value="Retaurant">Retaurant</option>
-                <option value="Salle">Salle</option>
-            </select> -->
             <button type="submit">Ajouter la personne</button>
             <?php if (isset($_SESSION["error"]['username'])) {
                 echo "<p>" . $_SESSION["error"]['username'] . "</p>";
@@ -66,6 +59,7 @@ ob_start();
         </form>
     </div>
     <script>
+        // Script pourfaire des vagues en bas de la page
         const wrapper = document.getElementById("bubble-wrapper");
 
         const animateBubble = (x) => {

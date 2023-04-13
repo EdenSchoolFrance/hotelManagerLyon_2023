@@ -5,7 +5,7 @@ ob_start();
 
 <section class="show">
 
-
+    <!-- Affichage des salles -->
     <?php foreach ($salles as $salle) { ?>
         <div class="card">
             <h3><?= $salle->getname_salle(); ?></h3>

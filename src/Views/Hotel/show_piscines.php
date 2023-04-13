@@ -5,7 +5,7 @@ ob_start();
 
 <section class="show">
 
-
+    <!-- Affichage des piscines -->
     <?php foreach ($piscines as $piscine) { ?>
         <div class="card">
             <h3><?= $piscine->getname_piscine(); ?></h3>

@@ -2,7 +2,7 @@
 ob_start();
 ?>
 
-
+<!-- Affichage du client -->
 <section class="show_client">
     <table>
         <tr>

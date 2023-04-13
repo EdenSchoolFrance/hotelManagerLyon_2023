@@ -3,9 +3,8 @@ ob_start();
 ?>
 
 
+<!-- Affichage des bars -->
 <section class="show">
-
-
     <?php foreach ($bars as $bar) { ?>
         <div class="card">
             <h3><?= $bar->getname_bar(); ?></h3>

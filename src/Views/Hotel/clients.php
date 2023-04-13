@@ -2,9 +2,8 @@
 ob_start();
 ?>
 
+<!-- Page d'affichage des clients -->
 <section class="clients">
-    <!-- Barre de recherche pour les Noms -->
-    <!-- <div id="chercher"><form action="/"></form></div> -->
     <table>
         <tr>
             <th>Prenom</th>
