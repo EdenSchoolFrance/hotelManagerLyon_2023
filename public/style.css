@@ -57,6 +57,11 @@ body .container {
   margin: 0 auto;
   max-width: 90%;
 }
+body .error {
+  color: red;
+  font-size: 2rem;
+  display: block;
+}
 body .del {
   background-color: rgba(241, 11, 11, 0.8509803922);
   padding: 5px 2rem;

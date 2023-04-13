@@ -67,7 +67,7 @@ echo $_SESSION['client'];
         </a>
     </li>
     <li>
-        <a href="reservation/boissons">
+        <a class="boisson" href="#">
             <i class="fa-solid fa-utensils" style="color: #fff;"></i>
             <h2>Voir toutes les boissons</h2>
         </a>
@@ -90,11 +90,17 @@ echo $_SESSION['client'];
         submit.insertAdjacentElement('beforebegin', chambreInput);
         //génère input date
         form.insertAdjacentHTML('afterbegin', `<div>
+        <?php if (isset($_SESSION['message'])) {
+            foreach ($_SESSION['message'] as $error) { ?>
+                <span class="error"><?= $error ?></span>
+<?php  }
+        } ?>
         <label for="debut_chambre">Début res. chambre</label>
-        <input type="date" name="debut_chambre" id="debut_chambre">
-
+        <input type="date" name="debut_chambre" id="debut_chambre" value="0">
+       
         <label for="fin_chambre">Fin res. chambre</label>
-        <input type="date" name="fin_chambre" id="fin_chambre">
+        <input type="date" name="fin_chambre" id="fin_chambre" value="0">
+        
         </div>
         `);
     }
@@ -168,11 +174,19 @@ echo $_SESSION['client'];
 
     //Bar select
     const barBtn = document.querySelector('#bar');
+    const aBoisson = document.querySelector('a.boisson');
+    aBoisson.addEventListener('click', ()=>{
+        if (aBoisson.getAttribute('href').indexOf("#") !== -1) {
+            barBtn.insertAdjacentHTML('beforebegin', "<span class='error'>Veuillez sélectionner un bar</span>");
+        }
+    });
     let bar;
+   
     barBtn.addEventListener('change', () => {
         bar = encryptStorage.setItem('bar', `${[barBtn.selectedIndex]}`);
         let id_bar = barBtn.options[barBtn.selectedIndex].value;
         document.cookie = `id_bar=${id_bar}`;
+        aBoisson.setAttribute('href', 'reservation/boissons');
     });
 
     //Piscine select
