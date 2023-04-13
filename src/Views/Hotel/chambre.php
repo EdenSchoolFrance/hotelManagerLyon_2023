@@ -8,7 +8,7 @@ ob_start();
             <select name="client" id="client">
                 <?php
                     foreach($allClient as $client){
-                        if($client->getId() !== 10){
+                        if($client->getId() !== 12){
                             echo '<option value="' . $client->getId() . '">' . $client->getName() . " " . $client->getPrenom() . '</option>';
                         }
                     }

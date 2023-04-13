@@ -5,7 +5,7 @@ ob_start();
     <a href="/client" id="add">Ajouter Client</a>
     <?php
         foreach($allClient as $client){
-            if($client->getId() !== 10){
+            if($client->getId() !== 12){
                 echo "<article class='client'>";
                 echo "<h2>" . $client->getName() . " " . $client->getPrenom() . "</h2>";
                 echo "<p>Email : " . $client->getMail() . "</p>";

@@ -13,7 +13,7 @@ final class Test extends TestCase
         $t = new ClientManager();
         $this->assertEquals(
             "0123456789",
-            $t->find(10, "Utilisateur")
+            $t->find(12, "Utilisateur")
         );
     }
 
