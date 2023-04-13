@@ -1,32 +1,90 @@
-# hotelManagerLyon_2023
+# Phoenix
 
-Development of a management software for the Eden Hotel. It will allow hotel employees to manage the reservation of rooms, restaurants, swimming pool, conference room, etc.
+### Installation
 
-## Features
+Cloner le projet en local
 
-See [specifications](cahier-de-charge.pdf)
+```script
+git clone https://github.com/EdenSchoolFrance/hotelManagerLyon_2023.git
+```
 
-On ne gère que les stocks des boissons mais pas du restaurant
+### Installer les modules
 
-On ne gère pas les livraisons ni les groupes
+```script
+installation de npm : npm install
+installation de composer : composer install
+lancement des tests unitaires : ./vendor/bin/phpunit tests
+```
 
-## Préparer / concevoir votre futur développement :
+_dependancies_
 
-> modéliser le modèle conceptuel
-> modéliser le modèle logique
-> expliquer et argumenter la démarche à suivre pour développer la tâche demandée :
+- encrypt-storage
+- sass
+- phpunit
 
-- découper en tâches unitaires et sous-tâches
-- estimer le temps nécessaire pour réaliser les tâches
+### Lancer le projet
 
-## Créer la maquette HTML avec du scss
+```script
+aller dans le dossier public est exécuter
+php -S localhost:[port]
+```
 
-## Le projet en MVC doit contenir au moins un héritage
+##### Information complémentaire
 
-## Déposer votre projet sur une branche à votre nom
+Projet utilisé avec sase, phpUnit en MVC
 
-## Créer quelques tests unitaires
+Test unitaire tests/ManagerTest.php
 
-## Graphic chart
+Aucune modification BDD
 
-Title: #3F90D3; Title font: Kaushan Script Paragraph: #000 paragraph font: Pacifico Button: #3F90D3; Nav link: #3F90D3;
+Utilisation de Javascript, localStorage
+
+### Tâches + estimation du temps
+
+_bdd_
+
+- MCD Non création
+- MLD Non création
+- Importation de la BDD (5min)
+
+_back, front_
+
+- Font-end général (10h)
+- Back-end général (30h)
+
+_formulaire_
+
+- ajout de client (1h) total
+- supression de client (1h) total
+- modification de client (1h) total
+
+_reservation_
+
+- ajout des différentes options (10h)
+
+_plus_
+
+Gestion d’erreur (4h)
+Test Unitaire (3h)
+Vérification Front-end / back-end (3h)
+
+#### Comment marche le projet ?
+
+##### Gestion du client
+
+Pour l'ajout d'un client cliquer sur addClient dans l'entête de la page puis rentrer les informations
+
+Pour la supression d'un client Allert dans ShowClient dans l'entête de la page puis sur update sur le client souhaité
+
+Pour la supression du client aller sur ShowClient puis delete
+
+##### Ajout d'une reservation
+
+Aller sur reservation dans show client sur le client souhaité puis cliqué sur les formes de cercles (champs radio) puis un lien s'affichera cliquer dessus séléctionner l'option voulu et entrer la date correspondante.
+
+Puis cliquer sur Envoyer
+
+###### Temps total
+
+Total: 23 H 40 min
+Soit ≈ 6 jours

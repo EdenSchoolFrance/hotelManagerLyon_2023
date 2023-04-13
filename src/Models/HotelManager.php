@@ -308,4 +308,14 @@ class HotelManager extends BDD
 
         return $result;
     }
+
+    //add facture
+
+    public function addFacture()
+    {
+        $stmt = $this->bdd->prepare("INSERT INTO facture (id_facture, id_client, num_reference, date_facture, total_ttc) VALUES (?, ?, ?, ?, ?)");
+        $stmt->execute(array($_POST["id_facture"], $_POST["id_client"], $_POST["id_client"], $_POST["date_facture"], $_POST["total_facture"]));
+
+        return $stmt->fetchAll();
+    }
 }

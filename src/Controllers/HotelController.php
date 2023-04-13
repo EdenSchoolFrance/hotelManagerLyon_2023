@@ -234,4 +234,12 @@ class HotelController
         $item = $this->manager->showAll($slug);
         require VIEWS . "pages/facture.php";
     }
+
+    //add facture
+
+    public function addFacture()
+    {
+        $this->manager->addFacture();
+        header("Location: /");
+    }
 }

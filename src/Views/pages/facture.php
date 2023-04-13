@@ -137,6 +137,14 @@ $date = date("Y-m-d H:i:s");
         </tbody>
     </table>
     <p class="total">Total : <?= $total ?> €</p>
+
+    <form action="/addFacture" method="post">
+        <input type="hidden" name="id_facture" value="<?= $uniq ?>">
+        <input type="hidden" name="id_client" value="<?= $slug ?>">
+        <input type="hidden" name="date_facture" value="<?= $date ?>">
+        <input type="hidden" name="total_facture" value="<?= $total ?>">
+        <input type="submit" value="Envoyer">
+    </form>
 </div>
 
 <?php
