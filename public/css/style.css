@@ -229,21 +229,27 @@ main section.chambres .allChambres ul li .content .reservation a, main section.c
 main section.chambres .allChambres ul li:hover .picture img, main section.chambres .allMenu ul li:hover .picture img, main section.restaurant .allChambres ul li:hover .picture img, main section.restaurant .allMenu ul li:hover .picture img {
   width: 120% !important;
 }
-main section.reserveChambre h1 {
+main section.reserveChambre h1, main section.commandMenu h1 {
   background-size: cover !important;
   background-position: center !important;
 }
-main section.reserveChambre .reservations {
+main section.reserveChambre .valid-message, main section.commandMenu .valid-message {
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 2rem;
+  color: green;
+}
+main section.reserveChambre .reservations, main section.commandMenu .reservations {
   padding: 3rem;
 }
-main section.reserveChambre .reservations ul {
+main section.reserveChambre .reservations ul, main section.commandMenu .reservations ul {
   list-style: circle;
   padding-left: 5rem;
 }
-main section.reserveChambre .reservations ul li {
+main section.reserveChambre .reservations ul li, main section.commandMenu .reservations ul li {
   font-size: 1.5rem;
 }
-main section.reserveChambre .reserveForm {
+main section.reserveChambre .reserveForm, main section.commandMenu .reserveForm {
   width: 50%;
   margin: 5rem auto 0;
   background-color: #313131;
@@ -252,7 +258,7 @@ main section.reserveChambre .reserveForm {
   border: solid 2px #65C1BE;
   text-align: center;
 }
-main section.reserveChambre .reserveForm select {
+main section.reserveChambre .reserveForm select, main section.commandMenu .reserveForm select {
   font-size: 1.5rem;
   width: 40%;
   background-color: #65C1BE;
@@ -261,13 +267,13 @@ main section.reserveChambre .reserveForm select {
   text-align: center;
   padding: 0.5rem 1rem;
 }
-main section.reserveChambre .reserveForm select option {
+main section.reserveChambre .reserveForm select option, main section.commandMenu .reserveForm select option {
   font-size: 1.5rem;
 }
-main section.reserveChambre .reserveForm .input-label {
+main section.reserveChambre .reserveForm .input-label, main section.commandMenu .reserveForm .input-label {
   margin: 2rem 0;
 }
-main section.reserveChambre .reserveForm .input-label input {
+main section.reserveChambre .reserveForm .input-label input, main section.commandMenu .reserveForm .input-label input {
   font-size: 1.5rem;
   background-color: #65C1BE;
   border-radius: 15px;
@@ -275,12 +281,12 @@ main section.reserveChambre .reserveForm .input-label input {
   padding: 0.5rem 1rem;
   width: 40%;
 }
-main section.reserveChambre .reserveForm .input-label label {
+main section.reserveChambre .reserveForm .input-label label, main section.commandMenu .reserveForm .input-label label {
   font-size: 1.5rem;
   display: block;
   margin: 1rem 0;
 }
-main section.reserveChambre .reserveForm .error {
+main section.reserveChambre .reserveForm .error, main section.commandMenu .reserveForm .error {
   font-size: 1.5rem;
   color: red;
 }

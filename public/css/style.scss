@@ -256,10 +256,16 @@ main{
             }
         }
     }
-    section.reserveChambre{
+    section.reserveChambre, section.commandMenu{
         h1{
             background-size: cover !important;
             background-position: center !important;
+        }
+        .valid-message{
+            font-size: 1.5rem;
+            text-align: center;
+            padding: 2rem;
+            color: green;
         }
         .reservations{
             padding: 3rem;

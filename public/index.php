@@ -20,6 +20,7 @@ $router->post('validReserveChambre/', "ChambreController@validReserveChambre");
 $router->get('food/', "FoodController@allRestoBar");
 $router->get('restaurant/:idrestaurant/', "FoodController@restaurant");
 $router->get('commandMenu/:idmenu/', "FoodController@commandMenu");
+$router->post('validCommandMenu/', "FoodController@validCommandMenu");
 $router->get('bar/:idbar/', "FoodController@bar");
 
 //CLIENTS
