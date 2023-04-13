@@ -1,4 +1,8 @@
+// encrypt localStorage
+
 const encryptStorage = new EncryptStorage("storageType");
+
+//get all formLabel and input in addClient for animation
 
 const formLabel = document.querySelectorAll("form.homepage label");
 const formInput = document.querySelectorAll(
@@ -20,22 +24,28 @@ formInput.forEach((e) => {
   }
 });
 
+//add all name of options
+
 const arrName = ["chambre", "piscine", "salle", "resto", "boisson"];
 let bool = false;
 
 arrName.forEach((e) => {
+  //get input who has name of options yes or not in input radio
   const allSelect = document.querySelector(`div.${e}`);
   if (allSelect) {
     const yes = allSelect.querySelector(`#${e}_yes`);
     const no = allSelect.querySelector(`#${e}_no`);
     const link = allSelect.querySelector("a");
     const select = allSelect.querySelector("select");
-
+    //check if item name_(name o option) is exist
     if (encryptStorage.getItem(`name_${e}`)) {
+      //insert in father of the option an paragraph with the name of option taken
       allSelect.insertAdjacentHTML(
         "beforeend",
         `<p>${encryptStorage.getItem(`name_${e}`)}</p>`
       );
+
+      //remove or add the link who redirect to page with all options
 
       if (link) {
         link.classList.remove("none");
@@ -44,6 +54,8 @@ arrName.forEach((e) => {
         }
       }
     }
+
+    //add input type date or datetime-local for options
 
     function addDate() {
       allSelect.insertAdjacentHTML(
@@ -61,10 +73,14 @@ arrName.forEach((e) => {
       );
     }
 
+    //add function addDate to give input
+
     if (encryptStorage.getItem(`name_${e}`)) {
       yes.checked = true;
       addDate();
     }
+
+    //if input radio yes is pressed th date and the link show itself
     yes.addEventListener("click", () => {
       link.classList.remove("none");
       if (select) {
@@ -79,6 +95,8 @@ arrName.forEach((e) => {
         }
       }
     });
+
+    //if input radio yes is pressed th date and the link hide itself
 
     no.addEventListener("click", () => {
       console.log(allSelect.querySelector(".date"));
@@ -106,6 +124,8 @@ arrName.forEach((e) => {
       }
     });
 
+    //change the redirect link with the option value(id bar)
+
     if (select) {
       select.addEventListener("change", () => {
         select.nextElementSibling.href = `/showBoisson/${
@@ -125,6 +145,8 @@ arrName.forEach((e) => {
     encryptStorage.setItem(`fin_${e}`);
   }*/
 
+  //add item in localStorage for the end time date
+
   if (timeFin) {
     timeFin.addEventListener("input", () => {
       if (encryptStorage.getItem(`name_${e}`)) {
@@ -133,6 +155,8 @@ arrName.forEach((e) => {
     });
     timeFin.value = encryptStorage.getItem(`fin_${e}`);
   }
+
+  //add item in localStorage for the start time date
 
   if (timeDebut) {
     timeDebut.addEventListener("input", () => {
