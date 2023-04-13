@@ -48,7 +48,7 @@ class HotelController
         $client = $this->manager->get_client($_POST['liste']);
         $reservation = $this->manager->get_reservations_client($_POST['liste']);
         $reservationPiscine = $this->manager->get_reservations_Piscine_client($_POST['liste']);
-        // $reservationChambre = $this->manager->get_reservations_client($_POST['liste']);
+        $reservationChambre = $this->manager->get_reservations_chambre_client($_POST['liste']);
         require VIEWS . 'Hotel/info_client.php'; 
     }
     public function update()

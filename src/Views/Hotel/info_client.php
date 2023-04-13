@@ -50,6 +50,24 @@ ob_start();
             </div>
     <?php
         }
+        foreach ($reservationChambre as $reservationChambres) {
+    ?>
+            <div class="reservationsClient">
+                <div class="left">
+                    <p>numero de reservation : <?=$reservationChambres->getNumReservationChambre()?></p>
+                    <p>nom de la Chambre : <?=$reservationChambres->getNameChambre()?></p>
+                    <p>desciption de la Chambre : <?=$reservationChambres->getDescriptionChambre()?></p>
+                    <p>status de la Chambre : <?=$reservationChambres->getStatusChambre()?></p>
+                    <p>date de debut : <?=$reservationChambres->getDateDebutReservationChambre()?></p>
+                    <p>date de fin : <?=$reservationChambres->getDateFinReservationChambre()?></p>
+                    <p>nombre d'occupent de la Chambre : <?=$reservationChambres->getOccupeChambre()?></p>
+                </div>
+                <div class="right">
+                    <img src="/img/<?=$reservationChambres->getImageChambre()?>" alt="">
+                </div>
+            </div>
+    <?php
+        }
     ?>
 </section>
 
