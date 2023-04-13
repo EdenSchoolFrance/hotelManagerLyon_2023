@@ -18,8 +18,9 @@ class HotelController
 
     public function index()
     {
-        if (isset($_SESSION['client'])) {
-            $_SESSION['client'] = "";
+        if (isset($_SESSION['client']) || isset($_COOKIE['client'])) {
+            session_destroy();
+            unset($_COOKIE['client']);
         }
         require VIEWS . 'Hotel/index.php';
     }
@@ -27,8 +28,9 @@ class HotelController
     //Show add client form
     public function showNewClient()
     {
-        if (isset($_SESSION['client'])) {
-            $_SESSION['client'] = "";
+        if (isset($_SESSION['client']) || isset($_COOKIE['client'])) {
+            session_destroy();
+            unset($_COOKIE['client']);
         }
         require VIEWS . 'Hotel/Client/newClient.php';
     }
@@ -36,8 +38,9 @@ class HotelController
     //Insert client
     public function addNewClient()
     {
-        if (isset($_SESSION['client'])) {
-            $_SESSION['client'] = "";
+        if (isset($_SESSION['client']) || isset($_COOKIE['client'])) {
+            session_destroy();
+            unset($_COOKIE['client']);
         }
         $newClient = $this->manager->addNewClient();
         header('Location: /allClients');
@@ -46,8 +49,9 @@ class HotelController
     //Show all clients
     public function showClients()
     {
-        if (isset($_SESSION['client'])) {
-            $_SESSION['client'] = "";
+        if (isset($_SESSION['client']) || isset($_COOKIE['client'])) {
+            session_destroy();
+            unset($_COOKIE['client']);
         }
         $clients = $this->manager->getClients();
         require VIEWS . 'Hotel/Client/allClients.php';
@@ -56,8 +60,9 @@ class HotelController
     //Delete client and all foreign key
     public function deleteClient($slug)
     {
-        if (!isset($_SESSION['client'])) {
-            header('Location: /newReservation');
+        if (isset($_SESSION['client']) || isset($_COOKIE['client'])) {
+            session_destroy();
+            unset($_COOKIE['client']);
         }
         $this->manager->deleteClientBoisson($slug);
         $this->manager->deleteClientChambre($slug);
@@ -71,8 +76,9 @@ class HotelController
     //Show update client form
     public function showUpdateClient($slug)
     {
-        if (isset($_SESSION['client'])) {
-            $_SESSION['client'] = "";
+        if (isset($_SESSION['client']) || isset($_COOKIE['client'])) {
+            session_destroy();
+            unset($_COOKIE['client']);
         }
         $client = $this->manager->findClient($slug);
         require VIEWS . 'Hotel/Client/updateClient.php';
@@ -81,8 +87,9 @@ class HotelController
     //Update client
     public function updateClient($slug)
     {
-        if (isset($_SESSION['client'])) {
-            $_SESSION['client'] = "";
+        if (isset($_SESSION['client']) || isset($_COOKIE['client'])) {
+            session_destroy();
+            unset($_COOKIE['client']);
         }
         $changes = $this->manager->updateClient($slug);
         header('Location: /allClients');
@@ -91,6 +98,10 @@ class HotelController
     //Select user who reserves
     public function quiReserve()
     {
+        if (isset($_SESSION['client']) || isset($_COOKIE['client'])) {
+            session_destroy();
+            unset($_COOKIE['client']);
+        }
         $clients = $this->manager->getClients();
         require VIEWS . 'Hotel/Reservation/quiReserve.php';
     }
@@ -98,7 +109,7 @@ class HotelController
     //Show options form
     public function showOptions()
     {
-        if (!isset($_SESSION['client'])) {
+        if (!isset($_SESSION['client']) || !isset($_COOKIE['client'])) {
             header('Location: /newReservation');
         } else {
             $restaurant = $this->manager->getRestaurants();
@@ -111,24 +122,36 @@ class HotelController
     //Options
     public function showChambres()
     {
+        if (!isset($_SESSION['client']) || !isset($_COOKIE['client'])) {
+            header('Location: /newReservation');
+        }
         $chambre = $this->manager->getChambres();
         require VIEWS . 'Hotel/Reservation/chambres.php';
     }
 
     public function showMenus()
     {
+        if (!isset($_SESSION['client']) || !isset($_COOKIE['client'])) {
+            header('Location: /newReservation');
+        }
         $menu = $this->manager->getMenus();
         require VIEWS . 'Hotel/Reservation/menus.php';
     }
 
     public function showSalles()
     {
+        if (!isset($_SESSION['client']) || !isset($_COOKIE['client'])) {
+            header('Location: /newReservation');
+        }
         $salle = $this->manager->getSalles();
         require VIEWS . 'Hotel/Reservation/salles.php';
     }
 
     public function showBoissons()
     {
+        if (!isset($_SESSION['client']) || !isset($_COOKIE['client'])) {
+            header('Location: /newReservation');
+        }
         $boisson = $this->manager->getBoissonsBar();
         require VIEWS . 'Hotel/Reservation/boissons.php';
     }
@@ -136,6 +159,9 @@ class HotelController
 
     public function showPiscines()
     {
+        if (!isset($_SESSION['client']) || !isset($_COOKIE['client'])) {
+            header('Location: /newReservation');
+        }
         $piscine = $this->manager->getPiscines();
         require VIEWS . 'Hotel/piscines.php';
     }
@@ -143,33 +169,74 @@ class HotelController
     //Insert reservation with all selected options
     public function reservationInsert()
     {
+        $formError = false; //si true, le form ne s'envoie pas, form affiche erreurs. Si false, insertion s'éxécute puis affiche vue facture
+
         if (isset($_POST['id_chambre'])) { //si chambre sélectionnée
+            if (isset($_POST['debut_chambre']) && isset($_POST['fin_chambre'])) { //si input date existent
 
-            if (isset($_POST['debut_chambre']) && isset($_POST['fin_chambre'])) { //si input date remplis
-
-                if ($_POST['fin_chambre'] < $_POST['debut_chambre']) {
+                if ($_POST['fin_chambre'] < $_POST['debut_chambre']) { //si date incohérente
                     $_SESSION['message']['date_error'] = 'La date spécifiée est incohérente';
-                    require VIEWS . 'Hotel/Reservation/options.php';
-                } else if ($_POST['debut_chambre'] == null || $_POST['fin_chambre'] == null) {
+                    $formError = true; //comptabilise l'erreur, passe à true
+
+                } else if ($_POST['debut_chambre'] == null || $_POST['fin_chambre'] == null) { //si date invalide
                     $_SESSION['message']['date_miss'] = 'Veuillez indiquer une date dans les champs';
-                    require VIEWS . 'Hotel/Reservation/options.php';
+                    $formError = true;
+                } else {
+                    $client_chambre = $this->manager->addClientChambre(); //sinon insert
                 }
-            } else {
-                $client_chambre = $this->manager->addClientChambre();
             }
         }
 
-        if (isset($_POST['id_menu'])) {
-            $client_menu = $this->manager->addClientMenu();
+        if (isset($_POST['id_menu'])) { //si menu sélectionnée
+            if (!isset($_POST['date_menu']) || $_POST['date_menu'] == null) { //si date n'existe pas/incohérente
+                $_SESSION['message']['date_miss'] = 'Veuillez indiquer une date dans les champs';
+                $formError = true;
+            } else {
+                $client_menu = $this->manager->addClientMenu(); //insert
+            }
         }
+
         if (isset($_POST['id_salle'])) {
-            $client_salle = $this->manager->addClientSalle();
+            if (isset($_POST['debut_salle']) && isset($_POST['fin_salle'])) { //si input date remplit
+
+                if ($_POST['fin_salle'] < $_POST['debut_salle']) { //si date cohérente
+                    $_SESSION['message']['date_error'] = 'La date spécifiée est incohérente';
+                    $formError = true;
+                } else if ($_POST['debut_salle'] == null || $_POST['fin_salle'] == null) { //si date invalides
+                    $_SESSION['message']['date_miss'] = 'Veuillez indiquer une date dans les champs';
+                    $formError = true;
+                } else {
+                    $client_salle = $this->manager->addClientSalle();
+                }
+            }
         }
         if (isset($_POST['id_boisson'])) {
-            $client_boisson = $this->manager->addClientBoisson();
+            if (!isset($_POST['date_boisson']) || $_POST['date_boisson'] == null) {
+                $_SESSION['message']['date_miss'] = 'Veuillez indiquer une date dans les champs';
+                $formError = true;
+            } else {
+                $client_boisson = $this->manager->addClientBoisson();
+            }
         }
         if (isset($_POST['piscine']) && $_POST['piscine'] != 0) {
-            $client_piscine = $this->manager->addClientPiscine();
+            if (isset($_POST['debut_piscine']) && isset($_POST['fin_piscine'])) {
+
+                if ($_POST['fin_piscine'] < $_POST['debut_piscine']) {
+                    $_SESSION['message']['date_error'] = 'La date spécifiée est incohérente';
+                    $formError = true;
+                } else if ($_POST['debut_piscine'] == null || $_POST['fin_piscine'] == null) {
+                    $_SESSION['message']['date_miss'] = 'Veuillez indiquer une date dans les champs';
+                    $formError = true;
+                } else {
+                    $client_piscine = $this->manager->addClientPiscine();
+                }
+            }
+        }
+        if ($formError == false) {
+            require VIEWS . 'Hotel/Client/facture.php';
+        } else {
+            $this->showOptions();
+            require_once VIEWS . 'Hotel/Reservation/options.php';
         }
     }
 }

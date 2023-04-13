@@ -1,11 +1,17 @@
 <?php
 ob_start();
-$_SESSION['client'] = $_COOKIE['client'];
-echo $_SESSION['client'];
+if (isset($_COOKIE['client'])) {
+    $_SESSION['client'] = $_COOKIE['client'];
+}
 ?>
 <h1>Choisissez vos options</h1>
 
 <form class="reservation" action="/reservationConfirm" method="POST">
+<?php if (isset($_SESSION['message']) && $_SERVER['REQUEST_URI'] == "/reservationConfirm") {
+            foreach ($_SESSION['message'] as $error) { ?>
+                <span class="error"><?= $error ?></span>
+<?php  }
+        } ?>
     <div>
         <label for="restaurant">Restaurants</label>
         <select name="restaurant" id="restaurant" required>
@@ -90,11 +96,6 @@ echo $_SESSION['client'];
         submit.insertAdjacentElement('beforebegin', chambreInput);
         //génère input date
         form.insertAdjacentHTML('afterbegin', `<div>
-        <?php if (isset($_SESSION['message'])) {
-            foreach ($_SESSION['message'] as $error) { ?>
-                <span class="error"><?= $error ?></span>
-<?php  }
-        } ?>
         <label for="debut_chambre">Début res. chambre</label>
         <input type="date" name="debut_chambre" id="debut_chambre" value="0">
        
