@@ -297,8 +297,13 @@ class HotelManager extends BDD
 
         $menu = $stmt->fetchAll(PDO::FETCH_CLASS, "Hotel\Models\Menu");
 
+        $stmt = $this->bdd->prepare("SELECT * FROM client WHERE id_client = ?");
+        $stmt->execute(array($slug));
+
+        $client = $stmt->fetchAll(PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+
         $result = [
-            "boissons" => $boisson, "chambres" => $chambre, "salles" => $salle, "piscine" => $piscine, "menu" => $menu
+            "boissons" => $boisson, "chambres" => $chambre, "salles" => $salle, "piscines" => $piscine, "menus" => $menu, "client" => $client
         ];
 
         return $result;

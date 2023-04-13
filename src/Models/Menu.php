@@ -11,6 +11,7 @@ class Menu
     private $image_menu;
     private $prix_menu;
     private $id_menu;
+    private $quantite_client_menu;
 
     public function getid_menu()
     {
@@ -60,5 +61,15 @@ class Menu
     public function setprix_menu($prix_menu)
     {
         $this->prix_menu = $prix_menu;
+    }
+
+    public function getQuantite_client_menu()
+    {
+        return $this->quantite_client_menu;
+    }
+
+    public function setQuantite_client_menu($quantite_client_menu)
+    {
+        return $this->quantite_client_menu = $quantite_client_menu;
     }
 }

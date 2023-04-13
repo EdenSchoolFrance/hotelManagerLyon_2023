@@ -247,17 +247,33 @@ div.reservation .reserv > div {
   padding: 3rem;
   border-radius: 8px;
 }
-div.reservation .reserv > div form div:not(.boisson div, .chambre div, .piscine div, .salle div, .resto div) + div {
+div.reservation .reserv > div form div:not(.boisson div,
+.chambre div,
+.piscine div,
+.salle div,
+.resto div) + div {
   margin-top: 2rem;
 }
-div.reservation .reserv > div form div:not(.boisson div, .chambre div, .piscine div, .salle div, .resto div) a {
+div.reservation .reserv > div form div:not(.boisson div,
+.chambre div,
+.piscine div,
+.salle div,
+.resto div) a {
   color: black;
   text-decoration: underline;
 }
-div.reservation .reserv > div form div:not(.boisson div, .chambre div, .piscine div, .salle div, .resto div) a:hover {
+div.reservation .reserv > div form div:not(.boisson div,
+.chambre div,
+.piscine div,
+.salle div,
+.resto div) a:hover {
   opacity: 0.8;
 }
-div.reservation .reserv > div form div:not(.boisson div, .chambre div, .piscine div, .salle div, .resto div) a span {
+div.reservation .reserv > div form div:not(.boisson div,
+.chambre div,
+.piscine div,
+.salle div,
+.resto div) a span {
   display: block;
 }
 div.reservation .reserv > div form input[type=submit] {
@@ -272,31 +288,40 @@ div.reservation .reserv div.piscine {
   color: red;
 }
 
-.resto > div, .boisson > div, .chambre > div, .salle > div, .piscine > div {
+.resto > div,
+.boisson > div,
+.chambre > div,
+.salle > div,
+.piscine > div {
   display: flex;
 }
 
-.resto, .restaurant {
+.resto,
+.restaurant {
   display: flex;
   margin-top: 3rem;
 }
-.resto form, .restaurant form {
+.resto form,
+.restaurant form {
   padding: 2rem;
   background-color: white;
   width: 20rem;
   border-radius: 8px;
 }
-.resto form p, .restaurant form p {
+.resto form p,
+.restaurant form p {
   margin-bottom: 5rem;
   font-size: 2rem;
 }
-.resto form input[type=submit], .restaurant form input[type=submit] {
+.resto form input[type=submit],
+.restaurant form input[type=submit] {
   border: 1px solid rgba(158, 156, 158, 0.5);
   cursor: pointer;
   background: none;
   padding: 1rem;
 }
-.resto p, .restaurant p {
+.resto p,
+.restaurant p {
   margin: 0;
 }
 
@@ -423,6 +448,61 @@ main {
 }
 .boisson > div div {
   margin: 0;
+}
+
+div.facture > div {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+div.facture > div table.facture tr:nth-of-type(odd) {
+  background-color: #3f90d3;
+  color: white;
+  text-transform: uppercase;
+}
+div.facture > div table.facture tr td {
+  text-align: center;
+}
+div.facture > div div.client td,
+div.facture > div div.client h2,
+div.facture > div table.facture td,
+div.facture > div table.facture h2 {
+  padding: 10px;
+  width: 30rem;
+}
+div.facture div.client h2,
+div.facture .options h2 {
+  font-family: "Pacifico", cursive;
+  font-size: 1.5rem;
+  background-color: #3f90d3;
+  color: white;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+div.facture div.client thead tr th,
+div.facture .options thead tr th {
+  padding: 10px;
+  background-color: #3f90d3;
+  color: white;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+div.facture div.client tbody td,
+div.facture .options tbody td {
+  padding: 10px;
+  width: 30rem;
+}
+div.facture table.options {
+  width: 100%;
+}
+div.facture table.options thead th:first-of-type {
+  width: 60%;
+}
+div.facture table.options thead th:last-of-type {
+  width: 40%;
+}
+div.facture table.options tbody tr td:last-of-type {
+  text-align: right;
 }
 
 /*# sourceMappingURL=style.css.map */

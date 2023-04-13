@@ -11,6 +11,7 @@ class Boisson
     private $name_boisson;
     private $image_boisson;
     private $prix_un_boisson;
+    private $quantite_client_boisson;
 
     public function getprix_un_boisson()
     {
@@ -60,5 +61,15 @@ class Boisson
     public function setId_boisson($id_boisson)
     {
         return $this->id_boisson = $id_boisson;
+    }
+
+    public function getQuantite_client_boisson()
+    {
+        return $this->quantite_client_boisson;
+    }
+
+    public function setQuantite_client_boisson($quantite_client_boisson)
+    {
+        return $this->quantite_client_boisson = $quantite_client_boisson;
     }
 }

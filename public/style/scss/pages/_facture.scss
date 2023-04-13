@@ -1,0 +1,78 @@
+div.facture {
+  > div {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    table.facture {
+      tr {
+        &:nth-of-type(odd) {
+          background-color: $navLink;
+          color: white;
+          text-transform: uppercase;
+        }
+        td {
+          text-align: center;
+        }
+      }
+    }
+    div.client,
+    table.facture {
+      td,
+      h2 {
+        padding: 10px;
+        width: 30rem;
+      }
+    }
+  }
+
+  div.client,
+  .options {
+    h2 {
+      font-family: $textFont;
+      font-size: 1.5rem;
+      background-color: $navLink;
+      color: white;
+      text-transform: uppercase;
+      font-weight: normal;
+    }
+    thead {
+      tr {
+        th {
+          padding: 10px;
+          background-color: $navLink;
+          color: white;
+          text-transform: uppercase;
+          font-weight: normal;
+        }
+      }
+    }
+    tbody {
+      td {
+        padding: 10px;
+        width: 30rem;
+      }
+    }
+  }
+  table.options {
+    width: 100%;
+    thead {
+      th {
+        &:first-of-type {
+          width: 60%;
+        }
+        &:last-of-type {
+          width: 40%;
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          &:last-of-type {
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+}

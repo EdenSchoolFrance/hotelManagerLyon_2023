@@ -284,7 +284,13 @@ div.reservation {
       padding: 3rem;
       border-radius: 8px;
       form {
-        div:not(.boisson div, .chambre div, .piscine div, .salle div, .resto div) {
+        div:not(
+            .boisson div,
+            .chambre div,
+            .piscine div,
+            .salle div,
+            .resto div
+          ) {
           + div {
             margin-top: 2rem;
           }
@@ -315,13 +321,18 @@ div.reservation {
   color: red;
 }
 
-.resto, .boisson, .chambre, .salle, .piscine {
-  >div {
+.resto,
+.boisson,
+.chambre,
+.salle,
+.piscine {
+  > div {
     display: flex;
   }
 }
 
-.resto, .restaurant {
+.resto,
+.restaurant {
   display: flex;
   margin-top: 3rem;
   form {
@@ -478,3 +489,5 @@ main {
     }
   }
 }
+
+@import "pages/facture";
