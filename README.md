@@ -50,7 +50,7 @@ _bdd_
 _back, front_
 
 - Font-end général (10h)
-- Back-end général (30h)
+- Back-end général (20h)
 
 _formulaire_
 
@@ -60,7 +60,7 @@ _formulaire_
 
 _reservation_
 
-- ajout des différentes options (10h)
+- ajout des différentes options (5h)
 
 _plus_
 
@@ -96,4 +96,4 @@ Cliquer sur le cercle rouge pour supprimer la reservation du restaurant, cliquer
 
 ###### Temps total
 
-Total: 62 H
+Total: 47 H

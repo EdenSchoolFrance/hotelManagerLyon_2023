@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 11 avr. 2023 à 09:14
+-- Généré le : jeu. 13 avr. 2023 à 17:56
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -37,7 +37,8 @@ CREATE TABLE `bar` (
 --
 
 INSERT INTO `bar` (`id_bar`, `name_bar`) VALUES
-(1, 'kjgh');
+(1, 'kjgh'),
+(2, 'Montagne');
 
 -- --------------------------------------------------------
 
@@ -50,6 +51,15 @@ CREATE TABLE `bar_boisson` (
   `id_bar` int(11) NOT NULL,
   `quantite_stock_bar_boisson` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `bar_boisson`
+--
+
+INSERT INTO `bar_boisson` (`id_boisson`, `id_bar`, `quantite_stock_bar_boisson`) VALUES
+(1, 2, 7),
+(3, 1, 4),
+(4, 2, 5);
 
 -- --------------------------------------------------------
 
@@ -70,8 +80,9 @@ CREATE TABLE `boisson` (
 --
 
 INSERT INTO `boisson` (`id_boisson`, `name_boisson`, `description_boisson`, `image_boisson`, `prix_un_boisson`) VALUES
-(1, 'gsdfg', 'sdghf', '626686ba8c531-Quad Ice Road 3.jpg', 22),
-(3, 'Vodka', 'dfffff', '', 23);
+(1, 'gsdfg', 'sdghf', 'boisson1.jpg', 22),
+(3, 'Vodka', 'dfffff', 'boisson2.jpg', 23),
+(4, 'Pastis', 'zdzffzfz', 'boisson2.jpg', 78);
 
 -- --------------------------------------------------------
 
@@ -95,7 +106,7 @@ CREATE TABLE `chambre` (
 --
 
 INSERT INTO `chambre` (`id_chambre`, `name_chambre`, `description_chambre`, `image_chambre`, `options_chambre`, `prix_chambre`, `occupe_chambre`, `categorie_chambre`) VALUES
-(1, 'Chambre 1', 'Lorem ipsumLorem ipsumLorem ipsum', 'chambre1.jpg', 'Balcon', 300, 1, 'dzdz'),
+(1, 'Chambre 1', 'Lorem ipsumLorem ipsumLorem ipsum', 'chambre1.jpg', 'Balcon', 300, 0, 'dzdz'),
 (2, 'Chambre 2', 'sdfg gsgq qsgs gSG', 'chambre2.jpg', '', 200, 0, 'fsd'),
 (3, 'Chambre 3', 'sdfg gsgq qsgs gSG', 'chambre3.jpg', 'Climatisaion', 350, 0, 'fsd'),
 (4, 'Chambre 4', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point o\r\n', 'chambre4.jpg', '', 120, 0, 'zddz'),
@@ -121,8 +132,7 @@ CREATE TABLE `client` (
 --
 
 INSERT INTO `client` (`id_client`, `nom_client`, `prenom_client`, `email_client`, `mdp_client`) VALUES
-(13, 'Cheron', 'Quentin', 'Quentin.cheron26200@gmail.com', ''),
-(28, 'Thomas', 'dzz', 'lepoussinkiller@gmail.com', '');
+(45, 'Ulysse', 'pd', 'Ulysse.Giroud@gmail.com', '');
 
 -- --------------------------------------------------------
 
@@ -152,19 +162,6 @@ CREATE TABLE `client_chambre` (
   `status_chambre` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Déchargement des données de la table `client_chambre`
---
-
-INSERT INTO `client_chambre` (`id_client`, `id_chambre`, `date_debut_reservation_chambre`, `date_fin_reservation_piscine_chambre`, `num_reservation_chambre`, `status_chambre`) VALUES
-(28, 1, '1111-11-11', '1111-11-11', 9, ''),
-(28, 1, '1111-11-11', '1111-11-11', 10, ''),
-(28, 1, '1970-01-01', '1970-01-01', 11, ''),
-(28, 1, '1111-11-11', '1111-11-11', 12, ''),
-(28, 1, '1111-11-11', '1111-11-11', 13, ''),
-(28, 1, '2023-12-11', '2023-12-11', 14, ''),
-(28, 1, '2023-12-11', '2023-12-11', 15, '');
-
 -- --------------------------------------------------------
 
 --
@@ -193,17 +190,6 @@ CREATE TABLE `client_piscine` (
   `status_piscine` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Déchargement des données de la table `client_piscine`
---
-
-INSERT INTO `client_piscine` (`id_piscine`, `id_client`, `date_debut_reservation_piscine`, `date_fin_reservation_piscine`, `num_reservation_piscine`, `status_piscine`) VALUES
-(1, 28, '1111-11-11', '1111-11-11', 3, ''),
-(1, 28, '1111-11-11', '1111-11-11', 12, ''),
-(1, 28, '1111-11-11', '1111-11-11', 13, ''),
-(1, 28, '2023-12-11', '2023-12-11', 14, ''),
-(1, 28, '2023-12-11', '2023-12-11', 15, '');
-
 -- --------------------------------------------------------
 
 --
@@ -218,21 +204,6 @@ CREATE TABLE `client_salle` (
   `num_reservation_salle` int(11) NOT NULL,
   `status_salle` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Déchargement des données de la table `client_salle`
---
-
-INSERT INTO `client_salle` (`id_client`, `id_salle`, `date_debut_reservation_salle`, `date_fin_reservation_salle`, `num_reservation_salle`, `status_salle`) VALUES
-(28, 1, '1111-11-11', '1111-11-11', 0, ''),
-(28, 1, '1111-11-11', '1111-11-11', 1, ''),
-(28, 1, '1111-11-11', '1111-11-11', 2, ''),
-(28, 1, '1111-11-11', '1111-11-11', 3, ''),
-(28, 1, '1111-11-11', '1111-11-11', 11, ''),
-(28, 1, '1111-11-11', '1111-11-11', 12, ''),
-(28, 1, '1111-11-11', '1111-11-11', 13, ''),
-(28, 1, '2023-12-11', '2023-12-11', 14, ''),
-(28, 1, '2023-12-11', '2023-12-11', 15, '');
 
 -- --------------------------------------------------------
 
@@ -268,7 +239,7 @@ CREATE TABLE `menu` (
 --
 
 INSERT INTO `menu` (`id_menu`, `id_restaurant`, `name_menu`, `description_menu`, `image_menu`, `prix_menu`) VALUES
-(1, 1, 'Menu 1', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point o', '642c3626659d0', 15);
+(1, 1, 'Menu 1', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point o', 'menu1.jpg', 15);
 
 -- --------------------------------------------------------
 
@@ -451,13 +422,13 @@ ALTER TABLE `salle`
 -- AUTO_INCREMENT pour la table `bar`
 --
 ALTER TABLE `bar`
-  MODIFY `id_bar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_bar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `boisson`
 --
 ALTER TABLE `boisson`
-  MODIFY `id_boisson` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_boisson` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `chambre`
@@ -469,13 +440,13 @@ ALTER TABLE `chambre`
 -- AUTO_INCREMENT pour la table `client`
 --
 ALTER TABLE `client`
-  MODIFY `id_client` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_client` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT pour la table `facture`
 --
 ALTER TABLE `facture`
-  MODIFY `id_facture` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_facture` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2147483648;
 
 --
 -- AUTO_INCREMENT pour la table `menu`

@@ -7,6 +7,7 @@ use PHPUnit\Framework\TestCase;
 use Hotel\Models\HotelManager;
 use Hotel\Models\Hotel;
 use Hotel\Models\piscine;
+use Hotel\Models\menu;
 
 include "../hotelManagerLyon_2023/src/config/config.php";
 
@@ -29,8 +30,16 @@ final class ManagerTest extends TestCase
     public function testShowAll()
     {
         $hotelManager = new HotelManager();
-        $piscines = $hotelManager->show();
+        $showAll = $hotelManager->show();
 
-        $this->assertContainsOnlyInstancesOf(hotel::class, $piscines);
+        $this->assertContainsOnlyInstancesOf(hotel::class, $showAll);
+    }
+
+    public function testshowMenu()
+    {
+        $hotelManager = new HotelManager();
+        $showMenu = $hotelManager->showMenu();
+
+        $this->assertContainsOnlyInstancesOf(menu::class, $showMenu);
     }
 }
