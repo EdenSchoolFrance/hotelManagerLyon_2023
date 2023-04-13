@@ -29,6 +29,7 @@ table {
   min-width: 400px;
 }
 table tr {
+  border-bottom: #ccc 1px solid;
   text-align: left;
 }
 table tr th, table tr td {
@@ -43,7 +44,17 @@ table tr a {
 table tr a:hover {
   text-decoration: underline;
 }
+table tr:not(:first-child):hover {
+  background-color: #ccc;
+}
 
 .hidden {
   display: none;
+}
+
+.boissons .boisson, .boissons .menu, .menus .boisson, .menus .menu {
+  cursor: pointer;
+}
+.boissons .boisson:hover, .boissons .menu:hover, .menus .boisson:hover, .menus .menu:hover {
+  text-decoration: underline;
 }/*# sourceMappingURL=style.css.map */

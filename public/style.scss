@@ -27,6 +27,7 @@ table {
     font-family: sans-serif;
     min-width: 400px;
     tr{
+        border-bottom: #ccc 1px solid;
         text-align: left;
         th, td{
             padding: 12px 15px;
@@ -40,8 +41,20 @@ table {
                 text-decoration: underline;
             }
         }
+        &:not(:first-child):hover{
+            background-color: #ccc;
+        }
     }
 }
 .hidden{
     display: none;
+}
+.boissons, .menus{
+
+    .boisson, .menu{
+        cursor: pointer;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
 }

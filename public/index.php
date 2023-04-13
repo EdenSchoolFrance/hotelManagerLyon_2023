@@ -14,9 +14,12 @@ $router -> get('/add', "HotelController@addClientView");
 $router -> get('/delete/:id', "HotelController@deleteClient");
 $router -> get('/update/:id', "HotelController@updateClientView");
 $router -> get('/reservation/:id', "HotelController@reservationView");
+$router -> get('/commande/:id', "HotelController@commandeView");
 
 $router -> post('/add', "HotelController@addClient");
 $router -> post('/update', "HotelController@updateClient");
 $router -> post('/addReservation', "HotelController@addReservation");
+$router -> post('/commande/addCommandeBoisson', "HotelController@addCommandeBoisson");
+$router -> post('/commande/addCommandeMenu', "HotelController@addCommandeMenu");
 
 $router->run();

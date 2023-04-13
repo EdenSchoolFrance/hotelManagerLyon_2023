@@ -86,6 +86,23 @@ class ClientManager{
         return $stmt->fetchAll();
     }
 
+    public function getAllBoisson(){
+        $stmt = $this->bdd->prepare("SELECT * FROM boisson");
+        $stmt->execute();
+        $stmt->setFetchMode(\PDO::FETCH_CLASS,"hotel\Models\Boisson");
+
+        return $stmt->fetchAll();
+    }
+
+    public function getAllMenu(){
+        $stmt = $this->bdd->prepare("SELECT * FROM menu");
+        $stmt->execute();
+        $stmt->setFetchMode(\PDO::FETCH_CLASS,"hotel\Models\Menu");
+
+        return $stmt->fetchAll();
+    }
+
+    // Ajouter une reservation dans la table client_chambre, client_piscine et client_salle
     public function addReservation(){
         if($_POST["chambre"] != "empty"){
             $stmt = $this->bdd->prepare("INSERT INTO client_chambre(id_client, id_chambre, date_debut_reservation_chambre, date_fin_reservation_chambre, status_chambre) VALUES (?, ?, ?, ?, ?)");
@@ -117,5 +134,28 @@ class ClientManager{
                 "reserver",
             ));
         }
+    }
+
+    // Ajouter une commande dans la table client_boisson et client_menu
+    public function addCommandeBoisson(){
+        $boissonId = $_POST["boissonId"];
+        $stmt = $this->bdd->prepare("INSERT INTO client_boisson(id_client, id_boisson, quantite_client_boisson, date_client_boisson) VALUES (?, ?, ?, ?)");
+        $stmt->execute(array(
+            $_POST["clientId"],
+            $boissonId,
+            $_POST[$boissonId],
+            date('Y-m-d'),
+        ));
+    }
+
+    public function addCommandeMenu(){
+        $menuId = $_POST["menuId"];
+        $stmt = $this->bdd->prepare("INSERT INTO client_menu(id_client, id_menu, quantite_client_menu, date_client_menu) VALUES (?, ?, ?, ?)");
+        $stmt->execute(array(
+            $_POST["clientId"],
+            $menuId,
+            $_POST[$menuId],
+            date('Y-m-d'),
+        ));
     }
 }

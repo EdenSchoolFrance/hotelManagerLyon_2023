@@ -16,7 +16,8 @@ ob_start();
             <td><?= $el->getEmail()?></td>
             <td><a href="/delete/<?= $el->getId() ?>">Supprimer</a></td>
             <td><a href="/update/<?= $el->getId() ?>">Modifier</a></td>
-            <td><a href="/reservation/<?= $el->getId() ?>">Faire une reservation</a></td>
+            <td><i class="fa-solid fa-calendar-days"></i><a href="/reservation/<?= $el->getId() ?>">Faire une reservation</a></td>
+            <td><i class="fa-solid fa-utensils"></i><a href="/commande/<?= $el->getId() ?>">Faire une commande</a></td>
         </tr>
         <?php
     }

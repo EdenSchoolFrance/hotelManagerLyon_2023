@@ -59,4 +59,21 @@ class HotelController {
         $this->manager->addReservation();
         header("Location: /list");
     }
+
+    public function commandeView($slug){
+        $client = $this->manager->getClient($slug);
+        $boissons = $this->manager->getAllBoisson();
+        $menus = $this->manager->getAllMenu();
+        require VIEWS . "Hotel/commande.php";
+    }
+
+    public function addCommandeBoisson(){
+        $this->manager->addCommandeBoisson();
+        header("Location: /list");
+    }
+
+    public function addCommandeMenu(){
+        $this->manager->addCommandeMenu();
+        header("Location: /list");
+    }
 }
