@@ -28,4 +28,22 @@ Allez avec l'explorateur de fichier là où vous voulez installer le projet, et 
     - Etape 6: Pour la dernière étape, retournez dans le terminal puis entrez la commande 'cd .\public\'.
                 Et pour lancer le projet faites la commande dans le même terminal: 'php -S localhost:8000'.
 
+Pour executer les tests unitaire, il faut executer les commandes:
+
+    - 1 Installer: ➜ composer require --dev phpunit/phpunit ^10
+
+    - 2 Vérifier: composer.json doit ressembler à
+        `{
+        "autoload": {
+            "classmap": [
+                "src/"
+            ]
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^10"
+        }
+    }`
+
+    - 3 Lancer: `vendor\bin\phpunit ./tests`
+
 ## Et vous voici dans le projet !!
