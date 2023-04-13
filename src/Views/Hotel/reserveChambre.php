@@ -23,7 +23,7 @@ ob_start();
         <form action="/validReserveChambre" method="post">
             <input type="hidden" value="<?= $chambre->getId() ?>" name="idChambre">
             <select name="client" id="client">
-                <option value="">-- Choisissez un client --</option>
+                <option value="0">-- Choisissez un client --</option>
                 <?php foreach ($clients as $client) { ?>
                     <option value="<?= $client->getId() ?>"><?= $client->getMail() ?></option>
                 <?php } ?>
@@ -36,8 +36,12 @@ ob_start();
                 <label for="date_fin">Sélectionner la date de fin du séjour :</label>
                 <input type="date" name="date_fin" id="date_fin">
             </div>
-            <?php if (isset($_GET['error'])) {
-                if ($_GET['error'] == 'dispo') {
+            <?php if (isset($_SESSION['error'])) {
+                if (isset($_SESSION['error']['client'])) {
+                    echo "<p class='error'>" . $_SESSION['error']['client'] . "</p>";
+                } else if (isset($_SESSION['error']['date'])) {
+                    echo "<p class='error'>" . $_SESSION['error']['date'] . "</p>";
+                } else if (isset($_SESSION['error']['dispo'])) {
                     echo "<p class='error'>" . $_SESSION['error']['dispo'] . "</p>";
                 }
             } ?>

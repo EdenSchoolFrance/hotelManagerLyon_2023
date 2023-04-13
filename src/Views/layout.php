@@ -32,7 +32,7 @@
                         <a href="/allChambres">Chambres</a>
                     </li>
                     <li>
-                        <a href="#">Restaurants/Bars</a>
+                        <a href="/food">Restaurants/Bars</a>
                     </li>
                     <li>
                         <a href="#">Piscine</a>
