@@ -18,7 +18,7 @@ ob_start();
             <form action="/boisson/reserver/" method="post">
                 <input type="number" name="quantite" class="quantite" required>
                 <input type="hidden" name="id_boisson" value="<?= $boisson->getid_boisson(); ?>">
-                <button type="submit" class="valider">Reserver la chambre</button>
+                <button type="submit" class="valider">Reserver des boissons</button>
             </form>
         </div>
     <?php } ?>

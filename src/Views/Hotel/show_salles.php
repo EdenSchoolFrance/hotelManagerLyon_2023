@@ -20,7 +20,7 @@ ob_start();
                 </div>
 
                 <input type="hidden" name="id_salle" value="<?= $salle->getid_salle(); ?>">
-                <button type="submit" class="valider">Reserver la piscine</button>
+                <button type="submit" class="valider">Reserver la salle</button>
             </form>
         </div>
     <?php } ?>

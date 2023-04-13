@@ -9,7 +9,7 @@ ob_start();
     <?php foreach ($restaurants as $restaurant) { ?>
         <div class="card">
             <h3><?= $restaurant->getname_restaurant(); ?></h3>
-            <a href="<?= $restaurant->getid_restaurant(); ?>" class="valider">Voir les menus du restaurant</a>
+            <a href="<?= $restaurant->getid_restaurant(); ?>" class="valider">Voir le menus du restaurant</a>
         </div>
     <?php } ?>
 </section>
