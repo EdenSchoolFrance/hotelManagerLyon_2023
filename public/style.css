@@ -61,6 +61,10 @@ html body main section {
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+html body main section #add {
+  flex-basis: 100%;
+  text-align: center;
+}
 html body main section article {
   z-index: 6;
   background-color: #f05b42;
@@ -77,6 +81,17 @@ html body main section article .carousel-item img {
   -o-object-fit: cover !important;
      object-fit: cover !important;
   width: 100% !important;
+}
+html body main section .client {
+  width: 15%;
+}
+html body main section .client h2 {
+  font-size: 1.25rem;
+  text-decoration: underline;
+}
+html body main section .client a {
+  text-align: center;
+  width: 100%;
 }
 html body main section form {
   width: 50%;

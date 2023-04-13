@@ -22,7 +22,7 @@
         <h1>Hotel Ibis</h1>
         <nav>
             <ul>
-                <li><a href="/client">Ajouter un client</a></li>
+                <li><a href="/gestionClient">Gestion client</a></li>
                 <li><a href="/salle">Louer une salle</a></li>
                 <li><a href="/piscine">Louer la piscine</a></li>
                 <li><a href="/commande">Faire une commande pour un client</a></li>

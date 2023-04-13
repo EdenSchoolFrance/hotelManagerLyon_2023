@@ -23,6 +23,11 @@ class HotelController {
         require VIEWS . 'Hotel/accueil.php';
     }
 
+    public function getionClient() {
+        $allClient = $this->ClientManager->getAll();
+        require VIEWS . 'Hotel/menuClient.php';
+    }
+
     public function client() {
         require VIEWS . 'Hotel/client.php';
     }
@@ -73,5 +78,11 @@ class HotelController {
             header("Location: /chambre");
         }
     }
+
+    public function removeClient($slug){
+        $this->ClientManager->removeClient($slug);
+        header("Location: /gestionclient");
+    }
+
 
 }

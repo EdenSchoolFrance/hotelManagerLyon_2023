@@ -3,7 +3,7 @@ ob_start();
 ?>
 <section>
     <article>
-        <h2><a href="/client">Ajouter un client</a></h2>
+        <h2><a href="/gestionclient">Gestion client</a></h2>
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>

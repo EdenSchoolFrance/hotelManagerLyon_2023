@@ -17,5 +17,21 @@ final class Test extends TestCase
         );
     }
 
+    public function testInsert(){
+        $t = new ClientManager();
+        $this->assertEquals(
+            true,
+            $t->insert("nom", "prenom", "email@email.com", "0123456789")
+        );
+    }
+
+    public function testDelete(){
+        $t = new ClientManager();
+        $this->assertEquals(
+            true,
+            $t->delete("nom", "prenom", "0123456789")
+        );
+    }
+
 }
 
