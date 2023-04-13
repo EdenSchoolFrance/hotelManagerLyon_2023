@@ -11,9 +11,9 @@ $router = new Hotel\Router($_SERVER["REQUEST_URI"]);
 $router->get('/', "HotelController@showClients");
 $router->get('/deleteMenu/:Client', "HotelController@deleteMenu");
 
-$router->get('/addClients/error', "HotelController@index");
+$router->get('/addClients/error', "HotelController@showAddClient");
 
-$router->get('/addClient', "HotelController@index");
+$router->get('/addClient', "HotelController@showAddClient");
 $router->get('/deleteClient/:Client', "HotelController@removeClient");
 $router->get('/updateClient/:Client', "HotelController@showUpdateClient");
 
