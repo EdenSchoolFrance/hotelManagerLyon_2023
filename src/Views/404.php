@@ -2,6 +2,7 @@
 ob_start();
 if(isset($_SESSION['error'])){
     echo "<p style='text-align : center;'>".$_SESSION['error']."</p>";
+    //si j'ai des mauvais lien dans le hotelcontroller je suis a cette page et je peux donc voire quelle if est a modifier
 }
 ?>
 
@@ -11,6 +12,5 @@ if(isset($_SESSION['error'])){
 </section>
 
 <?php
-
 $content = ob_get_clean();
 require VIEWS . 'layout.php';

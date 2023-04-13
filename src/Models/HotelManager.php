@@ -29,9 +29,27 @@ class HotelManager
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
     }
+    public function getAll_piscine()
+    {
+        $stmt = $this->bdd->prepare('SELECT id_piscine, name_piscine FROM piscine');
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
     public function insert_reservation($id_client, $id_salle, $datedeb, $datefin, $status)
     {
         $stmt = $this->bdd->prepare("INSERT INTO client_salle (id_client, id_salle, date_debut_reservation_salle, date_fin_reservation_salle, status_salle) VALUES (?, ?, ?, ?, ?);");
+        $stmt->execute(array(
+            $id_client,
+            $id_salle,
+            $datedeb,
+            $datefin,
+            $status
+        ));
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
+    public function insert_reservation_piscine($id_client, $id_salle, $datedeb, $datefin, $status)
+    {
+        $stmt = $this->bdd->prepare("INSERT INTO client_piscine (id_client, id_piscine, date_debut_reservation_piscine, date_fin_reservation_piscine, status_piscine) VALUES (?, ?, ?, ?, ?);");
         $stmt->execute(array(
             $id_client,
             $id_salle,
@@ -79,6 +97,17 @@ class HotelManager
         $stmt = $this->bdd->prepare('SELECT type_salle FROM salle WHERE id_salle = ?');
         $stmt->execute(array(
             $id,
+        ));
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
+    }
+    public function verif_reserver_piscine($id,$datedeb,$datefin,$datetime)
+    {
+        $stmt = $this->bdd->prepare('SELECT * FROM piscine WHERE id_piscine = ? AND nettoyage_piscine NOT BETWEEN ? AND ? AND ? BETWEEN ouverture_piscine AND fermeture_piscine');
+        $stmt->execute(array(
+            $id,
+            $datedeb,
+            $datefin,
+            $datetime
         ));
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Hotel");
     }

@@ -98,11 +98,13 @@ class HotelController
         header('location:./'); 
     }
     public function salle(){
+        $option='salle';
         require VIEWS . 'Hotel/salle.php'; 
     }
     public function salle_create(){
         $client = $this->manager->getAll_client();
         $salle = $this->manager->getAll_salle();
+        $option='Salle';
         require VIEWS . 'Hotel/salle_create.php'; 
     }
     public function salle_create_bdd()
@@ -120,6 +122,34 @@ class HotelController
                 $date1 = date_create($_POST['datefin']);
                 $this->manager->insert_reservation($_POST['client'],$_POST['salle'],date_format($date, 'Y-m-d'),date_format($date1, 'Y-m-d'),$_POST ['status_salle']);
                 header('location:../');
+            }
+        }
+    }
+    public function piscine(){
+        $option='piscine';
+        require VIEWS . 'Hotel/salle.php'; 
+    }
+    public function piscine_create(){
+        $client = $this->manager->getAll_client();
+        $piscine = $this->manager->getAll_piscine();
+        $option='Piscine';
+        require VIEWS . 'Hotel/salle_create.php'; 
+    }
+    public function piscine_create_bdd()
+    {
+        if($_POST['status_salle']==""||htmlentities($_POST['status_salle'])!=$_POST['status_salle']||$_POST["datedeb"] > $_POST["datefin"]){
+            $_SESSION['error']="un champ et vide ou comptien des caracter speciaux ou la date de debut est apres celle de fin";
+            header('location:./');
+        }else{
+            $date = date_create($_POST['datedeb']);
+            $date1 = date_create($_POST['datefin']);
+            $verif = $this->manager->verif_reserver_piscine($_POST['salle'],date_format($date, 'Y-m-d'),date_format($date1, 'Y-m-d'),$_POST['datetime']);
+            if($verif){
+                $this->manager->insert_reservation_piscine($_POST['client'],$_POST['salle'],date_format($date, 'Y-m-d'),date_format($date1, 'Y-m-d'),$_POST['status_salle']);
+                header('location:../');
+            }else{
+                $_SESSION["error"]="la piscine et fermer ou un nettoyage et pendant la date";
+                header('location:./');
             }
         }
     }

@@ -37,11 +37,11 @@
                     <p class="hidden">salle</p>
                 </div>
                 <div class="hoverLink">
-                    <a href="/panier" class="icon"><i class="fa-solid fa-cart-shopping"></i></a>
-                    <p class="hidden">panier</p>
+                    <a href="/piscine" class="icon"><i class="fa-solid fa-person-swimming"></i></a>
+                    <p class="hidden">piscine</p>
                 </div>
                 <div class="hoverLink">
-                    <a href="/historique" class="icon"><i class="fa-solid fa-clock-rotate-left"></i></a>
+                    <a href="/historique" class="icon"><i class="fa-solid fa-water-ladder"></i></a>
                     <p class="hidden">Historique</p>
                 </div>
         </nav>
