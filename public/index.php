@@ -8,7 +8,7 @@ require SRC . 'helper.php';
 
 $router = new Hotel\Router($_SERVER["REQUEST_URI"]);
 
-$router->get('/showClients', "HotelController@showClients");
+$router->get('/', "HotelController@showClients");
 $router->get('/deleteMenu/:Client', "HotelController@deleteMenu");
 
 $router->get('/addClients/error', "HotelController@index");
@@ -25,7 +25,7 @@ $router->get('/showPiscine/:Client', "HotelController@showPiscine");
 $router->get('/showSalle/:Client', "HotelController@showSalle");
 $router->get('/showBoisson/:Bar', "HotelController@showBoisson");
 
-$router->post('/showClients', "HotelController@addReservation");
+$router->post('/', "HotelController@addReservation");
 $router->post('/showMenu/:Client', "HotelController@showMenu");
 
 $router->post('/addClient', "HotelController@addClient");
@@ -35,7 +35,7 @@ $router->post('/showRestaurant/:Client', "HotelController@showReservation");
 $router->post('/showPiscine/:Client', "HotelController@showReservation");
 $router->post('/showSalle/:Client', "HotelController@showReservation");
 $router->post('/showBoisson/:Client', "HotelController@showReservation");
-$router->post('/showClient/', "HotelController@addReservation");
+$router->post('/', "HotelController@addReservation");
 $router->post('/addMenu/:Client', "HotelController@addMenu");
 
 $router->run();

@@ -34,7 +34,7 @@ class HotelController
         if (!$this->validator->errors()) {
             if (!$res) {
                 $this->manager->addClient();
-                header("Location: /showClients");
+                header("Location: /");
             } else {
                 $_SESSION["error"]["email"] = "L'email entré est déjà utilisé";
                 header("Location: /addClients/error");
@@ -54,13 +54,13 @@ class HotelController
     public function removeClient($slug)
     {
         $this->manager->removeClient($slug);
-        header("Location: /showClients");
+        header("Location: /");
     }
 
     public function showUpdateClient($slug)
     {
         if (!isset($_SESSION["idUser"])) {
-            header("Location: /showClients");
+            header("Location: /");
         }
         $el = $this->manager->showSpecifiqueClient($slug);
         require VIEWS . "pages/updateClient.php";
@@ -69,33 +69,33 @@ class HotelController
     public function updateClient($slug)
     {
         if (!isset($_SESSION["idUser"])) {
-            header("Location: /showClients");
+            header("Location: /");
         }
         $this->manager->updateClient($slug);
-        header("Location: /showClients");
+        header("Location: /");
     }
 
     public function showReservation($slug)
     {
         if (!isset($_SESSION["idUser"])) {
-            header("Location: /showClients");
+            header("Location: /");
         }
         $resto = $this->manager->showRestoSpecifique();
         $chambre = $this->manager->showChambreSpecifique();
         $bar = $this->manager->showBar();
         $this->addBreadcrumb('Accueil', '/');
-        $this->addBreadcrumb('ShowClients', '/ShowClients');
+        $this->addBreadcrumb('ShowClients', '/');
         require VIEWS . "pages/reservation.php";
     }
 
     public function showChambre()
     {
         if (!isset($_SESSION["idUser"])) {
-            header("Location: /showClients");
+            header("Location: /");
         }
         $item = $this->manager->showChambre();
         $this->addBreadcrumb('Accueil', '/');
-        $this->addBreadcrumb('ShowClients', '/ShowClients');
+        $this->addBreadcrumb('ShowClients', '/');
         $this->addBreadcrumb('Reservation', '/reservation/' . $_SESSION["idUser"]);
         require VIEWS . "pages/chambre.php";
     }
@@ -103,11 +103,11 @@ class HotelController
     public function showResto()
     {
         if (!isset($_SESSION["idUser"])) {
-            header("Location: /showClients");
+            header("Location: /");
         }
         $item = $this->manager->showResto();
         $this->addBreadcrumb('Accueil', '/');
-        $this->addBreadcrumb('ShowClients', '/ShowClients');
+        $this->addBreadcrumb('ShowClients', '/');
         $this->addBreadcrumb('Reservation', '/reservation/' . $_SESSION["idUser"]);
         require VIEWS . "pages/resto.php";
     }
@@ -115,11 +115,11 @@ class HotelController
     public function showPiscine()
     {
         if (!isset($_SESSION["idUser"])) {
-            header("Location: /showClients");
+            header("Location: /");
         }
         $item = $this->manager->showPiscine();
         $this->addBreadcrumb('Accueil', '/');
-        $this->addBreadcrumb('ShowClients', '/ShowClients');
+        $this->addBreadcrumb('ShowClients', '/');
         $this->addBreadcrumb('Reservation', '/reservation/' . $_SESSION["idUser"]);
         require VIEWS . "pages/piscine.php";
     }
@@ -127,11 +127,11 @@ class HotelController
     public function showSalle()
     {
         if (!isset($_SESSION["idUser"])) {
-            header("Location: /showClients");
+            header("Location: /");
         }
         $item = $this->manager->showSalle();
         $this->addBreadcrumb('Accueil', '/');
-        $this->addBreadcrumb('ShowClients', '/ShowClients');
+        $this->addBreadcrumb('ShowClients', '/');
         $this->addBreadcrumb('Reservation', '/reservation/' . $_SESSION["idUser"]);
         require VIEWS . "pages/salle.php";
     }
@@ -139,7 +139,7 @@ class HotelController
     public function addReservation()
     {
         if (!isset($_SESSION["idUser"])) {
-            header("Location: /showClients");
+            header("Location: /");
         }
         if (isset($_POST["id_resto"])) {
             if (!isset($_COOKIE["restaurant" . $_SESSION["idUser"]])) {
@@ -150,7 +150,7 @@ class HotelController
         if ($_POST["error"]) {
             header("Location: /reservation/" . $_SESSION["idUser"] . "/error");
         } else {
-            header("Location: /showClients/");
+            header("Location: /");
         }
     }
 
@@ -162,14 +162,14 @@ class HotelController
     public function deleteMenu($slug)
     {
         setcookie("restaurant_" . $slug, "", time() - 3600, "/");
-        header("Location: /showClients");
+        header("Location: /");
     }
 
     public function showMenu()
     {
         $item = $this->manager->showMenu();
         $this->addBreadcrumb('Accueil', '/');
-        $this->addBreadcrumb('ShowClients', '/ShowClients');
+        $this->addBreadcrumb('ShowClients', '/');
         require VIEWS . "pages/menu.php";
     }
 
@@ -177,16 +177,16 @@ class HotelController
     {
         $this->manager->addMenu();
         $this->addBreadcrumb('Accueil', '/');
-        $this->addBreadcrumb('ShowClients', '/ShowClients');
+        $this->addBreadcrumb('ShowClients', '/');
         $this->addBreadcrumb('Reservation', '/reservation/' . $_SESSION["idUser"]);
-        header("Location: /showClients");
+        header("Location: /");
     }
 
     public function showBoisson($slug)
     {
         $item = $this->manager->showBoisson($slug);
         $this->addBreadcrumb('Accueil', '/');
-        $this->addBreadcrumb('ShowClients', '/ShowClients');
+        $this->addBreadcrumb('ShowClients', '/');
         $this->addBreadcrumb('Reservation', '/reservation/' . $_SESSION["idUser"]);
         require VIEWS . "pages/boissons.php";
     }

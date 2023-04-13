@@ -182,8 +182,8 @@ class HotelManager extends BDD
         if (isset($_POST["id_boisson"])) {
             $stock = $stmt->fetchAll()[0]["quantite_stock_bar_boisson"];
             if ($stock >= $_POST["quantity_boisson"]) {
-                $stmt = $this->bdd->prepare('UPDATE bar_boisson SET quantite_stock_bar_boisson = ?');
-                $stmt->execute(array($stock - $_POST["quantity_boisson"]));
+                $stmt = $this->bdd->prepare('UPDATE bar_boisson SET quantite_stock_bar_boisson = ? WHERE id_boisson = ?');
+                $stmt->execute(array(($stock - $_POST["quantity_boisson"]), $_POST["id_boisson"]));
 
                 $stmt = $this->bdd->prepare('INSERT INTO client_boisson (id_client, id_boisson, quantite_client_boisson, date_client_boisson) VALUES (?, ?, ?, ?)');
                 $stmt->execute(array($slug, $_POST["id_boisson"], $_POST["quantity_boisson"], $_POST["debut_boisson"]));
@@ -208,7 +208,7 @@ class HotelManager extends BDD
 
     public function showBoisson($slug)
     {
-        $stmt = $this->bdd->prepare("SELECT * FROM boisson JOIN bar_boisson ON boisson.id_boisson = bar_boisson.id_boisson WHERE bar_boisson.id_boisson = ?");
+        $stmt = $this->bdd->prepare("SELECT * FROM boisson JOIN bar_boisson ON boisson.id_boisson = bar_boisson.id_boisson WHERE bar_boisson.id_bar = ?");
         $stmt->execute(array($slug));
 
         return $stmt->fetchAll(PDO::FETCH_CLASS, "Hotel\Models\Boisson");
@@ -216,7 +216,7 @@ class HotelManager extends BDD
 
     public function showBar()
     {
-        $stmt = $this->bdd->prepare("SELECT * FROM bar JOIN bar_boisson ON bar.id_bar = bar_boisson.id_bar");
+        $stmt = $this->bdd->prepare("SELECT DISTINCT bar.id_bar, bar.name_bar, bar.id_bar FROM bar JOIN bar_boisson ON bar.id_bar = bar_boisson.id_bar;");
         $stmt->execute();
 
         return $stmt->fetchAll();

@@ -8,7 +8,7 @@
     <div class="reserv">
         <div>
             <h2>search your <span>offer</span></h2>
-            <form action="/showClients" method="post">
+            <form action="/" method="post">
                 <div class="resto">
                     <h3>Restaurants</h3>
                     <div>
@@ -90,7 +90,7 @@
                     </div>
                     <select name="bar_select" class="none">
                         <?php foreach ($bar as $bars) : ?>
-                            <option value="<?= $bars["id_boisson"] ?>"><?= $bars["name_bar"] ?></option>
+                            <option value="<?= $bars["id_bar"] ?>"><?= $bars["name_bar"] ?></option>
                         <?php endforeach ?>
                     </select>
                     <a href="/showBoisson/1" class="none">
