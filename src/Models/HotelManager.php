@@ -53,4 +53,11 @@ class HotelManager extends Bdd
         ));
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Menus");
     }
+
+    public function show_boissons()
+    {
+        $stmt = $this->bdd->prepare('SELECT * FROM `boisson`');
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "Hotel\Models\Boissons");
+    }
 }

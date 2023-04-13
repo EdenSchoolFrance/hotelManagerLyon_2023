@@ -77,8 +77,8 @@ body header ul li:hover {
 .show .card .prix {
   font-size: 20px;
 }
-.show .card #deb_date,
-.show .card #fin_date {
+.show .card .deb_date,
+.show .card .fin_date {
   margin: 15px 0;
 }
 .show .card .valider {

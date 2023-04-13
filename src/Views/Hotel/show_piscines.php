@@ -15,8 +15,8 @@ ob_start();
             <div class="fermeture">Fermeture: <?= $piscine->getfermeture_piscine(); ?></div>
             <form action="/piscines/reserver/" method="post">
                 <div class="date">
-                    <p><input type="date" name="deb_date" id="deb-date" required></p>
-                    <p><input type="date" name="fin_date" id="fin_date" required></p>
+                    <p><input type="date" name="deb_date" class="deb_date" required></p>
+                    <p><input type="date" name="fin_date" class="fin_date" required></p>
                 </div>
 
                 <input type="hidden" name="id_piscine" value="<?= $piscine->getid_piscine(); ?>">

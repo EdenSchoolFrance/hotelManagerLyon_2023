@@ -3,6 +3,8 @@
 namespace Hotel\Controllers;
 
 //les use permetteron de creer les variable des manager
+
+use DateTime;
 use Hotel\Models\HotelManager;
 use Hotel\Models\ClientManager;
 use Hotel\Validator;
@@ -121,6 +123,13 @@ class HotelController
         require VIEWS . 'Hotel/show_menus.php';
     }
 
+    // Affichage des boissons (des bars)
+    public function show_boissons()
+    {
+        $boissons = $this->manager_hotel->show_boissons();
+        require VIEWS . 'Hotel/show_boissons.php';
+    }
+
     // Reservation de chambre
     public function reserve_chambres()
     {
@@ -155,6 +164,36 @@ class HotelController
         $num_reserve = uniqid();
 
         $this->manager->reserve_salles($user, $id_salle, $deb_date, $fin_date, $num_reserve);
+        header("Location: /client/" . $_SESSION['user']['id_user'] . "");
+    }
+
+    public function reserve_menus()
+    {
+        $user = $_SESSION["user"]["id_user"];
+        $id_menu = $_POST["id_menu"];
+        $quantite = $_POST["quantite"];
+
+        $this->manager->reserve_menus($user, $id_menu, $quantite);
+        header("Location: /client/" . $_SESSION['user']['id_user'] . "");
+    }
+
+    public function reserve_boissons()
+    {
+
+        $user = $_SESSION["user"]["id_user"];
+        $id_boisson = $_POST["id_boisson"];
+        $quantite = $_POST["quantite"];
+        $date = date(DATE_W3C);
+
+        $res = $this->manager->find_reserve_boissons($user);
+
+        if (empty($res)) {
+            $this->manager->reserve_boissons($user, $id_boisson, $quantite, $date);
+        } else {
+            $quantite = $res +  $_POST["quantite"];
+            $this->manager->update_reserve_boissons($user, $quantite);
+        }
+
         header("Location: /client/" . $_SESSION['user']['id_user'] . "");
     }
 }

@@ -14,8 +14,9 @@ ob_start();
             <p class="description"><?= $menu->getdescription_menu(); ?></p>
             <p class="image"><img src="/assets/<?= $menu->getimage_menu(); ?>" alt="Image de la menu"></p>
             <p class="prix"><?= $menu->getprix_un_menu(); ?> €</p>
-            <form action="/chambres/reserver/" method="post">
-                <input type="hidden" name="id_chambre" value="<?= $menu->getid_menu(); ?>">
+            <form action="/menu/reserver/" method="post">
+                <input type="number" name="quantite" class="quantite" required>
+                <input type="hidden" name="id_menu" value="<?= $menu->getid_menu(); ?>">
                 <button type="submit" class="valider">Reserver la chambre</button>
             </form>
         </div>

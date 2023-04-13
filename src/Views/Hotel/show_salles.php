@@ -15,8 +15,8 @@ ob_start();
             <div class="option"><?= $salle->getoptions_salle(); ?></div>
             <form action="/salles/reserver/" method="post">
                 <div class="date">
-                    <p><input type="date" name="deb_date" id="deb-date" required></p>
-                    <p><input type="date" name="fin_date" id="fin_date" required></p>
+                    <p><input type="date" name="deb_date" class="deb_date" required></p>
+                    <p><input type="date" name="fin_date" class="fin_date" required></p>
                 </div>
 
                 <input type="hidden" name="id_salle" value="<?= $salle->getid_salle(); ?>">
