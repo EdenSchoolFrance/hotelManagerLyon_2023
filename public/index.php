@@ -25,6 +25,12 @@ $router->post('validCommandMenu/', "FoodController@validCommandMenu");
 
 $router->get('bar/:idbar/', "FoodController@bar");
 $router->get('commandBoisson/:idboisson/', "FoodController@commandBoisson");
+$router->post('validCommandBoisson/', "FoodController@validCommandBoisson");
+
+//SALLES EVENEMENTIELLES
+$router->get('salles/', "SalleController@allSalles");
+$router->get('reserveSalle/:idsalle/', "SalleController@reserveSalle");
+$router->post('validReserveSalle/', "SalleController@validReserveSalle");
 
 
 //CLIENTS

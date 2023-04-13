@@ -35,10 +35,7 @@
                         <a href="/food">Restaurants/Bars</a>
                     </li>
                     <li>
-                        <a href="#">Piscine</a>
-                    </li>
-                    <li>
-                        <a href="#">Salles Evénementielles</a>
+                        <a href="/salles">Salles Evénementielles</a>
                     </li>
                     <li>
                         <a href="/clients">Nos Clients</a>

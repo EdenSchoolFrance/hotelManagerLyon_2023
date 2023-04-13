@@ -182,14 +182,21 @@ main{
             background-position: center;
         }
     }
+    section.salles{
+        h1{
+            background: url('../pictures/salles.jpg') no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+    }
     section.restaurant, section.bar{
         h1{
             background-size: cover !important;
             background-position: center !important;
         }
     }
-    section.chambres, section.restaurant, section.bar{
-        .allChambres, .allMenu, .allBoisson{
+    section.chambres, section.salles, section.restaurant, section.bar{
+        .allChambres, .allSalles, .allMenu, .allBoisson{
             padding: 2rem;
             ul{
                 display: flex;
@@ -256,7 +263,7 @@ main{
             }
         }
     }
-    section.reserveChambre, section.commandMenu, section.commandBoisson{
+    section.reserveChambre, section.reserveSalle, section.commandMenu, section.commandBoisson{
         h1{
             background-size: cover !important;
             background-position: center !important;
@@ -279,7 +286,7 @@ main{
         }
         .reserveForm{
             width: 50%;
-            margin: 5rem auto 0;
+            margin: 5rem auto;
             background-color: #313131;
             padding: 2rem;
             border-radius: 15px;
@@ -328,13 +335,15 @@ main{
             background-position: center;
         }
         .allResto, .allBar{
+            text-align: center;
             padding: 2rem;
             h3{
-                font-size: 3rem;
+                font-size: 2rem;
             }
             ul{
                 width: 100%;
                 display: flex;
+                justify-content: center;
                 padding-left: 2rem;
                 li{
                     margin-right: 2rem;
@@ -350,12 +359,13 @@ main{
         }
         .allClients{
             padding: 2rem;
+            text-align: center;
             table {
                 margin-top: 2rem;
                 border-collapse: collapse;
-                width: 100%;
+                width: 80%;
+                margin: 4rem auto 0;
               }
-              
               td, th {
                 border: 1px solid $blue;
                 text-align: left;

@@ -5,7 +5,6 @@ ob_start();
 <section class="chambres">
     <h1>Nos Chambres</h1>
     <div class="allChambres">
-        <h3>Toutes nos chambres...</h3>
         <ul>
             <?php foreach ($chambres as $chambre) { ?>
                 <li>

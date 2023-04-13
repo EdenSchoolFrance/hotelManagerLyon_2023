@@ -165,18 +165,23 @@ main section.chambres h1 {
   background-size: cover;
   background-position: center;
 }
+main section.salles h1 {
+  background: url("../pictures/salles.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+}
 main section.restaurant h1, main section.bar h1 {
   background-size: cover !important;
   background-position: center !important;
 }
-main section.chambres .allChambres, main section.chambres .allMenu, main section.chambres .allBoisson, main section.restaurant .allChambres, main section.restaurant .allMenu, main section.restaurant .allBoisson, main section.bar .allChambres, main section.bar .allMenu, main section.bar .allBoisson {
+main section.chambres .allChambres, main section.chambres .allSalles, main section.chambres .allMenu, main section.chambres .allBoisson, main section.salles .allChambres, main section.salles .allSalles, main section.salles .allMenu, main section.salles .allBoisson, main section.restaurant .allChambres, main section.restaurant .allSalles, main section.restaurant .allMenu, main section.restaurant .allBoisson, main section.bar .allChambres, main section.bar .allSalles, main section.bar .allMenu, main section.bar .allBoisson {
   padding: 2rem;
 }
-main section.chambres .allChambres ul, main section.chambres .allMenu ul, main section.chambres .allBoisson ul, main section.restaurant .allChambres ul, main section.restaurant .allMenu ul, main section.restaurant .allBoisson ul, main section.bar .allChambres ul, main section.bar .allMenu ul, main section.bar .allBoisson ul {
+main section.chambres .allChambres ul, main section.chambres .allSalles ul, main section.chambres .allMenu ul, main section.chambres .allBoisson ul, main section.salles .allChambres ul, main section.salles .allSalles ul, main section.salles .allMenu ul, main section.salles .allBoisson ul, main section.restaurant .allChambres ul, main section.restaurant .allSalles ul, main section.restaurant .allMenu ul, main section.restaurant .allBoisson ul, main section.bar .allChambres ul, main section.bar .allSalles ul, main section.bar .allMenu ul, main section.bar .allBoisson ul {
   display: flex;
   flex-wrap: wrap;
 }
-main section.chambres .allChambres ul li, main section.chambres .allMenu ul li, main section.chambres .allBoisson ul li, main section.restaurant .allChambres ul li, main section.restaurant .allMenu ul li, main section.restaurant .allBoisson ul li, main section.bar .allChambres ul li, main section.bar .allMenu ul li, main section.bar .allBoisson ul li {
+main section.chambres .allChambres ul li, main section.chambres .allSalles ul li, main section.chambres .allMenu ul li, main section.chambres .allBoisson ul li, main section.salles .allChambres ul li, main section.salles .allSalles ul li, main section.salles .allMenu ul li, main section.salles .allBoisson ul li, main section.restaurant .allChambres ul li, main section.restaurant .allSalles ul li, main section.restaurant .allMenu ul li, main section.restaurant .allBoisson ul li, main section.bar .allChambres ul li, main section.bar .allSalles ul li, main section.bar .allMenu ul li, main section.bar .allBoisson ul li {
   background-color: #313131;
   width: 20%;
   margin: 2.5%;
@@ -184,7 +189,7 @@ main section.chambres .allChambres ul li, main section.chambres .allMenu ul li, 
   border-radius: 15px;
   border: solid 2px #65C1BE;
 }
-main section.chambres .allChambres ul li .picture, main section.chambres .allMenu ul li .picture, main section.chambres .allBoisson ul li .picture, main section.restaurant .allChambres ul li .picture, main section.restaurant .allMenu ul li .picture, main section.restaurant .allBoisson ul li .picture, main section.bar .allChambres ul li .picture, main section.bar .allMenu ul li .picture, main section.bar .allBoisson ul li .picture {
+main section.chambres .allChambres ul li .picture, main section.chambres .allSalles ul li .picture, main section.chambres .allMenu ul li .picture, main section.chambres .allBoisson ul li .picture, main section.salles .allChambres ul li .picture, main section.salles .allSalles ul li .picture, main section.salles .allMenu ul li .picture, main section.salles .allBoisson ul li .picture, main section.restaurant .allChambres ul li .picture, main section.restaurant .allSalles ul li .picture, main section.restaurant .allMenu ul li .picture, main section.restaurant .allBoisson ul li .picture, main section.bar .allChambres ul li .picture, main section.bar .allSalles ul li .picture, main section.bar .allMenu ul li .picture, main section.bar .allBoisson ul li .picture {
   width: 100%;
   height: 200px;
   overflow: hidden;
@@ -192,33 +197,33 @@ main section.chambres .allChambres ul li .picture, main section.chambres .allMen
   justify-content: center;
   align-items: center;
 }
-main section.chambres .allChambres ul li .picture img, main section.chambres .allMenu ul li .picture img, main section.chambres .allBoisson ul li .picture img, main section.restaurant .allChambres ul li .picture img, main section.restaurant .allMenu ul li .picture img, main section.restaurant .allBoisson ul li .picture img, main section.bar .allChambres ul li .picture img, main section.bar .allMenu ul li .picture img, main section.bar .allBoisson ul li .picture img {
+main section.chambres .allChambres ul li .picture img, main section.chambres .allSalles ul li .picture img, main section.chambres .allMenu ul li .picture img, main section.chambres .allBoisson ul li .picture img, main section.salles .allChambres ul li .picture img, main section.salles .allSalles ul li .picture img, main section.salles .allMenu ul li .picture img, main section.salles .allBoisson ul li .picture img, main section.restaurant .allChambres ul li .picture img, main section.restaurant .allSalles ul li .picture img, main section.restaurant .allMenu ul li .picture img, main section.restaurant .allBoisson ul li .picture img, main section.bar .allChambres ul li .picture img, main section.bar .allSalles ul li .picture img, main section.bar .allMenu ul li .picture img, main section.bar .allBoisson ul li .picture img {
   width: 150%;
   transition: ease 1s;
 }
-main section.chambres .allChambres ul li .content, main section.chambres .allMenu ul li .content, main section.chambres .allBoisson ul li .content, main section.restaurant .allChambres ul li .content, main section.restaurant .allMenu ul li .content, main section.restaurant .allBoisson ul li .content, main section.bar .allChambres ul li .content, main section.bar .allMenu ul li .content, main section.bar .allBoisson ul li .content {
+main section.chambres .allChambres ul li .content, main section.chambres .allSalles ul li .content, main section.chambres .allMenu ul li .content, main section.chambres .allBoisson ul li .content, main section.salles .allChambres ul li .content, main section.salles .allSalles ul li .content, main section.salles .allMenu ul li .content, main section.salles .allBoisson ul li .content, main section.restaurant .allChambres ul li .content, main section.restaurant .allSalles ul li .content, main section.restaurant .allMenu ul li .content, main section.restaurant .allBoisson ul li .content, main section.bar .allChambres ul li .content, main section.bar .allSalles ul li .content, main section.bar .allMenu ul li .content, main section.bar .allBoisson ul li .content {
   padding: 1rem;
 }
-main section.chambres .allChambres ul li .content h5, main section.chambres .allMenu ul li .content h5, main section.chambres .allBoisson ul li .content h5, main section.restaurant .allChambres ul li .content h5, main section.restaurant .allMenu ul li .content h5, main section.restaurant .allBoisson ul li .content h5, main section.bar .allChambres ul li .content h5, main section.bar .allMenu ul li .content h5, main section.bar .allBoisson ul li .content h5 {
+main section.chambres .allChambres ul li .content h5, main section.chambres .allSalles ul li .content h5, main section.chambres .allMenu ul li .content h5, main section.chambres .allBoisson ul li .content h5, main section.salles .allChambres ul li .content h5, main section.salles .allSalles ul li .content h5, main section.salles .allMenu ul li .content h5, main section.salles .allBoisson ul li .content h5, main section.restaurant .allChambres ul li .content h5, main section.restaurant .allSalles ul li .content h5, main section.restaurant .allMenu ul li .content h5, main section.restaurant .allBoisson ul li .content h5, main section.bar .allChambres ul li .content h5, main section.bar .allSalles ul li .content h5, main section.bar .allMenu ul li .content h5, main section.bar .allBoisson ul li .content h5 {
   font-size: 2.5rem;
   text-align: center;
   margin-bottom: 3rem;
 }
-main section.chambres .allChambres ul li .content p, main section.chambres .allMenu ul li .content p, main section.chambres .allBoisson ul li .content p, main section.restaurant .allChambres ul li .content p, main section.restaurant .allMenu ul li .content p, main section.restaurant .allBoisson ul li .content p, main section.bar .allChambres ul li .content p, main section.bar .allMenu ul li .content p, main section.bar .allBoisson ul li .content p {
+main section.chambres .allChambres ul li .content p, main section.chambres .allSalles ul li .content p, main section.chambres .allMenu ul li .content p, main section.chambres .allBoisson ul li .content p, main section.salles .allChambres ul li .content p, main section.salles .allSalles ul li .content p, main section.salles .allMenu ul li .content p, main section.salles .allBoisson ul li .content p, main section.restaurant .allChambres ul li .content p, main section.restaurant .allSalles ul li .content p, main section.restaurant .allMenu ul li .content p, main section.restaurant .allBoisson ul li .content p, main section.bar .allChambres ul li .content p, main section.bar .allSalles ul li .content p, main section.bar .allMenu ul li .content p, main section.bar .allBoisson ul li .content p {
   font-size: 1.5rem;
 }
-main section.chambres .allChambres ul li .content .reservation, main section.chambres .allMenu ul li .content .reservation, main section.chambres .allBoisson ul li .content .reservation, main section.restaurant .allChambres ul li .content .reservation, main section.restaurant .allMenu ul li .content .reservation, main section.restaurant .allBoisson ul li .content .reservation, main section.bar .allChambres ul li .content .reservation, main section.bar .allMenu ul li .content .reservation, main section.bar .allBoisson ul li .content .reservation {
+main section.chambres .allChambres ul li .content .reservation, main section.chambres .allSalles ul li .content .reservation, main section.chambres .allMenu ul li .content .reservation, main section.chambres .allBoisson ul li .content .reservation, main section.salles .allChambres ul li .content .reservation, main section.salles .allSalles ul li .content .reservation, main section.salles .allMenu ul li .content .reservation, main section.salles .allBoisson ul li .content .reservation, main section.restaurant .allChambres ul li .content .reservation, main section.restaurant .allSalles ul li .content .reservation, main section.restaurant .allMenu ul li .content .reservation, main section.restaurant .allBoisson ul li .content .reservation, main section.bar .allChambres ul li .content .reservation, main section.bar .allSalles ul li .content .reservation, main section.bar .allMenu ul li .content .reservation, main section.bar .allBoisson ul li .content .reservation {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-main section.chambres .allChambres ul li .content .reservation .dispo, main section.chambres .allMenu ul li .content .reservation .dispo, main section.chambres .allBoisson ul li .content .reservation .dispo, main section.restaurant .allChambres ul li .content .reservation .dispo, main section.restaurant .allMenu ul li .content .reservation .dispo, main section.restaurant .allBoisson ul li .content .reservation .dispo, main section.bar .allChambres ul li .content .reservation .dispo, main section.bar .allMenu ul li .content .reservation .dispo, main section.bar .allBoisson ul li .content .reservation .dispo {
+main section.chambres .allChambres ul li .content .reservation .dispo, main section.chambres .allSalles ul li .content .reservation .dispo, main section.chambres .allMenu ul li .content .reservation .dispo, main section.chambres .allBoisson ul li .content .reservation .dispo, main section.salles .allChambres ul li .content .reservation .dispo, main section.salles .allSalles ul li .content .reservation .dispo, main section.salles .allMenu ul li .content .reservation .dispo, main section.salles .allBoisson ul li .content .reservation .dispo, main section.restaurant .allChambres ul li .content .reservation .dispo, main section.restaurant .allSalles ul li .content .reservation .dispo, main section.restaurant .allMenu ul li .content .reservation .dispo, main section.restaurant .allBoisson ul li .content .reservation .dispo, main section.bar .allChambres ul li .content .reservation .dispo, main section.bar .allSalles ul li .content .reservation .dispo, main section.bar .allMenu ul li .content .reservation .dispo, main section.bar .allBoisson ul li .content .reservation .dispo {
   color: green;
 }
-main section.chambres .allChambres ul li .content .reservation .occupe, main section.chambres .allMenu ul li .content .reservation .occupe, main section.chambres .allBoisson ul li .content .reservation .occupe, main section.restaurant .allChambres ul li .content .reservation .occupe, main section.restaurant .allMenu ul li .content .reservation .occupe, main section.restaurant .allBoisson ul li .content .reservation .occupe, main section.bar .allChambres ul li .content .reservation .occupe, main section.bar .allMenu ul li .content .reservation .occupe, main section.bar .allBoisson ul li .content .reservation .occupe {
+main section.chambres .allChambres ul li .content .reservation .occupe, main section.chambres .allSalles ul li .content .reservation .occupe, main section.chambres .allMenu ul li .content .reservation .occupe, main section.chambres .allBoisson ul li .content .reservation .occupe, main section.salles .allChambres ul li .content .reservation .occupe, main section.salles .allSalles ul li .content .reservation .occupe, main section.salles .allMenu ul li .content .reservation .occupe, main section.salles .allBoisson ul li .content .reservation .occupe, main section.restaurant .allChambres ul li .content .reservation .occupe, main section.restaurant .allSalles ul li .content .reservation .occupe, main section.restaurant .allMenu ul li .content .reservation .occupe, main section.restaurant .allBoisson ul li .content .reservation .occupe, main section.bar .allChambres ul li .content .reservation .occupe, main section.bar .allSalles ul li .content .reservation .occupe, main section.bar .allMenu ul li .content .reservation .occupe, main section.bar .allBoisson ul li .content .reservation .occupe {
   color: red;
 }
-main section.chambres .allChambres ul li .content .reservation a, main section.chambres .allMenu ul li .content .reservation a, main section.chambres .allBoisson ul li .content .reservation a, main section.restaurant .allChambres ul li .content .reservation a, main section.restaurant .allMenu ul li .content .reservation a, main section.restaurant .allBoisson ul li .content .reservation a, main section.bar .allChambres ul li .content .reservation a, main section.bar .allMenu ul li .content .reservation a, main section.bar .allBoisson ul li .content .reservation a {
+main section.chambres .allChambres ul li .content .reservation a, main section.chambres .allSalles ul li .content .reservation a, main section.chambres .allMenu ul li .content .reservation a, main section.chambres .allBoisson ul li .content .reservation a, main section.salles .allChambres ul li .content .reservation a, main section.salles .allSalles ul li .content .reservation a, main section.salles .allMenu ul li .content .reservation a, main section.salles .allBoisson ul li .content .reservation a, main section.restaurant .allChambres ul li .content .reservation a, main section.restaurant .allSalles ul li .content .reservation a, main section.restaurant .allMenu ul li .content .reservation a, main section.restaurant .allBoisson ul li .content .reservation a, main section.bar .allChambres ul li .content .reservation a, main section.bar .allSalles ul li .content .reservation a, main section.bar .allMenu ul li .content .reservation a, main section.bar .allBoisson ul li .content .reservation a {
   display: block;
   font-size: 1.5rem;
   color: #313131;
@@ -226,39 +231,39 @@ main section.chambres .allChambres ul li .content .reservation a, main section.c
   border-radius: 15px;
   padding: 0.5rem 1rem;
 }
-main section.chambres .allChambres ul li:hover .picture img, main section.chambres .allMenu ul li:hover .picture img, main section.chambres .allBoisson ul li:hover .picture img, main section.restaurant .allChambres ul li:hover .picture img, main section.restaurant .allMenu ul li:hover .picture img, main section.restaurant .allBoisson ul li:hover .picture img, main section.bar .allChambres ul li:hover .picture img, main section.bar .allMenu ul li:hover .picture img, main section.bar .allBoisson ul li:hover .picture img {
+main section.chambres .allChambres ul li:hover .picture img, main section.chambres .allSalles ul li:hover .picture img, main section.chambres .allMenu ul li:hover .picture img, main section.chambres .allBoisson ul li:hover .picture img, main section.salles .allChambres ul li:hover .picture img, main section.salles .allSalles ul li:hover .picture img, main section.salles .allMenu ul li:hover .picture img, main section.salles .allBoisson ul li:hover .picture img, main section.restaurant .allChambres ul li:hover .picture img, main section.restaurant .allSalles ul li:hover .picture img, main section.restaurant .allMenu ul li:hover .picture img, main section.restaurant .allBoisson ul li:hover .picture img, main section.bar .allChambres ul li:hover .picture img, main section.bar .allSalles ul li:hover .picture img, main section.bar .allMenu ul li:hover .picture img, main section.bar .allBoisson ul li:hover .picture img {
   width: 130% !important;
 }
-main section.reserveChambre h1, main section.commandMenu h1, main section.commandBoisson h1 {
+main section.reserveChambre h1, main section.reserveSalle h1, main section.commandMenu h1, main section.commandBoisson h1 {
   background-size: cover !important;
   background-position: center !important;
 }
-main section.reserveChambre .valid-message, main section.commandMenu .valid-message, main section.commandBoisson .valid-message {
+main section.reserveChambre .valid-message, main section.reserveSalle .valid-message, main section.commandMenu .valid-message, main section.commandBoisson .valid-message {
   font-size: 1.5rem;
   text-align: center;
   padding: 2rem;
   color: green;
 }
-main section.reserveChambre .reservations, main section.commandMenu .reservations, main section.commandBoisson .reservations {
+main section.reserveChambre .reservations, main section.reserveSalle .reservations, main section.commandMenu .reservations, main section.commandBoisson .reservations {
   padding: 3rem;
 }
-main section.reserveChambre .reservations ul, main section.commandMenu .reservations ul, main section.commandBoisson .reservations ul {
+main section.reserveChambre .reservations ul, main section.reserveSalle .reservations ul, main section.commandMenu .reservations ul, main section.commandBoisson .reservations ul {
   list-style: circle;
   padding-left: 5rem;
 }
-main section.reserveChambre .reservations ul li, main section.commandMenu .reservations ul li, main section.commandBoisson .reservations ul li {
+main section.reserveChambre .reservations ul li, main section.reserveSalle .reservations ul li, main section.commandMenu .reservations ul li, main section.commandBoisson .reservations ul li {
   font-size: 1.5rem;
 }
-main section.reserveChambre .reserveForm, main section.commandMenu .reserveForm, main section.commandBoisson .reserveForm {
+main section.reserveChambre .reserveForm, main section.reserveSalle .reserveForm, main section.commandMenu .reserveForm, main section.commandBoisson .reserveForm {
   width: 50%;
-  margin: 5rem auto 0;
+  margin: 5rem auto;
   background-color: #313131;
   padding: 2rem;
   border-radius: 15px;
   border: solid 2px #65C1BE;
   text-align: center;
 }
-main section.reserveChambre .reserveForm select, main section.commandMenu .reserveForm select, main section.commandBoisson .reserveForm select {
+main section.reserveChambre .reserveForm select, main section.reserveSalle .reserveForm select, main section.commandMenu .reserveForm select, main section.commandBoisson .reserveForm select {
   font-size: 1.5rem;
   width: 40%;
   background-color: #65C1BE;
@@ -267,13 +272,13 @@ main section.reserveChambre .reserveForm select, main section.commandMenu .reser
   text-align: center;
   padding: 0.5rem 1rem;
 }
-main section.reserveChambre .reserveForm select option, main section.commandMenu .reserveForm select option, main section.commandBoisson .reserveForm select option {
+main section.reserveChambre .reserveForm select option, main section.reserveSalle .reserveForm select option, main section.commandMenu .reserveForm select option, main section.commandBoisson .reserveForm select option {
   font-size: 1.5rem;
 }
-main section.reserveChambre .reserveForm .input-label, main section.commandMenu .reserveForm .input-label, main section.commandBoisson .reserveForm .input-label {
+main section.reserveChambre .reserveForm .input-label, main section.reserveSalle .reserveForm .input-label, main section.commandMenu .reserveForm .input-label, main section.commandBoisson .reserveForm .input-label {
   margin: 2rem 0;
 }
-main section.reserveChambre .reserveForm .input-label input, main section.commandMenu .reserveForm .input-label input, main section.commandBoisson .reserveForm .input-label input {
+main section.reserveChambre .reserveForm .input-label input, main section.reserveSalle .reserveForm .input-label input, main section.commandMenu .reserveForm .input-label input, main section.commandBoisson .reserveForm .input-label input {
   font-size: 1.5rem;
   background-color: #65C1BE;
   border-radius: 15px;
@@ -281,12 +286,12 @@ main section.reserveChambre .reserveForm .input-label input, main section.comman
   padding: 0.5rem 1rem;
   width: 40%;
 }
-main section.reserveChambre .reserveForm .input-label label, main section.commandMenu .reserveForm .input-label label, main section.commandBoisson .reserveForm .input-label label {
+main section.reserveChambre .reserveForm .input-label label, main section.reserveSalle .reserveForm .input-label label, main section.commandMenu .reserveForm .input-label label, main section.commandBoisson .reserveForm .input-label label {
   font-size: 1.5rem;
   display: block;
   margin: 1rem 0;
 }
-main section.reserveChambre .reserveForm .error, main section.commandMenu .reserveForm .error, main section.commandBoisson .reserveForm .error {
+main section.reserveChambre .reserveForm .error, main section.reserveSalle .reserveForm .error, main section.commandMenu .reserveForm .error, main section.commandBoisson .reserveForm .error {
   font-size: 1.5rem;
   color: red;
 }
@@ -296,14 +301,16 @@ main section.restaurant-bar h1 {
   background-position: center;
 }
 main section.restaurant-bar .allResto, main section.restaurant-bar .allBar {
+  text-align: center;
   padding: 2rem;
 }
 main section.restaurant-bar .allResto h3, main section.restaurant-bar .allBar h3 {
-  font-size: 3rem;
+  font-size: 2rem;
 }
 main section.restaurant-bar .allResto ul, main section.restaurant-bar .allBar ul {
   width: 100%;
   display: flex;
+  justify-content: center;
   padding-left: 2rem;
 }
 main section.restaurant-bar .allResto ul li, main section.restaurant-bar .allBar ul li {
@@ -316,11 +323,13 @@ main section.clients h1 {
 }
 main section.clients .allClients {
   padding: 2rem;
+  text-align: center;
 }
 main section.clients .allClients table {
   margin-top: 2rem;
   border-collapse: collapse;
-  width: 100%;
+  width: 80%;
+  margin: 4rem auto 0;
 }
 main section.clients .allClients td, main section.clients .allClients th {
   border: 1px solid #65C1BE;

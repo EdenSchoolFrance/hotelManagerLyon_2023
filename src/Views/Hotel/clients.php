@@ -5,19 +5,19 @@ ob_start();
 <section class="clients">
     <h1>Nos Clients</h1>
     <div class="allClients">
-        <h3>Toutes nos clients...</h3>
         <div id="btnAddClient" class="btn">Ajouter un client</div>
         <table>
             <tr>
                 <th>Nom</th>
                 <th>Prenom</th>
-                <th colspan="3">Email</th>
+                <th colspan="4">Email</th>
             </tr>
             <?php foreach ($clients as $client) { ?>
                 <tr>
                     <td><?= $client->getNom() ?></td>
                     <td><?= $client->getPrenom() ?></td>
                     <td><?= $client->getMail() ?></td>
+                    <td><a href="/historiqueClient">Historique</a></td>
                     <td><a href="/updateClient">Modifier</a></td>
                     <td><a href="/deleteClient">Supprimer</a></td>
                 </tr>

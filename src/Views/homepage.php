@@ -20,13 +20,7 @@ ob_start();
                 </a>
             </li>
             <li>
-                <a href="/piscine">
-                    <img src="pictures/piscines.jpg" alt="">
-                    <h5>Nos Piscines</h5>
-                </a>
-            </li>
-            <li>
-                <a href="#">
+                <a href="/salles">
                     <img src="pictures/salles.jpg" alt="">
                     <h5>Nos Salles Evénementielles</h5>
                 </a>
