@@ -17,13 +17,13 @@ final class HotelTest extends TestCase
     {
         $test = new ClientManager;
 
-        $this->assertEquals("test", $test->recherche_client("643529540"));
+        $this->assertEquals($test->recherche_client("643529540"), "test");
     }
 
     public function testStockBarBoisson()
     {
         $t = new ClientManager;
 
-        $this->assertEquals("1", $t->recherche_piscine("1"));
+        $this->assertEquals($t->recherche_piscine("789"), "name_piscine");
     }
 }

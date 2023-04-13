@@ -172,7 +172,7 @@ class ClientManager extends Bdd
 
     public function recherche_client($id_client)
     {
-        $stmt = $this->bdd->prepare("SELECT * FROM client WHERE email_client = ?");
+        $stmt = $this->bdd->prepare("SELECT nom_client FROM client WHERE email_client = ?");
         $stmt->execute(array(
             $id_client,
         ));
@@ -181,7 +181,7 @@ class ClientManager extends Bdd
 
     public function recherche_piscine($id_piscine)
     {
-        $stmt = $this->bdd->prepare("SELECT * FROM client WHERE email_client = ?");
+        $stmt = $this->bdd->prepare("SELECT name_piscine FROM piscine WHERE id_piscine = ?");
         $stmt->execute(array(
             $id_piscine,
         ));
