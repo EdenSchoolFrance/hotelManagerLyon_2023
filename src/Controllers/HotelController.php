@@ -213,6 +213,7 @@ class HotelController
                 $formError = true;
             } else {
                 $client_boisson = $this->manager->addClientBoisson();
+                $boisson_bar = $this->manager->updateBarBoisson();
             }
         }
         if (isset($_POST['piscine']) && $_POST['piscine'] != 0) {

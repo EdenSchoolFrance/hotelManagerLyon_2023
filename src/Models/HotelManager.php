@@ -215,6 +215,16 @@ class HotelManager extends ConstructorManager
             htmlentities($_POST['quantite_boisson']),
             htmlentities($_POST['date_boisson']),
         ));
+        
+    }
+
+   public function updateBarBoisson()
+    {
+        $stmt = $this->bdd->prepare("UPDATE bar_boisson SET quantite_stock_bar_boisson = quantite_stock_bar_boisson - ? WHERE id_boisson = ?");
+        $stmt->execute(array(
+            htmlentities($_POST['quantite_boisson']),
+            htmlentities($_POST['id_boisson']),
+        ));
     }
 
     public function addClientPiscine()
